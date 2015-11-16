@@ -1,6 +1,6 @@
 How to use this architecture "siki"
 
-1.This architecture needs magic number x"ffffffff" at the last of the instruction you want to load.
+1.This architecture needs magic number x"ffffffff" at the end of the instruction you want to load.
 
 2.This architecture will print all of the data stored in every register when every instruction has executed.
 
