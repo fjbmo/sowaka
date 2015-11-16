@@ -192,10 +192,10 @@ architecture siki of siki is
   signal sent       : std_logic := '0'; --sent 8 bits data from tx
   signal byte_recv  : std_logic_vector(7 downto 0) := x"00"; --8bits of instruction
   signal full_recv  : std_logic_vector(31 downto 0) := x"00000000"; --32bits of instruction
-  signal full_buf   : std_logic_vector(31 downto 0) := x"00000000"; --collect instruction here
+  signal full_buf   : std_logic_vector(23 downto 0) := x"000000"; --collect instruction here
   signal byte_tran  : std_logic_vector(7 downto 0) := x"00"; --8bits data from register
   signal full_tran  : std_logic_vector(31 downto 0) := x"00000000"; --32bits data from register
-  signal write_BRAM : std_logic_vector(15 downto 0) := x"ffff"; --PC for BRAM
+  signal write_BRAM : std_logic_vector(15 downto 0) := x"0000"; --PC for BRAM
   signal print_regs : std_logic_vector(4 downto 0) := "00000"; --print registers
   signal r0_data    : std_logic_vector(31 downto 0) := x"00000000";
   signal r1_data    : std_logic_vector(31 downto 0) := x"00000000";
@@ -459,39 +459,38 @@ begin
         when "00000" => --waiting for instruction
           if received = '1' then
             top_state <= "00010";
-            full_buf(31 downto 24) <= byte_recv;
+            full_buf(23 downto 16) <= byte_recv;
           end if;
         when "00001" => --reading instruction(31 downto 24)
-          if full_buf = x"ffffffff" then
+          if full_recv = x"ffffffff" then
             top_state <= "00101";
             load_instr <= '0';
             rx_go <= '0';
           else
             if received = '1' then
               top_state <= "00010";
-              load_instr <= '1';
-              full_recv <= full_buf;
-              full_buf(31 downto 24) <= byte_recv;
+              full_buf(23 downto 16) <= byte_recv;
               write_BRAM <= write_BRAM + x"0001";
             end if;
           end if;
         when "00010" => --reading instruction(23 downto 16)
           if received = '1' then
             top_state <= "00011";
-            full_buf(23 downto 16) <= byte_recv;
+            full_buf(15 downto 8) <= byte_recv;
           end if;
         when "00011" => --reading instruction(15 downto 8)
           if received = '1' then
             top_state <= "00100";
-            full_buf(15 downto 8) <= byte_recv;
+            full_buf(7 downto 0) <= byte_recv;
           end if;
         when "00100" => --reading instruction(7 downto 0)
           if received = '1' then
             top_state <= "00001";
-            full_buf(7 downto 0) <= byte_recv;
+            load_instr <= '1';
+            full_recv <= full_buf & byte_recv;
           end if;
         when "00101" => --execute instruction
-          if instr = x"00000000" and state = "00" then
+          if instr = x"ffffffff" and state = "00" then
             top_state <= "00110";
           end if;
           state <= state + "01";
