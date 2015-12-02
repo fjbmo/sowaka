@@ -5,7 +5,7 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 library UNISIM;
 use UNISIM.VComponents.all;
 
-entity siki is
+entity siki_test is
   Port(
     MCLK1  : in std_logic;
     RS_RX  : in std_logic;
@@ -24,9 +24,9 @@ entity siki is
     XZBE   : out std_logic_vector(3 downto 0);
     ZA     : out std_logic_vector(19 downto 0);
     RS_TX  : out std_logic);
-end siki;
+end siki_test;
 
-architecture siki of siki is
+architecture siki_test of siki_test is
   component fifo8
     port(
       CLK   : in std_logic;
@@ -62,7 +62,7 @@ architecture siki of siki is
       output : out std_logic);
   end component;
 
-  component ife
+  component ife_test
     port(
       clk         : in std_logic;
       state       : in std_logic_vector(1 downto 0);
@@ -317,18 +317,21 @@ architecture siki of siki is
   signal write_data     : std_logic_vector(31 downto 0) := x"00000000";
   signal write_mem_data : std_logic_vector(31 downto 0) := x"00000000";
 
+  signal simclk   : std_logic := '0';
+  signal first_PC : std_logic_vector(15 downto 0) := x"0033";
+  
 begin
-  ib: IBUFG
-    port map(
-      i => MCLK1,
-      o => iclk);
-  bg: BUFG
-    port map(
-      i => iclk,
-      o => clk);
+--  ib: IBUFG
+--    port map(
+--      i => MCLK1,
+--      o => iclk);
+--  bg: BUFG
+--    port map(
+--      i => iclk,
+--      o => clk);
   FIFO: fifo8
     port map(
-      CLK => clk,
+      CLK => simclk,
       WR_EN => wr_en,
       RD_EN => rd_en,
       DIN => fifo_in,
@@ -339,7 +342,7 @@ begin
     generic map(
       wtime => x"1B16")
     port map(
-      clk => clk,
+      clk => simclk,
       go => rx_go,
       input => RS_RX,
       busy => check_rx,
@@ -349,15 +352,15 @@ begin
     generic map(
       wtime => x"1B16")
     port map(
-      clk => clk,
+      clk => simclk,
       go => tx_go,
       input => byte_tran,
       busy => check_tx,
       sent => sent,
       output => RS_TX);
-  SIKI_IFE: ife
+  SIKI_IFE: ife_test
     port map(
-      clk => clk,
+      clk => simclk,
       state => state,
       exec_mode => pipeline_mode,
       write_mem => load_instr,
@@ -368,7 +371,7 @@ begin
       recv_data => instr);
   SIKI_ID: id
     port map(
-      clk => clk,
+      clk => simclk,
       state => state,
       write_PC => write_PC,
       instr => instr,
@@ -426,7 +429,7 @@ begin
       r31_data => r31_data);
   SIKI_ALU: ALU
     port map(
-      clk => clk,
+      clk => simclk,
       state => state,
       sys_call_sig => sys_call_sig,
       sys_call_type => sys_call_type,
@@ -456,7 +459,7 @@ begin
       mem_data => write_mem_data);
   SIKI_MEM: mem
     port map(
-      clk => clk,
+      clk => simclk,
       state => state,
       use_systemcall => use_systemcall,
       type_of_sys => type_of_sys,
@@ -525,17 +528,17 @@ begin
                r30_data when print_regs = "11110" else
                r31_data;
 
-  siki_process: process(clk)
+  siki_process: process(simclk)
   begin
-    if rising_edge(clk) then
+    if rising_edge(simclk) then
       case top_state is
         when "11111" => --start
-          top_state <= "00000";
-          rx_go <= '1';
-        when "00000" => --waiting for instruction (little endian)
+          top_state <= "00111"; --(original: top_state <= "00000";)
+--          rx_go <= '1';
+        when "00000" => --waiting for instruction
           if received = '1' then
             top_state <= "00010";
-            full_buf(23 downto 16) <= byte_recv; --(original: full_buf(23 downto 16) <= byte_recv;)
+            full_buf(23 downto 16) <= byte_recv;
           end if;
         when "00001" => --reading instruction floating point part(31 downto 24)
           load_f_sig <= '0';
@@ -544,45 +547,43 @@ begin
           else
             if received = '1' then
               top_state <= "00010";
-              full_buf(23 downto 16) <= byte_recv; --(original: full_buf(23 downto 16) <= byte_recv;)
+              full_buf(23 downto 16) <= byte_recv;
             end if;
           end if;
         when "00010" => --reading instruction floating poing part(23 downto 16)
           if received = '1' then
             top_state <= "00011";
-            full_buf(15 downto 8) <= byte_recv; --(original: full_buf(15 downto 8) <= byte_recv;)
+            full_buf(15 downto 8) <= byte_recv;
           end if;
         when "00011" => --reading instruction floating poing part(15 downto 8)
           if received = '1' then
             top_state <= "00100";
-            full_buf(7 downto 0) <= byte_recv; --(original: full_buf(7 downto 0) <= byte_recv;)
+            full_buf(7 downto 0) <= byte_recv;
           end if;
         when "00100" => --reading instruction floating poing part(7 downto 0)
           if received = '1' then
             top_state <= "00001";
             load_f_sig <= '1';
-            load_f_data <= full_buf & byte_recv; --(original: load_f_data <= full_buf & byte_recv;)
+            load_f_data <= full_buf & byte_recv;
           end if;
         when "00101" => --reading instruction initial PC part(31 downto 24)
           if received = '1' then
             top_state <= "00110";
---            init_PC(7 downto 0) <= byte_recv; --(original: did not exist)
           end if;
         when "00110" => --reading insturction initial PC part(23 downto 16)
           if received = '1' then
             top_state <= "00111";
---            init_PC(15 downto 8) <= byte_recv; --(original: did not exist)
           end if;
         when "00111" => --reading instruction initial PC part(15 downto 8)
-          if received = '1' then
+--          if received = '1' then
             top_state <= "01000";
-            init_PC(15 downto 8) <= byte_recv;
-          end if;
+            init_PC(15 downto 8) <= first_PC(15 downto 8); --(original: init_PC(15 downto 8) <= byte_recv;)
+--          end if;
         when "01000" => --reading instruction initial PC part(7 downto 0)
-          if received = '1' then
-            top_state <= "01001";
-            init_PC(7 downto 0) <= byte_recv;
-          end if;
+--          if received = '1' then
+            top_state <= "01101"; --(original: top_state <= "01001";)
+            init_PC(7 downto 0) <= first_PC(7 downto 0); --(original: init_PC(7 downto 0) <= byte_recv;)
+--          end if;
         when "01001" => --reading instruction body part(31 downto 24)
           if full_recv = x"ffffffff" then
             top_state <= "01101";
@@ -591,32 +592,32 @@ begin
           else
             if received = '1' then
               top_state <= "01010";
-              full_buf(23 downto 16) <= byte_recv; --(original: full_buf(23 downto 16) <= byte_recv;)
+              full_buf(23 downto 16) <= byte_recv;
               write_BRAM <= write_BRAM + x"0001";
             end if;
           end if;
         when "01010" => --reading instruction body part(23 downto 16)
           if received = '1' then
             top_state <= "01011";
-            full_buf(15 downto 8) <= byte_recv; --(original: full_buf(15 downto 8) <= byte_recv;)
+            full_buf(15 downto 8) <= byte_recv;
           end if;
         when "01011" => --reading instruction body part(15 downto 8)
           if received = '1' then
             top_state <= "01100";
-            full_buf(7 downto 0) <= byte_recv; --(original: full_buf(7 downto 0) <= byte_recv;)
+            full_buf(7 downto 0) <= byte_recv;
           end if;
         when "01100" => --reading instruction body part(7 downto 0)
           if received = '1' then
             top_state <= "01001";
             load_instr <= '1';
-            full_recv <= full_buf & byte_recv; --(original; full_recv <= full_buf & byte_recv;)
+            full_recv <= full_buf & byte_recv;
           end if;
         when "01101" => --require data(send x"aa")
           top_state <= "01110";
           tx_go <= '1';
           byte_tran <= x"aa";
           activate_fifo <= '1';
-        when "01110" =>  --execute instruction
+        when "01110" => --execute instruction
           tx_go <= '0';
           if instr = x"ffffffff" and state = "00" then
             top_state <= "01111";
@@ -632,10 +633,12 @@ begin
             if change_PC /= "11" then
               change_PC <= change_PC + "01";
             end if;
-            if sys_call_act = '1' and sys_check = '1' and support_seq = "00" and pipeline_mode = '0' then --use only in sequential mode
-              support_seq <= "01";
+            if sys_call_act = '1' and sys_check = '1' and support_seq = "00" and pipeline_mode = '0' then --use only in sequential
+                                                                                                          --mode
+                                                                                                          ----changed here!
+              support_seq <= "01"; --(original: "01";)
             elsif support_seq = "01" then
-              support_seq <= "10";
+              support_seq <= "10"; --(original: "10";)
             elsif support_seq = "10" then
               support_seq <= "00";
             end if;
@@ -655,10 +658,10 @@ begin
             end if;
           end if;
           if state = "11" then
-            if sys_call_act = '1' and sys_check = '1' and support_seq = "00" and pipeline_mode = '0' then
-              support_seq <= "01";
+            if sys_call_act = '1' and sys_check = '0' and support_seq = "00" and pipeline_mode = '0' then
+              support_seq <= "01"; --(original: "01";)
             elsif support_seq = "01" then
-              support_seq <= "10";
+              support_seq <= "10"; --(original: "10";)
             elsif support_seq = "10" then
               support_seq <= "00";
             end if;
@@ -678,10 +681,10 @@ begin
             end if;
           end if;
           if state = "11" then
-            if sys_call_act = '1' and sys_check = '1' and support_seq = "00" and pipeline_mode = '0' then
-              support_seq <= "01";
+            if sys_call_act = '1' and sys_check = '0' and support_seq = "00" and pipeline_mode = '0' then
+              support_seq <= "01"; --(original: "01";)
             elsif support_seq = "01" then
-              support_seq <= "10";
+              support_seq <= "10"; --(original: "10";)
             elsif support_seq = "10" then
               support_seq <= "00";
             end if;
@@ -701,10 +704,10 @@ begin
             end if;
           end if;
           if state = "11" then
-            if sys_call_act = '1' and sys_check = '1' and support_seq = "00" and pipeline_mode = '0' then
-              support_seq <= "01";
+            if sys_call_act = '1' and sys_check = '0' and support_seq = "00" and pipeline_mode = '0' then
+              support_seq <= "01"; --(original: "01";)
             elsif support_seq = "01" then
-              support_seq <= "10";
+              support_seq <= "10"; --(original: "10";)
             elsif support_seq = "10" then
               support_seq <= "00";
             end if;
@@ -724,10 +727,10 @@ begin
             end if;
           end if;
           if state = "11" then
-            if sys_call_act = '1' and sys_check = '1' and support_seq = "00" and pipeline_mode = '0' then
-              support_seq <= "01";
+            if sys_call_act = '1' and sys_check = '0' and support_seq = "00" and pipeline_mode = '0' then
+              support_seq <= "01"; --(original: "01";)
             elsif support_seq = "01" then
-              support_seq <= "10";
+              support_seq <= "10"; --(original: "10";)
             elsif support_seq = "10" then
               support_seq <= "00";
             end if;
@@ -821,4 +824,13 @@ begin
       end if;
     end if;
   end process siki_process;
-end siki;
+
+  clockgen: process
+  begin
+    simclk <= '0';
+    wait for 10 ns;
+    simclk <= '1';
+    wait for 10 ns;
+  end process;
+  
+end siki_test;

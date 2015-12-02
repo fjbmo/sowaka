@@ -15,6 +15,8 @@ entity id is
     mem_to_R_sig_return : in std_logic; --signal from memory whether to write
     mem_to_R_pointer    : in std_logic_vector(4 downto 0); --write data to this register
     mem_to_R            : in std_logic_vector(31 downto 0); --data from memory
+    sys_sig             : out std_logic; --call system call
+    sys_type            : out std_logic_vector(1 downto 0); --system call type
     branch_instr        : out std_logic;
     branch_cond         : out std_logic_vector(2 downto 0);
     jump_instr          : out std_logic;
@@ -65,6 +67,8 @@ entity id is
 end id;
 
 architecture id of id is
+  signal sys_sig_buf      : std_logic := '0';
+  signal sys_type_buf     : std_logic_vector(1 downto 0) := "00";
   signal branch_instr_buf : std_logic := '0';
   signal branch_cond_buf  : std_logic_vector(2 downto 0) := "000";
   signal jump_instr_buf   : std_logic := '0';
@@ -89,8 +93,11 @@ architecture id of id is
   signal tail             : std_logic_vector(5 downto 0) := "000000";
   signal offset           : std_logic_vector(15 downto 0) := x"0000";
   signal instr_index      : std_logic_vector(25 downto 0) := "00000000000000000000000000";
+  signal code             : std_logic_vector(25 downto 6) := x"00000";
   signal rs               : std_logic_vector(31 downto 0) := x"00000000";
   signal rt               : std_logic_vector(31 downto 0) := x"00000000";
+  signal sys_sig_sub      : std_logic := '0';
+  signal sys_type_sub     : std_logic_vector(1 downto 0) := "00";
   signal branch_instr_sub : std_logic := '0';
   signal branch_cond_sub  : std_logic_vector(2 downto 0) := "000";
   signal jump_instr_sub   : std_logic := '0';
@@ -172,6 +179,8 @@ architecture id of id is
   signal r31_sub          : std_logic_vector(31 downto 0) := x"00000000";
   
 begin
+  sys_sig <= sys_sig_buf;
+  sys_type <= sys_type_buf;
   branch_instr <= branch_instr_buf;
   branch_cond <= branch_cond_buf;
   jump_instr <= jump_instr_buf;
@@ -229,6 +238,7 @@ begin
   tail <= instr(5 downto 0);
   offset <= instr(15 downto 0);
   instr_index <= instr(25 downto 0);
+  code <= instr(25 downto 6);
 
   rs <= mem_to_R when mem_to_R_pointer = rs_pointer and mem_to_R_sig_return = '1' else
         r0 when rs_pointer = "00000" else
@@ -298,6 +308,15 @@ begin
         r30 when rt_pointer = "11110" else
         r31;
 
+  sys_sig_sub <= '1' when (head = "000000" and tail = "001100") else
+                 '0';
+
+  sys_type_sub <= "01" when (mem_to_R_pointer = "00010" and mem_to_R_sig_return = '1' and mem_to_R = x"0000000b") or
+                            ((mem_to_R_pointer /= "00010" or mem_to_R_sig_return = '0' or mem_to_R /= x"0000000b") and r2 = x"0000000b") else
+                  "10" when (mem_to_R_pointer = "00010" and mem_to_R_sig_return = '1' and mem_to_R = x"0000000c") or
+                            ((mem_to_R_pointer /= "00010" or mem_to_R_sig_return = '0' or mem_to_R /= x"0000000c") and r2 = x"0000000c") else
+                  "00";
+
   branch_instr_sub <= '1' when head = "000100" or
                                head = "000101" or
                                head = "000110" or
@@ -336,13 +355,15 @@ begin
                                (head = "000000" and tail = "100110") or
                                (head = "000000" and tail = "000000") or
                                (head = "000000" and tail = "000010") or
+                               (head = "000000" and tail = "000100") or
                                head = "001000" or
                                head = "001001" or
                                head = "000011" or
                                (head = "000000" and tail = "001001") or
                                head = "001111" or
                                head = "001101" or
-                               head = "100011" else
+                               head = "100011" or
+                               (sys_sig_sub = '1' and sys_type_sub = "10") else
                       '0';
 
   write_data_R_sub <= rd_pointer when (head = "000000" and tail = "100000") or
@@ -353,12 +374,14 @@ begin
                                       (head = "000000" and tail = "100110") or
                                       (head = "000000" and tail = "000000") or
                                       (head = "000000" and tail = "000010") or
+                                      (head = "000000" and tail = "000100") or
                                       (head = "000000" and tail = "001001") else
                       rt_pointer when head = "001000" or
                                       head = "001001" or
                                       head = "001111" or
                                       head = "001101" or
                                       head = "100011" else
+                      "00010" when (sys_sig_sub = '1' and sys_type_sub = "10") else
                       "11111" when head = "000011" else
                       "00000";
 
@@ -394,12 +417,15 @@ begin
                         head = "101011" or
                         head = "100011" else
                 rt when (head = "000000" and tail = "000000") or
-                        (head = "000000" and tail = "000010") else
+                        (head = "000000" and tail = "000010") or
+                        (head = "000000" and tail = "000100") else
                 x"0000" & write_PC when head = "000011" or
                                         (head = "000000" and tail = "001001") else
+                x"000" & code when (sys_sig_sub = '1' and sys_type_sub = "10") else
                 x"00000000";
 
-  data_2_sub <= rt when (head = "000000" and tail = "100000") or
+  data_2_sub <= rs when (head = "000000" and tail = "000100") else
+                rt when (head = "000000" and tail = "100000") or
                         (head = "000000" and tail = "100010") or
                         (head = "000000" and tail = "101010") or
                         (head = "000000" and tail = "100100") or
@@ -437,7 +463,8 @@ begin
                                  head = "101011" or
                                  head = "100011" else
                      "0101" when (head = "000000" and tail = "100010") else -- -
-                     "0110" when (head = "000000" and tail = "000000") else -- <<
+                     "0110" when (head = "000000" and tail = "000000") or
+                                 (head = "000000" and tail = "000100") else -- <<
                      "0111" when (head = "000000" and tail = "000010") else -- >>
                      "1000" when (head = "000000" and tail = "101010") else -- < 
                      "1111";
@@ -514,6 +541,8 @@ begin
 --xor (SPECIAL)000000 rs rt rd 00000 (XOR)100110 || rd <- rs XOR rt
 --sll (SPECIAL)000000 00000 rt rd sa (SLL)000000 || rd <- rt << sa
 --srl (SPECIAL)000000 00000 rt rd sa (SRL)000010 || rd <- rt >> sa
+--sllv (SPECIAL)000000 rs rt rd 00000 (SLLV)000100 || rd <- rt << rs <<unchecked>>
+--syscall (SPECIAL)000000 code (SYSCALL)001100 || system_call(r2) <<not implemented>>
 --addi (ADDI)001000 rs rt immediate || rt <- rs + immediate
 --addiu (ADDIU)001001 rs rt immediate || rt <- rs + immediate
 --jr (SPECIAL)000000 rs 000000000000000 (JR)001000 || PC <- rs
@@ -537,6 +566,8 @@ begin
         when "00" | "01" | "10" =>
           null;
         when "11" =>
+          sys_sig_buf <= sys_sig_sub;
+          sys_type_buf <= sys_type_sub;
           branch_instr_buf <= branch_instr_sub;
           branch_cond_buf <= branch_cond_sub;
           jump_instr_buf <= jump_instr_sub;

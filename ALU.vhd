@@ -10,6 +10,8 @@ entity ALU is
   Port(
     clk           : in std_logic;
     state         : in std_logic_vector(1 downto 0);
+    sys_call_sig  : in std_logic;
+    sys_call_type : in std_logic_vector(1 downto 0);
     check_branch  : in std_logic;
     which_cond    : in std_logic_vector(2 downto 0); --condition for branching
     check_jump    : in std_logic;
@@ -25,6 +27,8 @@ entity ALU is
     input_int_2   : in std_logic_vector(31 downto 0);
     store_data    : in std_logic_vector(31 downto 0);
     calcu_type    : in std_logic_vector(3 downto 0);
+    sys_activate  : out std_logic; --activate system call signal
+    sys_act_type  : out std_logic_vector(1 downto 0); --activate system call type
     store_mem     : out std_logic; --store data to mem
     load_mem      : out std_logic; --load data to register from mem
     send_to_R     : out std_logic; --send data to register
@@ -35,13 +39,15 @@ entity ALU is
 end ALU;
 
 architecture ALU of ALU is
-  signal store_mem_buf : std_logic := '0';
-  signal load_mem_buf  : std_logic := '0';
-  signal send_to_R_buf : std_logic := '0';
-  signal dest_R_buf    : std_logic_vector(4 downto 0) := "00000";
-  signal new_PC_buf    : std_logic_vector(15 downto 0) := x"0000";
-  signal output_buf    : std_logic_vector(31 downto 0) := x"00000000";
-  signal mem_data_buf  : std_logic_vector(31 downto 0) := x"00000000";
+  signal sys_activate_buf : std_logic := '0';
+  signal sys_act_type_buf : std_logic_vector(1 downto 0) := "00";
+  signal store_mem_buf    : std_logic := '0';
+  signal load_mem_buf     : std_logic := '0';
+  signal send_to_R_buf    : std_logic := '0';
+  signal dest_R_buf       : std_logic_vector(4 downto 0) := "00000";
+  signal new_PC_buf       : std_logic_vector(15 downto 0) := x"0000";
+  signal output_buf       : std_logic_vector(31 downto 0) := x"00000000";
+  signal mem_data_buf     : std_logic_vector(31 downto 0) := x"00000000";
 
   signal check_eq   : std_logic := '0'; --check =
   signal check_gtz  : std_logic := '0'; --check > with 0
@@ -56,6 +62,8 @@ architecture ALU of ALU is
   signal output_int : std_logic_vector(31 downto 0) := x"00000000";
 
 begin
+  sys_activate <= sys_activate_buf;
+  sys_act_type <= sys_act_type_buf;
   store_mem <= store_mem_buf;
   load_mem <= load_mem_buf;
   send_to_R <= send_to_R_buf;
@@ -241,6 +249,8 @@ begin
         when "00" | "01" | "10" =>
           null;
         when "11" =>
+          sys_activate_buf <= sys_call_sig;
+          sys_act_type_buf <= sys_call_type;
           store_mem_buf <= store_sig;
           load_mem_buf <= load_sig;
           send_to_R_buf <= write_R_sig;
