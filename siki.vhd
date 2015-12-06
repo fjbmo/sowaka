@@ -171,17 +171,19 @@ architecture siki of siki is
     port(
       clk             : in std_logic;
       state           : in std_logic_vector(1 downto 0);
+      exec_mode       : in std_logic;
       use_systemcall  : in std_logic;
       type_of_sys     : in std_logic_vector(1 downto 0);
       return_sys      : in std_logic_vector(31 downto 0);
-      load_f_sig      : in std_logic;
-      load_f_data     : in std_logic_vector(31 downto 0);
+      load_heap_sig   : in std_logic;
+      load_heap_data  : in std_logic_vector(31 downto 0);
       write_sig       : in std_logic;
       read_sig        : in std_logic;
       send_R_sig      : in std_logic;
       target_R        : in std_logic_vector(4 downto 0);
       write_data      : in std_logic_vector(31 downto 0);
       write_mem_data  : in std_logic_vector(31 downto 0);
+      heap_addr       : out std_logic_vector(19 downto 0);
       R_sig           : out std_logic;
       R_num           : out std_logic_vector(4 downto 0);
       data_out        : out std_logic_vector(31 downto 0);
@@ -204,75 +206,76 @@ architecture siki of siki is
       ZA     : out std_logic_vector(19 downto 0));
   end component;
 
-  signal clk           : std_logic := '0';
-  signal iclk          : std_logic := '0';
-  signal state         : std_logic_vector(1 downto 0) := "00";
-  signal top_state     : std_logic_vector(4 downto 0) := "11111";
-  signal activate_fifo : std_logic := '0'; --start loading to fifo
-  signal wr_en         : std_logic := '0'; --write to fifo
-  signal rd_en         : std_logic := '0'; --read from fifo
-  signal fifo_in       : std_logic_vector(7 downto 0) := x"00"; --data send to fifo
-  signal fifo_emp      : std_logic := '0'; --check if fifo is empty
-  signal fifo_full     : std_logic := '0'; --check if fifo is full
-  signal fifo_out      : std_logic_vector(7 downto 0) := x"00"; --data get from fifo
-  signal rx_go         : std_logic := '0';
-  signal check_rx      : std_logic := '0'; --if rx is busy(can check if state is "1010")
-  signal tx_go         : std_logic := '0';
-  signal check_tx      : std_logic := '0'; --if tx is busy(can check if state is "1010")
-  signal load_instr    : std_logic := '0'; --load instruction
-  signal received      : std_logic := '0'; --received 8 bits data at rx
-  signal sent          : std_logic := '0'; --sent 8 bits data from tx
-  signal byte_recv     : std_logic_vector(7 downto 0) := x"00"; --8bits of instruction
-  signal full_recv     : std_logic_vector(31 downto 0) := x"00000000"; --32bits of instruction
-  signal full_buf      : std_logic_vector(23 downto 0) := x"000000"; --collect instruction here
-  signal byte_tran     : std_logic_vector(7 downto 0) := x"00"; --8bits data from register
-  signal full_tran     : std_logic_vector(31 downto 0) := x"00000000"; --32bits data from register
-  signal load_f_sig    : std_logic := '0'; --load data from file
-  signal load_f_data   : std_logic_vector(31 downto 0) := x"000ee000"; --data from file
-  signal write_BRAM    : std_logic_vector(15 downto 0) := x"ffff"; --PC for BRAM
-  signal init_PC       : std_logic_vector(15 downto 0) := x"abcd"; --first PC
-  signal change_PC     : std_logic_vector(1 downto 0) := "00"; --change PC from init_PC
-  signal print_regs    : std_logic_vector(4 downto 0) := "00000"; --print registers
-  signal sys_call_act  : std_logic := '0'; --begin systemcall
-  signal sys_call_stat : std_logic_vector(1 downto 0) := "00"; --sys_call type
-  signal sys_ans_data  : std_logic_vector(31 downto 0) := x"00000000"; --result of syscall
-  signal sys_check     : std_logic := '0'; --check if systemcall has ended
-  signal sys_check_sub : std_logic := '0'; --used in systemcall
-  signal return_state  : std_logic_vector(4 downto 0) := "00000"; --return to this state from systemcall
-  signal support_seq   : std_logic_vector(1 downto 0) := "00"; --support sequential mode at systemcall
-  signal pipeline_mode : std_logic := '0'; --activate pipeline mode when '1' and activate sequential mode when '0'
-  signal r0_data       : std_logic_vector(31 downto 0) := x"00000000";
-  signal r1_data       : std_logic_vector(31 downto 0) := x"00000000";
-  signal r2_data       : std_logic_vector(31 downto 0) := x"00000000";
-  signal r3_data       : std_logic_vector(31 downto 0) := x"00000000";
-  signal r4_data       : std_logic_vector(31 downto 0) := x"00000000";
-  signal r5_data       : std_logic_vector(31 downto 0) := x"00000000";
-  signal r6_data       : std_logic_vector(31 downto 0) := x"00000000";
-  signal r7_data       : std_logic_vector(31 downto 0) := x"00000000";
-  signal r8_data       : std_logic_vector(31 downto 0) := x"00000000";
-  signal r9_data       : std_logic_vector(31 downto 0) := x"00000000";
-  signal r10_data      : std_logic_vector(31 downto 0) := x"00000000";
-  signal r11_data      : std_logic_vector(31 downto 0) := x"00000000";
-  signal r12_data      : std_logic_vector(31 downto 0) := x"00000000";
-  signal r13_data      : std_logic_vector(31 downto 0) := x"00000000";
-  signal r14_data      : std_logic_vector(31 downto 0) := x"00000000";
-  signal r15_data      : std_logic_vector(31 downto 0) := x"00000000";
-  signal r16_data      : std_logic_vector(31 downto 0) := x"00000000";
-  signal r17_data      : std_logic_vector(31 downto 0) := x"00000000";
-  signal r18_data      : std_logic_vector(31 downto 0) := x"00000000";
-  signal r19_data      : std_logic_vector(31 downto 0) := x"00000000";
-  signal r20_data      : std_logic_vector(31 downto 0) := x"00000000";
-  signal r21_data      : std_logic_vector(31 downto 0) := x"00000000";
-  signal r22_data      : std_logic_vector(31 downto 0) := x"00000000";
-  signal r23_data      : std_logic_vector(31 downto 0) := x"00000000";
-  signal r24_data      : std_logic_vector(31 downto 0) := x"00000000";
-  signal r25_data      : std_logic_vector(31 downto 0) := x"00000000";
-  signal r26_data      : std_logic_vector(31 downto 0) := x"00000000";
-  signal r27_data      : std_logic_vector(31 downto 0) := x"00000000";
-  signal r28_data      : std_logic_vector(31 downto 0) := x"00000000";
-  signal r29_data      : std_logic_vector(31 downto 0) := x"00000000";
-  signal r30_data      : std_logic_vector(31 downto 0) := x"00000000";
-  signal r31_data      : std_logic_vector(31 downto 0) := x"00000000";
+  signal clk            : std_logic := '0';
+  signal iclk           : std_logic := '0';
+  signal state          : std_logic_vector(1 downto 0) := "00";
+  signal top_state      : std_logic_vector(4 downto 0) := "11111";
+  signal activate_fifo  : std_logic := '0'; --start loading to fifo
+  signal wr_en          : std_logic := '0'; --write to fifo
+  signal rd_en          : std_logic := '0'; --read from fifo
+  signal fifo_in        : std_logic_vector(7 downto 0) := x"00"; --data send to fifo
+  signal fifo_emp       : std_logic := '0'; --check if fifo is empty
+  signal fifo_full      : std_logic := '0'; --check if fifo is full
+  signal fifo_out       : std_logic_vector(7 downto 0) := x"00"; --data get from fifo
+  signal rx_go          : std_logic := '0';
+  signal check_rx       : std_logic := '0'; --if rx is busy(can check if state is "1010")
+  signal tx_go          : std_logic := '0';
+  signal check_tx       : std_logic := '0'; --if tx is busy(can check if state is "1010")
+  signal load_instr     : std_logic := '0'; --load instruction
+  signal received       : std_logic := '0'; --received 8 bits data at rx
+  signal sent           : std_logic := '0'; --sent 8 bits data from tx
+  signal byte_recv      : std_logic_vector(7 downto 0) := x"00"; --8bits of instruction
+  signal full_recv      : std_logic_vector(31 downto 0) := x"00000000"; --32bits of instruction
+  signal full_buf       : std_logic_vector(23 downto 0) := x"000000"; --collect instruction here
+  signal byte_tran      : std_logic_vector(7 downto 0) := x"00"; --8bits data from register
+  signal full_tran      : std_logic_vector(31 downto 0) := x"00000000"; --32bits data from register
+  signal load_heap_sig  : std_logic := '0'; --load data from file
+  signal load_heap_data : std_logic_vector(31 downto 0) := x"00000000"; --data from file
+  signal write_BRAM     : std_logic_vector(15 downto 0) := x"ffff"; --PC for BRAM
+  signal init_PC        : std_logic_vector(15 downto 0) := x"0000"; --first PC
+  signal change_PC      : std_logic_vector(1 downto 0) := "00"; --change PC from init_PC
+  signal set_R_sig      : std_logic_vector(1 downto 0) := "00"; --set r30(=$hp), r31(=$ra) with address of the last instruction
+  signal exec_counter   : std_logic_vector(15 downto 0) := x"ffff"; --count instruction and set r31(=$ra) with this
+  signal print_regs     : std_logic_vector(4 downto 0) := "00000"; --print registers
+  signal sys_call_act   : std_logic := '0'; --begin systemcall
+  signal sys_call_stat  : std_logic_vector(1 downto 0) := "00"; --sys_call type
+  signal sys_ans_data   : std_logic_vector(31 downto 0) := x"00000000"; --result of syscall
+  signal sys_check      : std_logic := '0'; --check if systemcall has ended
+  signal sys_check_sub  : std_logic := '0'; --used in systemcall
+  signal return_state   : std_logic_vector(4 downto 0) := "00000"; --return to this state from systemcall
+  signal support_seq    : std_logic_vector(1 downto 0) := "00"; --support sequential mode at systemcall
+  signal r0_data        : std_logic_vector(31 downto 0) := x"00000000";
+  signal r1_data        : std_logic_vector(31 downto 0) := x"00000000";
+  signal r2_data        : std_logic_vector(31 downto 0) := x"00000000";
+  signal r3_data        : std_logic_vector(31 downto 0) := x"00000000";
+  signal r4_data        : std_logic_vector(31 downto 0) := x"00000000";
+  signal r5_data        : std_logic_vector(31 downto 0) := x"00000000";
+  signal r6_data        : std_logic_vector(31 downto 0) := x"00000000";
+  signal r7_data        : std_logic_vector(31 downto 0) := x"00000000";
+  signal r8_data        : std_logic_vector(31 downto 0) := x"00000000";
+  signal r9_data        : std_logic_vector(31 downto 0) := x"00000000";
+  signal r10_data       : std_logic_vector(31 downto 0) := x"00000000";
+  signal r11_data       : std_logic_vector(31 downto 0) := x"00000000";
+  signal r12_data       : std_logic_vector(31 downto 0) := x"00000000";
+  signal r13_data       : std_logic_vector(31 downto 0) := x"00000000";
+  signal r14_data       : std_logic_vector(31 downto 0) := x"00000000";
+  signal r15_data       : std_logic_vector(31 downto 0) := x"00000000";
+  signal r16_data       : std_logic_vector(31 downto 0) := x"00000000";
+  signal r17_data       : std_logic_vector(31 downto 0) := x"00000000";
+  signal r18_data       : std_logic_vector(31 downto 0) := x"00000000";
+  signal r19_data       : std_logic_vector(31 downto 0) := x"00000000";
+  signal r20_data       : std_logic_vector(31 downto 0) := x"00000000";
+  signal r21_data       : std_logic_vector(31 downto 0) := x"00000000";
+  signal r22_data       : std_logic_vector(31 downto 0) := x"00000000";
+  signal r23_data       : std_logic_vector(31 downto 0) := x"00000000";
+  signal r24_data       : std_logic_vector(31 downto 0) := x"00000000";
+  signal r25_data       : std_logic_vector(31 downto 0) := x"00000000";
+  signal r26_data       : std_logic_vector(31 downto 0) := x"00000000";
+  signal r27_data       : std_logic_vector(31 downto 0) := x"00000000";
+  signal r28_data       : std_logic_vector(31 downto 0) := x"00000000";
+  signal r29_data       : std_logic_vector(31 downto 0) := x"00000000";
+  signal r30_data       : std_logic_vector(31 downto 0) := x"00000000";
+  signal r31_data       : std_logic_vector(31 downto 0) := x"00000000";
 
   --to IF
   signal next_PC : std_logic_vector(15 downto 0) := x"0000";
@@ -306,16 +309,25 @@ architecture siki of siki is
 
   signal new_PC        : std_logic_vector(15 downto 0) := x"0000";
   --to mem
-  signal use_systemcall : std_logic := '0';
-  signal type_of_sys    : std_logic_vector(1 downto 0) := "00";
-  signal return_sys     : std_logic_vector(31 downto 0) := x"00000000";
-  signal write_sig      : std_logic := '0';
-  signal read_sig       : std_logic := '0';
-  signal send_R_sig     : std_logic := '0';
-  signal target_R       : std_logic_vector(4 downto 0) := "00000";
-  signal write_addr     : std_logic_vector(31 downto 0) := x"00000000";
-  signal write_data     : std_logic_vector(31 downto 0) := x"00000000";
-  signal write_mem_data : std_logic_vector(31 downto 0) := x"00000000";
+  signal use_systemcall           : std_logic := '0';
+  signal type_of_sys              : std_logic_vector(1 downto 0) := "00";
+  signal return_sys               : std_logic_vector(31 downto 0) := x"00000000";
+  signal write_sig                : std_logic := '0';
+  signal read_sig                 : std_logic := '0';
+  signal send_R_sig               : std_logic := '0';
+  signal target_R                 : std_logic_vector(4 downto 0) := "00000";
+  signal write_addr               : std_logic_vector(31 downto 0) := x"00000000";
+  signal write_data               : std_logic_vector(31 downto 0) := x"00000000";
+  signal write_mem_data           : std_logic_vector(31 downto 0) := x"00000000";
+
+  signal heap_counter             : std_logic_vector(19 downto 0) := x"00000";
+  signal mem_to_R_sig_return_base : std_logic := '0';
+  signal mem_to_R_pointer_base    : std_logic_vector(4 downto 0) := "00000";
+  signal mem_to_R_base            : std_logic_vector(31 downto 0) := x"00000000";
+
+  --system controll
+  signal pipeline_mode   : std_logic := '0'; --activate pipeline mode when '1' and activate sequential mode when '0'
+  signal endianness_mode : std_logic := '0'; --little-endian mode when '0' and big-endian mode when '1'
 
 begin
   ib: IBUFG
@@ -458,20 +470,22 @@ begin
     port map(
       clk => clk,
       state => state,
+      exec_mode => pipeline_mode,
       use_systemcall => use_systemcall,
       type_of_sys => type_of_sys,
       return_sys => return_sys,
-      load_f_sig => load_f_sig,
-      load_f_data => load_f_data,
+      load_heap_sig => load_heap_sig,
+      load_heap_data => load_heap_data,
       write_sig => write_sig,
       read_sig => read_sig,
       send_R_sig => send_R_sig,
       target_R => target_R,
       write_data => write_data,
       write_mem_data => write_mem_data,
-      R_sig => mem_to_R_sig_return,
-      R_num => mem_to_R_pointer,
-      data_out => mem_to_R,
+      heap_addr => heap_counter,
+      R_sig => mem_to_R_sig_return_base,
+      R_num => mem_to_R_pointer_base,
+      data_out => mem_to_R_base,
       systemcall => sys_call_act,
       systemcall_type => sys_call_stat,
       XE1 => XE1,
@@ -491,7 +505,17 @@ begin
 
   next_PC <= init_PC when change_PC /= "11" else
              new_PC;
+
+  mem_to_R_sig_return <= '1' when set_R_sig(1) = '1' else
+                         mem_to_R_sig_return_base;
+
+  mem_to_R_pointer <= "111" & set_R_sig when set_R_sig(1) = '1' else
+                      mem_to_R_pointer_base;
   
+  mem_to_R <= x"000" & heap_counter when set_R_sig = "10" else
+              x"0000" & exec_counter when set_R_sig = "11" else
+              mem_to_R_base;
+
   full_tran <= r0_data when print_regs = "00000" else
                r1_data when print_regs = "00001" else
                r2_data when print_regs = "00010" else
@@ -532,58 +556,82 @@ begin
         when "11111" => --start
           top_state <= "00000";
           rx_go <= '1';
-        when "00000" => --waiting for instruction (little endian)
+        when "00000" => --waiting for instruction
           if received = '1' then
             top_state <= "00010";
-            full_buf(23 downto 16) <= byte_recv; --(original: full_buf(23 downto 16) <= byte_recv;)
+            if endianness_mode = '0' then --little endian mode
+              full_buf(7 downto 0) <= byte_recv;
+            else --big endian mode
+              full_buf(23 downto 16) <= byte_recv;
+            end if;
           end if;
-        when "00001" => --reading instruction floating point part(31 downto 24)
-          load_f_sig <= '0';
-          if load_f_data = x"7000003f" then
+        when "00001" => --reading instruction floating point part(7 downto 0)(little)
+          if load_heap_data = x"7000003f" then
             top_state <= "00101";
           else
             if received = '1' then
               top_state <= "00010";
-              full_buf(23 downto 16) <= byte_recv; --(original: full_buf(23 downto 16) <= byte_recv;)
+              load_heap_sig <= '1';
+              if endianness_mode = '0' then
+                full_buf(7 downto 0) <= byte_recv;
+              else
+                full_buf(23 downto 16) <= byte_recv;
+              end if;
             end if;
           end if;
-        when "00010" => --reading instruction floating poing part(23 downto 16)
+        when "00010" => --reading instruction floating poing part(15 downto 8)(little)
+          load_heap_sig <= '0';
           if received = '1' then
             top_state <= "00011";
-            full_buf(15 downto 8) <= byte_recv; --(original: full_buf(15 downto 8) <= byte_recv;)
+            full_buf(15 downto 8) <= byte_recv;
           end if;
-        when "00011" => --reading instruction floating poing part(15 downto 8)
+        when "00011" => --reading instruction floating poing part(23 downto 16)(little)
           if received = '1' then
             top_state <= "00100";
-            full_buf(7 downto 0) <= byte_recv; --(original: full_buf(7 downto 0) <= byte_recv;)
+            if endianness_mode = '0' then
+              full_buf(23 downto 16) <= byte_recv;
+            else
+              full_buf(7 downto 0) <= byte_recv;
+            end if;
           end if;
-        when "00100" => --reading instruction floating poing part(7 downto 0)
+        when "00100" => --reading instruction floating poing part(31 downto 24)(little)
           if received = '1' then
             top_state <= "00001";
-            load_f_sig <= '1';
-            load_f_data <= full_buf & byte_recv; --(original: load_f_data <= full_buf & byte_recv;)
+            if endianness_mode = '0' then
+              load_heap_data <= byte_recv & full_buf;
+            else
+              load_heap_data <= full_buf & byte_recv;
+            end if;
           end if;
-        when "00101" => --reading instruction initial PC part(31 downto 24)
+        when "00101" => --reading instruction initial PC part(7 downto 0)(little)
           if received = '1' then
             top_state <= "00110";
---            init_PC(7 downto 0) <= byte_recv; --(original: did not exist)
+            if endianness_mode = '0' then
+              init_PC(7 downto 0) <= byte_recv;
+            end if;
           end if;
-        when "00110" => --reading insturction initial PC part(23 downto 16)
+        when "00110" => --reading insturction initial PC part(15 downto 8)(little)
           if received = '1' then
             top_state <= "00111";
---            init_PC(15 downto 8) <= byte_recv; --(original: did not exist)
+            if endianness_mode = '0' then
+              init_PC(15 downto 8) <= byte_recv;
+            end if;
           end if;
-        when "00111" => --reading instruction initial PC part(15 downto 8)
+        when "00111" => --reading instruction initial PC part(23 downto 16)(little)
           if received = '1' then
             top_state <= "01000";
-            init_PC(15 downto 8) <= byte_recv;
+            if endianness_mode = '1' then
+              init_PC(15 downto 8) <= byte_recv;
+            end if;
           end if;
-        when "01000" => --reading instruction initial PC part(7 downto 0)
+        when "01000" => --reading instruction initial PC part(31 downto 24)(little)
           if received = '1' then
             top_state <= "01001";
-            init_PC(7 downto 0) <= byte_recv;
+            if endianness_mode = '1' then
+              init_PC(7 downto 0) <= byte_recv;
+            end if;
           end if;
-        when "01001" => --reading instruction body part(31 downto 24)
+        when "01001" => --reading instruction body part(7 downto 0)(little)
           if full_recv = x"ffffffff" then
             top_state <= "01101";
             load_instr <= '0';
@@ -591,31 +639,45 @@ begin
           else
             if received = '1' then
               top_state <= "01010";
-              full_buf(23 downto 16) <= byte_recv; --(original: full_buf(23 downto 16) <= byte_recv;)
+              if endianness_mode = '0' then
+                full_buf(7 downto 0) <= byte_recv;
+              else
+                full_buf(23 downto 16) <= byte_recv;
+              end if;
               write_BRAM <= write_BRAM + x"0001";
+              exec_counter <= exec_counter + x"0001";
             end if;
           end if;
-        when "01010" => --reading instruction body part(23 downto 16)
+        when "01010" => --reading instruction body part(15 downto 8)(little)
           if received = '1' then
             top_state <= "01011";
-            full_buf(15 downto 8) <= byte_recv; --(original: full_buf(15 downto 8) <= byte_recv;)
+            full_buf(15 downto 8) <= byte_recv;
           end if;
-        when "01011" => --reading instruction body part(15 downto 8)
+        when "01011" => --reading instruction body part(23 downto 16)(little)
           if received = '1' then
             top_state <= "01100";
-            full_buf(7 downto 0) <= byte_recv; --(original: full_buf(7 downto 0) <= byte_recv;)
+            if endianness_mode = '0' then
+              full_buf(23 downto 16) <= byte_recv;
+            else
+              full_buf(7 downto 0) <= byte_recv;
+            end if;
           end if;
-        when "01100" => --reading instruction body part(7 downto 0)
+        when "01100" => --reading instruction body part(31 downto 24)(little)
           if received = '1' then
             top_state <= "01001";
             load_instr <= '1';
-            full_recv <= full_buf & byte_recv; --(original; full_recv <= full_buf & byte_recv;)
+            if endianness_mode = '0' then
+              full_recv <= byte_recv & full_buf;
+            else
+              full_recv <= full_buf & byte_recv;
+            end if;
           end if;
         when "01101" => --require data(send x"aa")
           top_state <= "01110";
           tx_go <= '1';
           byte_tran <= x"aa";
           activate_fifo <= '1';
+          set_R_sig <= "10";
         when "01110" =>  --execute instruction
           tx_go <= '0';
           if instr = x"ffffffff" and state = "00" then
@@ -641,6 +703,9 @@ begin
             end if;
             sys_check <= '0';
             print_regs <= "00000";
+            if set_R_sig /= "00" then
+              set_R_sig <= set_R_sig + "01";
+            end if;
           end if;
           state <= state + "01";
         when "01111" => --halt instruction is at IFE

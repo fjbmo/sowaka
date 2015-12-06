@@ -142,9 +142,9 @@ architecture id of id is
   signal r26              : std_logic_vector(31 downto 0) := x"00000000";
   signal r27              : std_logic_vector(31 downto 0) := x"00000000";
   signal r28              : std_logic_vector(31 downto 0) := x"00000000";
-  signal r29              : std_logic_vector(31 downto 0) := x"00000000";
-  signal r30              : std_logic_vector(31 downto 0) := x"00000000";
-  signal r31              : std_logic_vector(31 downto 0) := x"00000000";
+  signal r29              : std_logic_vector(31 downto 0) := x"ffffffff"; --$sp
+  signal r30              : std_logic_vector(31 downto 0) := x"00010000"; --$hp
+  signal r31              : std_logic_vector(31 downto 0) := x"00000000"; --$ra
   signal r0_sub           : std_logic_vector(31 downto 0) := x"00000000";
   signal r1_sub           : std_logic_vector(31 downto 0) := x"00000000";
   signal r2_sub           : std_logic_vector(31 downto 0) := x"00000000";
@@ -174,8 +174,8 @@ architecture id of id is
   signal r26_sub          : std_logic_vector(31 downto 0) := x"00000000";
   signal r27_sub          : std_logic_vector(31 downto 0) := x"00000000";
   signal r28_sub          : std_logic_vector(31 downto 0) := x"00000000";
-  signal r29_sub          : std_logic_vector(31 downto 0) := x"00000000";
-  signal r30_sub          : std_logic_vector(31 downto 0) := x"00000000";
+  signal r29_sub          : std_logic_vector(31 downto 0) := x"00010000";
+  signal r30_sub          : std_logic_vector(31 downto 0) := x"ffffffff";
   signal r31_sub          : std_logic_vector(31 downto 0) := x"00000000";
   
 begin
@@ -333,7 +333,8 @@ begin
                      "101" when (head = "000001" and rt_pointer = "00000") else -- < with 0
                      "111";
 
-  jump_instr_sub <= '1' when (head = "000000" and tail = "001000") or
+  jump_instr_sub <= '1' when head = "000010" or
+                             (head = "000000" and tail = "001000") or
                              head = "000011" or
                              (head = "000000" and tail = "001001") else
                     '0';
@@ -396,7 +397,8 @@ begin
 
   change_PC_sub <= rs(15 downto 0) when (head = "000000" and tail = "001000") or
                                         (head = "000000" and tail = "001001") else
-                   instr_index(15 downto 0) when head = "000011" else
+                   instr_index(15 downto 0) when head = "000010" or
+                                                 head = "000011" else
                    x"0000";
 
   data_1_sub <= rs when (head = "000000" and tail = "100000") or
@@ -542,9 +544,10 @@ begin
 --sll (SPECIAL)000000 00000 rt rd sa (SLL)000000 || rd <- rt << sa
 --srl (SPECIAL)000000 00000 rt rd sa (SRL)000010 || rd <- rt >> sa
 --sllv (SPECIAL)000000 rs rt rd 00000 (SLLV)000100 || rd <- rt << rs <<unchecked>>
---syscall (SPECIAL)000000 code (SYSCALL)001100 || system_call(r2) <<not implemented>>
+--syscall (SPECIAL)000000 code (SYSCALL)001100 || system_call(r2) <<unchecked>>
 --addi (ADDI)001000 rs rt immediate || rt <- rs + immediate
 --addiu (ADDIU)001001 rs rt immediate || rt <- rs + immediate
+--j (J)000010 instr_index || PC <- instr_index <<unchecked>>
 --jr (SPECIAL)000000 rs 000000000000000 (JR)001000 || PC <- rs
 --jal (JAL)000011 instr_index || r31 <- PC + 1, PC <- instr_index
 --jalr (SPECIAL)000000 rs 00000 rd 00000 (JALR)001001 || rd <- PC + 1, PC <- rs

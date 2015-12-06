@@ -7,17 +7,19 @@ entity mem is
   Port(
     clk             : in std_logic;
     state           : in std_logic_vector(1 downto 0);
+    exec_mode       : in std_logic; --activate pipeline mode when '1'
     use_systemcall  : in std_logic; --will use syscall
     type_of_sys     : in std_logic_vector(1 downto 0); --will use this type of syscall
     return_sys      : in std_logic_vector(31 downto 0); --data returned from top
-    load_f_sig      : in std_logic; --load data to mem in reading instruction phase
-    load_f_data     : in std_logic_vector(31 downto 0); -- data to load from file
+    load_heap_sig   : in std_logic; --load data to mem in reading instruction phase
+    load_heap_data  : in std_logic_vector(31 downto 0); -- data to load from file
  	write_sig       : in std_logic;
     read_sig        : in std_logic;
     send_R_sig      : in std_logic; --write data to R
     target_R        : in std_logic_vector(4 downto 0); --write data to this R
     write_data      : in std_logic_vector(31 downto 0); --data for register(or address)
     write_mem_data  : in std_logic_vector(31 downto 0); --data for memory
+    heap_addr       : out std_logic_vector(19 downto 0); --set $hp with this address
     R_sig           : out std_logic; --write register
     R_num           : out std_logic_vector(4 downto 0); --write to this register
     data_out        : out std_logic_vector(31 downto 0);
@@ -46,14 +48,16 @@ architecture mem of mem is
   signal data_out_buf    : std_logic_vector(31 downto 0) := x"bbbbbbbb";
   signal data_out_sub    : std_logic_vector(31 downto 0) := x"aaaaaaaa";
 
-  signal mem_read : std_logic_vector(31 downto 0) := x"00000000"; 
+  signal write_counter : std_logic_vector(1 downto 0) := "00"; --sequential mode state(write on memory only when store instruction first came)
+  signal mem_read      : std_logic_vector(31 downto 0) := x"00000000"; 
 
-  signal load_f_stat       : std_logic_vector(1 downto 0) := "00";
-  signal load_f_addr       : std_logic_vector(19 downto 0) := x"fffff";
-  signal load_f_data_store : std_logic_vector(31 downto 0) := x"00000000"; --1st buf
-  signal load_f_data_save  : std_logic_vector(31 downto 0) := x"00000000"; --2nd buf
+  signal load_heap_stat       : std_logic_vector(1 downto 0) := "00";
+  signal load_heap_addr       : std_logic_vector(19 downto 0) := x"10000";
+  signal load_heap_data_store : std_logic_vector(31 downto 0) := x"00000000"; --1st buf
+  signal load_heap_data_save  : std_logic_vector(31 downto 0) := x"00000000"; --2nd buf
 
 begin
+  heap_addr <= load_heap_addr;
   R_sig <= R_sig_buf;
   R_num <= R_num_buf;
   data_out <= data_out_buf;
@@ -69,14 +73,14 @@ begin
   XLBO <= '1';
   ZZA <= '0';
   ZCLKMA <= clk & clk;
-  ZD <= load_f_data_save when load_f_stat /= "00" else --loading data beforehand
+  ZD <= load_heap_data_save when load_heap_stat = "10" else --loading data beforehand
         write_mem_data when write_sig = '1' else
         "ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ";
-  XWA <= '0' when load_f_sig = '1' or write_sig = '1' else
+  XWA <= '0' when load_heap_sig = '1' or (write_sig = '1' and state = "00" and write_counter = "00") else
          '1';
   XFT <= '1';
   XZBE <= "0000";
-  ZA <= load_f_addr when load_f_sig = '1' or load_f_stat /= "00" else --loading data beforehand
+  ZA <= load_heap_addr when load_heap_sig = '1' else --loading data beforehand
         write_data(19 downto 0);
   mem_read <= ZD;
 
@@ -86,15 +90,15 @@ begin
   mem_process: process(clk)
   begin
     if rising_edge(clk) then
-      if load_f_stat = "00" and load_f_sig = '1' then --start loading
-        load_f_stat <= "01";
-        load_f_data_store <= load_f_data;
-      elsif load_f_stat = "01" then
-        load_f_stat <= "10";
-        load_f_data_save <= load_f_data_store;
-      elsif load_f_stat = "10" then
-        load_f_stat <= "00";
-        load_f_addr <= load_f_addr - x"00001";
+      if load_heap_stat = "00" and load_heap_sig = '1' then --start loading
+        load_heap_stat <= "01";
+        load_heap_data_store <= load_heap_data;
+      elsif load_heap_stat = "01" then
+        load_heap_stat <= "10";
+        load_heap_data_save <= load_heap_data_store;
+      elsif load_heap_stat = "10" then
+        load_heap_stat <= "00";
+        load_heap_addr <= load_heap_addr + x"00001";
       else
         case state is --executing instruction
           when "00" | "01" | "10" =>
@@ -106,6 +110,13 @@ begin
               data_out_buf <= return_sys;
             else
               data_out_buf <= data_out_sub;
+            end if;
+            if exec_mode = '0' and write_sig = '1' then --use in sequential mode
+              if write_counter = "10" then
+                write_counter <= "00";
+              else
+                write_counter <= write_counter + "01";
+              end if;
             end if;
           when others =>
             null;

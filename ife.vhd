@@ -41,7 +41,7 @@ architecture ife of ife is
   signal next_instr : std_logic_vector(31 downto 0) := x"00000000"; --instruction
   signal write_data : std_logic_vector(31 downto 0) := x"00000000"; --write to BRAM
   
-  signal delay_state   : std_logic_vector(1 downto 0) := "00"; --sequential modes state (next instruction starts when previous instruction is at memory write state)
+  signal delay_state   : std_logic_vector(1 downto 0) := "00"; --sequential mode state (next instruction starts when previous instruction is at memory write state)
 
 begin
   instr_BRAM: BRAM
