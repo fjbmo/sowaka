@@ -327,7 +327,7 @@ architecture siki of siki is
 
   --system controll
   signal pipeline_mode   : std_logic := '0'; --activate pipeline mode when '1' and activate sequential mode when '0'
-  signal endianness_mode : std_logic := '0'; --little-endian mode when '0' and big-endian mode when '1'
+  signal endianness_mode : std_logic := '1'; --little-endian mode when '0' and big-endian mode when '1'
 
 begin
   ib: IBUFG
@@ -516,6 +516,8 @@ begin
               x"0000" & exec_counter when set_R_sig = "11" else
               mem_to_R_base;
 
+  return_sys <= sys_ans_data;
+
   full_tran <= r0_data when print_regs = "00000" else
                r1_data when print_regs = "00001" else
                r2_data when print_regs = "00010" else
@@ -674,6 +676,7 @@ begin
           end if;
         when "01101" => --require data(send x"aa")
           top_state <= "01110";
+          rx_go <= '1';
           tx_go <= '1';
           byte_tran <= x"aa";
           activate_fifo <= '1';
@@ -694,14 +697,18 @@ begin
             if change_PC /= "11" then
               change_PC <= change_PC + "01";
             end if;
-            if sys_call_act = '1' and sys_check = '1' and support_seq = "00" and pipeline_mode = '0' then --use only in sequential mode
-              support_seq <= "01";
-            elsif support_seq = "01" then
-              support_seq <= "10";
-            elsif support_seq = "10" then
-              support_seq <= "00";
+            if sys_call_act = '1' and sys_check = '1' then
+              if support_seq = "00" and pipeline_mode = '0' then --use only in sequential mode
+                support_seq <= "01";
+              elsif support_seq = "01" then
+                support_seq <= "10";
+              elsif support_seq = "10" then
+                support_seq <= "00";
+                sys_check <= '0';
+              else
+                sys_check <= '0';
+              end if;
             end if;
-            sys_check <= '0';
             print_regs <= "00000";
             if set_R_sig /= "00" then
               set_R_sig <= set_R_sig + "01";
@@ -858,13 +865,13 @@ begin
             else
               tx_go <= '0';
             end if;
-          elsif sys_call_stat = "10" then --special state sys_call:read character v0(=r2) = x"0000000c" || v0 <- x"0000000" & read byte
+          elsif sys_call_stat = "10" then --special state sys_call:read character v0(=r2) = x"0000000c" || v0 <- x"000000" & read byte
             if sys_check_sub = '0' and fifo_emp = '0' then
               sys_check_sub <= '1';
               rd_en <= '1';
             elsif sys_check_sub = '1' then
               top_state <= return_state;
-              sys_ans_data <= x"000000" & fifo_out;
+              sys_ans_data <= x"777777" & fifo_out;
               sys_check <= '1';
               sys_check_sub <= '0';
               rd_en <= '0';

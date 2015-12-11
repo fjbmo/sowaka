@@ -311,10 +311,10 @@ begin
   sys_sig_sub <= '1' when (head = "000000" and tail = "001100") else
                  '0';
 
-  sys_type_sub <= "01" when (mem_to_R_pointer = "00010" and mem_to_R_sig_return = '1' and mem_to_R = x"0000000b") or
-                            ((mem_to_R_pointer /= "00010" or mem_to_R_sig_return = '0' or mem_to_R /= x"0000000b") and r2 = x"0000000b") else
-                  "10" when (mem_to_R_pointer = "00010" and mem_to_R_sig_return = '1' and mem_to_R = x"0000000c") or
-                            ((mem_to_R_pointer /= "00010" or mem_to_R_sig_return = '0' or mem_to_R /= x"0000000c") and r2 = x"0000000c") else
+  sys_type_sub <= "01" when (mem_to_R_sig_return = '1' and mem_to_R_pointer = "00010" and mem_to_R = x"0000000b") or
+                            ((mem_to_R_sig_return = '0' or mem_to_R_pointer /= "00010" or mem_to_R /= x"0000000b") and r2 = x"0000000b") else
+                  "10" when (mem_to_R_sig_return = '1' and mem_to_R_pointer = "00010" and mem_to_R = x"0000000c") or
+                            ((mem_to_R_sig_return = '0' or mem_to_R_pointer /= "00010" or mem_to_R /= x"0000000c") and r2 = x"0000000c") else
                   "00";
 
   branch_instr_sub <= '1' when head = "000100" or

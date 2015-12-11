@@ -45,8 +45,8 @@ end mem;
 architecture mem of mem is
   signal R_sig_buf       : std_logic := '0';
   signal R_num_buf       : std_logic_vector(4 downto 0) := "00000";
-  signal data_out_buf    : std_logic_vector(31 downto 0) := x"bbbbbbbb";
-  signal data_out_sub    : std_logic_vector(31 downto 0) := x"aaaaaaaa";
+  signal data_out_buf    : std_logic_vector(31 downto 0) := x"00000000";
+  signal data_out_sub    : std_logic_vector(31 downto 0) := x"00000000";
 
   signal write_counter : std_logic_vector(1 downto 0) := "00"; --sequential mode state(write on memory only when store instruction first came)
   signal mem_read      : std_logic_vector(31 downto 0) := x"00000000"; 
