@@ -727,14 +727,18 @@ begin
             end if;
           end if;
           if state = "11" then
-            if sys_call_act = '1' and sys_check = '1' and support_seq = "00" and pipeline_mode = '0' then
-              support_seq <= "01";
-            elsif support_seq = "01" then
-              support_seq <= "10";
-            elsif support_seq = "10" then
-              support_seq <= "00";
+            if sys_call_act = '1' and sys_check = '1' then
+              if support_seq = "00" and pipeline_mode = '0' then
+                support_seq <= "01";
+              elsif support_seq = "01" then
+                support_seq <= "10";
+              elsif support_seq = "10" then
+                support_seq <= "00";
+                sys_check <= '0';
+              else
+                sys_check <= '0';
+              end if;
             end if;
-            sys_check <= '0';
             print_regs <= "00000";
           end if;
           state <= state + "01";
@@ -750,14 +754,18 @@ begin
             end if;
           end if;
           if state = "11" then
-            if sys_call_act = '1' and sys_check = '1' and support_seq = "00" and pipeline_mode = '0' then
-              support_seq <= "01";
-            elsif support_seq = "01" then
-              support_seq <= "10";
-            elsif support_seq = "10" then
-              support_seq <= "00";
+            if sys_call_act = '1' and sys_check = '1' then
+              if support_seq = "00" and pipeline_mode = '0' then
+                support_seq <= "01";
+              elsif support_seq = "01" then
+                support_seq <= "10";
+              elsif support_seq = "10" then
+                support_seq <= "00";
+                sys_check <= '0';
+              else
+                sys_check <= '0';
+              end if;
             end if;
-            sys_check <= '0';
             print_regs <= "00000";
           end if;
           state <= state + "01";
@@ -773,12 +781,17 @@ begin
             end if;
           end if;
           if state = "11" then
-            if sys_call_act = '1' and sys_check = '1' and support_seq = "00" and pipeline_mode = '0' then
-              support_seq <= "01";
-            elsif support_seq = "01" then
-              support_seq <= "10";
-            elsif support_seq = "10" then
-              support_seq <= "00";
+            if sys_call_act = '1' and sys_check = '1' then
+              if support_seq = "00" and pipeline_mode = '0' then
+                support_seq <= "01";
+              elsif support_seq = "01" then
+                support_seq <= "10";
+              elsif support_seq = "10" then
+                support_seq <= "00";
+                sys_check <= '0';
+              else
+                sys_check <= '0';
+              end if;
             end if;
             sys_check <= '0';
             print_regs <= "00000";
@@ -796,14 +809,18 @@ begin
             end if;
           end if;
           if state = "11" then
-            if sys_call_act = '1' and sys_check = '1' and support_seq = "00" and pipeline_mode = '0' then
-              support_seq <= "01";
-            elsif support_seq = "01" then
-              support_seq <= "10";
-            elsif support_seq = "10" then
-              support_seq <= "00";
+            if sys_call_act = '1' and sys_check = '1' then
+              if support_seq = "00" and pipeline_mode = '0' then
+                support_seq <= "01";
+              elsif support_seq = "01" then
+                support_seq <= "10";
+              elsif support_seq = "10" then
+                support_seq <= "00";
+                sys_check <= '0';
+              else
+                sys_check <= '0';
+              end if;
             end if;
-            sys_check <= '0';
             print_regs <= "00000";
           end if;
           state <= state + "01";
