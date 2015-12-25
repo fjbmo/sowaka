@@ -28,10 +28,10 @@ entity ALU is
     base_PC        : in std_logic_vector(15 downto 0); --previous PC
     add_PC         : in std_logic_vector(15 downto 0); --add to PC
     jump_PC        : in std_logic_vector(15 downto 0); --jump to this PC
-    input_1    : in std_logic_vector(31 downto 0);
-    input_2    : in std_logic_vector(31 downto 0);
+    input_1        : in std_logic_vector(31 downto 0);
+    input_2        : in std_logic_vector(31 downto 0);
     store_data     : in std_logic_vector(31 downto 0);
-    calcu_type     : in std_logic_vector(3 downto 0);
+    calcu_type     : in std_logic_vector(4 downto 0);
     sys_activate   : out std_logic; --activate system call signal
     sys_act_type   : out std_logic_vector(1 downto 0); --activate system call type
     new_fcc        : out std_logic_vector(7 downto 0); --newly set fcc
@@ -46,6 +46,26 @@ entity ALU is
 end ALU;
 
 architecture ALU of ALU is
+  component fadd
+    port(
+      A : in std_logic_vector(31 downto 0); --data_1
+      B : in std_logic_vector(31 downto 0); --data_2
+      S : out std_logic_vector(31 downto 0)); --ans
+  end component;
+
+  component fmul
+    port(
+      A : in std_logic_vector(31 downto 0); --data_1
+      B : in std_logic_vector(31 downto 0); --data_2
+      S : out std_logic_vector(31 downto 0)); --ans
+  end component;
+
+  component fneg
+    port(
+      A : in std_logic_vector(31 downto 0); --data_1
+      S : out std_logic_vector(31 downto 0)); --ans
+  end component;
+
   signal sys_activate_buf   : std_logic := '0';
   signal sys_act_type_buf   : std_logic_vector(1 downto 0) := "00";
   signal new_fcc_buf        : std_logic_vector(7 downto 0) := "00000000";
@@ -57,6 +77,15 @@ architecture ALU of ALU is
   signal new_PC_buf         : std_logic_vector(15 downto 0) := x"0000";
   signal output_buf         : std_logic_vector(31 downto 0) := x"00000000";
   signal mem_data_buf       : std_logic_vector(31 downto 0) := x"00000000";
+
+  signal fadd_data_1 : std_logic_vector(31 downto 0) := x"00000000";
+  signal fadd_data_2 : std_logic_vector(31 downto 0) := x"00000000";
+  signal fadd_ans    : std_logic_vector(31 downto 0) := x"00000000";
+  signal fmul_data_1 : std_logic_vector(31 downto 0) := x"00000000";
+  signal fmul_data_2 : std_logic_vector(31 downto 0) := x"00000000";
+  signal fmul_ans    : std_logic_vector(31 downto 0) := x"00000000";
+  signal fneg_data   : std_logic_vector(31 downto 0) := x"00000000";
+  signal fneg_ans    : std_logic_vector(31 downto 0) := x"00000000";
 
   signal check_eq   : std_logic := '0'; --check =
   signal check_gtz  : std_logic := '0'; --check > with 0
@@ -78,6 +107,21 @@ architecture ALU of ALU is
   signal set_fcc    : std_logic_vector(7 downto 0) := "00000000";
 
 begin
+  ALU_FADD: fadd
+    port map(
+      A => fadd_data_1,
+      B => fadd_data_2,
+      S => fadd_ans);
+  ALU_FMUL: fmul
+    port map(
+      A => fmul_data_1,
+      B => fmul_data_2,
+      S => fmul_ans);
+  ALU_FNEG: fneg
+    port map(
+      A => fneg_data,
+      S => fneg_ans);
+
   sys_activate <= sys_activate_buf;
   sys_act_type <= sys_act_type_buf;
   new_fcc <= new_fcc_buf;
@@ -89,6 +133,21 @@ begin
   dest_R <= dest_R_buf;
   output <= output_buf;
   mem_data <= mem_data_buf;
+
+  fadd_data_1 <= input_1 when calcu_type = "01001" else
+                 x"00000000";
+
+  fadd_data_2 <= input_2 when calcu_type = "01001" else
+                 x"00000000";
+
+  fmul_data_1 <= input_1 when calcu_type = "01010" else
+                 x"00000000";
+
+  fmul_data_2 <= input_2 when calcu_type = "01010" else
+                 x"00000000";
+
+  fneg_data <= input_1 when calcu_type = "01101" else
+               x"00000000";
 
   check_eq <= '1' when data_xor = x"00000000" else
               '0';
@@ -265,14 +324,17 @@ begin
               "0000000000000000000000000000000" & input_1(31) when input_2 = x"0000001f" else
               x"00000000";
 
-  output_int <= input_1 and input_2 when calcu_type = "0000" else
-                input_1 or input_2 when calcu_type = "0001" else
-                input_1 xor input_2 when calcu_type = "0010" else
-                input_1 + input_2 when calcu_type = "0100" else
-                input_1 - input_2 when calcu_type = "0101" else
-                sll_data when calcu_type = "0110" else
-                slr_data when calcu_type = "0111" else
-                x"00000001" when calcu_type = "1000" and input_1 < input_2 else
+  output_int <= input_1 and input_2 when calcu_type = "00000" else
+                input_1 or input_2 when calcu_type = "00001" else
+                input_1 xor input_2 when calcu_type = "00010" else
+                input_1 + input_2 when calcu_type = "00100" else
+                input_1 - input_2 when calcu_type = "00101" else
+                sll_data when calcu_type = "00110" else
+                slr_data when calcu_type = "00111" else
+                x"00000001" when calcu_type = "01000" and input_1 < input_2 else
+                fadd_ans when calcu_type = "01001" else
+                fmul_ans when calcu_type = "01010" else
+                fneg_ans when calcu_type = "01101" else
                 x"00000000";
 
   comp_exp <= "00" when input_1(30 downto 23) = input_2(30 downto 23) else

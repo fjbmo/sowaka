@@ -108,7 +108,7 @@ architecture siki of siki is
       data_1              : out std_logic_vector(31 downto 0);
       data_2              : out std_logic_vector(31 downto 0);
       data_to_mem         : out std_logic_vector(31 downto 0);
-      ALU_control         : out std_logic_vector(3 downto 0);
+      ALU_control         : out std_logic_vector(4 downto 0);
       r0_data             : out std_logic_vector(31 downto 0);
       r1_data             : out std_logic_vector(31 downto 0);
       r2_data             : out std_logic_vector(31 downto 0);
@@ -200,7 +200,7 @@ architecture siki of siki is
       input_1        : in std_logic_vector(31 downto 0);
       input_2        : in std_logic_vector(31 downto 0);
       store_data     : in std_logic_vector(31 downto 0);
-      calcu_type     : in std_logic_vector(3 downto 0);
+      calcu_type     : in std_logic_vector(4 downto 0);
       sys_activate   : out std_logic;
       sys_act_type   : out std_logic_vector(1 downto 0);
       new_fcc        : out std_logic_vector(7 downto 0);
@@ -395,7 +395,7 @@ architecture siki of siki is
   signal input_1   : std_logic_vector(31 downto 0) := x"00000000";
   signal input_2   : std_logic_vector(31 downto 0) := x"00000000";
   signal store_data    : std_logic_vector(31 downto 0) := x"00000000";
-  signal calcu_type    : std_logic_vector(3 downto 0) := "0000";
+  signal calcu_type    : std_logic_vector(4 downto 0) := "00000";
 
   signal new_PC        : std_logic_vector(15 downto 0) := x"0000";
   --to mem

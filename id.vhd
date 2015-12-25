@@ -38,7 +38,7 @@ entity id is
     data_1              : out std_logic_vector(31 downto 0);
     data_2              : out std_logic_vector(31 downto 0);
     data_to_mem         : out std_logic_vector(31 downto 0); --store this data
-    ALU_control         : out std_logic_vector(3 downto 0); --write this
+    ALU_control         : out std_logic_vector(4 downto 0); --write this
     r0_data             : out std_logic_vector(31 downto 0);
     r1_data             : out std_logic_vector(31 downto 0);
     r2_data             : out std_logic_vector(31 downto 0);
@@ -127,7 +127,7 @@ architecture id of id is
   signal data_1_buf       : std_logic_vector(31 downto 0) := x"00000000";
   signal data_2_buf       : std_logic_vector(31 downto 0) := x"00000000";
   signal data_to_mem_buf  : std_logic_vector(31 downto 0) := x"00000000";
-  signal ALU_control_buf  : std_logic_vector(3 downto 0) := "0000";
+  signal ALU_control_buf  : std_logic_vector(4 downto 0) := "00000";
 
   signal head             : std_logic_vector(5 downto 0) := "000000";
   signal rs_pointer       : std_logic_vector(4 downto 0) := "00000";
@@ -168,7 +168,7 @@ architecture id of id is
   signal data_1_sub       : std_logic_vector(31 downto 0) := x"00000000";
   signal data_2_sub       : std_logic_vector(31 downto 0) := x"00000000";
   signal data_to_mem_sub  : std_logic_vector(31 downto 0) := x"00000000";
-  signal ALU_control_sub  : std_logic_vector(3 downto 0) := "0000";
+  signal ALU_control_sub  : std_logic_vector(4 downto 0) := "00000";
   signal r0               : std_logic_vector(31 downto 0) := x"00000000";
   signal r1               : std_logic_vector(31 downto 0) := x"00000000";
   signal r2               : std_logic_vector(31 downto 0) := x"00000000";
@@ -608,6 +608,9 @@ begin
                                (head = "000000" and tail = "000000") or
                                (head = "000000" and tail = "000010") or
                                (head = "000000" and tail = "000100") or
+                               (head = "010001" and tail = "000000") or
+                               (head = "010001" and tail = "000010") or
+                               (head = "010001" and tail = "000111") or
                                head = "001000" or
                                head = "001001" or
                                head = "000011" or
@@ -622,7 +625,10 @@ begin
                                (head = "010001" and tail = "000110") else
                       '0';
 
-  data_R_type_sub <= '1' when head = "110001" or
+  data_R_type_sub <= '1' when (head = "010001" and tail = "000000") or
+                              (head = "010001" and tail = "000010") or
+                              (head = "010001" and tail = "000111") or
+                              head = "110001" or
                               (head = "010001" and rs_pointer = "00100") or
                               (head = "010001" and tail = "000110") else
                      '0';
@@ -644,7 +650,10 @@ begin
                                       head = "100011" or
                                       (head = "010001" and rs_pointer = "00000") else
                       fs_pointer when (head = "010001" and rs_pointer = "00100") else
-                      fd_pointer when (head = "010001" and tail = "000110") else
+                      fd_pointer when (head = "010001" and tail = "000000") or
+                                      (head = "010001" and tail = "000010") or
+                                      (head = "010001" and tail = "000111") or
+                                      (head = "010001" and tail = "000110") else
                       ft_pointer when head = "110001" else
                       "00010" when (sys_sig_sub = '1' and sys_type_sub = "10") else
                       "11111" when head = "000011" else
@@ -689,7 +698,10 @@ begin
                         (head = "000000" and tail = "000010") or
                         (head = "000000" and tail = "000100") or
                         (head = "010001" and rs_pointer = "00100") else
-                fs when (head = "010001" and tail(5 downto 4) = "11") or
+                fs when (head = "010001" and tail = "000000") or
+                        (head = "010001" and tail = "000010") or
+                        (head = "010001" and tail = "000111") or
+                        (head = "010001" and tail(5 downto 4) = "11") or
                         (head = "010001" and rs_pointer = "00000") or
                         (head = "010001" and tail = "000110") else
                 x"0000" & write_PC when head = "000011" or
@@ -706,7 +718,9 @@ begin
                         (head = "000000" and tail = "100110") or
                         head = "000100" or
                         head = "000101" else
-                ft when (head ="010001" and tail(5 downto 4) = "11") else
+                ft when (head = "010001" and tail = "000000") or
+                        (head = "010001" and tail = "000010") or
+                        (head = "010001" and tail(5 downto 4) = "11") else
                 x"000000" & "000" & sa when (head = "000000" and tail = "000000") or
                                             (head = "000000" and tail = "000010") else
                 x"0000" & offset when (head = "001000" and offset(15) = '0') or
@@ -727,15 +741,15 @@ begin
                      ft when head = "111001" else
                      x"00000000";
 
-  ALU_control_sub <= "0000" when (head = "000000" and tail = "100100") else -- AND
-                     "0001" when (head = "000000" and tail = "100101") or -- OR
+  ALU_control_sub <= "00000" when (head = "000000" and tail = "100100") else -- AND
+                     "00001" when (head = "000000" and tail = "100101") or -- OR
                                  head = "001101" or
                                  head = "001111" or -- no processing
                                  (head = "010001" and rs_pointer = "00000") or
                                  (head = "010001" and rs_pointer = "00100") or
                                  (head = "010001" and tail = "000110") else
-                     "0010" when (head = "000000" and tail = "100110") else -- XOR
-                     "0100" when (head = "000000" and tail = "100000") or -- +
+                     "00010" when (head = "000000" and tail = "100110") else -- XOR
+                     "00100" when (head = "000000" and tail = "100000") or -- +
                                  head = "001000" or
                                  head = "001001" or
                                  head = "000011" or
@@ -744,12 +758,19 @@ begin
                                  head = "100011" or
                                  head = "111001" or
                                  head = "110001" else
-                     "0101" when (head = "000000" and tail = "100010") else -- -
-                     "0110" when (head = "000000" and tail = "000000") or
+                     "00101" when (head = "000000" and tail = "100010") else -- -
+                     "00110" when (head = "000000" and tail = "000000") or
                                  (head = "000000" and tail = "000100") else -- <<
-                     "0111" when (head = "000000" and tail = "000010") else -- >>
-                     "1000" when (head = "000000" and tail = "101010") else -- < 
-                     "1111";
+                     "00111" when (head = "000000" and tail = "000010") else -- >>
+                     "01000" when (head = "000000" and tail = "101010") else -- <
+                     "01001" when (head = "010001" and tail = "000000") else -- fadd
+                     "01010" when (head = "010001" and tail = "000010") else -- fmul
+                     "01011" when (head = "010001" and tail = "000011") else -- finv
+                     "01100" when (head = "010001" and tail = "000100") else -- fsqrt
+                     "01101" when (head = "010001" and tail = "000111") else -- fneg
+                     "01110" when (head = "010001" and tail = "100000") else -- itof
+                     "01111" when (head = "010001" and tail = "001101") else -- ftoi
+                     "11111";
 
   r0_sub <= mem_to_R when mem_to_R_sig_return = '1' and mem_to_R_type = '0' and mem_to_R_pointer = "00000" else
             r0;
