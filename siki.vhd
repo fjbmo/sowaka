@@ -7,7 +7,8 @@ use UNISIM.VComponents.all;
 
 entity siki is
   Port(
-    MCLK1  : in std_logic;
+    MCLK1  : in std_logic; --(original: existed)
+--    clk    : in std_logic; --(original: did not existed)
     RS_RX  : in std_logic;
     XE1    : out std_logic;
     E2A    : out std_logic;
@@ -40,7 +41,7 @@ architecture siki of siki is
 
   component rx
     generic(
-      wtime : std_logic_vector(15 downto 0) := x"1B16"); -- for CLK:66MHz Baudrate:9600bps
+      wtime : std_logic_vector(15 downto 0) := x"1B16"); -- for CLK:66MHz Baudrate:9600bps --(original: x"1B16")
     port(
       clk      : in std_logic;
       go       : in std_logic;
@@ -52,7 +53,7 @@ architecture siki of siki is
 
   component tx
     generic(
-      wtime : std_logic_vector(15 downto 0) := x"1B16");
+      wtime : std_logic_vector(15 downto 0) := x"1B16"); --(original: x"1B16")
     port(
       clk    : in std_logic;
       go     : in std_logic;
@@ -81,18 +82,25 @@ architecture siki of siki is
       state               : in std_logic_vector(1 downto 0);
       write_PC            : in std_logic_vector(15 downto 0);
       instr               : in std_logic_vector(31 downto 0);
+      fcc_return          : in std_logic_vector(7 downto 0);
       mem_to_R_sig_return : in std_logic;
+      mem_to_R_type       : in std_logic;
       mem_to_R_pointer    : in std_logic_vector(4 downto 0);
       mem_to_R            : in std_logic_vector(31 downto 0);
       sys_sig             : out std_logic;
       sys_type            : out std_logic_vector(1 downto 0);
       branch_instr        : out std_logic;
-      branch_cond         : out std_logic_vector(2 downto 0);
+      branch_cond         : out std_logic_vector(3 downto 0);
+      fcc_sig             : out std_logic;
+      fcc_comp            : out std_logic_vector(1 downto 0);
+      fcc_pointer         : out std_logic_vector(2 downto 0);
+      fcc_update          : out std_logic_vector(7 downto 0);
       jump_instr          : out std_logic;
       store_instr         : out std_logic;
       load_instr          : out std_logic;
       mem_write           : out std_logic;
       mem_to_R_sig        : out std_logic;
+      data_R_type         : out std_logic;
       write_data_R        : out std_logic_vector(4 downto 0);
       now_PC              : out std_logic_vector(15 downto 0);
       add_to_PC           : out std_logic_vector(15 downto 0);
@@ -132,39 +140,78 @@ architecture siki of siki is
       r28_data            : out std_logic_vector(31 downto 0);
       r29_data            : out std_logic_vector(31 downto 0);
       r30_data            : out std_logic_vector(31 downto 0);
-      r31_data            : out std_logic_vector(31 downto 0));
+      r31_data            : out std_logic_vector(31 downto 0);
+      f0_data             : out std_logic_vector(31 downto 0);
+      f1_data             : out std_logic_vector(31 downto 0);
+      f2_data             : out std_logic_vector(31 downto 0);
+      f3_data             : out std_logic_vector(31 downto 0);
+      f4_data             : out std_logic_vector(31 downto 0);
+      f5_data             : out std_logic_vector(31 downto 0);
+      f6_data             : out std_logic_vector(31 downto 0);
+      f7_data             : out std_logic_vector(31 downto 0);
+      f8_data             : out std_logic_vector(31 downto 0);
+      f9_data             : out std_logic_vector(31 downto 0);
+      f10_data            : out std_logic_vector(31 downto 0);
+      f11_data            : out std_logic_vector(31 downto 0);
+      f12_data            : out std_logic_vector(31 downto 0);
+      f13_data            : out std_logic_vector(31 downto 0);
+      f14_data            : out std_logic_vector(31 downto 0);
+      f15_data            : out std_logic_vector(31 downto 0);
+      f16_data            : out std_logic_vector(31 downto 0);
+      f17_data            : out std_logic_vector(31 downto 0);
+      f18_data            : out std_logic_vector(31 downto 0);
+      f19_data            : out std_logic_vector(31 downto 0);
+      f20_data            : out std_logic_vector(31 downto 0);
+      f21_data            : out std_logic_vector(31 downto 0);
+      f22_data            : out std_logic_vector(31 downto 0);
+      f23_data            : out std_logic_vector(31 downto 0);
+      f24_data            : out std_logic_vector(31 downto 0);
+      f25_data            : out std_logic_vector(31 downto 0);
+      f26_data            : out std_logic_vector(31 downto 0);
+      f27_data            : out std_logic_vector(31 downto 0);
+      f28_data            : out std_logic_vector(31 downto 0);
+      f29_data            : out std_logic_vector(31 downto 0);
+      f30_data            : out std_logic_vector(31 downto 0);
+      f31_data            : out std_logic_vector(31 downto 0));
   end component;
 
   component ALU
     port(
-      clk           : in std_logic;
-      state         : in std_logic_vector(1 downto 0);
-      sys_call_sig  : in std_logic;
-      sys_call_type : in std_logic_vector(1 downto 0);
-      check_branch  : in std_logic;
-      which_cond    : in std_logic_vector(2 downto 0);
-      check_jump    : in std_logic;
-      store_sig     : in std_logic;
-      load_sig      : in std_logic;
-      write_mem_sig : in std_logic;
-      write_R_sig   : in std_logic;
-      write_R       : in std_logic_vector(4 downto 0);
-      base_PC       : in std_logic_vector(15 downto 0);
-      add_PC        : in std_logic_vector(15 downto 0);
-      jump_PC       : in std_logic_vector(15 downto 0);
-      input_int_1   : in std_logic_vector(31 downto 0);
-      input_int_2   : in std_logic_vector(31 downto 0);
-      store_data    : in std_logic_vector(31 downto 0);
-      calcu_type    : in std_logic_vector(3 downto 0);
-      sys_activate  : out std_logic;
-      sys_act_type  : out std_logic_vector(1 downto 0);
-      store_mem     : out std_logic;
-      load_mem      : out std_logic;
-      send_to_R     : out std_logic;
-      dest_R        : out std_logic_vector(4 downto 0);
-      new_PC        : out std_logic_vector(15 downto 0);
-      output        : out std_logic_vector(31 downto 0);
-      mem_data      : out std_logic_vector(31 downto 0));
+      clk            : in std_logic;
+      state          : in std_logic_vector(1 downto 0);
+      sys_call_sig   : in std_logic;
+      sys_call_type  : in std_logic_vector(1 downto 0);
+      check_branch   : in std_logic;
+      which_cond     : in std_logic_vector(3 downto 0);
+      change_fcc     : in std_logic;
+      change_type    : in std_logic_vector(1 downto 0);
+      fcc_part       : in std_logic_vector(2 downto 0);
+      fcc_base       : in std_logic_vector(7 downto 0);
+      check_jump     : in std_logic;
+      store_sig      : in std_logic;
+      load_sig       : in std_logic;
+      write_mem_sig  : in std_logic;
+      write_R_sig    : in std_logic;
+      write_R_type   : in std_logic;
+      write_R        : in std_logic_vector(4 downto 0);
+      base_PC        : in std_logic_vector(15 downto 0);
+      add_PC         : in std_logic_vector(15 downto 0);
+      jump_PC        : in std_logic_vector(15 downto 0);
+      input_1        : in std_logic_vector(31 downto 0);
+      input_2        : in std_logic_vector(31 downto 0);
+      store_data     : in std_logic_vector(31 downto 0);
+      calcu_type     : in std_logic_vector(3 downto 0);
+      sys_activate   : out std_logic;
+      sys_act_type   : out std_logic_vector(1 downto 0);
+      new_fcc        : out std_logic_vector(7 downto 0);
+      store_mem      : out std_logic;
+      load_mem       : out std_logic;
+      send_to_R      : out std_logic;
+      send_to_R_type : out std_logic;
+      dest_R         : out std_logic_vector(4 downto 0);
+      new_PC         : out std_logic_vector(15 downto 0);
+      output         : out std_logic_vector(31 downto 0);
+      mem_data       : out std_logic_vector(31 downto 0));
   end component;
 
   component mem
@@ -177,14 +224,18 @@ architecture siki of siki is
       return_sys      : in std_logic_vector(31 downto 0);
       load_heap_sig   : in std_logic;
       load_heap_data  : in std_logic_vector(31 downto 0);
+      received_fcc    : in std_logic_vector(7 downto 0);
       write_sig       : in std_logic;
       read_sig        : in std_logic;
       send_R_sig      : in std_logic;
+      send_R_type     : in std_logic;
       target_R        : in std_logic_vector(4 downto 0);
       write_data      : in std_logic_vector(31 downto 0);
       write_mem_data  : in std_logic_vector(31 downto 0);
       heap_addr       : out std_logic_vector(19 downto 0);
+      send_fcc        : out std_logic_vector(7 downto 0);
       R_sig           : out std_logic;
+      R_type          : out std_logic;
       R_num           : out std_logic_vector(4 downto 0);
       data_out        : out std_logic_vector(31 downto 0);
       systemcall      : out std_logic;
@@ -206,8 +257,8 @@ architecture siki of siki is
       ZA     : out std_logic_vector(19 downto 0));
   end component;
 
-  signal clk            : std_logic := '0';
-  signal iclk           : std_logic := '0';
+  signal clk            : std_logic := '0'; --(original: existed)
+  signal iclk           : std_logic := '0'; --(original: existed)
   signal state          : std_logic_vector(1 downto 0) := "00";
   signal top_state      : std_logic_vector(4 downto 0) := "11111";
   signal activate_fifo  : std_logic := '0'; --start loading to fifo
@@ -236,7 +287,7 @@ architecture siki of siki is
   signal change_PC      : std_logic_vector(1 downto 0) := "00"; --change PC from init_PC
   signal set_R_sig      : std_logic_vector(1 downto 0) := "00"; --set r30(=$hp), r31(=$ra) with address of the last instruction
   signal exec_counter   : std_logic_vector(15 downto 0) := x"ffff"; --count instruction and set r31(=$ra) with this
-  signal print_regs     : std_logic_vector(4 downto 0) := "00000"; --print registers
+  signal print_regs     : std_logic_vector(5 downto 0) := "000000"; --print registers
   signal sys_call_act   : std_logic := '0'; --begin systemcall
   signal sys_call_stat  : std_logic_vector(1 downto 0) := "00"; --sys_call type
   signal sys_ans_data   : std_logic_vector(31 downto 0) := x"00000000"; --result of syscall
@@ -276,6 +327,38 @@ architecture siki of siki is
   signal r29_data       : std_logic_vector(31 downto 0) := x"00000000";
   signal r30_data       : std_logic_vector(31 downto 0) := x"00000000";
   signal r31_data       : std_logic_vector(31 downto 0) := x"00000000";
+  signal f0_data        : std_logic_vector(31 downto 0) := x"00000000";
+  signal f1_data        : std_logic_vector(31 downto 0) := x"00000000";
+  signal f2_data        : std_logic_vector(31 downto 0) := x"00000000";
+  signal f3_data        : std_logic_vector(31 downto 0) := x"00000000";
+  signal f4_data        : std_logic_vector(31 downto 0) := x"00000000";
+  signal f5_data        : std_logic_vector(31 downto 0) := x"00000000";
+  signal f6_data        : std_logic_vector(31 downto 0) := x"00000000";
+  signal f7_data        : std_logic_vector(31 downto 0) := x"00000000";
+  signal f8_data        : std_logic_vector(31 downto 0) := x"00000000";
+  signal f9_data        : std_logic_vector(31 downto 0) := x"00000000";
+  signal f10_data       : std_logic_vector(31 downto 0) := x"00000000";
+  signal f11_data       : std_logic_vector(31 downto 0) := x"00000000";
+  signal f12_data       : std_logic_vector(31 downto 0) := x"00000000";
+  signal f13_data       : std_logic_vector(31 downto 0) := x"00000000";
+  signal f14_data       : std_logic_vector(31 downto 0) := x"00000000";
+  signal f15_data       : std_logic_vector(31 downto 0) := x"00000000";
+  signal f16_data       : std_logic_vector(31 downto 0) := x"00000000";
+  signal f17_data       : std_logic_vector(31 downto 0) := x"00000000";
+  signal f18_data       : std_logic_vector(31 downto 0) := x"00000000";
+  signal f19_data       : std_logic_vector(31 downto 0) := x"00000000";
+  signal f20_data       : std_logic_vector(31 downto 0) := x"00000000";
+  signal f21_data       : std_logic_vector(31 downto 0) := x"00000000";
+  signal f22_data       : std_logic_vector(31 downto 0) := x"00000000";
+  signal f23_data       : std_logic_vector(31 downto 0) := x"00000000";
+  signal f24_data       : std_logic_vector(31 downto 0) := x"00000000";
+  signal f25_data       : std_logic_vector(31 downto 0) := x"00000000";
+  signal f26_data       : std_logic_vector(31 downto 0) := x"00000000";
+  signal f27_data       : std_logic_vector(31 downto 0) := x"00000000";
+  signal f28_data       : std_logic_vector(31 downto 0) := x"00000000";
+  signal f29_data       : std_logic_vector(31 downto 0) := x"00000000";
+  signal f30_data       : std_logic_vector(31 downto 0) := x"00000000";
+  signal f31_data       : std_logic_vector(31 downto 0) := x"00000000";
 
   --to IF
   signal next_PC : std_logic_vector(15 downto 0) := x"0000";
@@ -283,7 +366,9 @@ architecture siki of siki is
   --to ID
   signal write_PC            : std_logic_vector(15 downto 0) := x"0000";
   signal instr               : std_logic_vector(31 downto 0) := x"00000000";
+  signal fcc_return          : std_logic_vector(7 downto 0) := "00000000";
   signal mem_to_R_sig_return : std_logic := '0';
+  signal mem_to_R_type       : std_logic := '0';
   signal mem_to_R_pointer    : std_logic_vector(4 downto 0) := "00000";
   signal mem_to_R            : std_logic_vector(31 downto 0) := x"00000000";
 
@@ -291,19 +376,24 @@ architecture siki of siki is
   signal sys_call_sig  : std_logic := '0';
   signal sys_call_type : std_logic_vector(1 downto 0) := "00";
   signal check_branch  : std_logic := '0';
-  signal which_cond    : std_logic_vector(2 downto 0) := "000";
+  signal which_cond    : std_logic_vector(3 downto 0) := "0000";
+  signal change_fcc    : std_logic := '0';
+  signal change_type   : std_logic_vector(1 downto 0) := "00";
+  signal fcc_part      : std_logic_vector(2 downto 0) := "000";
+  signal fcc_base      : std_logic_vector(7 downto 0) := "00000000";
   signal check_jump    : std_logic := '0';
   signal store_sig     : std_logic := '0';
   signal load_sig      : std_logic := '0';
   signal write_mem_sig : std_logic := '0';
   signal write_R_sig   : std_logic := '0';
+  signal write_R_type  : std_logic := '0';
   signal write_R       : std_logic_vector(4 downto 0) := "00000";
   signal pass_data     : std_logic_vector(31 downto 0) := x"00000000";
   signal base_PC       : std_logic_vector(15 downto 0) := x"0000";
   signal add_PC        : std_logic_vector(15 downto 0) := x"0000";
   signal jump_PC       : std_logic_vector(15 downto 0) := x"0000";
-  signal input_int_1   : std_logic_vector(31 downto 0) := x"00000000";
-  signal input_int_2   : std_logic_vector(31 downto 0) := x"00000000";
+  signal input_1   : std_logic_vector(31 downto 0) := x"00000000";
+  signal input_2   : std_logic_vector(31 downto 0) := x"00000000";
   signal store_data    : std_logic_vector(31 downto 0) := x"00000000";
   signal calcu_type    : std_logic_vector(3 downto 0) := "0000";
 
@@ -312,9 +402,11 @@ architecture siki of siki is
   signal use_systemcall           : std_logic := '0';
   signal type_of_sys              : std_logic_vector(1 downto 0) := "00";
   signal return_sys               : std_logic_vector(31 downto 0) := x"00000000";
+  signal received_fcc             : std_logic_vector(7 downto 0) := "00000000";
   signal write_sig                : std_logic := '0';
   signal read_sig                 : std_logic := '0';
   signal send_R_sig               : std_logic := '0';
+  signal send_R_type              : std_logic := '0';
   signal target_R                 : std_logic_vector(4 downto 0) := "00000";
   signal write_addr               : std_logic_vector(31 downto 0) := x"00000000";
   signal write_data               : std_logic_vector(31 downto 0) := x"00000000";
@@ -322,12 +414,13 @@ architecture siki of siki is
 
   signal heap_counter             : std_logic_vector(19 downto 0) := x"00000";
   signal mem_to_R_sig_return_base : std_logic := '0';
+  signal mem_to_R_type_base       : std_logic := '0';
   signal mem_to_R_pointer_base    : std_logic_vector(4 downto 0) := "00000";
   signal mem_to_R_base            : std_logic_vector(31 downto 0) := x"00000000";
 
   --system controll
   signal pipeline_mode   : std_logic := '0'; --activate pipeline mode when '1' and activate sequential mode when '0'
-  signal endianness_mode : std_logic := '1'; --little-endian mode when '0' and big-endian mode when '1'
+  signal endianness_mode : std_logic := '0'; --little-endian mode when '0' and big-endian mode when '1'
 
 begin
   ib: IBUFG
@@ -349,7 +442,7 @@ begin
       DOUT => fifo_out);
   SIKI_RX: rx
     generic map(
-      wtime => x"1B16")
+      wtime => x"1B16") --(original: x"1B16")
     port map(
       clk => clk,
       go => rx_go,
@@ -359,7 +452,7 @@ begin
       output => byte_recv);
   SIKI_TX: tx
     generic map(
-      wtime => x"1B16")
+      wtime => x"1B16") --(original: x"1B16")
     port map(
       clk => clk,
       go => tx_go,
@@ -384,24 +477,31 @@ begin
       state => state,
       write_PC => write_PC,
       instr => instr,
+      fcc_return => fcc_return,
       mem_to_R_sig_return => mem_to_R_sig_return,
+      mem_to_R_type =>mem_to_R_type,
       mem_to_R_pointer => mem_to_R_pointer,
       mem_to_R => mem_to_R,
       sys_sig => sys_call_sig,
       sys_type => sys_call_type,
       branch_instr => check_branch,
       branch_cond => which_cond,
+      fcc_sig => change_fcc,
+      fcc_comp => change_type,
+      fcc_pointer => fcc_part,
+      fcc_update => fcc_base,
       jump_instr => check_jump,
       store_instr => store_sig,
       load_instr => load_sig,
       mem_write => write_mem_sig,
       mem_to_R_sig => write_R_sig,
+      data_R_type => write_R_type,
       write_data_R => write_R,
       now_PC => base_PC,
       add_to_PC => add_PC,
       change_PC => jump_PC,
-      data_1 => input_int_1,
-      data_2 => input_int_2,
+      data_1 => input_1,
+      data_2 => input_2,
       data_to_mem => store_data,
       ALU_control => calcu_type,
       r0_data => r0_data,
@@ -435,7 +535,39 @@ begin
       r28_data => r28_data,
       r29_data => r29_data,
       r30_data => r30_data,
-      r31_data => r31_data);
+      r31_data => r31_data,
+      f0_data => f0_data,
+      f1_data => f1_data,
+      f2_data => f2_data,
+      f3_data => f3_data,
+      f4_data => f4_data,
+      f5_data => f5_data,
+      f6_data => f6_data,
+      f7_data => f7_data,
+      f8_data => f8_data,
+      f9_data => f9_data,
+      f10_data => f10_data,
+      f11_data => f11_data,
+      f12_data => f12_data,
+      f13_data => f13_data,
+      f14_data => f14_data,
+      f15_data => f15_data,
+      f16_data => f16_data,
+      f17_data => f17_data,
+      f18_data => f18_data,
+      f19_data => f19_data,
+      f20_data => f20_data,
+      f21_data => f21_data,
+      f22_data => f22_data,
+      f23_data => f23_data,
+      f24_data => f24_data,
+      f25_data => f25_data,
+      f26_data => f26_data,
+      f27_data => f27_data,
+      f28_data => f28_data,
+      f29_data => f29_data,
+      f30_data => f30_data,
+      f31_data => f31_data);
   SIKI_ALU: ALU
     port map(
       clk => clk,
@@ -444,24 +576,31 @@ begin
       sys_call_type => sys_call_type,
       check_branch => check_branch,
       which_cond => which_cond,
+      change_fcc => change_fcc,
+      change_type => change_type,
+      fcc_part => fcc_part,
+      fcc_base => fcc_base,
       check_jump => check_jump,
       store_sig => store_sig,
       load_sig => load_sig,
       write_mem_sig => write_mem_sig,
       write_R_sig => write_R_sig,
+      write_R_type => write_R_type,
       write_R => write_R,
       base_PC => base_PC,
       add_PC => add_PC,
       jump_PC => jump_PC,
-      input_int_1 => input_int_1,
-      input_int_2 => input_int_2,
+      input_1 => input_1,
+      input_2 => input_2,
       store_data => store_data,
       calcu_type => calcu_type,
       sys_activate => use_systemcall,
       sys_act_type => type_of_sys,
+      new_fcc => received_fcc,
       store_mem => write_sig,
       load_mem => read_sig,
       send_to_R => send_R_sig,
+      send_to_R_type => send_R_type,
       dest_R => target_R,
       new_PC => new_PC,
       output => write_data,
@@ -476,14 +615,18 @@ begin
       return_sys => return_sys,
       load_heap_sig => load_heap_sig,
       load_heap_data => load_heap_data,
+      received_fcc => received_fcc,
       write_sig => write_sig,
       read_sig => read_sig,
       send_R_sig => send_R_sig,
+      send_R_type => send_R_type,
       target_R => target_R,
       write_data => write_data,
       write_mem_data => write_mem_data,
       heap_addr => heap_counter,
+      send_fcc => fcc_return,
       R_sig => mem_to_R_sig_return_base,
+      R_type => mem_to_R_type_base,
       R_num => mem_to_R_pointer_base,
       data_out => mem_to_R_base,
       systemcall => sys_call_act,
@@ -509,6 +652,9 @@ begin
   mem_to_R_sig_return <= '1' when set_R_sig(1) = '1' else
                          mem_to_R_sig_return_base;
 
+  mem_to_R_type <= '0' when set_R_sig(1) = '1' else
+                   mem_to_R_type_base;
+
   mem_to_R_pointer <= "111" & set_R_sig when set_R_sig(1) = '1' else
                       mem_to_R_pointer_base;
   
@@ -518,38 +664,70 @@ begin
 
   return_sys <= sys_ans_data;
 
-  full_tran <= r0_data when print_regs = "00000" else
-               r1_data when print_regs = "00001" else
-               r2_data when print_regs = "00010" else
-               r3_data when print_regs = "00011" else
-               r4_data when print_regs = "00100" else
-               r5_data when print_regs = "00101" else
-               r6_data when print_regs = "00110" else
-               r7_data when print_regs = "00111" else
-               r8_data when print_regs = "01000" else
-               r9_data when print_regs = "01001" else
-               r10_data when print_regs = "01010" else
-               r11_data when print_regs = "01011" else
-               r12_data when print_regs = "01100" else
-               r13_data when print_regs = "01101" else
-               r14_data when print_regs = "01110" else
-               r15_data when print_regs = "01111" else
-               r16_data when print_regs = "10000" else
-               r17_data when print_regs = "10001" else
-               r18_data when print_regs = "10010" else
-               r19_data when print_regs = "10011" else
-               r20_data when print_regs = "10100" else
-               r21_data when print_regs = "10101" else
-               r22_data when print_regs = "10110" else
-               r23_data when print_regs = "10111" else
-               r24_data when print_regs = "11000" else
-               r25_data when print_regs = "11001" else
-               r26_data when print_regs = "11010" else
-               r27_data when print_regs = "11011" else
-               r28_data when print_regs = "11100" else
-               r29_data when print_regs = "11101" else
-               r30_data when print_regs = "11110" else
-               r31_data;
+  full_tran <= r0_data when print_regs = "000000" else
+               r1_data when print_regs = "000001" else
+               r2_data when print_regs = "000010" else
+               r3_data when print_regs = "000011" else
+               r4_data when print_regs = "000100" else
+               r5_data when print_regs = "000101" else
+               r6_data when print_regs = "000110" else
+               r7_data when print_regs = "000111" else
+               r8_data when print_regs = "001000" else
+               r9_data when print_regs = "001001" else
+               r10_data when print_regs = "001010" else
+               r11_data when print_regs = "001011" else
+               r12_data when print_regs = "001100" else
+               r13_data when print_regs = "001101" else
+               r14_data when print_regs = "001110" else
+               r15_data when print_regs = "001111" else
+               r16_data when print_regs = "010000" else
+               r17_data when print_regs = "010001" else
+               r18_data when print_regs = "010010" else
+               r19_data when print_regs = "010011" else
+               r20_data when print_regs = "010100" else
+               r21_data when print_regs = "010101" else
+               r22_data when print_regs = "010110" else
+               r23_data when print_regs = "010111" else
+               r24_data when print_regs = "011000" else
+               r25_data when print_regs = "011001" else
+               r26_data when print_regs = "011010" else
+               r27_data when print_regs = "011011" else
+               r28_data when print_regs = "011100" else
+               r29_data when print_regs = "011101" else
+               r30_data when print_regs = "011110" else
+               r31_data when print_regs = "011111" else
+               f0_data when print_regs = "100000" else
+               f1_data when print_regs = "100001" else
+               f2_data when print_regs = "100010" else
+               f3_data when print_regs = "100011" else
+               f4_data when print_regs = "100100" else
+               f5_data when print_regs = "100101" else
+               f6_data when print_regs = "100110" else
+               f7_data when print_regs = "100111" else
+               f8_data when print_regs = "101000" else
+               f9_data when print_regs = "101001" else
+               f10_data when print_regs = "101010" else
+               f11_data when print_regs = "101011" else
+               f12_data when print_regs = "101100" else
+               f13_data when print_regs = "101101" else
+               f14_data when print_regs = "101110" else
+               f15_data when print_regs = "101111" else
+               f16_data when print_regs = "110000" else
+               f17_data when print_regs = "110001" else
+               f18_data when print_regs = "110010" else
+               f19_data when print_regs = "110011" else
+               f20_data when print_regs = "110100" else
+               f21_data when print_regs = "110101" else
+               f22_data when print_regs = "110110" else
+               f23_data when print_regs = "110111" else
+               f24_data when print_regs = "111000" else
+               f25_data when print_regs = "111001" else
+               f26_data when print_regs = "111010" else
+               f27_data when print_regs = "111011" else
+               f28_data when print_regs = "111100" else
+               f29_data when print_regs = "111101" else
+               f30_data when print_regs = "111110" else
+               f31_data;
 
   siki_process: process(clk)
   begin
@@ -690,7 +868,7 @@ begin
             top_state <= "11001";
             return_state <= "01110";
             if sys_call_stat = "01" then --systemcall print char: set register r4
-              print_regs <= "00100";
+              print_regs <= "000100";
             end if;
           end if;
           if state = "11" then
@@ -709,7 +887,7 @@ begin
                 sys_check <= '0';
               end if;
             end if;
-            print_regs <= "00000";
+            print_regs <= "000000";
             if set_R_sig /= "00" then
               set_R_sig <= set_R_sig + "01";
             end if;
@@ -723,7 +901,7 @@ begin
             top_state <= "11001";
             return_state <= "01111";
             if sys_call_stat = "01" then
-              print_regs <= "00100";
+              print_regs <= "000100";
             end if;
           end if;
           if state = "11" then
@@ -739,7 +917,7 @@ begin
                 sys_check <= '0';
               end if;
             end if;
-            print_regs <= "00000";
+            print_regs <= "000000";
           end if;
           state <= state + "01";
         when "10000" => --halt instruction is at ID
@@ -750,7 +928,7 @@ begin
             top_state <= "11001";
             return_state <= "10000";
             if sys_call_stat = "01" then
-              print_regs <= "00100";
+              print_regs <= "000100";
             end if;
           end if;
           if state = "11" then
@@ -766,7 +944,7 @@ begin
                 sys_check <= '0';
               end if;
             end if;
-            print_regs <= "00000";
+            print_regs <= "000000";
           end if;
           state <= state + "01";
         when "10001" => --halt instruction is at ALU
@@ -777,7 +955,7 @@ begin
             top_state <= "11001";
             return_state <= "10001";
             if sys_call_stat = "01" then
-              print_regs <= "00100";
+              print_regs <= "000100";
             end if;
           end if;
           if state = "11" then
@@ -794,7 +972,7 @@ begin
               end if;
             end if;
             sys_check <= '0';
-            print_regs <= "00000";
+            print_regs <= "000000";
           end if;
           state <= state + "01";
         when "10010" => --halt instruction is at MEM
@@ -805,7 +983,7 @@ begin
             top_state <= "11001";
             return_state <= "10010";
             if sys_call_stat = "01" then
-              print_regs <= "00100";
+              print_regs <= "000100";
             end if;
           end if;
           if state = "11" then
@@ -821,7 +999,7 @@ begin
                 sys_check <= '0';
               end if;
             end if;
-            print_regs <= "00000";
+            print_regs <= "000000";
           end if;
           state <= state + "01";
         when "10011" => --halt instruction is at WR(Writing Register)
@@ -855,14 +1033,14 @@ begin
           end if;
         when "10111" =>
           if check_tx = '0' then
-            if print_regs = "11111" then
+            if print_regs = "111111" then
               top_state <= "11000";
             else
               top_state <= "10011";
             end if;
             tx_go <= '1';
             byte_tran <= full_tran(7 downto 0);
-            print_regs <= print_regs + "00001";
+            print_regs <= print_regs + "000001";
           else
             tx_go <= '0';
           end if;  
@@ -888,7 +1066,7 @@ begin
               rd_en <= '1';
             elsif sys_check_sub = '1' then
               top_state <= return_state;
-              sys_ans_data <= x"777777" & fifo_out;
+              sys_ans_data <= x"000000" & fifo_out;
               sys_check <= '1';
               sys_check_sub <= '0';
               rd_en <= '0';

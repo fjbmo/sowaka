@@ -4,7 +4,7 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 entity tx is
   generic(
-    wtime : std_logic_vector(15 downto 0) := x"1B16"); -- for CLK:66MHz Baudrate:9600bps
+    wtime : std_logic_vector(15 downto 0)); -- for CLK:66MHz Baudrate:9600bps
   port(
     clk    : in std_logic;
     go     : in std_logic;

@@ -12,15 +12,19 @@ entity mem is
     type_of_sys     : in std_logic_vector(1 downto 0); --will use this type of syscall
     return_sys      : in std_logic_vector(31 downto 0); --data returned from top
     load_heap_sig   : in std_logic; --load data to mem in reading instruction phase
-    load_heap_data  : in std_logic_vector(31 downto 0); -- data to load from file
+    load_heap_data  : in std_logic_vector(31 downto 0); --data to load from file
+    received_fcc    : in std_logic_vector(7 downto 0); --new fcc from ALU
  	write_sig       : in std_logic;
     read_sig        : in std_logic;
     send_R_sig      : in std_logic; --write data to R
+    send_R_type     : in std_logic; --write data to GPR when 0 and FPR when 1    
     target_R        : in std_logic_vector(4 downto 0); --write data to this R
     write_data      : in std_logic_vector(31 downto 0); --data for register(or address)
     write_mem_data  : in std_logic_vector(31 downto 0); --data for memory
     heap_addr       : out std_logic_vector(19 downto 0); --set $hp with this address
+    send_fcc        : out std_logic_vector(7 downto 0);
     R_sig           : out std_logic; --write register
+    R_type          : out std_logic; --write to GPR when 0 and FPR when 1
     R_num           : out std_logic_vector(4 downto 0); --write to this register
     data_out        : out std_logic_vector(31 downto 0);
     systemcall      : out std_logic; --call top for systemcall execution
@@ -43,22 +47,26 @@ entity mem is
 end mem;
 
 architecture mem of mem is
-  signal R_sig_buf       : std_logic := '0';
-  signal R_num_buf       : std_logic_vector(4 downto 0) := "00000";
-  signal data_out_buf    : std_logic_vector(31 downto 0) := x"00000000";
-  signal data_out_sub    : std_logic_vector(31 downto 0) := x"00000000";
+  signal send_fcc_buf : std_logic_vector(7 downto 0) := "00000000";
+  signal R_sig_buf    : std_logic := '0';
+  signal R_type_buf   : std_logic := '0';
+  signal R_num_buf    : std_logic_vector(4 downto 0) := "00000";
+  signal data_out_buf : std_logic_vector(31 downto 0) := x"00000000";
+  signal data_out_sub : std_logic_vector(31 downto 0) := x"00000000";
 
   signal write_counter : std_logic_vector(1 downto 0) := "00"; --sequential mode state(write on memory only when store instruction first came)
   signal mem_read      : std_logic_vector(31 downto 0) := x"00000000"; 
 
   signal load_heap_stat       : std_logic_vector(1 downto 0) := "00";
-  signal load_heap_addr       : std_logic_vector(19 downto 0) := x"10000";
+  signal load_heap_addr       : std_logic_vector(19 downto 0) := x"00000";
   signal load_heap_data_store : std_logic_vector(31 downto 0) := x"00000000"; --1st buf
   signal load_heap_data_save  : std_logic_vector(31 downto 0) := x"00000000"; --2nd buf
 
 begin
   heap_addr <= load_heap_addr;
+  send_fcc <= send_fcc_buf;
   R_sig <= R_sig_buf;
+  R_type <= R_type_buf;
   R_num <= R_num_buf;
   data_out <= data_out_buf;
   data_out_sub <= mem_read when read_sig = '1' else
@@ -104,7 +112,9 @@ begin
           when "00" | "01" | "10" =>
             null;
           when "11" =>
+            send_fcc_buf <= received_fcc;
             R_sig_buf <= send_R_sig;
+            R_type_buf <= send_R_type;
             R_num_buf <= target_R;
             if use_systemcall = '1' then
               data_out_buf <= return_sys;
