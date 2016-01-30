@@ -55,8 +55,8 @@ architecture testbench of SIKI_testbench is
   type table is array(0 to 11) of std_logic_vector(31 downto 0);
   constant testtable : table := (
    x"3f000070", x"01000000", x"01000120", x"02000220", x"03000320",
-   x"04000420", x"05000520", x"06000620", x"07000720", x"08000820",
-   x"09000920", x"ffffffff");
+   x"04000420", x"05000520", x"06000620", x"07000720", x"00608544",
+   x"00600244", x"ffffffff");
   signal simclk : std_logic := '0';
   signal count : std_logic_vector (4 downto 0) := "00000";
   signal instr : std_logic_vector (31 downto 0);

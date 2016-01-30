@@ -420,7 +420,7 @@ architecture siki of siki is
   --system controll
   signal pipeline_mode   : std_logic := '0'; --activate pipeline mode when '1' and activate sequential mode when '0'
   signal endianness_mode : std_logic := '0'; --little-endian mode when '0' and big-endian mode when '1'
-  signal step_counter    : std_logic_vector(31 downto 0) := x"6f9865c2"; --stop when x steps were done(default is x"ffffffff": cannot pass x"00000000")
+  signal step_counter    : std_logic_vector(31 downto 0) := x"ffffffff"; --stop when x steps were done(default is x"ffffffff": cannot pass x"00000000")
 
 begin
   ib: IBUFG --(original: existed)

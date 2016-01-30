@@ -565,12 +565,12 @@ begin
                      "0111" when (head = "010001" and rs_pointer = "01000" and cc_nd_tf_set(0) = '0') else -- fcc[cc] = 0
                      "1111";
 
-  fcc_sig_sub <= '1' when (head = "010001" and tail(5 downto 4) = "11") else
+  fcc_sig_sub <= '1' when (head = "010001" and rs_pointer = "10000" and tail(5 downto 4) = "11") else
                  '0';
 
-  fcc_comp_sub <= "01" when (head = "010001" and tail = "110010") else
-                  "10" when (head = "010001" and tail = "110100") else
-                  "11" when (head = "010001" and tail = "110110") else
+  fcc_comp_sub <= "01" when (head = "010001" and rs_pointer = "10000" and tail = "110010") else
+                  "10" when (head = "010001" and rs_pointer = "10000" and tail = "110100") else
+                  "11" when (head = "010001" and rs_pointer = "10000" and tail = "110110") else
                   "00";
   
   fcc_pointer_sub <= cc_nd_tf_set(4 downto 2);
@@ -600,14 +600,14 @@ begin
                                (head = "000000" and tail = "000000") or
                                (head = "000000" and tail = "000010") or
                                (head = "000000" and tail = "000100") or
-                               (head = "010001" and tail = "000000") or
-                               (head = "010001" and tail = "000001") or
-                               (head = "010001" and tail = "000010") or
-                               (head = "010001" and tail = "000011") or
-                               (head = "010001" and tail = "000100") or
-                               (head = "010001" and tail = "000111") or
-                               (head = "010001" and tail = "100000") or
-                               (head = "010001" and tail = "001101") or
+                               (head = "010001" and rs_pointer = "10000" and tail = "000000") or
+                               (head = "010001" and rs_pointer = "10000" and tail = "000001") or
+                               (head = "010001" and rs_pointer = "10000" and tail = "000010") or
+                               (head = "010001" and rs_pointer = "10000" and tail = "000011") or
+                               (head = "010001" and rs_pointer = "10000" and tail = "000100") or
+                               (head = "010001" and rs_pointer = "10000" and tail = "000111") or
+                               (head = "010001" and rs_pointer = "10000" and tail = "100000") or
+                               (head = "010001" and rs_pointer = "10000" and tail = "001101") or
                                head = "001000" or
                                head = "001001" or
                                head = "000011" or
@@ -619,20 +619,20 @@ begin
                                head = "110001" or
                                (head = "010001" and rs_pointer = "00000") or
                                (head = "010001" and rs_pointer = "00100") or
-                               (head = "010001" and tail = "000110") else
+                               (head = "010001" and rs_pointer = "10000" and tail = "000110") else
                       '0';
 
-  data_R_type_sub <= '1' when (head = "010001" and tail = "000000") or
-                              (head = "010001" and tail = "000001") or
-                              (head = "010001" and tail = "000010") or
-                              (head = "010001" and tail = "000011") or
-                              (head = "010001" and tail = "000100") or
-                              (head = "010001" and tail = "000111") or
-                              (head = "010001" and tail = "100000") or
-                              (head = "010001" and tail = "001101") or
+  data_R_type_sub <= '1' when (head = "010001" and rs_pointer = "10000" and tail = "000000") or
+                              (head = "010001" and rs_pointer = "10000" and tail = "000001") or
+                              (head = "010001" and rs_pointer = "10000" and tail = "000010") or
+                              (head = "010001" and rs_pointer = "10000" and tail = "000011") or
+                              (head = "010001" and rs_pointer = "10000" and tail = "000100") or
+                              (head = "010001" and rs_pointer = "10000" and tail = "000111") or
+                              (head = "010001" and rs_pointer = "10000" and tail = "100000") or
+                              (head = "010001" and rs_pointer = "10000" and tail = "001101") or
                               head = "110001" or
                               (head = "010001" and rs_pointer = "00100") or
-                              (head = "010001" and tail = "000110") else
+                              (head = "010001" and rs_pointer = "10000" and tail = "000110") else
                      '0';
 
   write_data_R_sub <= rd_pointer when (head = "000000" and tail = "100000") or
@@ -653,15 +653,15 @@ begin
                                       head = "100011" or
                                       (head = "010001" and rs_pointer = "00000") else
                       fs_pointer when (head = "010001" and rs_pointer = "00100") else
-                      fd_pointer when (head = "010001" and tail = "000000") or
-                                      (head = "010001" and tail = "000001") or
-                                      (head = "010001" and tail = "000010") or
-                                      (head = "010001" and tail = "000011") or
-                                      (head = "010001" and tail = "000100") or
-                                      (head = "010001" and tail = "000111") or
-                                      (head = "010001" and tail = "100000") or
-                                      (head = "010001" and tail = "001101") or
-                                      (head = "010001" and tail = "000110") else
+                      fd_pointer when (head = "010001" and rs_pointer = "10000" and tail = "000000") or
+                                      (head = "010001" and rs_pointer = "10000" and tail = "000001") or
+                                      (head = "010001" and rs_pointer = "10000" and tail = "000010") or
+                                      (head = "010001" and rs_pointer = "10000" and tail = "000011") or
+                                      (head = "010001" and rs_pointer = "10000" and tail = "000100") or
+                                      (head = "010001" and rs_pointer = "10000" and tail = "000111") or
+                                      (head = "010001" and rs_pointer = "10000" and tail = "100000") or
+                                      (head = "010001" and rs_pointer = "10000" and tail = "001101") or
+                                      (head = "010001" and rs_pointer = "10000" and tail = "000110") else
                       ft_pointer when head = "110001" else
                       "00010" when (sys_sig_sub = '1' and sys_type_sub = "10") else
                       "11111" when head = "000011" else
@@ -706,17 +706,17 @@ begin
                         (head = "000000" and tail = "000010") or
                         (head = "000000" and tail = "000100") or
                         (head = "010001" and rs_pointer = "00100") else
-                fs when (head = "010001" and tail = "000000") or
-                        (head = "010001" and tail = "000001") or
-                        (head = "010001" and tail = "000010") or
-                        (head = "010001" and tail = "000011") or
-                        (head = "010001" and tail = "000100") or
-                        (head = "010001" and tail = "000111") or
-                        (head = "010001" and tail = "100000") or
-                        (head = "010001" and tail = "001101") or
-                        (head = "010001" and tail(5 downto 4) = "11") or
+                fs when (head = "010001" and rs_pointer = "10000" and tail = "000000") or
+                        (head = "010001" and rs_pointer = "10000" and tail = "000001") or
+                        (head = "010001" and rs_pointer = "10000" and tail = "000010") or
+                        (head = "010001" and rs_pointer = "10000" and tail = "000011") or
+                        (head = "010001" and rs_pointer = "10000" and tail = "000100") or
+                        (head = "010001" and rs_pointer = "10000" and tail = "000111") or
+                        (head = "010001" and rs_pointer = "10000" and tail = "100000") or
+                        (head = "010001" and rs_pointer = "10000" and tail = "001101") or
+                        (head = "010001" and rs_pointer = "10000" and tail(5 downto 4) = "11") or
                         (head = "010001" and rs_pointer = "00000") or
-                        (head = "010001" and tail = "000110") else
+                        (head = "010001" and rs_pointer = "10000" and tail = "000110") else
                 x"0000" & write_PC when head = "000011" or
                                         (head = "000000" and tail = "001001") else
                 x"000" & code when (sys_sig_sub = '1' and sys_type_sub = "10") else
@@ -731,22 +731,21 @@ begin
                         (head = "000000" and tail = "100110") or
                         head = "000100" or
                         head = "000101" else
-                ft when (head = "010001" and tail = "000000") or
-                        (head = "010001" and tail = "000001") or
-                        (head = "010001" and tail = "000010") or
-                        (head = "010001" and tail(5 downto 4) = "11") else
+                ft when (head = "010001" and rs_pointer = "10000" and tail = "000000") or
+                        (head = "010001" and rs_pointer = "10000" and tail = "000001") or
+                        (head = "010001" and rs_pointer = "10000" and tail = "000010") or
+                        (head = "010001" and rs_pointer = "10000" and tail(5 downto 4) = "11") else
                 x"000000" & "000" & sa when (head = "000000" and tail = "000000") or
                                             (head = "000000" and tail = "000010") else
                 x"0000" & offset when (head = "001000" and offset(15) = '0') or
                                       (head = "001001" and offset(15) = '0') or
-                                      (head = "001101" and offset(15) = '0') or
+                                      head = "001101" or
                                       (head = "101011" and offset(15) = '0') or
                                       (head = "100011" and offset(15) = '0') or
                                       (head = "111001" and offset(15) = '0') or
                                       (head = "110001" and offset(15) = '0') else
                 x"ffff" & offset when (head = "001000" and offset(15) = '1') or
                                       (head = "001001" and offset(15) = '1') or
-                                      (head = "001101" and offset(15) = '1') or
                                       (head = "101011" and offset(15) = '1') or
                                       (head = "100011" and offset(15) = '1') or
                                       (head = "111001" and offset(15) = '1') or
@@ -766,7 +765,7 @@ begin
                                  head = "001111" or -- no processing
                                  (head = "010001" and rs_pointer = "00000") or
                                  (head = "010001" and rs_pointer = "00100") or
-                                 (head = "010001" and tail = "000110") else
+                                 (head = "010001" and rs_pointer = "10000" and tail = "000110") else
                      "00010" when (head = "000000" and tail = "100110") else -- XOR
                      "00100" when (head = "000000" and tail = "100000") or -- +
                                  head = "001000" or
@@ -782,14 +781,14 @@ begin
                                  (head = "000000" and tail = "000100") else -- <<
                      "00111" when (head = "000000" and tail = "000010") else -- >>
                      "01000" when (head = "000000" and tail = "101010") else -- <
-                     "01001" when (head = "010001" and tail = "000000") else -- fadd
-                     "01010" when (head = "010001" and tail = "000001") else -- fsub
-                     "01011" when (head = "010001" and tail = "000010") else -- fmul
-                     "01100" when (head = "010001" and tail = "000011") else -- finv
-                     "01101" when (head = "010001" and tail = "000100") else -- fsqrt
-                     "01110" when (head = "010001" and tail = "000111") else -- fneg
-                     "01111" when (head = "010001" and tail = "100000") else -- itof
-                     "10000" when (head = "010001" and tail = "001101") else -- ftoi
+                     "01001" when (head = "010001" and rs_pointer = "10000" and tail = "000000") else -- fadd
+                     "01010" when (head = "010001" and rs_pointer = "10000" and tail = "000001") else -- fsub
+                     "01011" when (head = "010001" and rs_pointer = "10000" and tail = "000010") else -- fmul
+                     "01100" when (head = "010001" and rs_pointer = "10000" and tail = "000011") else -- finv
+                     "01101" when (head = "010001" and rs_pointer = "10000" and tail = "000100") else -- fsqrt
+                     "01110" when (head = "010001" and rs_pointer = "10000" and tail = "000111") else -- fneg
+                     "01111" when (head = "010001" and rs_pointer = "10000" and tail = "100000") else -- itof
+                     "10000" when (head = "010001" and rs_pointer = "10000" and tail = "001101") else -- ftoi
                      "11111";
 
   r0_sub <= mem_to_R when mem_to_R_sig_return = '1' and mem_to_R_type = '0' and mem_to_R_pointer = "00000" else
