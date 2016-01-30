@@ -6,6 +6,10 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 library UNISIM;
 use UNISIM.VComponents.all;
 
+library WORK;
+use WORK.fadd_p.all;
+use WORK.fmul_p.all;
+
 entity ALU is
   Port(
     clk            : in std_logic;
@@ -21,7 +25,6 @@ entity ALU is
     check_jump     : in std_logic;
     store_sig      : in std_logic; --pass to mem
     load_sig       : in std_logic; --pass to mem
-    write_mem_sig  : in std_logic; --write to mem
     write_R_sig    : in std_logic; --write to register
     write_R_type   : in std_logic; --write to GPR when 0 and FPR when 1
     write_R        : in std_logic_vector(4 downto 0); --write to this register
@@ -60,9 +63,27 @@ architecture ALU of ALU is
       S : out std_logic_vector(31 downto 0)); --ans
   end component;
 
-  component fneg
+  component finv
     port(
-      A : in std_logic_vector(31 downto 0); --data_1
+      A : in std_logic_vector(31 downto 0); --data
+      S : out std_logic_vector(31 downto 0)); --ans
+  end component;
+
+  component fsqrt
+    port(
+      A : in std_logic_vector(31 downto 0); --data
+      S : out std_logic_vector(31 downto 0)); --ans
+  end component;
+
+  component itof
+    port(
+      A : in std_logic_vector(31 downto 0); --data
+      S : out std_logic_vector(31 downto 0)); --ans
+  end component;
+
+  component ftoi
+    port(
+      A : in std_logic_vector(31 downto 0); --data
       S : out std_logic_vector(31 downto 0)); --ans
   end component;
 
@@ -84,8 +105,14 @@ architecture ALU of ALU is
   signal fmul_data_1 : std_logic_vector(31 downto 0) := x"00000000";
   signal fmul_data_2 : std_logic_vector(31 downto 0) := x"00000000";
   signal fmul_ans    : std_logic_vector(31 downto 0) := x"00000000";
-  signal fneg_data   : std_logic_vector(31 downto 0) := x"00000000";
-  signal fneg_ans    : std_logic_vector(31 downto 0) := x"00000000";
+  signal finv_data   : std_logic_vector(31 downto 0) := x"00000000";
+  signal finv_ans    : std_logic_vector(31 downto 0) := x"00000000";
+  signal fsqrt_data  : std_logic_vector(31 downto 0) := x"00000000";
+  signal fsqrt_ans   : std_logic_vector(31 downto 0) := x"00000000";
+  signal itof_data   : std_logic_vector(31 downto 0) := x"00000000";
+  signal itof_ans    : std_logic_vector(31 downto 0) := x"00000000";
+  signal ftoi_data   : std_logic_vector(31 downto 0) := x"00000000";
+  signal ftoi_ans    : std_logic_vector(31 downto 0) := x"00000000";
 
   signal check_eq   : std_logic := '0'; --check =
   signal check_gtz  : std_logic := '0'; --check > with 0
@@ -117,10 +144,22 @@ begin
       A => fmul_data_1,
       B => fmul_data_2,
       S => fmul_ans);
-  ALU_FNEG: fneg
+  ALU_FINV: finv
     port map(
-      A => fneg_data,
-      S => fneg_ans);
+      A => finv_data,
+      S => finv_ans);
+  ALU_FSQRT: fsqrt
+    port map(
+      A => fsqrt_data,
+      S => fsqrt_ans);
+  ALU_ITOF: itof
+    port map(
+      A => itof_data,
+      S => itof_ans);
+  ALU_FTOI: ftoi
+    port map(
+      A => ftoi_data,
+      S => ftoi_ans);
 
   sys_activate <= sys_activate_buf;
   sys_act_type <= sys_act_type_buf;
@@ -134,19 +173,30 @@ begin
   output <= output_buf;
   mem_data <= mem_data_buf;
 
-  fadd_data_1 <= input_1 when calcu_type = "01001" else
+  fadd_data_1 <= input_1 when calcu_type = "01001" or
+                              calcu_type = "01010" else
                  x"00000000";
 
   fadd_data_2 <= input_2 when calcu_type = "01001" else
+                 input_2 xor x"80000000" when calcu_type = "01010" else
                  x"00000000";
 
-  fmul_data_1 <= input_1 when calcu_type = "01010" else
+  fmul_data_1 <= input_1 when calcu_type = "01011" else
                  x"00000000";
 
-  fmul_data_2 <= input_2 when calcu_type = "01010" else
+  fmul_data_2 <= input_2 when calcu_type = "01011" else
                  x"00000000";
 
-  fneg_data <= input_1 when calcu_type = "01101" else
+  finv_data <= input_1 when calcu_type = "01100" else
+               x"00000000";
+
+  fsqrt_data <= input_1 when calcu_type = "01101" else
+                x"00000000";
+
+  itof_data <= input_1 when calcu_type = "01111" else
+               x"00000000";
+
+  ftoi_data <= input_1 when calcu_type = "10000" else
                x"00000000";
 
   check_eq <= '1' when data_xor = x"00000000" else
@@ -332,9 +382,14 @@ begin
                 sll_data when calcu_type = "00110" else
                 slr_data when calcu_type = "00111" else
                 x"00000001" when calcu_type = "01000" and input_1 < input_2 else
-                fadd_ans when calcu_type = "01001" else
-                fmul_ans when calcu_type = "01010" else
-                fneg_ans when calcu_type = "01101" else
+                fadd_ans when calcu_type = "01001" or
+                              calcu_type = "01010" else -- fsub_ans
+                fmul_ans when calcu_type = "01011" else
+                finv_ans when calcu_type = "01100" else
+                fsqrt_ans when calcu_type = "01101" else
+                input_1 xor x"80000000" when calcu_type = "01110" else
+                itof_ans when calcu_type = "01111" else
+                ftoi_ans when calcu_type = "10000" else
                 x"00000000";
 
   comp_exp <= "00" when input_1(30 downto 23) = input_2(30 downto 23) else

@@ -98,7 +98,6 @@ architecture siki of siki is
       jump_instr          : out std_logic;
       store_instr         : out std_logic;
       load_instr          : out std_logic;
-      mem_write           : out std_logic;
       mem_to_R_sig        : out std_logic;
       data_R_type         : out std_logic;
       write_data_R        : out std_logic_vector(4 downto 0);
@@ -190,7 +189,6 @@ architecture siki of siki is
       check_jump     : in std_logic;
       store_sig      : in std_logic;
       load_sig       : in std_logic;
-      write_mem_sig  : in std_logic;
       write_R_sig    : in std_logic;
       write_R_type   : in std_logic;
       write_R        : in std_logic_vector(4 downto 0);
@@ -288,6 +286,8 @@ architecture siki of siki is
   signal set_R_sig      : std_logic_vector(1 downto 0) := "00"; --set r30(=$hp), r31(=$ra) with address of the last instruction
   signal exec_counter   : std_logic_vector(15 downto 0) := x"ffff"; --count instruction and set r31(=$ra) with this
   signal print_regs     : std_logic_vector(5 downto 0) := "000000"; --print registers
+  signal print_instr    : std_logic_vector(31 downto 0) := x"00000000"; --print next instruction(unsupported)
+  signal step_cont      : std_logic_vector(1 downto 0) := "00"; --controll step_counter
   signal sys_call_act   : std_logic := '0'; --begin systemcall
   signal sys_call_stat  : std_logic_vector(1 downto 0) := "00"; --sys_call type
   signal sys_ans_data   : std_logic_vector(31 downto 0) := x"00000000"; --result of syscall
@@ -384,7 +384,6 @@ architecture siki of siki is
   signal check_jump    : std_logic := '0';
   signal store_sig     : std_logic := '0';
   signal load_sig      : std_logic := '0';
-  signal write_mem_sig : std_logic := '0';
   signal write_R_sig   : std_logic := '0';
   signal write_R_type  : std_logic := '0';
   signal write_R       : std_logic_vector(4 downto 0) := "00000";
@@ -421,9 +420,10 @@ architecture siki of siki is
   --system controll
   signal pipeline_mode   : std_logic := '0'; --activate pipeline mode when '1' and activate sequential mode when '0'
   signal endianness_mode : std_logic := '0'; --little-endian mode when '0' and big-endian mode when '1'
+  signal step_counter    : std_logic_vector(31 downto 0) := x"6f9865c2"; --stop when x steps were done(default is x"ffffffff": cannot pass x"00000000")
 
 begin
-  ib: IBUFG
+  ib: IBUFG --(original: existed)
     port map(
       i => MCLK1,
       o => iclk);
@@ -493,7 +493,6 @@ begin
       jump_instr => check_jump,
       store_instr => store_sig,
       load_instr => load_sig,
-      mem_write => write_mem_sig,
       mem_to_R_sig => write_R_sig,
       data_R_type => write_R_type,
       write_data_R => write_R,
@@ -583,7 +582,6 @@ begin
       check_jump => check_jump,
       store_sig => store_sig,
       load_sig => load_sig,
-      write_mem_sig => write_mem_sig,
       write_R_sig => write_R_sig,
       write_R_type => write_R_type,
       write_R => write_R,
@@ -859,13 +857,15 @@ begin
           byte_tran <= x"aa";
           activate_fifo <= '1';
           set_R_sig <= "10";
+--          step_counter <= step_counter + x"00000002"; --adjusting
         when "01110" =>  --execute instruction
           tx_go <= '0';
-          if instr = x"ffffffff" and state = "00" then
+          if (instr = x"ffffffff" or step_counter = x"00000000") and state = "00" then
+            print_instr <= instr;
             top_state <= "01111";
           end if;
           if sys_call_act = '1' and sys_check = '0' and support_seq = "00" then --activate systemcall
-            top_state <= "11001";
+            top_state <= "11000";
             return_state <= "01110";
             if sys_call_stat = "01" then --systemcall print char: set register r4
               print_regs <= "000100";
@@ -891,14 +891,20 @@ begin
             if set_R_sig /= "00" then
               set_R_sig <= set_R_sig + "01";
             end if;
+            if step_cont = "00" then
+              step_cont <= "10";
+              step_counter <= step_counter - x"00000001";
+            else
+              step_cont <= step_cont - "01";
+            end if;
           end if;
           state <= state + "01";
-        when "01111" => --halt instruction is at IFE
+        when "01111" => --halt instruction is at ID
           if state = "00" then
             top_state <= "10000";
           end if;
           if sys_call_act = '1' and sys_check = '0' and support_seq = "00" then
-            top_state <= "11001";
+            top_state <= "11000";
             return_state <= "01111";
             if sys_call_stat = "01" then
               print_regs <= "000100";
@@ -920,40 +926,13 @@ begin
             print_regs <= "000000";
           end if;
           state <= state + "01";
-        when "10000" => --halt instruction is at ID
+        when "10000" => --halt instruction is at ALU
           if state = "00" then
             top_state <= "10001";
           end if;
           if sys_call_act = '1' and sys_check = '0' and support_seq = "00" then
-            top_state <= "11001";
+            top_state <= "11000";
             return_state <= "10000";
-            if sys_call_stat = "01" then
-              print_regs <= "000100";
-            end if;
-          end if;
-          if state = "11" then
-            if sys_call_act = '1' and sys_check = '1' then
-              if support_seq = "00" and pipeline_mode = '0' then
-                support_seq <= "01";
-              elsif support_seq = "01" then
-                support_seq <= "10";
-              elsif support_seq = "10" then
-                support_seq <= "00";
-                sys_check <= '0';
-              else
-                sys_check <= '0';
-              end if;
-            end if;
-            print_regs <= "000000";
-          end if;
-          state <= state + "01";
-        when "10001" => --halt instruction is at ALU
-          if state = "00" then
-            top_state <= "10010";
-          end if;
-          if sys_call_act = '1' and sys_check = '0' and support_seq = "00" then
-            top_state <= "11001";
-            return_state <= "10001";
             if sys_call_stat = "01" then
               print_regs <= "000100";
             end if;
@@ -975,13 +954,13 @@ begin
             print_regs <= "000000";
           end if;
           state <= state + "01";
-        when "10010" => --halt instruction is at MEM
+        when "10001" => --halt instruction is at MEM
           if state = "00" then
-            top_state <= "10011";
+            top_state <= "10010";
           end if;
           if sys_call_act = '1' and sys_check = '0' and support_seq = "00" then
-            top_state <= "11001";
-            return_state <= "10010";
+            top_state <= "11000";
+            return_state <= "10001";
             if sys_call_stat = "01" then
               print_regs <= "000100";
             end if;
@@ -1002,16 +981,24 @@ begin
             print_regs <= "000000";
           end if;
           state <= state + "01";
-        when "10011" => --halt instruction is at WR(Writing Register)
+        when "10010" => --halt instruction is at WR(Writing Register)
           if state = "00" then
-            top_state <= "10100";
+            top_state <= "10011";
           end if;
           state <= state + "01";
-        when "10100" => --print register
+        when "10011" => --print register
+          if check_tx = '0' then
+            top_state <= "10100";
+            tx_go <= '1';
+            byte_tran <= full_tran(31 downto 24);
+          else
+            tx_go <= '0';
+          end if;
+        when "10100" =>
           if check_tx = '0' then
             top_state <= "10101";
             tx_go <= '1';
-            byte_tran <= full_tran(31 downto 24);
+            byte_tran <= full_tran(23 downto 16);
           else
             tx_go <= '0';
           end if;
@@ -1019,22 +1006,14 @@ begin
           if check_tx = '0' then
             top_state <= "10110";
             tx_go <= '1';
-            byte_tran <= full_tran(23 downto 16);
+            byte_tran <= full_tran(15 downto 8);
           else
             tx_go <= '0';
           end if;
         when "10110" =>
           if check_tx = '0' then
-            top_state <= "10111";
-            tx_go <= '1';
-            byte_tran <= full_tran(15 downto 8);
-          else
-            tx_go <= '0';
-          end if;
-        when "10111" =>
-          if check_tx = '0' then
             if print_regs = "111111" then
-              top_state <= "11000";
+              top_state <= "10111";
             else
               top_state <= "10011";
             end if;
@@ -1044,9 +1023,9 @@ begin
           else
             tx_go <= '0';
           end if;  
-        when "11000" => --end state
+        when "10111" => --end state
           tx_go <= '0';
-        when "11001" =>
+        when "11000" =>
           if sys_call_stat = "01" then --special state sys_call:print character v0(=r2) = x"0000000b" || print a0(=r4)(7 downto 0)
             if sys_check_sub = '0' and check_tx = '0' then
               sys_check_sub <= '1';
