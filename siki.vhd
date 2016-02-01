@@ -421,6 +421,7 @@ architecture siki of siki is
   signal pipeline_mode   : std_logic := '0'; --activate pipeline mode when '1' and activate sequential mode when '0'
   signal endianness_mode : std_logic := '0'; --little-endian mode when '0' and big-endian mode when '1'
   signal step_counter    : std_logic_vector(31 downto 0) := x"ffffffff"; --stop when x steps were done(default is x"ffffffff": cannot pass x"00000000")
+  signal print_register  : std_logic := '0'; --print register when '1'
 
 begin
   ib: IBUFG --(original: existed)
@@ -983,7 +984,11 @@ begin
           state <= state + "01";
         when "10010" => --halt instruction is at WR(Writing Register)
           if state = "00" then
-            top_state <= "10011";
+            if print_register = '0' then
+              top_state <= "10111";
+            else
+              top_state <= "10011";
+            end if;
           end if;
           state <= state + "01";
         when "10011" => --print register
