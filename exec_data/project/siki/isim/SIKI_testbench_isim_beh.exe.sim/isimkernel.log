@@ -1,0 +1,28 @@
+Command line:
+   SIKI_testbench_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  54044
+
+Sat Jan 30 15:27:49 2016
+
+
+ Elaboration Time: 2.32 sec
+
+ Current Memory Usage: 1755.11 Meg
+
+ Total Signals          : 1443
+ Total Nets             : 2174286
+ Total Signal Drivers   : 720
+ Total Blocks           : 69
+ Total Primitive Blocks : 47
+ Total Processes        : 429
+ Total Traceable Variables  : 566
+ Total Scalar Nets and Variables : 2176876
+
+ Total Simulation Time: 3.93 sec
+
+ Current Memory Usage: 1830.61 Meg
+
+Sat Jan 30 20:44:06 2016
+

@@ -1,0 +1,8 @@
+vhdl isim_temp "ipcore_dir/BRAM.vhd"
+vhdl isim_temp "../../tx.vhd"
+vhdl isim_temp "../../rx.vhd"
+vhdl isim_temp "../../mem.vhd"
+vhdl isim_temp "../../ife.vhd"
+vhdl isim_temp "../../id.vhd"
+vhdl isim_temp "../../ALU.vhd"
+vhdl isim_temp "../../siki_test.vhd"

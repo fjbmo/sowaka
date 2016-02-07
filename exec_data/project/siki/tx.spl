@@ -1,0 +1,9 @@
+[Inputs]
+clk
+go
+=input[7:0]=
+[Outputs]
+busy
+sent
+output
+[BiDir]

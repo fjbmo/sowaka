@@ -1,0 +1,2 @@
+vhdtdtfi -lib work ../../mem.vhd -prj siki -o mem.spl -module mem -template /home/shinno/Xilinx/14.4/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family virtex5 mem.spl /home/shinno/cpu/siki/project/siki/mem.sym 

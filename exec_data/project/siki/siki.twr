@@ -1,0 +1,1189 @@
+--------------------------------------------------------------------------------
+Release 14.4 Trace  (lin64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+/home/shinno/Xilinx/14.4/ISE_DS/ISE/bin/lin64/unwrapped/trce -intstyle ise -v 3
+-s 1 -n 3 -fastpaths -xml siki.twx siki.ncd -o siki.twr siki.pcf
+
+Design file:              siki.ncd
+Physical constraint file: siki.pcf
+Device,package,speed:     xc5vlx50t,ff1136,-1 (PRODUCTION 1.73 2012-12-04, STEPPING level 0)
+Report level:             verbose report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+
+================================================================================
+Timing constraint: TS_SYS_CLK = PERIOD TIMEGRP "SYS_CLK" 14.52 ns HIGH 50%;
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 0 paths analyzed, 0 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 component switching limit errors)
+ Minimum period is   7.142ns.
+--------------------------------------------------------------------------------
+
+Component Switching Limit Checks: TS_SYS_CLK = PERIOD TIMEGRP "SYS_CLK" 14.52 ns HIGH 50%;
+--------------------------------------------------------------------------------
+Slack: 2.538ns (period - min period limit)
+  Period: 9.680ns
+  Min period limit: 7.142ns (140.017MHz) (Tdcmpco)
+  Physical resource: CLK_CHANGE/DCM_ADV_INST/CLKFX
+  Logical resource: CLK_CHANGE/DCM_ADV_INST/CLKFX
+  Location pin: DCM_ADV_X0Y0.CLKFX
+  Clock network: CLK_CHANGE/CLKFX_BUF
+--------------------------------------------------------------------------------
+Slack: 6.188ns (period - min period limit)
+  Period: 14.520ns
+  Min period limit: 8.332ns (120.019MHz) (Tdcmpc)
+  Physical resource: CLK_CHANGE/DCM_ADV_INST/CLKIN
+  Logical resource: CLK_CHANGE/DCM_ADV_INST/CLKIN
+  Location pin: DCM_ADV_X0Y0.CLKIN
+  Clock network: clk_base
+--------------------------------------------------------------------------------
+Slack: 6.188ns (period - min period limit)
+  Period: 14.520ns
+  Min period limit: 8.332ns (120.019MHz) (Tdcmpco)
+  Physical resource: CLK_CHANGE/DCM_ADV_INST/CLK0
+  Logical resource: CLK_CHANGE/DCM_ADV_INST/CLK0
+  Location pin: DCM_ADV_X0Y0.CLK0
+  Clock network: CLK_CHANGE/CLK0_BUF
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: TS_CLK_CHANGE_CLKFX_BUF = PERIOD TIMEGRP 
+"CLK_CHANGE_CLKFX_BUF" TS_SYS_CLK /         1.5 HIGH 50%;
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 864149006043 paths analyzed, 12988 endpoints analyzed, 266 failing endpoints
+ 266 timing errors detected. (266 setup errors, 0 hold errors, 0 component switching limit errors)
+ Minimum period is  19.407ns.
+--------------------------------------------------------------------------------
+
+Paths for end point SIKI_ALU/output_buf_19 (SLICE_X3Y55.C6), 12514900270 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     -9.727ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               SIKI_ID/ALU_control_buf_2_2 (FF)
+  Destination:          SIKI_ALU/output_buf_19 (FF)
+  Requirement:          9.680ns
+  Data Path Delay:      19.309ns (Levels of Logic = 26)
+  Clock Path Skew:      0.019ns (0.554 - 0.535)
+  Source Clock:         clk rising at 0.000ns
+  Destination Clock:    clk rising at 9.680ns
+  Clock Uncertainty:    0.117ns
+
+  Clock Uncertainty:          0.117ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.164ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: SIKI_ID/ALU_control_buf_2_2 to SIKI_ALU/output_buf_19
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X15Y48.AQ      Tcko                  0.450   SIKI_ID/data_2_buf_22_1
+                                                       SIKI_ID/ALU_control_buf_2_2
+    SLICE_X18Y47.A2      net (fanout=15)       1.182   SIKI_ID/ALU_control_buf_2_2
+    SLICE_X18Y47.A       Tilo                  0.094   SIKI_ID/data_1_buf_6_1
+                                                       SIKI_ALU/fadd_data_1<14>1
+    SLICE_X13Y45.D1      net (fanout=17)       1.252   SIKI_ALU/fadd_data_1<14>
+    SLICE_X13Y45.COUT    Topcyd                0.392   SIKI_MEM/load_heap_data_store<19>
+                                                       SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_lut<7>
+                                                       SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<7>
+    SLICE_X13Y46.CIN     net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<7>
+    SLICE_X13Y46.COUT    Tbyp                  0.104   SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<11>
+                                                       SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<11>
+    SLICE_X13Y47.CIN     net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<11>
+    SLICE_X13Y47.BMUX    Tcinb                 0.262   SIKI_ALU/fadd_data_2<10>
+                                                       SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<13>
+    SLICE_X12Y47.C6      net (fanout=1)        0.153   SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<13>
+    SLICE_X12Y47.C       Tilo                  0.094   SIKI_ID/data_1_buf_12_1
+                                                       SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<15>1
+    SLICE_X13Y52.B6      net (fanout=243)      0.769   SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<15>
+    SLICE_X13Y52.B       Tilo                  0.094   N1021
+                                                       SIKI_ALU/ALU_FADD/num1_mux0000<23>1
+    SLICE_X10Y46.AX      net (fanout=3)        0.678   SIKI_ALU/ALU_FADD/Madd_sum_30_23_add0002_cy<0>
+    SLICE_X10Y46.DMUX    Taxd                  0.651   SIKI_ALU/ALU_FADD/Msub_S_sub0000_cy<3>
+                                                       SIKI_ALU/ALU_FADD/Msub_S_sub0000_cy<3>
+    SLICE_X17Y46.C3      net (fanout=142)      1.021   SIKI_ALU/ALU_FADD/S_sub0000<3>
+    SLICE_X17Y46.C       Tilo                  0.094   SIKI_ID/data_2_buf_18_1
+                                                       SIKI_ALU/ALU_FADD/s_bit_mux00301_SW1
+    SLICE_X15Y47.A2      net (fanout=1)        0.732   N935
+    SLICE_X15Y47.A       Tilo                  0.094   SIKI_ID/data_1_buf_10_1
+                                                       SIKI_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_lut<2>_SW1
+    SLICE_X10Y44.C5      net (fanout=1)        0.717   N1999
+    SLICE_X10Y44.COUT    Topcyc                0.409   SIKI_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<3>
+                                                       SIKI_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_lut<2>
+                                                       SIKI_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<3>
+    SLICE_X10Y45.CIN     net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<3>
+    SLICE_X10Y45.AMUX    Tcina                 0.310   SIKI_ALU/ALU_FADD/N262
+                                                       SIKI_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<4>
+    SLICE_X0Y43.A6       net (fanout=2)        0.813   SIKI_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<4>
+    SLICE_X0Y43.COUT     Topcya                0.499   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<3>
+                                                       SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_lut<0>
+                                                       SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<3>
+    SLICE_X0Y44.CIN      net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<3>
+    SLICE_X0Y44.COUT     Tbyp                  0.104   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<7>
+                                                       SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<7>
+    SLICE_X0Y45.CIN      net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<7>
+    SLICE_X0Y45.COUT     Tbyp                  0.104   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<11>
+                                                       SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<11>
+    SLICE_X0Y46.CIN      net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<11>
+    SLICE_X0Y46.COUT     Tbyp                  0.104   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<15>
+                                                       SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<15>
+    SLICE_X0Y47.CIN      net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<15>
+    SLICE_X0Y47.COUT     Tbyp                  0.104   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<19>
+                                                       SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<19>
+    SLICE_X0Y48.CIN      net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<19>
+    SLICE_X0Y48.COUT     Tbyp                  0.104   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<23>
+                                                       SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<23>
+    SLICE_X0Y49.CIN      net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<23>
+    SLICE_X0Y49.BMUX     Tcinb                 0.342   SIKI_ALU/ALU_FADD/sum_mant_sub0000<27>
+                                                       SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_xor<27>
+    SLICE_X5Y43.B4       net (fanout=32)       1.186   SIKI_ALU/ALU_FADD/sum_mant_sub0000<25>
+    SLICE_X5Y43.B        Tilo                  0.094   SIKI_ALU/ALU_FADD/N2571
+                                                       SIKI_ALU/ALU_FADD/i_mux0000<4>111
+    SLICE_X1Y43.C3       net (fanout=34)       0.720   SIKI_ALU/ALU_FADD/N2571
+    SLICE_X1Y43.C        Tilo                  0.094   SIKI_ALU/ALU_FADD/Msub_sum_22_0_sub0000_cy<4>
+                                                       SIKI_ALU/ALU_FADD/i_mux0000<3>
+    SLICE_X1Y36.B5       net (fanout=202)      0.949   SIKI_ALU/ALU_FADD/i_mux0000<3>
+    SLICE_X1Y36.B        Tilo                  0.094   N1162
+                                                       SIKI_ALU/ALU_FADD/sum_9_cmp_gt00031128_SW1_SW1
+    SLICE_X1Y36.A4       net (fanout=1)        0.501   N1082
+    SLICE_X1Y36.A        Tilo                  0.094   N1162
+                                                       SIKI_ALU/ALU_FADD/sum_9_cmp_gt00031128_SW1
+    SLICE_X5Y53.B3       net (fanout=1)        1.390   N769
+    SLICE_X5Y53.B        Tilo                  0.094   SIKI_ALU/ALU_FADD/sum_9_cmp_gt00031128
+                                                       SIKI_ALU/ALU_FADD/sum_9_cmp_gt00031128
+    SLICE_X5Y53.C3       net (fanout=2)        0.432   SIKI_ALU/ALU_FADD/sum_9_cmp_gt00031128
+    SLICE_X5Y53.CMUX     Tilo                  0.392   SIKI_ALU/ALU_FADD/sum_9_cmp_gt00031128
+                                                       SIKI_ALU/ALU_FADD/sum_25_mux00164182_G
+                                                       SIKI_ALU/ALU_FADD/sum_25_mux00164182
+    SLICE_X2Y54.CX       net (fanout=31)       0.738   SIKI_ALU/ALU_FADD/N2551
+    SLICE_X2Y54.CMUX     Taxc                  0.330   SIKI_ALU/ALU_FADD/N260
+                                                       SIKI_ALU/output_int<19>2064_SW2
+    SLICE_X3Y55.C6       net (fanout=1)        0.446   N1152
+    SLICE_X3Y55.CLK      Tas                   0.029   SIKI_ALU/output_buf<19>
+                                                       SIKI_ALU/output_int<19>2144
+                                                       SIKI_ALU/output_buf_19
+    -------------------------------------------------  ---------------------------
+    Total                                     19.309ns (5.630ns logic, 13.679ns route)
+                                                       (29.2% logic, 70.8% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     -9.723ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               SIKI_ID/ALU_control_buf_2_2 (FF)
+  Destination:          SIKI_ALU/output_buf_19 (FF)
+  Requirement:          9.680ns
+  Data Path Delay:      19.305ns (Levels of Logic = 26)
+  Clock Path Skew:      0.019ns (0.554 - 0.535)
+  Source Clock:         clk rising at 0.000ns
+  Destination Clock:    clk rising at 9.680ns
+  Clock Uncertainty:    0.117ns
+
+  Clock Uncertainty:          0.117ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.164ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: SIKI_ID/ALU_control_buf_2_2 to SIKI_ALU/output_buf_19
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X15Y48.AQ      Tcko                  0.450   SIKI_ID/data_2_buf_22_1
+                                                       SIKI_ID/ALU_control_buf_2_2
+    SLICE_X18Y47.A2      net (fanout=15)       1.182   SIKI_ID/ALU_control_buf_2_2
+    SLICE_X18Y47.A       Tilo                  0.094   SIKI_ID/data_1_buf_6_1
+                                                       SIKI_ALU/fadd_data_1<14>1
+    SLICE_X13Y45.D1      net (fanout=17)       1.252   SIKI_ALU/fadd_data_1<14>
+    SLICE_X13Y45.COUT    Topcyd                0.392   SIKI_MEM/load_heap_data_store<19>
+                                                       SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_lut<7>
+                                                       SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<7>
+    SLICE_X13Y46.CIN     net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<7>
+    SLICE_X13Y46.COUT    Tbyp                  0.104   SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<11>
+                                                       SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<11>
+    SLICE_X13Y47.CIN     net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<11>
+    SLICE_X13Y47.BMUX    Tcinb                 0.262   SIKI_ALU/fadd_data_2<10>
+                                                       SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<13>
+    SLICE_X12Y47.C6      net (fanout=1)        0.153   SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<13>
+    SLICE_X12Y47.C       Tilo                  0.094   SIKI_ID/data_1_buf_12_1
+                                                       SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<15>1
+    SLICE_X13Y52.B6      net (fanout=243)      0.769   SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<15>
+    SLICE_X13Y52.B       Tilo                  0.094   N1021
+                                                       SIKI_ALU/ALU_FADD/num1_mux0000<23>1
+    SLICE_X10Y46.AX      net (fanout=3)        0.678   SIKI_ALU/ALU_FADD/Madd_sum_30_23_add0002_cy<0>
+    SLICE_X10Y46.DMUX    Taxd                  0.651   SIKI_ALU/ALU_FADD/Msub_S_sub0000_cy<3>
+                                                       SIKI_ALU/ALU_FADD/Msub_S_sub0000_cy<3>
+    SLICE_X15Y47.C3      net (fanout=142)      1.129   SIKI_ALU/ALU_FADD/S_sub0000<3>
+    SLICE_X15Y47.C       Tilo                  0.094   SIKI_ID/data_1_buf_10_1
+                                                       SIKI_ALU/ALU_FADD/s_bit_mux00291_SW1
+    SLICE_X14Y46.C4      net (fanout=1)        0.509   N901
+    SLICE_X14Y46.C       Tilo                  0.094   SIKI_ALU/fadd_data_2<5>
+                                                       SIKI_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_lut<2>_SW0
+    SLICE_X10Y44.C3      net (fanout=1)        0.828   N948
+    SLICE_X10Y44.COUT    Topcyc                0.409   SIKI_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<3>
+                                                       SIKI_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_lut<2>
+                                                       SIKI_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<3>
+    SLICE_X10Y45.CIN     net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<3>
+    SLICE_X10Y45.AMUX    Tcina                 0.310   SIKI_ALU/ALU_FADD/N262
+                                                       SIKI_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<4>
+    SLICE_X0Y43.A6       net (fanout=2)        0.813   SIKI_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<4>
+    SLICE_X0Y43.COUT     Topcya                0.499   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<3>
+                                                       SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_lut<0>
+                                                       SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<3>
+    SLICE_X0Y44.CIN      net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<3>
+    SLICE_X0Y44.COUT     Tbyp                  0.104   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<7>
+                                                       SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<7>
+    SLICE_X0Y45.CIN      net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<7>
+    SLICE_X0Y45.COUT     Tbyp                  0.104   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<11>
+                                                       SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<11>
+    SLICE_X0Y46.CIN      net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<11>
+    SLICE_X0Y46.COUT     Tbyp                  0.104   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<15>
+                                                       SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<15>
+    SLICE_X0Y47.CIN      net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<15>
+    SLICE_X0Y47.COUT     Tbyp                  0.104   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<19>
+                                                       SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<19>
+    SLICE_X0Y48.CIN      net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<19>
+    SLICE_X0Y48.COUT     Tbyp                  0.104   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<23>
+                                                       SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<23>
+    SLICE_X0Y49.CIN      net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<23>
+    SLICE_X0Y49.BMUX     Tcinb                 0.342   SIKI_ALU/ALU_FADD/sum_mant_sub0000<27>
+                                                       SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_xor<27>
+    SLICE_X5Y43.B4       net (fanout=32)       1.186   SIKI_ALU/ALU_FADD/sum_mant_sub0000<25>
+    SLICE_X5Y43.B        Tilo                  0.094   SIKI_ALU/ALU_FADD/N2571
+                                                       SIKI_ALU/ALU_FADD/i_mux0000<4>111
+    SLICE_X1Y43.C3       net (fanout=34)       0.720   SIKI_ALU/ALU_FADD/N2571
+    SLICE_X1Y43.C        Tilo                  0.094   SIKI_ALU/ALU_FADD/Msub_sum_22_0_sub0000_cy<4>
+                                                       SIKI_ALU/ALU_FADD/i_mux0000<3>
+    SLICE_X1Y36.B5       net (fanout=202)      0.949   SIKI_ALU/ALU_FADD/i_mux0000<3>
+    SLICE_X1Y36.B        Tilo                  0.094   N1162
+                                                       SIKI_ALU/ALU_FADD/sum_9_cmp_gt00031128_SW1_SW1
+    SLICE_X1Y36.A4       net (fanout=1)        0.501   N1082
+    SLICE_X1Y36.A        Tilo                  0.094   N1162
+                                                       SIKI_ALU/ALU_FADD/sum_9_cmp_gt00031128_SW1
+    SLICE_X5Y53.B3       net (fanout=1)        1.390   N769
+    SLICE_X5Y53.B        Tilo                  0.094   SIKI_ALU/ALU_FADD/sum_9_cmp_gt00031128
+                                                       SIKI_ALU/ALU_FADD/sum_9_cmp_gt00031128
+    SLICE_X5Y53.C3       net (fanout=2)        0.432   SIKI_ALU/ALU_FADD/sum_9_cmp_gt00031128
+    SLICE_X5Y53.CMUX     Tilo                  0.392   SIKI_ALU/ALU_FADD/sum_9_cmp_gt00031128
+                                                       SIKI_ALU/ALU_FADD/sum_25_mux00164182_G
+                                                       SIKI_ALU/ALU_FADD/sum_25_mux00164182
+    SLICE_X2Y54.CX       net (fanout=31)       0.738   SIKI_ALU/ALU_FADD/N2551
+    SLICE_X2Y54.CMUX     Taxc                  0.330   SIKI_ALU/ALU_FADD/N260
+                                                       SIKI_ALU/output_int<19>2064_SW2
+    SLICE_X3Y55.C6       net (fanout=1)        0.446   N1152
+    SLICE_X3Y55.CLK      Tas                   0.029   SIKI_ALU/output_buf<19>
+                                                       SIKI_ALU/output_int<19>2144
+                                                       SIKI_ALU/output_buf_19
+    -------------------------------------------------  ---------------------------
+    Total                                     19.305ns (5.630ns logic, 13.675ns route)
+                                                       (29.2% logic, 70.8% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     -9.712ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               SIKI_ID/ALU_control_buf_4 (FF)
+  Destination:          SIKI_ALU/output_buf_19 (FF)
+  Requirement:          9.680ns
+  Data Path Delay:      19.314ns (Levels of Logic = 27)
+  Clock Path Skew:      0.039ns (0.554 - 0.515)
+  Source Clock:         clk rising at 0.000ns
+  Destination Clock:    clk rising at 9.680ns
+  Clock Uncertainty:    0.117ns
+
+  Clock Uncertainty:          0.117ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.164ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: SIKI_ID/ALU_control_buf_4 to SIKI_ALU/output_buf_19
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X19Y49.DQ      Tcko                  0.450   SIKI_ID/ALU_control_buf<4>
+                                                       SIKI_ID/ALU_control_buf_4
+    SLICE_X16Y47.A2      net (fanout=305)      1.107   SIKI_ID/ALU_control_buf<4>
+    SLICE_X16Y47.A       Tilo                  0.094   SIKI_ID/data_1_buf_2_1
+                                                       SIKI_ALU/fadd_data_2<4>1
+    SLICE_X13Y44.C1      net (fanout=11)       1.197   SIKI_ALU/fadd_data_2<4>
+    SLICE_X13Y44.COUT    Topcyc                0.423   SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<3>
+                                                       SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_lut<2>
+                                                       SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<3>
+    SLICE_X13Y45.CIN     net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<3>
+    SLICE_X13Y45.COUT    Tbyp                  0.104   SIKI_MEM/load_heap_data_store<19>
+                                                       SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<7>
+    SLICE_X13Y46.CIN     net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<7>
+    SLICE_X13Y46.COUT    Tbyp                  0.104   SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<11>
+                                                       SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<11>
+    SLICE_X13Y47.CIN     net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<11>
+    SLICE_X13Y47.BMUX    Tcinb                 0.262   SIKI_ALU/fadd_data_2<10>
+                                                       SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<13>
+    SLICE_X12Y47.C6      net (fanout=1)        0.153   SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<13>
+    SLICE_X12Y47.C       Tilo                  0.094   SIKI_ID/data_1_buf_12_1
+                                                       SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<15>1
+    SLICE_X13Y52.B6      net (fanout=243)      0.769   SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<15>
+    SLICE_X13Y52.B       Tilo                  0.094   N1021
+                                                       SIKI_ALU/ALU_FADD/num1_mux0000<23>1
+    SLICE_X10Y46.AX      net (fanout=3)        0.678   SIKI_ALU/ALU_FADD/Madd_sum_30_23_add0002_cy<0>
+    SLICE_X10Y46.DMUX    Taxd                  0.651   SIKI_ALU/ALU_FADD/Msub_S_sub0000_cy<3>
+                                                       SIKI_ALU/ALU_FADD/Msub_S_sub0000_cy<3>
+    SLICE_X17Y46.C3      net (fanout=142)      1.021   SIKI_ALU/ALU_FADD/S_sub0000<3>
+    SLICE_X17Y46.C       Tilo                  0.094   SIKI_ID/data_2_buf_18_1
+                                                       SIKI_ALU/ALU_FADD/s_bit_mux00301_SW1
+    SLICE_X15Y47.A2      net (fanout=1)        0.732   N935
+    SLICE_X15Y47.A       Tilo                  0.094   SIKI_ID/data_1_buf_10_1
+                                                       SIKI_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_lut<2>_SW1
+    SLICE_X10Y44.C5      net (fanout=1)        0.717   N1999
+    SLICE_X10Y44.COUT    Topcyc                0.409   SIKI_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<3>
+                                                       SIKI_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_lut<2>
+                                                       SIKI_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<3>
+    SLICE_X10Y45.CIN     net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<3>
+    SLICE_X10Y45.AMUX    Tcina                 0.310   SIKI_ALU/ALU_FADD/N262
+                                                       SIKI_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<4>
+    SLICE_X0Y43.A6       net (fanout=2)        0.813   SIKI_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<4>
+    SLICE_X0Y43.COUT     Topcya                0.499   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<3>
+                                                       SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_lut<0>
+                                                       SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<3>
+    SLICE_X0Y44.CIN      net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<3>
+    SLICE_X0Y44.COUT     Tbyp                  0.104   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<7>
+                                                       SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<7>
+    SLICE_X0Y45.CIN      net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<7>
+    SLICE_X0Y45.COUT     Tbyp                  0.104   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<11>
+                                                       SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<11>
+    SLICE_X0Y46.CIN      net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<11>
+    SLICE_X0Y46.COUT     Tbyp                  0.104   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<15>
+                                                       SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<15>
+    SLICE_X0Y47.CIN      net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<15>
+    SLICE_X0Y47.COUT     Tbyp                  0.104   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<19>
+                                                       SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<19>
+    SLICE_X0Y48.CIN      net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<19>
+    SLICE_X0Y48.COUT     Tbyp                  0.104   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<23>
+                                                       SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<23>
+    SLICE_X0Y49.CIN      net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<23>
+    SLICE_X0Y49.BMUX     Tcinb                 0.342   SIKI_ALU/ALU_FADD/sum_mant_sub0000<27>
+                                                       SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_xor<27>
+    SLICE_X5Y43.B4       net (fanout=32)       1.186   SIKI_ALU/ALU_FADD/sum_mant_sub0000<25>
+    SLICE_X5Y43.B        Tilo                  0.094   SIKI_ALU/ALU_FADD/N2571
+                                                       SIKI_ALU/ALU_FADD/i_mux0000<4>111
+    SLICE_X1Y43.C3       net (fanout=34)       0.720   SIKI_ALU/ALU_FADD/N2571
+    SLICE_X1Y43.C        Tilo                  0.094   SIKI_ALU/ALU_FADD/Msub_sum_22_0_sub0000_cy<4>
+                                                       SIKI_ALU/ALU_FADD/i_mux0000<3>
+    SLICE_X1Y36.B5       net (fanout=202)      0.949   SIKI_ALU/ALU_FADD/i_mux0000<3>
+    SLICE_X1Y36.B        Tilo                  0.094   N1162
+                                                       SIKI_ALU/ALU_FADD/sum_9_cmp_gt00031128_SW1_SW1
+    SLICE_X1Y36.A4       net (fanout=1)        0.501   N1082
+    SLICE_X1Y36.A        Tilo                  0.094   N1162
+                                                       SIKI_ALU/ALU_FADD/sum_9_cmp_gt00031128_SW1
+    SLICE_X5Y53.B3       net (fanout=1)        1.390   N769
+    SLICE_X5Y53.B        Tilo                  0.094   SIKI_ALU/ALU_FADD/sum_9_cmp_gt00031128
+                                                       SIKI_ALU/ALU_FADD/sum_9_cmp_gt00031128
+    SLICE_X5Y53.C3       net (fanout=2)        0.432   SIKI_ALU/ALU_FADD/sum_9_cmp_gt00031128
+    SLICE_X5Y53.CMUX     Tilo                  0.392   SIKI_ALU/ALU_FADD/sum_9_cmp_gt00031128
+                                                       SIKI_ALU/ALU_FADD/sum_25_mux00164182_G
+                                                       SIKI_ALU/ALU_FADD/sum_25_mux00164182
+    SLICE_X2Y54.CX       net (fanout=31)       0.738   SIKI_ALU/ALU_FADD/N2551
+    SLICE_X2Y54.CMUX     Taxc                  0.330   SIKI_ALU/ALU_FADD/N260
+                                                       SIKI_ALU/output_int<19>2064_SW2
+    SLICE_X3Y55.C6       net (fanout=1)        0.446   N1152
+    SLICE_X3Y55.CLK      Tas                   0.029   SIKI_ALU/output_buf<19>
+                                                       SIKI_ALU/output_int<19>2144
+                                                       SIKI_ALU/output_buf_19
+    -------------------------------------------------  ---------------------------
+    Total                                     19.314ns (5.765ns logic, 13.549ns route)
+                                                       (29.8% logic, 70.2% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point SIKI_ALU/output_buf_5 (SLICE_X6Y55.D6), 11379030348 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     -9.412ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               SIKI_ID/ALU_control_buf_2_2 (FF)
+  Destination:          SIKI_ALU/output_buf_5 (FF)
+  Requirement:          9.680ns
+  Data Path Delay:      19.011ns (Levels of Logic = 22)
+  Clock Path Skew:      0.036ns (0.571 - 0.535)
+  Source Clock:         clk rising at 0.000ns
+  Destination Clock:    clk rising at 9.680ns
+  Clock Uncertainty:    0.117ns
+
+  Clock Uncertainty:          0.117ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.164ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: SIKI_ID/ALU_control_buf_2_2 to SIKI_ALU/output_buf_5
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X15Y48.AQ      Tcko                  0.450   SIKI_ID/data_2_buf_22_1
+                                                       SIKI_ID/ALU_control_buf_2_2
+    SLICE_X18Y47.A2      net (fanout=15)       1.182   SIKI_ID/ALU_control_buf_2_2
+    SLICE_X18Y47.A       Tilo                  0.094   SIKI_ID/data_1_buf_6_1
+                                                       SIKI_ALU/fadd_data_1<14>1
+    SLICE_X13Y45.D1      net (fanout=17)       1.252   SIKI_ALU/fadd_data_1<14>
+    SLICE_X13Y45.COUT    Topcyd                0.392   SIKI_MEM/load_heap_data_store<19>
+                                                       SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_lut<7>
+                                                       SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<7>
+    SLICE_X13Y46.CIN     net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<7>
+    SLICE_X13Y46.COUT    Tbyp                  0.104   SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<11>
+                                                       SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<11>
+    SLICE_X13Y47.CIN     net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<11>
+    SLICE_X13Y47.BMUX    Tcinb                 0.262   SIKI_ALU/fadd_data_2<10>
+                                                       SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<13>
+    SLICE_X12Y47.C6      net (fanout=1)        0.153   SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<13>
+    SLICE_X12Y47.C       Tilo                  0.094   SIKI_ID/data_1_buf_12_1
+                                                       SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<15>1
+    SLICE_X13Y52.B6      net (fanout=243)      0.769   SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<15>
+    SLICE_X13Y52.B       Tilo                  0.094   N1021
+                                                       SIKI_ALU/ALU_FADD/num1_mux0000<23>1
+    SLICE_X10Y46.AX      net (fanout=3)        0.678   SIKI_ALU/ALU_FADD/Madd_sum_30_23_add0002_cy<0>
+    SLICE_X10Y46.DMUX    Taxd                  0.651   SIKI_ALU/ALU_FADD/Msub_S_sub0000_cy<3>
+                                                       SIKI_ALU/ALU_FADD/Msub_S_sub0000_cy<3>
+    SLICE_X17Y46.C3      net (fanout=142)      1.021   SIKI_ALU/ALU_FADD/S_sub0000<3>
+    SLICE_X17Y46.C       Tilo                  0.094   SIKI_ID/data_2_buf_18_1
+                                                       SIKI_ALU/ALU_FADD/s_bit_mux00301_SW1
+    SLICE_X15Y47.A2      net (fanout=1)        0.732   N935
+    SLICE_X15Y47.A       Tilo                  0.094   SIKI_ID/data_1_buf_10_1
+                                                       SIKI_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_lut<2>_SW1
+    SLICE_X10Y44.C5      net (fanout=1)        0.717   N1999
+    SLICE_X10Y44.COUT    Topcyc                0.409   SIKI_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<3>
+                                                       SIKI_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_lut<2>
+                                                       SIKI_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<3>
+    SLICE_X10Y45.CIN     net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<3>
+    SLICE_X10Y45.AMUX    Tcina                 0.310   SIKI_ALU/ALU_FADD/N262
+                                                       SIKI_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<4>
+    SLICE_X0Y43.A6       net (fanout=2)        0.813   SIKI_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<4>
+    SLICE_X0Y43.COUT     Topcya                0.499   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<3>
+                                                       SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_lut<0>
+                                                       SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<3>
+    SLICE_X0Y44.CIN      net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<3>
+    SLICE_X0Y44.COUT     Tbyp                  0.104   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<7>
+                                                       SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<7>
+    SLICE_X0Y45.CIN      net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<7>
+    SLICE_X0Y45.COUT     Tbyp                  0.104   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<11>
+                                                       SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<11>
+    SLICE_X0Y46.CIN      net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<11>
+    SLICE_X0Y46.CMUX     Tcinc                 0.337   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<15>
+                                                       SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<15>
+    SLICE_X4Y42.D1       net (fanout=28)       1.207   SIKI_ALU/ALU_FADD/sum_mant_sub0000<14>
+    SLICE_X4Y42.D        Tilo                  0.094   N689
+                                                       SIKI_ALU/ALU_FADD/i_mux0000<4>12_SW2
+    SLICE_X4Y42.C1       net (fanout=7)        0.891   N689
+    SLICE_X4Y42.C        Tilo                  0.094   N689
+                                                       SIKI_ALU/ALU_FADD/i_mux0000<4>1
+    SLICE_X0Y42.D1       net (fanout=209)      1.180   SIKI_ALU/ALU_FADD/i_mux0000<4>
+    SLICE_X0Y42.D        Tilo                  0.094   SIKI_ALU/ALU_FADD/N4
+                                                       SIKI_ALU/ALU_FADD/temp_mux0002<10>11
+    SLICE_X2Y42.A2       net (fanout=14)       0.850   SIKI_ALU/ALU_FADD/N4
+    SLICE_X2Y42.COUT     Topcya                0.509   SIKI_ALU/ALU_FADD/Madd_result1_addsub0000_cy<3>
+                                                       SIKI_ALU/ALU_FADD/Madd_result1_addsub0000_lut<0>
+                                                       SIKI_ALU/ALU_FADD/Madd_result1_addsub0000_cy<3>
+    SLICE_X2Y43.CIN      net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Madd_result1_addsub0000_cy<3>
+    SLICE_X2Y43.BMUX     Tcinb                 0.335   SIKI_ALU/ALU_FADD/Madd_result1_addsub0000_cy<7>
+                                                       SIKI_ALU/ALU_FADD/Madd_result1_addsub0000_cy<7>
+    SLICE_X4Y36.C3       net (fanout=1)        1.008   SIKI_ALU/ALU_FADD/result1_addsub0000<5>
+    SLICE_X4Y36.C        Tilo                  0.094   SIKI_ALU/output_int<5>1281
+                                                       SIKI_ALU/output_int<5>1321
+    SLICE_X6Y55.D6       net (fanout=1)        1.218   SIKI_ALU/output_int<5>1321
+    SLICE_X6Y55.CLK      Tas                   0.028   SIKI_ALU/output_buf<5>
+                                                       SIKI_ALU/output_int<5>1499
+                                                       SIKI_ALU/output_buf_5
+    -------------------------------------------------  ---------------------------
+    Total                                     19.011ns (5.340ns logic, 13.671ns route)
+                                                       (28.1% logic, 71.9% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     -9.408ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               SIKI_ID/ALU_control_buf_2_2 (FF)
+  Destination:          SIKI_ALU/output_buf_5 (FF)
+  Requirement:          9.680ns
+  Data Path Delay:      19.007ns (Levels of Logic = 22)
+  Clock Path Skew:      0.036ns (0.571 - 0.535)
+  Source Clock:         clk rising at 0.000ns
+  Destination Clock:    clk rising at 9.680ns
+  Clock Uncertainty:    0.117ns
+
+  Clock Uncertainty:          0.117ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.164ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: SIKI_ID/ALU_control_buf_2_2 to SIKI_ALU/output_buf_5
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X15Y48.AQ      Tcko                  0.450   SIKI_ID/data_2_buf_22_1
+                                                       SIKI_ID/ALU_control_buf_2_2
+    SLICE_X18Y47.A2      net (fanout=15)       1.182   SIKI_ID/ALU_control_buf_2_2
+    SLICE_X18Y47.A       Tilo                  0.094   SIKI_ID/data_1_buf_6_1
+                                                       SIKI_ALU/fadd_data_1<14>1
+    SLICE_X13Y45.D1      net (fanout=17)       1.252   SIKI_ALU/fadd_data_1<14>
+    SLICE_X13Y45.COUT    Topcyd                0.392   SIKI_MEM/load_heap_data_store<19>
+                                                       SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_lut<7>
+                                                       SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<7>
+    SLICE_X13Y46.CIN     net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<7>
+    SLICE_X13Y46.COUT    Tbyp                  0.104   SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<11>
+                                                       SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<11>
+    SLICE_X13Y47.CIN     net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<11>
+    SLICE_X13Y47.BMUX    Tcinb                 0.262   SIKI_ALU/fadd_data_2<10>
+                                                       SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<13>
+    SLICE_X12Y47.C6      net (fanout=1)        0.153   SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<13>
+    SLICE_X12Y47.C       Tilo                  0.094   SIKI_ID/data_1_buf_12_1
+                                                       SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<15>1
+    SLICE_X13Y52.B6      net (fanout=243)      0.769   SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<15>
+    SLICE_X13Y52.B       Tilo                  0.094   N1021
+                                                       SIKI_ALU/ALU_FADD/num1_mux0000<23>1
+    SLICE_X10Y46.AX      net (fanout=3)        0.678   SIKI_ALU/ALU_FADD/Madd_sum_30_23_add0002_cy<0>
+    SLICE_X10Y46.DMUX    Taxd                  0.651   SIKI_ALU/ALU_FADD/Msub_S_sub0000_cy<3>
+                                                       SIKI_ALU/ALU_FADD/Msub_S_sub0000_cy<3>
+    SLICE_X15Y47.C3      net (fanout=142)      1.129   SIKI_ALU/ALU_FADD/S_sub0000<3>
+    SLICE_X15Y47.C       Tilo                  0.094   SIKI_ID/data_1_buf_10_1
+                                                       SIKI_ALU/ALU_FADD/s_bit_mux00291_SW1
+    SLICE_X14Y46.C4      net (fanout=1)        0.509   N901
+    SLICE_X14Y46.C       Tilo                  0.094   SIKI_ALU/fadd_data_2<5>
+                                                       SIKI_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_lut<2>_SW0
+    SLICE_X10Y44.C3      net (fanout=1)        0.828   N948
+    SLICE_X10Y44.COUT    Topcyc                0.409   SIKI_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<3>
+                                                       SIKI_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_lut<2>
+                                                       SIKI_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<3>
+    SLICE_X10Y45.CIN     net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<3>
+    SLICE_X10Y45.AMUX    Tcina                 0.310   SIKI_ALU/ALU_FADD/N262
+                                                       SIKI_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<4>
+    SLICE_X0Y43.A6       net (fanout=2)        0.813   SIKI_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<4>
+    SLICE_X0Y43.COUT     Topcya                0.499   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<3>
+                                                       SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_lut<0>
+                                                       SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<3>
+    SLICE_X0Y44.CIN      net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<3>
+    SLICE_X0Y44.COUT     Tbyp                  0.104   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<7>
+                                                       SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<7>
+    SLICE_X0Y45.CIN      net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<7>
+    SLICE_X0Y45.COUT     Tbyp                  0.104   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<11>
+                                                       SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<11>
+    SLICE_X0Y46.CIN      net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<11>
+    SLICE_X0Y46.CMUX     Tcinc                 0.337   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<15>
+                                                       SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<15>
+    SLICE_X4Y42.D1       net (fanout=28)       1.207   SIKI_ALU/ALU_FADD/sum_mant_sub0000<14>
+    SLICE_X4Y42.D        Tilo                  0.094   N689
+                                                       SIKI_ALU/ALU_FADD/i_mux0000<4>12_SW2
+    SLICE_X4Y42.C1       net (fanout=7)        0.891   N689
+    SLICE_X4Y42.C        Tilo                  0.094   N689
+                                                       SIKI_ALU/ALU_FADD/i_mux0000<4>1
+    SLICE_X0Y42.D1       net (fanout=209)      1.180   SIKI_ALU/ALU_FADD/i_mux0000<4>
+    SLICE_X0Y42.D        Tilo                  0.094   SIKI_ALU/ALU_FADD/N4
+                                                       SIKI_ALU/ALU_FADD/temp_mux0002<10>11
+    SLICE_X2Y42.A2       net (fanout=14)       0.850   SIKI_ALU/ALU_FADD/N4
+    SLICE_X2Y42.COUT     Topcya                0.509   SIKI_ALU/ALU_FADD/Madd_result1_addsub0000_cy<3>
+                                                       SIKI_ALU/ALU_FADD/Madd_result1_addsub0000_lut<0>
+                                                       SIKI_ALU/ALU_FADD/Madd_result1_addsub0000_cy<3>
+    SLICE_X2Y43.CIN      net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Madd_result1_addsub0000_cy<3>
+    SLICE_X2Y43.BMUX     Tcinb                 0.335   SIKI_ALU/ALU_FADD/Madd_result1_addsub0000_cy<7>
+                                                       SIKI_ALU/ALU_FADD/Madd_result1_addsub0000_cy<7>
+    SLICE_X4Y36.C3       net (fanout=1)        1.008   SIKI_ALU/ALU_FADD/result1_addsub0000<5>
+    SLICE_X4Y36.C        Tilo                  0.094   SIKI_ALU/output_int<5>1281
+                                                       SIKI_ALU/output_int<5>1321
+    SLICE_X6Y55.D6       net (fanout=1)        1.218   SIKI_ALU/output_int<5>1321
+    SLICE_X6Y55.CLK      Tas                   0.028   SIKI_ALU/output_buf<5>
+                                                       SIKI_ALU/output_int<5>1499
+                                                       SIKI_ALU/output_buf_5
+    -------------------------------------------------  ---------------------------
+    Total                                     19.007ns (5.340ns logic, 13.667ns route)
+                                                       (28.1% logic, 71.9% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     -9.397ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               SIKI_ID/ALU_control_buf_4 (FF)
+  Destination:          SIKI_ALU/output_buf_5 (FF)
+  Requirement:          9.680ns
+  Data Path Delay:      19.016ns (Levels of Logic = 23)
+  Clock Path Skew:      0.056ns (0.571 - 0.515)
+  Source Clock:         clk rising at 0.000ns
+  Destination Clock:    clk rising at 9.680ns
+  Clock Uncertainty:    0.117ns
+
+  Clock Uncertainty:          0.117ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.164ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: SIKI_ID/ALU_control_buf_4 to SIKI_ALU/output_buf_5
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X19Y49.DQ      Tcko                  0.450   SIKI_ID/ALU_control_buf<4>
+                                                       SIKI_ID/ALU_control_buf_4
+    SLICE_X16Y47.A2      net (fanout=305)      1.107   SIKI_ID/ALU_control_buf<4>
+    SLICE_X16Y47.A       Tilo                  0.094   SIKI_ID/data_1_buf_2_1
+                                                       SIKI_ALU/fadd_data_2<4>1
+    SLICE_X13Y44.C1      net (fanout=11)       1.197   SIKI_ALU/fadd_data_2<4>
+    SLICE_X13Y44.COUT    Topcyc                0.423   SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<3>
+                                                       SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_lut<2>
+                                                       SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<3>
+    SLICE_X13Y45.CIN     net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<3>
+    SLICE_X13Y45.COUT    Tbyp                  0.104   SIKI_MEM/load_heap_data_store<19>
+                                                       SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<7>
+    SLICE_X13Y46.CIN     net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<7>
+    SLICE_X13Y46.COUT    Tbyp                  0.104   SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<11>
+                                                       SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<11>
+    SLICE_X13Y47.CIN     net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<11>
+    SLICE_X13Y47.BMUX    Tcinb                 0.262   SIKI_ALU/fadd_data_2<10>
+                                                       SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<13>
+    SLICE_X12Y47.C6      net (fanout=1)        0.153   SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<13>
+    SLICE_X12Y47.C       Tilo                  0.094   SIKI_ID/data_1_buf_12_1
+                                                       SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<15>1
+    SLICE_X13Y52.B6      net (fanout=243)      0.769   SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<15>
+    SLICE_X13Y52.B       Tilo                  0.094   N1021
+                                                       SIKI_ALU/ALU_FADD/num1_mux0000<23>1
+    SLICE_X10Y46.AX      net (fanout=3)        0.678   SIKI_ALU/ALU_FADD/Madd_sum_30_23_add0002_cy<0>
+    SLICE_X10Y46.DMUX    Taxd                  0.651   SIKI_ALU/ALU_FADD/Msub_S_sub0000_cy<3>
+                                                       SIKI_ALU/ALU_FADD/Msub_S_sub0000_cy<3>
+    SLICE_X17Y46.C3      net (fanout=142)      1.021   SIKI_ALU/ALU_FADD/S_sub0000<3>
+    SLICE_X17Y46.C       Tilo                  0.094   SIKI_ID/data_2_buf_18_1
+                                                       SIKI_ALU/ALU_FADD/s_bit_mux00301_SW1
+    SLICE_X15Y47.A2      net (fanout=1)        0.732   N935
+    SLICE_X15Y47.A       Tilo                  0.094   SIKI_ID/data_1_buf_10_1
+                                                       SIKI_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_lut<2>_SW1
+    SLICE_X10Y44.C5      net (fanout=1)        0.717   N1999
+    SLICE_X10Y44.COUT    Topcyc                0.409   SIKI_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<3>
+                                                       SIKI_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_lut<2>
+                                                       SIKI_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<3>
+    SLICE_X10Y45.CIN     net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<3>
+    SLICE_X10Y45.AMUX    Tcina                 0.310   SIKI_ALU/ALU_FADD/N262
+                                                       SIKI_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<4>
+    SLICE_X0Y43.A6       net (fanout=2)        0.813   SIKI_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<4>
+    SLICE_X0Y43.COUT     Topcya                0.499   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<3>
+                                                       SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_lut<0>
+                                                       SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<3>
+    SLICE_X0Y44.CIN      net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<3>
+    SLICE_X0Y44.COUT     Tbyp                  0.104   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<7>
+                                                       SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<7>
+    SLICE_X0Y45.CIN      net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<7>
+    SLICE_X0Y45.COUT     Tbyp                  0.104   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<11>
+                                                       SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<11>
+    SLICE_X0Y46.CIN      net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<11>
+    SLICE_X0Y46.CMUX     Tcinc                 0.337   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<15>
+                                                       SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<15>
+    SLICE_X4Y42.D1       net (fanout=28)       1.207   SIKI_ALU/ALU_FADD/sum_mant_sub0000<14>
+    SLICE_X4Y42.D        Tilo                  0.094   N689
+                                                       SIKI_ALU/ALU_FADD/i_mux0000<4>12_SW2
+    SLICE_X4Y42.C1       net (fanout=7)        0.891   N689
+    SLICE_X4Y42.C        Tilo                  0.094   N689
+                                                       SIKI_ALU/ALU_FADD/i_mux0000<4>1
+    SLICE_X0Y42.D1       net (fanout=209)      1.180   SIKI_ALU/ALU_FADD/i_mux0000<4>
+    SLICE_X0Y42.D        Tilo                  0.094   SIKI_ALU/ALU_FADD/N4
+                                                       SIKI_ALU/ALU_FADD/temp_mux0002<10>11
+    SLICE_X2Y42.A2       net (fanout=14)       0.850   SIKI_ALU/ALU_FADD/N4
+    SLICE_X2Y42.COUT     Topcya                0.509   SIKI_ALU/ALU_FADD/Madd_result1_addsub0000_cy<3>
+                                                       SIKI_ALU/ALU_FADD/Madd_result1_addsub0000_lut<0>
+                                                       SIKI_ALU/ALU_FADD/Madd_result1_addsub0000_cy<3>
+    SLICE_X2Y43.CIN      net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Madd_result1_addsub0000_cy<3>
+    SLICE_X2Y43.BMUX     Tcinb                 0.335   SIKI_ALU/ALU_FADD/Madd_result1_addsub0000_cy<7>
+                                                       SIKI_ALU/ALU_FADD/Madd_result1_addsub0000_cy<7>
+    SLICE_X4Y36.C3       net (fanout=1)        1.008   SIKI_ALU/ALU_FADD/result1_addsub0000<5>
+    SLICE_X4Y36.C        Tilo                  0.094   SIKI_ALU/output_int<5>1281
+                                                       SIKI_ALU/output_int<5>1321
+    SLICE_X6Y55.D6       net (fanout=1)        1.218   SIKI_ALU/output_int<5>1321
+    SLICE_X6Y55.CLK      Tas                   0.028   SIKI_ALU/output_buf<5>
+                                                       SIKI_ALU/output_int<5>1499
+                                                       SIKI_ALU/output_buf_5
+    -------------------------------------------------  ---------------------------
+    Total                                     19.016ns (5.475ns logic, 13.541ns route)
+                                                       (28.8% logic, 71.2% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point SIKI_ALU/output_buf_14 (SLICE_X2Y53.A4), 7386224484 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     -9.211ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               SIKI_ID/ALU_control_buf_2_2 (FF)
+  Destination:          SIKI_ALU/output_buf_14 (FF)
+  Requirement:          9.680ns
+  Data Path Delay:      18.811ns (Levels of Logic = 24)
+  Clock Path Skew:      0.037ns (0.572 - 0.535)
+  Source Clock:         clk rising at 0.000ns
+  Destination Clock:    clk rising at 9.680ns
+  Clock Uncertainty:    0.117ns
+
+  Clock Uncertainty:          0.117ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.164ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: SIKI_ID/ALU_control_buf_2_2 to SIKI_ALU/output_buf_14
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X15Y48.AQ      Tcko                  0.450   SIKI_ID/data_2_buf_22_1
+                                                       SIKI_ID/ALU_control_buf_2_2
+    SLICE_X18Y47.A2      net (fanout=15)       1.182   SIKI_ID/ALU_control_buf_2_2
+    SLICE_X18Y47.A       Tilo                  0.094   SIKI_ID/data_1_buf_6_1
+                                                       SIKI_ALU/fadd_data_1<14>1
+    SLICE_X13Y45.D1      net (fanout=17)       1.252   SIKI_ALU/fadd_data_1<14>
+    SLICE_X13Y45.COUT    Topcyd                0.392   SIKI_MEM/load_heap_data_store<19>
+                                                       SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_lut<7>
+                                                       SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<7>
+    SLICE_X13Y46.CIN     net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<7>
+    SLICE_X13Y46.COUT    Tbyp                  0.104   SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<11>
+                                                       SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<11>
+    SLICE_X13Y47.CIN     net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<11>
+    SLICE_X13Y47.BMUX    Tcinb                 0.262   SIKI_ALU/fadd_data_2<10>
+                                                       SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<13>
+    SLICE_X12Y47.C6      net (fanout=1)        0.153   SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<13>
+    SLICE_X12Y47.C       Tilo                  0.094   SIKI_ID/data_1_buf_12_1
+                                                       SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<15>1
+    SLICE_X13Y52.B6      net (fanout=243)      0.769   SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<15>
+    SLICE_X13Y52.B       Tilo                  0.094   N1021
+                                                       SIKI_ALU/ALU_FADD/num1_mux0000<23>1
+    SLICE_X10Y46.AX      net (fanout=3)        0.678   SIKI_ALU/ALU_FADD/Madd_sum_30_23_add0002_cy<0>
+    SLICE_X10Y46.DMUX    Taxd                  0.651   SIKI_ALU/ALU_FADD/Msub_S_sub0000_cy<3>
+                                                       SIKI_ALU/ALU_FADD/Msub_S_sub0000_cy<3>
+    SLICE_X17Y46.C3      net (fanout=142)      1.021   SIKI_ALU/ALU_FADD/S_sub0000<3>
+    SLICE_X17Y46.C       Tilo                  0.094   SIKI_ID/data_2_buf_18_1
+                                                       SIKI_ALU/ALU_FADD/s_bit_mux00301_SW1
+    SLICE_X15Y47.A2      net (fanout=1)        0.732   N935
+    SLICE_X15Y47.A       Tilo                  0.094   SIKI_ID/data_1_buf_10_1
+                                                       SIKI_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_lut<2>_SW1
+    SLICE_X10Y44.C5      net (fanout=1)        0.717   N1999
+    SLICE_X10Y44.COUT    Topcyc                0.409   SIKI_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<3>
+                                                       SIKI_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_lut<2>
+                                                       SIKI_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<3>
+    SLICE_X10Y45.CIN     net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<3>
+    SLICE_X10Y45.AMUX    Tcina                 0.310   SIKI_ALU/ALU_FADD/N262
+                                                       SIKI_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<4>
+    SLICE_X0Y43.A6       net (fanout=2)        0.813   SIKI_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<4>
+    SLICE_X0Y43.COUT     Topcya                0.499   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<3>
+                                                       SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_lut<0>
+                                                       SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<3>
+    SLICE_X0Y44.CIN      net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<3>
+    SLICE_X0Y44.COUT     Tbyp                  0.104   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<7>
+                                                       SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<7>
+    SLICE_X0Y45.CIN      net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<7>
+    SLICE_X0Y45.COUT     Tbyp                  0.104   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<11>
+                                                       SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<11>
+    SLICE_X0Y46.CIN      net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<11>
+    SLICE_X0Y46.COUT     Tbyp                  0.104   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<15>
+                                                       SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<15>
+    SLICE_X0Y47.CIN      net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<15>
+    SLICE_X0Y47.COUT     Tbyp                  0.104   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<19>
+                                                       SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<19>
+    SLICE_X0Y48.CIN      net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<19>
+    SLICE_X0Y48.COUT     Tbyp                  0.104   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<23>
+                                                       SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<23>
+    SLICE_X0Y49.CIN      net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<23>
+    SLICE_X0Y49.BMUX     Tcinb                 0.342   SIKI_ALU/ALU_FADD/sum_mant_sub0000<27>
+                                                       SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_xor<27>
+    SLICE_X5Y43.B4       net (fanout=32)       1.186   SIKI_ALU/ALU_FADD/sum_mant_sub0000<25>
+    SLICE_X5Y43.B        Tilo                  0.094   SIKI_ALU/ALU_FADD/N2571
+                                                       SIKI_ALU/ALU_FADD/i_mux0000<4>111
+    SLICE_X1Y43.C3       net (fanout=34)       0.720   SIKI_ALU/ALU_FADD/N2571
+    SLICE_X1Y43.C        Tilo                  0.094   SIKI_ALU/ALU_FADD/Msub_sum_22_0_sub0000_cy<4>
+                                                       SIKI_ALU/ALU_FADD/i_mux0000<3>
+    SLICE_X4Y51.C1       net (fanout=202)      1.612   SIKI_ALU/ALU_FADD/i_mux0000<3>
+    SLICE_X4Y51.C        Tilo                  0.094   N1095
+                                                       SIKI_ALU/ALU_FADD/sum_19_mux0017111
+    SLICE_X2Y37.CX       net (fanout=18)       1.217   SIKI_ALU/ALU_FADD/N122
+    SLICE_X2Y37.CMUX     Taxc                  0.330   N872
+                                                       SIKI_ALU/output_int<14>1575_SW0
+    SLICE_X5Y36.A6       net (fanout=1)        0.296   N1094
+    SLICE_X5Y36.A        Tilo                  0.094   N760
+                                                       SIKI_ALU/output_int<14>1610
+    SLICE_X2Y53.A4       net (fanout=1)        1.322   SIKI_ALU/output_int<14>1610
+    SLICE_X2Y53.CLK      Tas                   0.026   SIKI_ALU/output_buf<15>
+                                                       SIKI_ALU/output_int<14>1729
+                                                       SIKI_ALU/output_buf_14
+    -------------------------------------------------  ---------------------------
+    Total                                     18.811ns (5.141ns logic, 13.670ns route)
+                                                       (27.3% logic, 72.7% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     -9.207ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               SIKI_ID/ALU_control_buf_2_2 (FF)
+  Destination:          SIKI_ALU/output_buf_14 (FF)
+  Requirement:          9.680ns
+  Data Path Delay:      18.807ns (Levels of Logic = 24)
+  Clock Path Skew:      0.037ns (0.572 - 0.535)
+  Source Clock:         clk rising at 0.000ns
+  Destination Clock:    clk rising at 9.680ns
+  Clock Uncertainty:    0.117ns
+
+  Clock Uncertainty:          0.117ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.164ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: SIKI_ID/ALU_control_buf_2_2 to SIKI_ALU/output_buf_14
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X15Y48.AQ      Tcko                  0.450   SIKI_ID/data_2_buf_22_1
+                                                       SIKI_ID/ALU_control_buf_2_2
+    SLICE_X18Y47.A2      net (fanout=15)       1.182   SIKI_ID/ALU_control_buf_2_2
+    SLICE_X18Y47.A       Tilo                  0.094   SIKI_ID/data_1_buf_6_1
+                                                       SIKI_ALU/fadd_data_1<14>1
+    SLICE_X13Y45.D1      net (fanout=17)       1.252   SIKI_ALU/fadd_data_1<14>
+    SLICE_X13Y45.COUT    Topcyd                0.392   SIKI_MEM/load_heap_data_store<19>
+                                                       SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_lut<7>
+                                                       SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<7>
+    SLICE_X13Y46.CIN     net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<7>
+    SLICE_X13Y46.COUT    Tbyp                  0.104   SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<11>
+                                                       SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<11>
+    SLICE_X13Y47.CIN     net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<11>
+    SLICE_X13Y47.BMUX    Tcinb                 0.262   SIKI_ALU/fadd_data_2<10>
+                                                       SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<13>
+    SLICE_X12Y47.C6      net (fanout=1)        0.153   SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<13>
+    SLICE_X12Y47.C       Tilo                  0.094   SIKI_ID/data_1_buf_12_1
+                                                       SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<15>1
+    SLICE_X13Y52.B6      net (fanout=243)      0.769   SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<15>
+    SLICE_X13Y52.B       Tilo                  0.094   N1021
+                                                       SIKI_ALU/ALU_FADD/num1_mux0000<23>1
+    SLICE_X10Y46.AX      net (fanout=3)        0.678   SIKI_ALU/ALU_FADD/Madd_sum_30_23_add0002_cy<0>
+    SLICE_X10Y46.DMUX    Taxd                  0.651   SIKI_ALU/ALU_FADD/Msub_S_sub0000_cy<3>
+                                                       SIKI_ALU/ALU_FADD/Msub_S_sub0000_cy<3>
+    SLICE_X15Y47.C3      net (fanout=142)      1.129   SIKI_ALU/ALU_FADD/S_sub0000<3>
+    SLICE_X15Y47.C       Tilo                  0.094   SIKI_ID/data_1_buf_10_1
+                                                       SIKI_ALU/ALU_FADD/s_bit_mux00291_SW1
+    SLICE_X14Y46.C4      net (fanout=1)        0.509   N901
+    SLICE_X14Y46.C       Tilo                  0.094   SIKI_ALU/fadd_data_2<5>
+                                                       SIKI_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_lut<2>_SW0
+    SLICE_X10Y44.C3      net (fanout=1)        0.828   N948
+    SLICE_X10Y44.COUT    Topcyc                0.409   SIKI_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<3>
+                                                       SIKI_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_lut<2>
+                                                       SIKI_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<3>
+    SLICE_X10Y45.CIN     net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<3>
+    SLICE_X10Y45.AMUX    Tcina                 0.310   SIKI_ALU/ALU_FADD/N262
+                                                       SIKI_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<4>
+    SLICE_X0Y43.A6       net (fanout=2)        0.813   SIKI_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<4>
+    SLICE_X0Y43.COUT     Topcya                0.499   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<3>
+                                                       SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_lut<0>
+                                                       SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<3>
+    SLICE_X0Y44.CIN      net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<3>
+    SLICE_X0Y44.COUT     Tbyp                  0.104   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<7>
+                                                       SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<7>
+    SLICE_X0Y45.CIN      net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<7>
+    SLICE_X0Y45.COUT     Tbyp                  0.104   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<11>
+                                                       SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<11>
+    SLICE_X0Y46.CIN      net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<11>
+    SLICE_X0Y46.COUT     Tbyp                  0.104   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<15>
+                                                       SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<15>
+    SLICE_X0Y47.CIN      net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<15>
+    SLICE_X0Y47.COUT     Tbyp                  0.104   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<19>
+                                                       SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<19>
+    SLICE_X0Y48.CIN      net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<19>
+    SLICE_X0Y48.COUT     Tbyp                  0.104   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<23>
+                                                       SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<23>
+    SLICE_X0Y49.CIN      net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<23>
+    SLICE_X0Y49.BMUX     Tcinb                 0.342   SIKI_ALU/ALU_FADD/sum_mant_sub0000<27>
+                                                       SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_xor<27>
+    SLICE_X5Y43.B4       net (fanout=32)       1.186   SIKI_ALU/ALU_FADD/sum_mant_sub0000<25>
+    SLICE_X5Y43.B        Tilo                  0.094   SIKI_ALU/ALU_FADD/N2571
+                                                       SIKI_ALU/ALU_FADD/i_mux0000<4>111
+    SLICE_X1Y43.C3       net (fanout=34)       0.720   SIKI_ALU/ALU_FADD/N2571
+    SLICE_X1Y43.C        Tilo                  0.094   SIKI_ALU/ALU_FADD/Msub_sum_22_0_sub0000_cy<4>
+                                                       SIKI_ALU/ALU_FADD/i_mux0000<3>
+    SLICE_X4Y51.C1       net (fanout=202)      1.612   SIKI_ALU/ALU_FADD/i_mux0000<3>
+    SLICE_X4Y51.C        Tilo                  0.094   N1095
+                                                       SIKI_ALU/ALU_FADD/sum_19_mux0017111
+    SLICE_X2Y37.CX       net (fanout=18)       1.217   SIKI_ALU/ALU_FADD/N122
+    SLICE_X2Y37.CMUX     Taxc                  0.330   N872
+                                                       SIKI_ALU/output_int<14>1575_SW0
+    SLICE_X5Y36.A6       net (fanout=1)        0.296   N1094
+    SLICE_X5Y36.A        Tilo                  0.094   N760
+                                                       SIKI_ALU/output_int<14>1610
+    SLICE_X2Y53.A4       net (fanout=1)        1.322   SIKI_ALU/output_int<14>1610
+    SLICE_X2Y53.CLK      Tas                   0.026   SIKI_ALU/output_buf<15>
+                                                       SIKI_ALU/output_int<14>1729
+                                                       SIKI_ALU/output_buf_14
+    -------------------------------------------------  ---------------------------
+    Total                                     18.807ns (5.141ns logic, 13.666ns route)
+                                                       (27.3% logic, 72.7% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     -9.196ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               SIKI_ID/ALU_control_buf_4 (FF)
+  Destination:          SIKI_ALU/output_buf_14 (FF)
+  Requirement:          9.680ns
+  Data Path Delay:      18.816ns (Levels of Logic = 25)
+  Clock Path Skew:      0.057ns (0.572 - 0.515)
+  Source Clock:         clk rising at 0.000ns
+  Destination Clock:    clk rising at 9.680ns
+  Clock Uncertainty:    0.117ns
+
+  Clock Uncertainty:          0.117ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.164ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: SIKI_ID/ALU_control_buf_4 to SIKI_ALU/output_buf_14
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X19Y49.DQ      Tcko                  0.450   SIKI_ID/ALU_control_buf<4>
+                                                       SIKI_ID/ALU_control_buf_4
+    SLICE_X16Y47.A2      net (fanout=305)      1.107   SIKI_ID/ALU_control_buf<4>
+    SLICE_X16Y47.A       Tilo                  0.094   SIKI_ID/data_1_buf_2_1
+                                                       SIKI_ALU/fadd_data_2<4>1
+    SLICE_X13Y44.C1      net (fanout=11)       1.197   SIKI_ALU/fadd_data_2<4>
+    SLICE_X13Y44.COUT    Topcyc                0.423   SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<3>
+                                                       SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_lut<2>
+                                                       SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<3>
+    SLICE_X13Y45.CIN     net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<3>
+    SLICE_X13Y45.COUT    Tbyp                  0.104   SIKI_MEM/load_heap_data_store<19>
+                                                       SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<7>
+    SLICE_X13Y46.CIN     net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<7>
+    SLICE_X13Y46.COUT    Tbyp                  0.104   SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<11>
+                                                       SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<11>
+    SLICE_X13Y47.CIN     net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<11>
+    SLICE_X13Y47.BMUX    Tcinb                 0.262   SIKI_ALU/fadd_data_2<10>
+                                                       SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<13>
+    SLICE_X12Y47.C6      net (fanout=1)        0.153   SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<13>
+    SLICE_X12Y47.C       Tilo                  0.094   SIKI_ID/data_1_buf_12_1
+                                                       SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<15>1
+    SLICE_X13Y52.B6      net (fanout=243)      0.769   SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<15>
+    SLICE_X13Y52.B       Tilo                  0.094   N1021
+                                                       SIKI_ALU/ALU_FADD/num1_mux0000<23>1
+    SLICE_X10Y46.AX      net (fanout=3)        0.678   SIKI_ALU/ALU_FADD/Madd_sum_30_23_add0002_cy<0>
+    SLICE_X10Y46.DMUX    Taxd                  0.651   SIKI_ALU/ALU_FADD/Msub_S_sub0000_cy<3>
+                                                       SIKI_ALU/ALU_FADD/Msub_S_sub0000_cy<3>
+    SLICE_X17Y46.C3      net (fanout=142)      1.021   SIKI_ALU/ALU_FADD/S_sub0000<3>
+    SLICE_X17Y46.C       Tilo                  0.094   SIKI_ID/data_2_buf_18_1
+                                                       SIKI_ALU/ALU_FADD/s_bit_mux00301_SW1
+    SLICE_X15Y47.A2      net (fanout=1)        0.732   N935
+    SLICE_X15Y47.A       Tilo                  0.094   SIKI_ID/data_1_buf_10_1
+                                                       SIKI_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_lut<2>_SW1
+    SLICE_X10Y44.C5      net (fanout=1)        0.717   N1999
+    SLICE_X10Y44.COUT    Topcyc                0.409   SIKI_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<3>
+                                                       SIKI_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_lut<2>
+                                                       SIKI_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<3>
+    SLICE_X10Y45.CIN     net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<3>
+    SLICE_X10Y45.AMUX    Tcina                 0.310   SIKI_ALU/ALU_FADD/N262
+                                                       SIKI_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<4>
+    SLICE_X0Y43.A6       net (fanout=2)        0.813   SIKI_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<4>
+    SLICE_X0Y43.COUT     Topcya                0.499   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<3>
+                                                       SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_lut<0>
+                                                       SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<3>
+    SLICE_X0Y44.CIN      net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<3>
+    SLICE_X0Y44.COUT     Tbyp                  0.104   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<7>
+                                                       SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<7>
+    SLICE_X0Y45.CIN      net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<7>
+    SLICE_X0Y45.COUT     Tbyp                  0.104   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<11>
+                                                       SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<11>
+    SLICE_X0Y46.CIN      net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<11>
+    SLICE_X0Y46.COUT     Tbyp                  0.104   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<15>
+                                                       SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<15>
+    SLICE_X0Y47.CIN      net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<15>
+    SLICE_X0Y47.COUT     Tbyp                  0.104   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<19>
+                                                       SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<19>
+    SLICE_X0Y48.CIN      net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<19>
+    SLICE_X0Y48.COUT     Tbyp                  0.104   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<23>
+                                                       SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<23>
+    SLICE_X0Y49.CIN      net (fanout=1)        0.000   SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<23>
+    SLICE_X0Y49.BMUX     Tcinb                 0.342   SIKI_ALU/ALU_FADD/sum_mant_sub0000<27>
+                                                       SIKI_ALU/ALU_FADD/Msub_sum_mant_sub0000_xor<27>
+    SLICE_X5Y43.B4       net (fanout=32)       1.186   SIKI_ALU/ALU_FADD/sum_mant_sub0000<25>
+    SLICE_X5Y43.B        Tilo                  0.094   SIKI_ALU/ALU_FADD/N2571
+                                                       SIKI_ALU/ALU_FADD/i_mux0000<4>111
+    SLICE_X1Y43.C3       net (fanout=34)       0.720   SIKI_ALU/ALU_FADD/N2571
+    SLICE_X1Y43.C        Tilo                  0.094   SIKI_ALU/ALU_FADD/Msub_sum_22_0_sub0000_cy<4>
+                                                       SIKI_ALU/ALU_FADD/i_mux0000<3>
+    SLICE_X4Y51.C1       net (fanout=202)      1.612   SIKI_ALU/ALU_FADD/i_mux0000<3>
+    SLICE_X4Y51.C        Tilo                  0.094   N1095
+                                                       SIKI_ALU/ALU_FADD/sum_19_mux0017111
+    SLICE_X2Y37.CX       net (fanout=18)       1.217   SIKI_ALU/ALU_FADD/N122
+    SLICE_X2Y37.CMUX     Taxc                  0.330   N872
+                                                       SIKI_ALU/output_int<14>1575_SW0
+    SLICE_X5Y36.A6       net (fanout=1)        0.296   N1094
+    SLICE_X5Y36.A        Tilo                  0.094   N760
+                                                       SIKI_ALU/output_int<14>1610
+    SLICE_X2Y53.A4       net (fanout=1)        1.322   SIKI_ALU/output_int<14>1610
+    SLICE_X2Y53.CLK      Tas                   0.026   SIKI_ALU/output_buf<15>
+                                                       SIKI_ALU/output_int<14>1729
+                                                       SIKI_ALU/output_buf_14
+    -------------------------------------------------  ---------------------------
+    Total                                     18.816ns (5.276ns logic, 13.540ns route)
+                                                       (28.0% logic, 72.0% route)
+
+--------------------------------------------------------------------------------
+
+Hold Paths: TS_CLK_CHANGE_CLKFX_BUF = PERIOD TIMEGRP "CLK_CHANGE_CLKFX_BUF" TS_SYS_CLK /
+        1.5 HIGH 50%;
+--------------------------------------------------------------------------------
+
+Paths for end point SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[46].ram.r/v5_noinit.ram/SP.SINGLE_PRIM36.SP (RAMB36_X1Y16.DIADIL1), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.264ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               SIKI_IFE/dina_buf_24 (FF)
+  Destination:          SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[46].ram.r/v5_noinit.ram/SP.SINGLE_PRIM36.SP (RAM)
+  Requirement:          0.000ns
+  Data Path Delay:      0.532ns (Levels of Logic = 0)
+  Clock Path Skew:      0.268ns (1.420 - 1.152)
+  Source Clock:         clk rising at 9.680ns
+  Destination Clock:    clk rising at 9.680ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: SIKI_IFE/dina_buf_24 to SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[46].ram.r/v5_noinit.ram/SP.SINGLE_PRIM36.SP
+    Location                Delay type         Delay(ns)  Physical Resource
+                                                          Logical Resource(s)
+    ----------------------------------------------------  -------------------
+    SLICE_X45Y79.AQ         Tcko                  0.414   SIKI_IFE/dina_buf<27>
+                                                          SIKI_IFE/dina_buf_24
+    RAMB36_X1Y16.DIADIL1    net (fanout=15)       0.404   SIKI_IFE/dina_buf<24>
+    RAMB36_X1Y16.CLKARDCLKL Trckd_DIA   (-Th)     0.286   SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[46].ram.r/v5_noinit.ram/SP.SINGLE_PRIM36.SP
+                                                          SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[46].ram.r/v5_noinit.ram/SP.SINGLE_PRIM36.SP
+    ----------------------------------------------------  ---------------------------
+    Total                                         0.532ns (0.128ns logic, 0.404ns route)
+                                                          (24.1% logic, 75.9% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[46].ram.r/v5_noinit.ram/SP.SINGLE_PRIM36.SP (RAMB36_X1Y16.DIADIL2), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.268ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               SIKI_IFE/dina_buf_26 (FF)
+  Destination:          SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[46].ram.r/v5_noinit.ram/SP.SINGLE_PRIM36.SP (RAM)
+  Requirement:          0.000ns
+  Data Path Delay:      0.536ns (Levels of Logic = 0)
+  Clock Path Skew:      0.268ns (1.420 - 1.152)
+  Source Clock:         clk rising at 9.680ns
+  Destination Clock:    clk rising at 9.680ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: SIKI_IFE/dina_buf_26 to SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[46].ram.r/v5_noinit.ram/SP.SINGLE_PRIM36.SP
+    Location                Delay type         Delay(ns)  Physical Resource
+                                                          Logical Resource(s)
+    ----------------------------------------------------  -------------------
+    SLICE_X45Y79.CQ         Tcko                  0.414   SIKI_IFE/dina_buf<27>
+                                                          SIKI_IFE/dina_buf_26
+    RAMB36_X1Y16.DIADIL2    net (fanout=15)       0.408   SIKI_IFE/dina_buf<26>
+    RAMB36_X1Y16.CLKARDCLKL Trckd_DIA   (-Th)     0.286   SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[46].ram.r/v5_noinit.ram/SP.SINGLE_PRIM36.SP
+                                                          SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[46].ram.r/v5_noinit.ram/SP.SINGLE_PRIM36.SP
+    ----------------------------------------------------  ---------------------------
+    Total                                         0.536ns (0.128ns logic, 0.408ns route)
+                                                          (23.9% logic, 76.1% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point SIKI_ALU/ALU_FSQRT/exp_in_p_5 (SLICE_X19Y80.BX), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.345ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               SIKI_ALU/ALU_FSQRT/exp_in_5 (FF)
+  Destination:          SIKI_ALU/ALU_FSQRT/exp_in_p_5 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.331ns (Levels of Logic = 0)
+  Clock Path Skew:      -0.014ns (0.158 - 0.172)
+  Source Clock:         clk rising at 9.680ns
+  Destination Clock:    clk rising at 9.680ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: SIKI_ALU/ALU_FSQRT/exp_in_5 to SIKI_ALU/ALU_FSQRT/exp_in_p_5
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X18Y80.AQ      Tcko                  0.414   SIKI_ALU/ALU_FSQRT/exp_in<7>
+                                                       SIKI_ALU/ALU_FSQRT/exp_in_5
+    SLICE_X19Y80.BX      net (fanout=1)        0.148   SIKI_ALU/ALU_FSQRT/exp_in<5>
+    SLICE_X19Y80.CLK     Tckdi       (-Th)     0.231   SIKI_ALU/ALU_FSQRT/exp_in_p<7>
+                                                       SIKI_ALU/ALU_FSQRT/exp_in_p_5
+    -------------------------------------------------  ---------------------------
+    Total                                      0.331ns (0.183ns logic, 0.148ns route)
+                                                       (55.3% logic, 44.7% route)
+
+--------------------------------------------------------------------------------
+
+Component Switching Limit Checks: TS_CLK_CHANGE_CLKFX_BUF = PERIOD TIMEGRP "CLK_CHANGE_CLKFX_BUF" TS_SYS_CLK /
+        1.5 HIGH 50%;
+--------------------------------------------------------------------------------
+Slack: 6.044ns (period - min period limit)
+  Period: 9.680ns
+  Min period limit: 3.636ns (275.028MHz) (Tdspper_BP_MULT)
+  Physical resource: SIKI_ALU/ALU_FINV/Mmult_tmp_mult0000/CLK
+  Logical resource: SIKI_ALU/ALU_FINV/Mmult_tmp_mult0000/CLK
+  Location pin: DSP48_X0Y21.CLK
+  Clock network: clk
+--------------------------------------------------------------------------------
+Slack: 6.044ns (period - min period limit)
+  Period: 9.680ns
+  Min period limit: 3.636ns (275.028MHz) (Tdspper_BP_MULT)
+  Physical resource: SIKI_ALU/ALU_FSQRT/Mmult_tmp_mult0000/CLK
+  Logical resource: SIKI_ALU/ALU_FSQRT/Mmult_tmp_mult0000/CLK
+  Location pin: DSP48_X0Y23.CLK
+  Clock network: clk
+--------------------------------------------------------------------------------
+Slack: 6.044ns (period - min period limit)
+  Period: 9.680ns
+  Min period limit: 3.636ns (275.028MHz) (Tdspper_BP_MULT)
+  Physical resource: SIKI_ALU/ALU_FMUL/Mmult_s0_hl/CLK
+  Logical resource: SIKI_ALU/ALU_FMUL/Mmult_s0_hl/CLK
+  Location pin: DSP48_X0Y16.CLK
+  Clock network: clk
+--------------------------------------------------------------------------------
+
+
+Derived Constraint Report
+Derived Constraints for TS_SYS_CLK
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|                               |   Period    |       Actual Period       |      Timing Errors        |      Paths Analyzed       |
+|           Constraint          | Requirement |-------------+-------------|-------------+-------------|-------------+-------------|
+|                               |             |   Direct    | Derivative  |   Direct    | Derivative  |   Direct    | Derivative  |
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|TS_SYS_CLK                     |     14.520ns|      7.142ns|     29.111ns|            0|          266|            0| 864149006043|
+| TS_CLK_CHANGE_CLKFX_BUF       |      9.680ns|     19.407ns|          N/A|          266|            0| 864149006043|            0|
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+
+1 constraint not met.
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Clock to Setup on destination clock MCLK1
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+MCLK1          |   19.407|         |         |         |
+---------------+---------+---------+---------+---------+
+
+
+Timing summary:
+---------------
+
+Timing errors: 266  Score: 1060086  (Setup/Max: 1060086, Hold: 0)
+
+Constraints cover 864149006043 paths, 0 nets, and 52892 connections
+
+Design statistics:
+   Minimum period:  19.407ns{1}   (Maximum frequency:  51.528MHz)
+
+
+------------------------------------Footnotes-----------------------------------
+1)  The minimum period statistic assumes all single cycle delays.
+
+Analysis completed Sun Feb  7 17:52:28 2016 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 686 MB
+
+
+

@@ -1,0 +1,5 @@
+set -tmpdir "/home/shinno/cpu/siki/project/siki/xst/projnav.tmp"
+set -xsthdpdir "/home/shinno/cpu/siki/project/siki/xst"
+elaborate
+-ifn ife.prj
+-ifmt mixed

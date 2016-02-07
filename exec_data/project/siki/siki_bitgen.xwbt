@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=/home/shinno/cpu/sowaka/project/siki/siki.ncd
+OUTFILE=/home/shinno/cpu/sowaka/project/siki/siki.bit
+FAMILY=Virtex5
+PART=xc5vlx50t-1ff1136
+WORKINGDIR=/home/shinno/cpu/sowaka/project/siki
+LICENSE=ISE
+USER_INFO=208921728_178739220_208889460_365

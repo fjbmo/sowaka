@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "secureip" -o "/home/shinno/cpu/siki/project/siki/SIKI_testbench_isim_beh.exe" -prj "/home/shinno/cpu/siki/project/siki/SIKI_testbench_beh.prj" "work.SIKI_testbench" 

@@ -1,0 +1,11 @@
+[Inputs]
+clk
+write_mem
+=state[1:0]=
+=write_BRAM[15:0]=
+=next_PC[15:0]=
+=instruction[31:0]=
+[Outputs]
+=prev_PC[15:0]=
+=recv_data[31:0]=
+[BiDir]

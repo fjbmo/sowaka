@@ -1,0 +1,2 @@
+vhdtdtfi -lib work ../../tx.vhd -prj siki -o tx.spl -module tx -template /home/shinno/Xilinx/14.4/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family virtex5 tx.spl /home/shinno/cpu/siki/project/siki/tx.sym 

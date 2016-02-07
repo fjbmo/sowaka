@@ -1,0 +1,2 @@
+vhdtdtfi -lib work ../../ALU.vhd -prj siki -o ALU.spl -module ALU -template /home/shinno/Xilinx/14.4/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family virtex5 ALU.spl /home/shinno/cpu/siki/project/siki/ALU.sym 

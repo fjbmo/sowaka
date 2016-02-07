@@ -1,0 +1,68 @@
+Running: /home/shinno/Xilinx/14.4/ISE_DS/ISE/bin/lin64/unwrapped/fuse -relaunch -intstyle "ise" -incremental -lib "secureip" -o "/home/shinno/cpu/siki/project/siki/SIKI_testbench_isim_beh.exe" -prj "/home/shinno/cpu/siki/project/siki/SIKI_testbench_beh.prj" "work.SIKI_testbench" 
+ISim P.49d (signature 0xfbc00daa)
+Number of CPUs detected in this system: 8
+Turning on mult-threading, number of parallel sub-compilation jobs: 16 
+Determining compilation order of HDL files
+Parsing VHDL file "/home/shinno/cpu/siki/project/siki/ipcore_dir/BRAM.vhd" into library work
+Parsing VHDL file "/home/shinno/cpu/siki/project/siki/ipcore_dir/fifo8.vhd" into library work
+Parsing VHDL file "/home/shinno/cpu/siki/project/siki/../../prov_itof.vhd" into library work
+Parsing VHDL file "/home/shinno/cpu/siki/project/siki/../../prov_ftoi.vhd" into library work
+Parsing VHDL file "/home/shinno/cpu/siki/project/siki/../../prov_fsqrt.vhd" into library work
+Parsing VHDL file "/home/shinno/cpu/siki/project/siki/../../prov_finv.vhd" into library work
+Parsing VHDL file "/home/shinno/cpu/siki/project/siki/../../fmul.vhd" into library work
+Parsing VHDL file "/home/shinno/cpu/siki/project/siki/../../fadd.vhd" into library work
+Parsing VHDL file "/home/shinno/cpu/siki/project/siki/../../tx.vhd" into library work
+Parsing VHDL file "/home/shinno/cpu/siki/project/siki/../../rx.vhd" into library work
+Parsing VHDL file "/home/shinno/cpu/siki/project/siki/../../mem.vhd" into library work
+Parsing VHDL file "/home/shinno/cpu/siki/project/siki/../../ife.vhd" into library work
+Parsing VHDL file "/home/shinno/cpu/siki/project/siki/../../id.vhd" into library work
+Parsing VHDL file "/home/shinno/cpu/siki/project/siki/../../ALU.vhd" into library work
+Parsing VHDL file "/home/shinno/cpu/siki/project/siki/../../siki.vhd" into library work
+Parsing VHDL file "/home/shinno/cpu/siki/project/siki/../../testbench.vhd" into library work
+Starting static elaboration
+Completed static elaboration
+Fuse Memory Usage: 392296 KB
+Fuse CPU Usage: 5130 ms
+Compiling package standard
+Compiling package std_logic_1164
+Compiling package std_logic_arith
+Compiling package std_logic_unsigned
+Compiling package vcomponents
+Compiling architecture tx of entity tx [\tx(('0','0','0','0','0','0','0'...]
+Compiling package fadd_p
+Compiling package fmul_p
+Compiling architecture behavioral of entity fifo_generator_v9_3_bhv_ss [\fifo_generator_v9_3_bhv_ss(14,8...]
+Compiling architecture behavioral of entity fifo_generator_v9_3_bhv_preload0 [\fifo_generator_v9_3_bhv_preload...]
+Compiling architecture behavioral of entity fifo_generator_v9_3_conv [\fifo_generator_v9_3_conv(1,0,14...]
+Compiling architecture behavioral of entity fifo_generator_v9_3 [\fifo_generator_v9_3(1,0,14,"Bla...]
+Compiling architecture fifo8_a of entity fifo8 [fifo8_default]
+Compiling architecture rx of entity rx [\rx(('0','0','0','0','0','0','0'...]
+Compiling package textio
+Compiling package std_logic_textio
+Compiling architecture output_stage_behavioral of entity BLK_MEM_GEN_V7_3_output_stage [\BLK_MEM_GEN_V7_3_output_stage("...]
+Compiling architecture softecc_output_reg_stage_behavioral of entity BLK_MEM_GEN_V7_3_softecc_output_reg_stage [\BLK_MEM_GEN_V7_3_softecc_output...]
+Compiling architecture mem_module_behavioral of entity BLK_MEM_GEN_V7_3_mem_module [\BLK_MEM_GEN_V7_3_mem_module("bl...]
+Compiling architecture behavioral of entity BLK_MEM_GEN_V7_3 [\BLK_MEM_GEN_V7_3("blk_mem_gen_v...]
+Compiling architecture bram_a of entity BRAM [bram_default]
+Compiling architecture ife of entity ife [ife_default]
+Compiling architecture id of entity id [id_default]
+Compiling package attributes
+Compiling package std_logic_misc
+Compiling package numeric_std
+Compiling architecture blackbox of entity fadd [fadd_default]
+Compiling architecture blackbox of entity fmul [fmul_default]
+Compiling architecture finv of entity FINV [finv_default]
+Compiling architecture fsqrt of entity FSQRT [fsqrt_default]
+Compiling architecture itof of entity ITOF [itof_default]
+Compiling architecture ftoi of entity FTOI [ftoi_default]
+Compiling architecture alu of entity ALU [alu_default]
+Compiling architecture mem of entity mem [mem_default]
+Compiling architecture siki of entity siki [siki_default]
+Compiling architecture testbench of entity siki_testbench
+Time Resolution for simulation is 1ps.
+Waiting for 1 sub-compilation(s) to finish...
+Compiled 59 VHDL Units
+Built simulation executable /home/shinno/cpu/siki/project/siki/SIKI_testbench_isim_beh.exe
+Fuse Memory Usage: 1473656 KB
+Fuse CPU Usage: 6400 ms
+GCC CPU Usage: 1380 ms

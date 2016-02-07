@@ -1,0 +1,9 @@
+[Inputs]
+clk
+go
+input
+[Outputs]
+running
+received
+=output[7:0]=
+[BiDir]
