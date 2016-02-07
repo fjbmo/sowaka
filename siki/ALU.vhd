@@ -1,14 +1,14 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.STD_LOGIC_ARITH.ALL;
+--use IEEE.STD_LOGIC_ARITH.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
 library UNISIM;
 use UNISIM.VComponents.all;
 
 library WORK;
 use WORK.fadd_p.all;
-use WORK.fmul_p.all;
 
 entity ALU is
   Port(
@@ -56,35 +56,45 @@ architecture ALU of ALU is
       S : out std_logic_vector(31 downto 0)); --ans
   end component;
 
-  component fmul
+  component fmul_pl
     port(
-      A : in std_logic_vector(31 downto 0); --data_1
-      B : in std_logic_vector(31 downto 0); --data_2
-      S : out std_logic_vector(31 downto 0)); --ans
+      clk     : in std_logic;
+      input_1 : in std_logic_vector(31 downto 0); --data_1
+      input_2 : in std_logic_vector(31 downto 0); --data_2
+      output  : out std_logic_vector(31 downto 0)); --ans
   end component;
 
   component finv
     port(
-      A : in std_logic_vector(31 downto 0); --data
-      S : out std_logic_vector(31 downto 0)); --ans
+      clk       : in std_logic;
+      flt_in    : in std_logic_vector(31 downto 0); --data
+      flt_out   : out std_logic_vector(31 downto 0)); --ans
   end component;
 
-  component fsqrt
+  component fsqrt_pl
     port(
-      A : in std_logic_vector(31 downto 0); --data
-      S : out std_logic_vector(31 downto 0)); --ans
+      clk    : in std_logic;
+      input  : in std_logic_vector(31 downto 0); --data
+      output : out std_logic_vector(31 downto 0)); --ans
   end component;
 
-  component itof
+--  component i2f
+  component itof_pl
     port(
-      A : in std_logic_vector(31 downto 0); --data
-      S : out std_logic_vector(31 downto 0)); --ans
+--      i2f_in  : in std_logic_vector(31 downto 0);
+--      i2f_out : out std_logic_vector(31 downto 0));
+      clk : in std_logic;
+      A   : in std_logic_vector(31 downto 0); --data
+      S   : out std_logic_vector(31 downto 0)); --ans
   end component;
 
-  component ftoi
+  component ftoi_pl
     port(
-      A : in std_logic_vector(31 downto 0); --data
-      S : out std_logic_vector(31 downto 0)); --ans
+      clk   : in std_logic;
+--      xrst  : in std_logic; --reset data when '0'
+--      stall : in std_logic; --keep data when '1'?
+      A     : in unsigned(31 downto 0); --data
+      S     : out unsigned(31 downto 0)); --ans
   end component;
 
   signal sys_activate_buf   : std_logic := '0';
@@ -112,7 +122,10 @@ architecture ALU of ALU is
   signal itof_data   : std_logic_vector(31 downto 0) := x"00000000";
   signal itof_ans    : std_logic_vector(31 downto 0) := x"00000000";
   signal ftoi_data   : std_logic_vector(31 downto 0) := x"00000000";
-  signal ftoi_ans    : std_logic_vector(31 downto 0) := x"00000000";
+  signal ftoi_ans    : unsigned(31 downto 0) := x"00000000";
+--  signal ftoi_ans    : std_logic_vector(31 downto 0) := x"00000000";
+--  signal xrst        : std_logic := '1';
+--  signal stall       : std_logic := '0';
 
   signal check_eq   : std_logic := '0'; --check =
   signal check_gtz  : std_logic := '0'; --check > with 0
@@ -139,26 +152,36 @@ begin
       A => fadd_data_1,
       B => fadd_data_2,
       S => fadd_ans);
-  ALU_FMUL: fmul
+  ALU_FMUL: fmul_pl
     port map(
-      A => fmul_data_1,
-      B => fmul_data_2,
-      S => fmul_ans);
+      clk => clk,
+      input_1 => fmul_data_1,
+      input_2 => fmul_data_2,
+      output => fmul_ans);
   ALU_FINV: finv
     port map(
-      A => finv_data,
-      S => finv_ans);
-  ALU_FSQRT: fsqrt
+      clk => clk,
+      flt_in => finv_data,
+      flt_out => finv_ans);
+  ALU_FSQRT: fsqrt_pl
     port map(
-      A => fsqrt_data,
-      S => fsqrt_ans);
-  ALU_ITOF: itof
+      clk => clk,
+      input => fsqrt_data,
+      output => fsqrt_ans);
+  ALU_ITOF: itof_pl
+--  ALU_ITOF: i2f
     port map(
+--      i2f_in => itof_data,
+--      i2f_out => itof_ans);
+      clk => clk,
       A => itof_data,
       S => itof_ans);
-  ALU_FTOI: ftoi
+  ALU_FTOI: ftoi_pl
     port map(
-      A => ftoi_data,
+      clk => clk,
+--      xrst => xrst,--(not used)
+--      stall => stall,--(not used)
+      A => unsigned(ftoi_data),
       S => ftoi_ans);
 
   sys_activate <= sys_activate_buf;
@@ -389,7 +412,7 @@ begin
                 fsqrt_ans when calcu_type = "01101" else
                 input_1 xor x"80000000" when calcu_type = "01110" else
                 itof_ans when calcu_type = "01111" else
-                ftoi_ans when calcu_type = "10000" else
+                std_logic_vector(ftoi_ans) when calcu_type = "10000" else
                 x"00000000";
 
   comp_exp <= "00" when input_1(30 downto 23) = input_2(30 downto 23) else
