@@ -1,0 +1,11 @@
+Release 14.4 Drc P.49d (lin64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Sun Feb 14 13:58:53 2016
+
+drc -z siki.ncd siki.pcf
+
+INFO:PhysDesignRules:1437 - To achieve optimal frequency synthesis performance
+   with the CLKFX and CLKFX180 outputs of the DCM_ADV comp
+   CLK_CHANGE/DCM_ADV_INST, consult the device Data Sheet.
+DRC detected 0 errors and 0 warnings.

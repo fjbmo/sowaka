@@ -1,0 +1,14 @@
+	.text
+_min_caml_start:
+	lui	$r20 1
+	ori	$r20 $r20 1
+	lw	$r21 0($r20)
+	addi	$r2 $r0 11
+	addi	$r4 $r0 85
+	syscall
+	addi	$r4 $r0 1656
+	addi	$r2 $r0 12
+	syscall
+	syscall
+	addi	$r2 $r0 12
+	syscall

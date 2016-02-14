@@ -1,0 +1,8 @@
+free variable print_int assumed as external
+iteration 1000
+eliminating variable Ti7.13
+eliminating variable Ti6.12
+eliminating variable Ti4.15
+iteration 999
+register allocation: may take some time (up to a few minutes, depending on the size of functions)
+generating assembly...
