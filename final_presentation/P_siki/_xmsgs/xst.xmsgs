@@ -5,16 +5,139 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="Xst" num="2211" delta="new" >&quot;<arg fmt="%s" index="1">/home/shinno/cpu/presentation/final_presentation/sowaka/siki/siki.vhd</arg>&quot; line <arg fmt="%d" index="2">473</arg>: Instantiating black box module &lt;<arg fmt="%s" index="3">fifo8</arg>&gt;.
+<msg type="warning" file="HDLParsers" num="3607" delta="new" >Unit <arg fmt="%s" index="1">work/siki</arg> is now defined in a different file.  It was defined in &quot;<arg fmt="%s" index="2">/home/shinno/cpu/presentation/final_presentation/sowaka/siki/siki.vhd</arg>&quot;, and is now defined in &quot;<arg fmt="%s" index="3">/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/siki.vhd</arg>&quot;.
 </msg>
 
-<msg type="warning" file="Xst" num="2211" delta="new" >&quot;<arg fmt="%s" index="1">/home/shinno/cpu/presentation/final_presentation/sowaka/siki/siki.vhd</arg>&quot; line <arg fmt="%d" index="2">482</arg>: Instantiating black box module &lt;<arg fmt="%s" index="3">output_buf</arg>&gt;.
+<msg type="warning" file="HDLParsers" num="3607" delta="new" >Unit <arg fmt="%s" index="1">work/siki/siki</arg> is now defined in a different file.  It was defined in &quot;<arg fmt="%s" index="2">/home/shinno/cpu/presentation/final_presentation/sowaka/siki/siki.vhd</arg>&quot;, and is now defined in &quot;<arg fmt="%s" index="3">/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/siki.vhd</arg>&quot;.
 </msg>
 
-<msg type="warning" file="Xst" num="2211" delta="old" >&quot;<arg fmt="%s" index="1">/home/shinno/cpu/presentation/final_presentation/sowaka/siki/ife.vhd</arg>&quot; line <arg fmt="%d" index="2">47</arg>: Instantiating black box module &lt;<arg fmt="%s" index="3">BRAM</arg>&gt;.
+<msg type="warning" file="HDLParsers" num="3607" delta="new" >Unit <arg fmt="%s" index="1">work/clk_changer</arg> is now defined in a different file.  It was defined in &quot;<arg fmt="%s" index="2">/home/shinno/cpu/presentation/final_presentation/P_siki/clk_changer.vhd</arg>&quot;, and is now defined in &quot;<arg fmt="%s" index="3">/home/shinno/cpu/sowaka/sowaka/final_presentation/P_siki/clk_changer.vhd</arg>&quot;.
 </msg>
 
-<msg type="warning" file="Xst" num="819" delta="old" >&quot;<arg fmt="%s" index="1">/home/shinno/cpu/presentation/final_presentation/sowaka/siki/conv.vhd</arg>&quot; line <arg fmt="%d" index="2">48</arg>: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+<msg type="warning" file="HDLParsers" num="3607" delta="new" >Unit <arg fmt="%s" index="1">work/clk_changer/BEHAVIORAL</arg> is now defined in a different file.  It was defined in &quot;<arg fmt="%s" index="2">/home/shinno/cpu/presentation/final_presentation/P_siki/clk_changer.vhd</arg>&quot;, and is now defined in &quot;<arg fmt="%s" index="3">/home/shinno/cpu/sowaka/sowaka/final_presentation/P_siki/clk_changer.vhd</arg>&quot;.
+</msg>
+
+<msg type="warning" file="HDLParsers" num="3607" delta="new" >Unit <arg fmt="%s" index="1">work/ALU</arg> is now defined in a different file.  It was defined in &quot;<arg fmt="%s" index="2">/home/shinno/cpu/presentation/final_presentation/sowaka/siki/ALU.vhd</arg>&quot;, and is now defined in &quot;<arg fmt="%s" index="3">/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/ALU.vhd</arg>&quot;.
+</msg>
+
+<msg type="warning" file="HDLParsers" num="3607" delta="new" >Unit <arg fmt="%s" index="1">work/ALU/ALU</arg> is now defined in a different file.  It was defined in &quot;<arg fmt="%s" index="2">/home/shinno/cpu/presentation/final_presentation/sowaka/siki/ALU.vhd</arg>&quot;, and is now defined in &quot;<arg fmt="%s" index="3">/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/ALU.vhd</arg>&quot;.
+</msg>
+
+<msg type="warning" file="HDLParsers" num="3607" delta="new" >Unit <arg fmt="%s" index="1">work/id</arg> is now defined in a different file.  It was defined in &quot;<arg fmt="%s" index="2">/home/shinno/cpu/presentation/final_presentation/sowaka/siki/id.vhd</arg>&quot;, and is now defined in &quot;<arg fmt="%s" index="3">/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/id.vhd</arg>&quot;.
+</msg>
+
+<msg type="warning" file="HDLParsers" num="3607" delta="new" >Unit <arg fmt="%s" index="1">work/id/id</arg> is now defined in a different file.  It was defined in &quot;<arg fmt="%s" index="2">/home/shinno/cpu/presentation/final_presentation/sowaka/siki/id.vhd</arg>&quot;, and is now defined in &quot;<arg fmt="%s" index="3">/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/id.vhd</arg>&quot;.
+</msg>
+
+<msg type="warning" file="HDLParsers" num="3607" delta="new" >Unit <arg fmt="%s" index="1">work/ife</arg> is now defined in a different file.  It was defined in &quot;<arg fmt="%s" index="2">/home/shinno/cpu/presentation/final_presentation/sowaka/siki/ife.vhd</arg>&quot;, and is now defined in &quot;<arg fmt="%s" index="3">/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/ife.vhd</arg>&quot;.
+</msg>
+
+<msg type="warning" file="HDLParsers" num="3607" delta="new" >Unit <arg fmt="%s" index="1">work/ife/ife</arg> is now defined in a different file.  It was defined in &quot;<arg fmt="%s" index="2">/home/shinno/cpu/presentation/final_presentation/sowaka/siki/ife.vhd</arg>&quot;, and is now defined in &quot;<arg fmt="%s" index="3">/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/ife.vhd</arg>&quot;.
+</msg>
+
+<msg type="warning" file="HDLParsers" num="3607" delta="new" >Unit <arg fmt="%s" index="1">work/mem</arg> is now defined in a different file.  It was defined in &quot;<arg fmt="%s" index="2">/home/shinno/cpu/presentation/final_presentation/sowaka/siki/mem.vhd</arg>&quot;, and is now defined in &quot;<arg fmt="%s" index="3">/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/mem.vhd</arg>&quot;.
+</msg>
+
+<msg type="warning" file="HDLParsers" num="3607" delta="new" >Unit <arg fmt="%s" index="1">work/mem/mem</arg> is now defined in a different file.  It was defined in &quot;<arg fmt="%s" index="2">/home/shinno/cpu/presentation/final_presentation/sowaka/siki/mem.vhd</arg>&quot;, and is now defined in &quot;<arg fmt="%s" index="3">/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/mem.vhd</arg>&quot;.
+</msg>
+
+<msg type="warning" file="HDLParsers" num="3607" delta="new" >Unit <arg fmt="%s" index="1">work/rx</arg> is now defined in a different file.  It was defined in &quot;<arg fmt="%s" index="2">/home/shinno/cpu/presentation/final_presentation/sowaka/siki/rx.vhd</arg>&quot;, and is now defined in &quot;<arg fmt="%s" index="3">/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/rx.vhd</arg>&quot;.
+</msg>
+
+<msg type="warning" file="HDLParsers" num="3607" delta="new" >Unit <arg fmt="%s" index="1">work/rx/rx</arg> is now defined in a different file.  It was defined in &quot;<arg fmt="%s" index="2">/home/shinno/cpu/presentation/final_presentation/sowaka/siki/rx.vhd</arg>&quot;, and is now defined in &quot;<arg fmt="%s" index="3">/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/rx.vhd</arg>&quot;.
+</msg>
+
+<msg type="warning" file="HDLParsers" num="3607" delta="new" >Unit <arg fmt="%s" index="1">work/tx</arg> is now defined in a different file.  It was defined in &quot;<arg fmt="%s" index="2">/home/shinno/cpu/presentation/final_presentation/sowaka/siki/tx.vhd</arg>&quot;, and is now defined in &quot;<arg fmt="%s" index="3">/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/tx.vhd</arg>&quot;.
+</msg>
+
+<msg type="warning" file="HDLParsers" num="3607" delta="new" >Unit <arg fmt="%s" index="1">work/tx/tx</arg> is now defined in a different file.  It was defined in &quot;<arg fmt="%s" index="2">/home/shinno/cpu/presentation/final_presentation/sowaka/siki/tx.vhd</arg>&quot;, and is now defined in &quot;<arg fmt="%s" index="3">/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/tx.vhd</arg>&quot;.
+</msg>
+
+<msg type="warning" file="HDLParsers" num="3607" delta="new" >Unit <arg fmt="%s" index="1">work/itof_pl</arg> is now defined in a different file.  It was defined in &quot;<arg fmt="%s" index="2">/home/shinno/cpu/presentation/final_presentation/sowaka/siki/conv.vhd</arg>&quot;, and is now defined in &quot;<arg fmt="%s" index="3">/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/conv.vhd</arg>&quot;.
+</msg>
+
+<msg type="warning" file="HDLParsers" num="3607" delta="new" >Unit <arg fmt="%s" index="1">work/itof_pl/behavior</arg> is now defined in a different file.  It was defined in &quot;<arg fmt="%s" index="2">/home/shinno/cpu/presentation/final_presentation/sowaka/siki/conv.vhd</arg>&quot;, and is now defined in &quot;<arg fmt="%s" index="3">/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/conv.vhd</arg>&quot;.
+</msg>
+
+<msg type="warning" file="HDLParsers" num="3607" delta="new" >Unit <arg fmt="%s" index="1">work/fadd_p</arg> is now defined in a different file.  It was defined in &quot;<arg fmt="%s" index="2">/home/shinno/cpu/presentation/final_presentation/sowaka/siki/fadd.vhd</arg>&quot;, and is now defined in &quot;<arg fmt="%s" index="3">/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/fadd.vhd</arg>&quot;.
+</msg>
+
+<msg type="warning" file="HDLParsers" num="3607" delta="new" >Unit <arg fmt="%s" index="1">work/fadd</arg> is now defined in a different file.  It was defined in &quot;<arg fmt="%s" index="2">/home/shinno/cpu/presentation/final_presentation/sowaka/siki/fadd.vhd</arg>&quot;, and is now defined in &quot;<arg fmt="%s" index="3">/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/fadd.vhd</arg>&quot;.
+</msg>
+
+<msg type="warning" file="HDLParsers" num="3607" delta="new" >Unit <arg fmt="%s" index="1">work/FADD/blackbox</arg> is now defined in a different file.  It was defined in &quot;<arg fmt="%s" index="2">/home/shinno/cpu/presentation/final_presentation/sowaka/siki/fadd.vhd</arg>&quot;, and is now defined in &quot;<arg fmt="%s" index="3">/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/fadd.vhd</arg>&quot;.
+</msg>
+
+<msg type="warning" file="HDLParsers" num="3607" delta="new" >Unit <arg fmt="%s" index="1">work/finv</arg> is now defined in a different file.  It was defined in &quot;<arg fmt="%s" index="2">/home/shinno/cpu/presentation/final_presentation/sowaka/siki/finv_pl.vhd</arg>&quot;, and is now defined in &quot;<arg fmt="%s" index="3">/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/finv_pl.vhd</arg>&quot;.
+</msg>
+
+<msg type="warning" file="HDLParsers" num="3607" delta="new" >Unit <arg fmt="%s" index="1">work/finv/twoproc_pipeline</arg> is now defined in a different file.  It was defined in &quot;<arg fmt="%s" index="2">/home/shinno/cpu/presentation/final_presentation/sowaka/siki/finv_pl.vhd</arg>&quot;, and is now defined in &quot;<arg fmt="%s" index="3">/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/finv_pl.vhd</arg>&quot;.
+</msg>
+
+<msg type="warning" file="HDLParsers" num="3607" delta="new" >Unit <arg fmt="%s" index="1">work/fmul</arg> is now defined in a different file.  It was defined in &quot;<arg fmt="%s" index="2">/home/shinno/cpu/presentation/final_presentation/sowaka/siki/fmul.vhd</arg>&quot;, and is now defined in &quot;<arg fmt="%s" index="3">/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/fmul.vhd</arg>&quot;.
+</msg>
+
+<msg type="warning" file="HDLParsers" num="3607" delta="new" >Unit <arg fmt="%s" index="1">work/FMUL/blackbox</arg> is now defined in a different file.  It was defined in &quot;<arg fmt="%s" index="2">/home/shinno/cpu/presentation/final_presentation/sowaka/siki/fmul.vhd</arg>&quot;, and is now defined in &quot;<arg fmt="%s" index="3">/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/fmul.vhd</arg>&quot;.
+</msg>
+
+<msg type="warning" file="HDLParsers" num="3607" delta="new" >Unit <arg fmt="%s" index="1">work/fsqrt_pl</arg> is now defined in a different file.  It was defined in &quot;<arg fmt="%s" index="2">/home/shinno/cpu/presentation/final_presentation/sowaka/siki/fsqrt_pl.vhd</arg>&quot;, and is now defined in &quot;<arg fmt="%s" index="3">/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/fsqrt_pl.vhd</arg>&quot;.
+</msg>
+
+<msg type="warning" file="HDLParsers" num="3607" delta="new" >Unit <arg fmt="%s" index="1">work/fsqrt_pl/twoproc_pipeline</arg> is now defined in a different file.  It was defined in &quot;<arg fmt="%s" index="2">/home/shinno/cpu/presentation/final_presentation/sowaka/siki/fsqrt_pl.vhd</arg>&quot;, and is now defined in &quot;<arg fmt="%s" index="3">/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/fsqrt_pl.vhd</arg>&quot;.
+</msg>
+
+<msg type="warning" file="HDLParsers" num="3607" delta="new" >Unit <arg fmt="%s" index="1">work/ftoi_pl</arg> is now defined in a different file.  It was defined in &quot;<arg fmt="%s" index="2">/home/shinno/cpu/presentation/final_presentation/sowaka/siki/trnc.vhd</arg>&quot;, and is now defined in &quot;<arg fmt="%s" index="3">/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/trnc.vhd</arg>&quot;.
+</msg>
+
+<msg type="warning" file="HDLParsers" num="3607" delta="new" >Unit <arg fmt="%s" index="1">work/ftoi_pl/behavior</arg> is now defined in a different file.  It was defined in &quot;<arg fmt="%s" index="2">/home/shinno/cpu/presentation/final_presentation/sowaka/siki/trnc.vhd</arg>&quot;, and is now defined in &quot;<arg fmt="%s" index="3">/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/trnc.vhd</arg>&quot;.
+</msg>
+
+<msg type="warning" file="HDLParsers" num="3607" delta="new" >Unit <arg fmt="%s" index="1">work/finvtable</arg> is now defined in a different file.  It was defined in &quot;<arg fmt="%s" index="2">/home/shinno/cpu/presentation/final_presentation/sowaka/siki/finvtable.vhd</arg>&quot;, and is now defined in &quot;<arg fmt="%s" index="3">/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/finvtable.vhd</arg>&quot;.
+</msg>
+
+<msg type="warning" file="HDLParsers" num="3607" delta="new" >Unit <arg fmt="%s" index="1">work/finvtable/behavioral</arg> is now defined in a different file.  It was defined in &quot;<arg fmt="%s" index="2">/home/shinno/cpu/presentation/final_presentation/sowaka/siki/finvtable.vhd</arg>&quot;, and is now defined in &quot;<arg fmt="%s" index="3">/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/finvtable.vhd</arg>&quot;.
+</msg>
+
+<msg type="warning" file="HDLParsers" num="3607" delta="new" >Unit <arg fmt="%s" index="1">work/fpu_common_p</arg> is now defined in a different file.  It was defined in &quot;<arg fmt="%s" index="2">/home/shinno/cpu/presentation/final_presentation/sowaka/siki/fpu_common.vhd</arg>&quot;, and is now defined in &quot;<arg fmt="%s" index="3">/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/fpu_common.vhd</arg>&quot;.
+</msg>
+
+<msg type="warning" file="HDLParsers" num="3607" delta="new" >Unit <arg fmt="%s" index="1">work/fpu_common_p</arg> is now defined in a different file.  It was defined in &quot;<arg fmt="%s" index="2">/home/shinno/cpu/presentation/final_presentation/sowaka/siki/fpu_common.vhd</arg>&quot;, and is now defined in &quot;<arg fmt="%s" index="3">/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/fpu_common.vhd</arg>&quot;.
+</msg>
+
+<msg type="warning" file="HDLParsers" num="3607" delta="new" >Unit <arg fmt="%s" index="1">work/fsqrttable</arg> is now defined in a different file.  It was defined in &quot;<arg fmt="%s" index="2">/home/shinno/cpu/presentation/final_presentation/sowaka/siki/fsqrttable.vhd</arg>&quot;, and is now defined in &quot;<arg fmt="%s" index="3">/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/fsqrttable.vhd</arg>&quot;.
+</msg>
+
+<msg type="warning" file="HDLParsers" num="3607" delta="new" >Unit <arg fmt="%s" index="1">work/fsqrttable/behavioral</arg> is now defined in a different file.  It was defined in &quot;<arg fmt="%s" index="2">/home/shinno/cpu/presentation/final_presentation/sowaka/siki/fsqrttable.vhd</arg>&quot;, and is now defined in &quot;<arg fmt="%s" index="3">/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/fsqrttable.vhd</arg>&quot;.
+</msg>
+
+<msg type="warning" file="HDLParsers" num="3607" delta="new" >Unit <arg fmt="%s" index="1">work/output_buf</arg> is now defined in a different file.  It was defined in &quot;<arg fmt="%s" index="2">/home/shinno/cpu/presentation/final_presentation/P_siki/ipcore_dir/output_buf.vhd</arg>&quot;, and is now defined in &quot;<arg fmt="%s" index="3">/home/shinno/cpu/sowaka/sowaka/final_presentation/P_siki/ipcore_dir/output_buf.vhd</arg>&quot;.
+</msg>
+
+<msg type="warning" file="HDLParsers" num="3607" delta="new" >Unit <arg fmt="%s" index="1">work/output_buf/output_buf_a</arg> is now defined in a different file.  It was defined in &quot;<arg fmt="%s" index="2">/home/shinno/cpu/presentation/final_presentation/P_siki/ipcore_dir/output_buf.vhd</arg>&quot;, and is now defined in &quot;<arg fmt="%s" index="3">/home/shinno/cpu/sowaka/sowaka/final_presentation/P_siki/ipcore_dir/output_buf.vhd</arg>&quot;.
+</msg>
+
+<msg type="warning" file="HDLParsers" num="3607" delta="new" >Unit <arg fmt="%s" index="1">work/fifo8</arg> is now defined in a different file.  It was defined in &quot;<arg fmt="%s" index="2">/home/shinno/cpu/presentation/final_presentation/P_siki/ipcore_dir/fifo8.vhd</arg>&quot;, and is now defined in &quot;<arg fmt="%s" index="3">/home/shinno/cpu/sowaka/sowaka/final_presentation/P_siki/ipcore_dir/fifo8.vhd</arg>&quot;.
+</msg>
+
+<msg type="warning" file="HDLParsers" num="3607" delta="new" >Unit <arg fmt="%s" index="1">work/fifo8/fifo8_a</arg> is now defined in a different file.  It was defined in &quot;<arg fmt="%s" index="2">/home/shinno/cpu/presentation/final_presentation/P_siki/ipcore_dir/fifo8.vhd</arg>&quot;, and is now defined in &quot;<arg fmt="%s" index="3">/home/shinno/cpu/sowaka/sowaka/final_presentation/P_siki/ipcore_dir/fifo8.vhd</arg>&quot;.
+</msg>
+
+<msg type="warning" file="HDLParsers" num="3607" delta="new" >Unit <arg fmt="%s" index="1">work/BRAM</arg> is now defined in a different file.  It was defined in &quot;<arg fmt="%s" index="2">/home/shinno/cpu/presentation/final_presentation/P_siki/ipcore_dir/BRAM.vhd</arg>&quot;, and is now defined in &quot;<arg fmt="%s" index="3">/home/shinno/cpu/sowaka/sowaka/final_presentation/P_siki/ipcore_dir/BRAM.vhd</arg>&quot;.
+</msg>
+
+<msg type="warning" file="HDLParsers" num="3607" delta="new" >Unit <arg fmt="%s" index="1">work/BRAM/BRAM_a</arg> is now defined in a different file.  It was defined in &quot;<arg fmt="%s" index="2">/home/shinno/cpu/presentation/final_presentation/P_siki/ipcore_dir/BRAM.vhd</arg>&quot;, and is now defined in &quot;<arg fmt="%s" index="3">/home/shinno/cpu/sowaka/sowaka/final_presentation/P_siki/ipcore_dir/BRAM.vhd</arg>&quot;.
+</msg>
+
+<msg type="warning" file="Xst" num="2211" delta="new" >&quot;<arg fmt="%s" index="1">/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/siki.vhd</arg>&quot; line <arg fmt="%d" index="2">473</arg>: Instantiating black box module &lt;<arg fmt="%s" index="3">fifo8</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2211" delta="new" >&quot;<arg fmt="%s" index="1">/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/siki.vhd</arg>&quot; line <arg fmt="%d" index="2">482</arg>: Instantiating black box module &lt;<arg fmt="%s" index="3">output_buf</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2211" delta="new" >&quot;<arg fmt="%s" index="1">/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/ife.vhd</arg>&quot; line <arg fmt="%d" index="2">47</arg>: Instantiating black box module &lt;<arg fmt="%s" index="3">BRAM</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="819" delta="new" >&quot;<arg fmt="%s" index="1">/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/conv.vhd</arg>&quot; line <arg fmt="%d" index="2">48</arg>: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
 <arg fmt="%s" index="3">&lt;a_0&gt;</arg>
 </msg>
 
@@ -54,7 +177,7 @@
 <msg type="warning" file="Xst" num="646" delta="old" >Signal &lt;<arg fmt="%s" index="1">sent</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 </msg>
 
-<msg type="warning" file="Xst" num="653" delta="new" >Signal &lt;<arg fmt="%s" index="1">rst_in</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">0</arg>.
+<msg type="warning" file="Xst" num="653" delta="old" >Signal &lt;<arg fmt="%s" index="1">rst_in</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">0</arg>.
 </msg>
 
 <msg type="warning" file="Xst" num="653" delta="old" >Signal &lt;<arg fmt="%s" index="1">print_register</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">0</arg>.
@@ -69,13 +192,13 @@
 <msg type="warning" file="Xst" num="1780" delta="old" >Signal &lt;<arg fmt="%s" index="1">pass_data</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
 </msg>
 
-<msg type="warning" file="Xst" num="646" delta="new" >Signal &lt;<arg fmt="%s" index="1">locked_out</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="646" delta="old" >Signal &lt;<arg fmt="%s" index="1">locked_out</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 </msg>
 
 <msg type="warning" file="Xst" num="653" delta="old" >Signal &lt;<arg fmt="%s" index="1">endianness_mode</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">0</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="646" delta="new" >Signal &lt;<arg fmt="%s" index="1">clk0_out</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="646" delta="old" >Signal &lt;<arg fmt="%s" index="1">clk0_out</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 </msg>
 
 <msg type="warning" file="Xst" num="646" delta="old" >Signal &lt;<arg fmt="%s" index="1">check_rx</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.

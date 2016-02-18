@@ -10,35 +10,35 @@ Target Device  : xc5vlx50t
 Target Package : ff1136
 Target Speed   : -1
 Mapper Version : virtex5 -- $Revision: 1.55 $
-Mapped Date    : Sun Feb 14 13:50:29 2016
+Mapped Date    : Tue Feb 16 21:24:03 2016
 
 Design Summary
 --------------
 Number of errors:      0
-Number of warnings:  125
+Number of warnings:  124
 Slice Logic Utilization:
-  Number of Slice Registers:                 3,417 out of  28,800   11%
-    Number used as Flip Flops:               3,414
-    Number used as Latch-thrus:                  3
-  Number of Slice LUTs:                      8,639 out of  28,800   29%
-    Number used as logic:                    8,591 out of  28,800   29%
-      Number using O6 output only:           8,107
-      Number using O5 output only:             194
-      Number using O5 and O6:                  290
+  Number of Slice Registers:                 3,426 out of  28,800   11%
+    Number used as Flip Flops:               3,422
+    Number used as Latch-thrus:                  4
+  Number of Slice LUTs:                      8,469 out of  28,800   29%
+    Number used as logic:                    8,422 out of  28,800   29%
+      Number using O6 output only:           7,767
+      Number using O5 output only:             192
+      Number using O5 and O6:                  463
     Number used as Memory:                      29 out of   7,680    1%
       Number used as Shift Register:            29
         Number using O6 output only:            29
-    Number used as exclusive route-thru:        19
-  Number of route-thrus:                       224
-    Number using O6 output only:               210
-    Number using O5 output only:                14
+    Number used as exclusive route-thru:        18
+  Number of route-thrus:                       213
+    Number using O6 output only:               208
+    Number using O5 output only:                 5
 
 Slice Logic Distribution:
-  Number of occupied Slices:                 3,472 out of   7,200   48%
-  Number of LUT Flip Flop pairs used:       10,258
-    Number with an unused Flip Flop:         6,841 out of  10,258   66%
-    Number with an unused LUT:               1,619 out of  10,258   15%
-    Number of fully used LUT-FF pairs:       1,798 out of  10,258   17%
+  Number of occupied Slices:                 3,374 out of   7,200   46%
+  Number of LUT Flip Flop pairs used:        9,971
+    Number with an unused Flip Flop:         6,545 out of   9,971   65%
+    Number with an unused LUT:               1,502 out of   9,971   15%
+    Number of fully used LUT-FF pairs:       1,924 out of   9,971   19%
     Number of unique control sets:             138
     Number of slice register sites lost
       to control set restrictions:             133 out of  28,800    1%
@@ -67,11 +67,11 @@ Specific Feature Utilization:
   Number of DCM_ADVs:                            1 out of      12    8%
   Number of DSP48Es:                             6 out of      48   12%
 
-Average Fanout of Non-Clock Nets:                5.05
+Average Fanout of Non-Clock Nets:                4.98
 
-Peak Memory Usage:  1030 MB
-Total REAL time to MAP completion:  2 mins 26 secs 
-Total CPU time to MAP completion:   2 mins 26 secs 
+Peak Memory Usage:  1031 MB
+Total REAL time to MAP completion:  2 mins 48 secs 
+Total CPU time to MAP completion:   2 mins 48 secs 
 
 Table of Contents
 -----------------
@@ -884,11 +884,6 @@ WARNING:Pack:2874 - Trimming timing constraints from pin
    of frag REGCLKAL connected to power/ground net
    SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/va
    lid.cstr/ramloop[9].ram.r/v5_noinit.ram/SP.SINGLE_PRIM36.SP_REGCLKAL_tiesig
-WARNING:Pack:2574 - The F7 multiplexer symbol "SIKI_ALU/output_int<8>43_f7" and
-   its I1 input driver "SIKI_ALU/output_int<8>121" were implemented suboptimally
-   in the same slice component. The function generator could not be placed
-   directly driving the F7 multiplexer. The design will exhibit suboptimal
-   timing.
 WARNING:Pack:2574 - The F7 multiplexer symbol "SIKI_ALU/output_int<21>200_f7"
    and its I1 input driver "SIKI_ALU/output_int<29>131" were implemented
    suboptimally in the same slice component. The function generator could not be
@@ -985,8 +980,8 @@ Derived Constraints for TS_SYS_CLK
 |           Constraint          | Requirement |-------------+-------------|-------------+-------------|-------------+-------------|
 |                               |             |   Direct    | Derivative  |   Direct    | Derivative  |   Direct    | Derivative  |
 +-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
-|TS_SYS_CLK                     |     14.520ns|      7.142ns|     16.287ns|            0|           54|            0| 909687249692|
-| TS_CLK_CHANGE_CLKFX_BUF       |      9.680ns|     10.858ns|          N/A|           54|            0| 909687249692|            0|
+|TS_SYS_CLK                     |     14.520ns|      7.142ns|     16.287ns|            0|           54|            0| 909687250460|
+| TS_CLK_CHANGE_CLKFX_BUF       |      9.680ns|     10.858ns|          N/A|           54|            0| 909687250460|            0|
 +-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
 
 1 constraint not met.

@@ -1,0 +1,799 @@
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/project/hannya/hannya.xst" -ofn "/home/shinno/cpu/sowaka/project/hannya/hannya.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/hannya/cpu.ucf -p xc5vlx50t-ff1136-1 hannya.ngc hannya.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o hannya_map.ncd hannya.ngd hannya.pcf 
+par -w -intstyle ise -ol high -mt off hannya_map.ncd hannya.ncd hannya.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf 
+bitgen -intstyle ise -f hannya.ut hannya.ncd 

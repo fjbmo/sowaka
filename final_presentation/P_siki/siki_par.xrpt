@@ -5,7 +5,7 @@
     The structure and the elements are likely to change over the next few releases.
     This means code written to parse this file will need to be revisited each subsequent release.-->
 
-  <application stringID="par" timeStamp="Sun Feb 14 13:53:04 2016">
+  <application stringID="par" timeStamp="Tue Feb 16 21:26:59 2016">
     <section stringID="User_Env">
       <table stringID="User_EnvVar">
         <column stringID="variable"/>
@@ -57,7 +57,7 @@
         <column stringID="speed"/>
         <row stringID="row" value="0">
           <item stringID="arch" value="Intel(R) Core(TM) i7-4710MQ CPU @ 2.50GHz"/>
-          <item stringID="speed" value="3366.894 MHz"/>
+          <item stringID="speed" value="3373.437 MHz"/>
         </row>
       </table>
     </section>
@@ -76,22 +76,22 @@
           <item AVAILABLE="71" dataType="int" label="Number of LOCed IOBs" stringID="PAR_LOC_IOB" value="71"/>
         </item>
         <item AVAILABLE="60" dataType="int" label="Number of RAMB18X2s" stringID="PAR_RAMB18X2" value="5"/>
-        <item AVAILABLE="7200" dataType="int" stringID="PAR_SLICES" value="3472"/>
-        <item AVAILABLE="28800" dataType="int" label="Number of Slice Registers" stringID="PAR_SLICE_REGISTERS" value="3417">
-          <item dataType="int" label="Number used as Flip Flops" stringID="PAR_FLIP_FLOPS" value="3414"/>
+        <item AVAILABLE="7200" dataType="int" stringID="PAR_SLICES" value="3374"/>
+        <item AVAILABLE="28800" dataType="int" label="Number of Slice Registers" stringID="PAR_SLICE_REGISTERS" value="3426">
+          <item dataType="int" label="Number used as Flip Flops" stringID="PAR_FLIP_FLOPS" value="3422"/>
           <item dataType="int" label="Number used as Latches" stringID="PAR_LATCHES" value="0"/>
-          <item dataType="int" label="Number used as LatchThrus" stringID="PAR_LATCH_THRUS" value="3"/>
+          <item dataType="int" label="Number used as LatchThrus" stringID="PAR_LATCH_THRUS" value="4"/>
         </item>
-        <item AVAILABLE="28800" dataType="int" label="Number of Slice LUTS" stringID="PAR_SLICE_LUTS" value="8639"/>
-        <item AVAILABLE="28800" dataType="int" label="Number of Slice LUT-Flip Flop pairs" stringID="PAR_SLICE_LUT_FLIPFLOP_PAIRS" value="10258"/>
+        <item AVAILABLE="28800" dataType="int" label="Number of Slice LUTS" stringID="PAR_SLICE_LUTS" value="8469"/>
+        <item AVAILABLE="28800" dataType="int" label="Number of Slice LUT-Flip Flop pairs" stringID="PAR_SLICE_LUT_FLIPFLOP_PAIRS" value="9971"/>
       </section>
     </task>
     <task stringID="PAR_PAR">
       <section stringID="PAR_DESIGN_SUMMARY">
         <item stringID="PAR_REAL_TIME_COMPLETION_ROUTER" value="5 mins 29 secs "/>
-        <item stringID="PAR_CPU_TIME_COMPLETION_ROUTER" value="5 mins 36 secs "/>
+        <item stringID="PAR_CPU_TIME_COMPLETION_ROUTER" value="5 mins 37 secs "/>
         <item dataType="int" stringID="PAR_UNROUTES" value="0"/>
-        <item dataType="float" stringID="PAR_TIMING_SCORE" value="1465118.000000"/>
+        <item dataType="float" stringID="PAR_TIMING_SCORE" value="1459176.000000"/>
         <item stringID="PAR_REAL_TIME_COMPLETION_PAR" value="5 mins 34 secs "/>
         <item stringID="PAR_CPU_TIME_COMPLETION_PAR" value="5 mins 42 secs "/>
       </section>
@@ -112,9 +112,9 @@
             <item label="Routed" stringID="ROUTED" value="ROUTED"/>
             <item label="Resource" stringID="RESOURCE" value="BUFGCTRL_X0Y1"/>
             <item label="Locked" stringID="LOCKED" value="No"/>
-            <item dataType="float" label="Fanout" stringID="FANOUT" value="1161.000000"/>
-            <item dataType="float" label="Net Skew(ns)" stringID="NET_SKEW" value="0.435000"/>
-            <item dataType="float" label="Max Delay(ns)" stringID="MAX_DELAY" value="1.931000"/>
+            <item dataType="float" label="Fanout" stringID="FANOUT" value="1162.000000"/>
+            <item dataType="float" label="Net Skew(ns)" stringID="NET_SKEW" value="0.429000"/>
+            <item dataType="float" label="Max Delay(ns)" stringID="MAX_DELAY" value="1.935000"/>
           </row>
         </table>
       </section>

@@ -1,0 +1,10 @@
+Command line:
+   HANNYA_testbench_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  50773
+
+Wed Feb 17 11:43:11 2016
+
+
+ Elaboration Time: 1.65 sec

@@ -14,3 +14,9 @@ map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -registe
 par -w -intstyle ise -ol high -mt off siki_map.ncd siki.ncd siki.pcf 
 trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml siki.twx siki.ncd -o siki.twr siki.pcf 
 bitgen -intstyle ise -f siki.ut siki.ncd 
+xst -intstyle ise -ifn "/home/shinno/cpu/sowaka/sowaka/final_presentation/P_siki/siki.xst" -ofn "/home/shinno/cpu/sowaka/sowaka/final_presentation/P_siki/siki.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc /home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/cpu.ucf -bm clk_changer.bmm -p xc5vlx50t-ff1136-1 siki.ngc siki.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o siki_map.ncd siki.ngd siki.pcf 
+par -w -intstyle ise -ol high -mt off siki_map.ncd siki.ncd siki.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml siki.twx siki.ncd -o siki.twr siki.pcf 
+bitgen -intstyle ise -f siki.ut siki.ncd 

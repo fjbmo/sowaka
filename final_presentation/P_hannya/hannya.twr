@@ -1,0 +1,1280 @@
+--------------------------------------------------------------------------------
+Release 14.4 Trace  (lin64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+/home/shinno/Xilinx/14.4/ISE_DS/ISE/bin/lin64/unwrapped/trce -intstyle ise -v 3
+-s 1 -n 3 -fastpaths -xml hannya.twx hannya.ncd -o hannya.twr hannya.pcf
+
+Design file:              hannya.ncd
+Physical constraint file: hannya.pcf
+Device,package,speed:     xc5vlx50t,ff1136,-1 (PRODUCTION 1.73 2012-12-04, STEPPING level 0)
+Report level:             verbose report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+
+================================================================================
+Timing constraint: TS_SYS_CLK = PERIOD TIMEGRP "SYS_CLK" 14.52 ns HIGH 50%;
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 0 paths analyzed, 0 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 component switching limit errors)
+ Minimum period is   7.142ns.
+--------------------------------------------------------------------------------
+
+Component Switching Limit Checks: TS_SYS_CLK = PERIOD TIMEGRP "SYS_CLK" 14.52 ns HIGH 50%;
+--------------------------------------------------------------------------------
+Slack: 3.748ns (period - min period limit)
+  Period: 10.890ns
+  Min period limit: 7.142ns (140.017MHz) (Tdcmpco)
+  Physical resource: CLK_CHANGE/DCM_ADV_INST/CLKFX
+  Logical resource: CLK_CHANGE/DCM_ADV_INST/CLKFX
+  Location pin: DCM_ADV_X0Y0.CLKFX
+  Clock network: CLK_CHANGE/CLKFX_BUF
+--------------------------------------------------------------------------------
+Slack: 6.188ns (period - min period limit)
+  Period: 14.520ns
+  Min period limit: 8.332ns (120.019MHz) (Tdcmpc)
+  Physical resource: CLK_CHANGE/DCM_ADV_INST/CLKIN
+  Logical resource: CLK_CHANGE/DCM_ADV_INST/CLKIN
+  Location pin: DCM_ADV_X0Y0.CLKIN
+  Clock network: clk_base
+--------------------------------------------------------------------------------
+Slack: 6.188ns (period - min period limit)
+  Period: 14.520ns
+  Min period limit: 8.332ns (120.019MHz) (Tdcmpco)
+  Physical resource: CLK_CHANGE/DCM_ADV_INST/CLK0
+  Logical resource: CLK_CHANGE/DCM_ADV_INST/CLK0
+  Location pin: DCM_ADV_X0Y0.CLK0
+  Clock network: CLK_CHANGE/CLK0_BUF
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: TS_CLK_CHANGE_CLKFX_BUF = PERIOD TIMEGRP 
+"CLK_CHANGE_CLKFX_BUF" TS_SYS_CLK /         1.33333333 HIGH 50%;
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 171277349718081 paths analyzed, 20554 endpoints analyzed, 5353 failing endpoints
+ 5353 timing errors detected. (5353 setup errors, 0 hold errors, 0 component switching limit errors)
+ Minimum period is  34.468ns.
+--------------------------------------------------------------------------------
+
+Paths for end point HANNYA_ID/data_2_buf_26 (SLICE_X23Y59.D6), 38766198664 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     -23.578ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               HANNYA_ID/data_2_buf_5 (FF)
+  Destination:          HANNYA_ID/data_2_buf_26 (FF)
+  Requirement:          10.890ns
+  Data Path Delay:      34.307ns (Levels of Logic = 28)
+  Clock Path Skew:      -0.032ns (1.181 - 1.213)
+  Source Clock:         clk rising at 0.000ns
+  Destination Clock:    clk rising at 10.890ns
+  Clock Uncertainty:    0.129ns
+
+  Clock Uncertainty:          0.129ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.188ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: HANNYA_ID/data_2_buf_5 to HANNYA_ID/data_2_buf_26
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X42Y50.AQ      Tcko                  0.450   HANNYA_ID/data_2_buf<6>
+                                                       HANNYA_ID/data_2_buf_5
+    SLICE_X19Y77.C5      net (fanout=7)        3.909   HANNYA_ID/data_2_buf<5>
+    SLICE_X19Y77.C       Tilo                  0.094   HANNYA_ALU/save_fadd_data_2<6>
+                                                       HANNYA_ALU/fadd_data_2<5>1
+    SLICE_X12Y80.C5      net (fanout=11)       1.081   HANNYA_ALU/fadd_data_2<5>
+    SLICE_X12Y80.COUT    Topcyc                0.409   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<3>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_lut<2>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<3>
+    SLICE_X12Y81.CIN     net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<3>
+    SLICE_X12Y81.COUT    Tbyp                  0.104   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<7>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<7>
+    SLICE_X12Y82.CIN     net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<7>
+    SLICE_X12Y82.COUT    Tbyp                  0.104   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<11>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<11>
+    SLICE_X12Y83.CIN     net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<11>
+    SLICE_X12Y83.BMUX    Tcinb                 0.269   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<13>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<13>
+    SLICE_X11Y86.A4      net (fanout=1)        0.862   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<13>
+    SLICE_X11Y86.A       Tilo                  0.094   N951
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<15>1
+    SLICE_X11Y80.D6      net (fanout=243)      0.949   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<15>
+    SLICE_X11Y80.D       Tilo                  0.094   HANNYA_ALU/ALU_FADD/Madd_sum_30_23_add0002_lut<3>
+                                                       HANNYA_ALU/ALU_FADD/num1_mux0000<26>1
+    SLICE_X8Y86.DX       net (fanout=4)        1.175   HANNYA_ALU/ALU_FADD/Madd_sum_30_23_add0002_lut<3>
+    SLICE_X8Y86.COUT     Tdxcy                 0.259   HANNYA_ALU/ALU_FADD/Msub_S_sub0000_cy<3>
+                                                       HANNYA_ALU/ALU_FADD/Msub_S_sub0000_cy<3>
+    SLICE_X8Y87.CIN      net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Msub_S_sub0000_cy<3>
+    SLICE_X8Y87.AMUX     Tcina                 0.274   HANNYA_ALU/ALU_FADD/S_sub0000<7>
+                                                       HANNYA_ALU/ALU_FADD/Msub_S_sub0000_xor<7>
+    SLICE_X11Y85.D4      net (fanout=101)      0.875   HANNYA_ALU/ALU_FADD/S_sub0000<4>
+    SLICE_X11Y85.D       Tilo                  0.094   N1544
+                                                       HANNYA_ALU/ALU_FADD/s_bit_mux00371_SW1
+    SLICE_X11Y84.D1      net (fanout=1)        0.987   N1544
+    SLICE_X11Y84.D       Tilo                  0.094   N1768
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_lut<0>_SW0
+    SLICE_X15Y87.A1      net (fanout=1)        1.183   N1768
+    SLICE_X15Y87.COUT    Topcya                0.509   HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<3>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_lut<0>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<3>
+    SLICE_X15Y88.CIN     net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<3>
+    SLICE_X15Y88.AMUX    Tcina                 0.303   HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<4>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<4>
+    SLICE_X2Y74.A3       net (fanout=2)        1.700   HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<4>
+    SLICE_X2Y74.COUT     Topcya                0.509   HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<3>
+                                                       HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_lut<0>
+                                                       HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<3>
+    SLICE_X2Y75.CIN      net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<3>
+    SLICE_X2Y75.COUT     Tbyp                  0.104   HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<7>
+                                                       HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<7>
+    SLICE_X2Y76.CIN      net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<7>
+    SLICE_X2Y76.COUT     Tbyp                  0.104   HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<11>
+                                                       HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<11>
+    SLICE_X2Y77.CIN      net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<11>
+    SLICE_X2Y77.BMUX     Tcinb                 0.335   HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<15>
+                                                       HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<15>
+    SLICE_X3Y77.B2       net (fanout=27)       0.785   HANNYA_ALU/ALU_FADD/sum_mant_sub0000<13>
+    SLICE_X3Y77.B        Tilo                  0.094   N1939
+                                                       HANNYA_ALU/ALU_FADD/i_mux0000<1>105_SW0
+    SLICE_X3Y78.C2       net (fanout=1)        0.915   N956
+    SLICE_X3Y78.C        Tilo                  0.094   N2399
+                                                       HANNYA_ALU/ALU_FADD/i_mux0000<1>178_SW0
+    SLICE_X3Y69.B3       net (fanout=2)        1.258   N2172
+    SLICE_X3Y69.B        Tilo                  0.094   HANNYA_ALU/ALU_FADD/N249
+                                                       HANNYA_ALU/ALU_FADD/i_mux0000<1>178
+    SLICE_X3Y74.C2       net (fanout=160)      1.174   HANNYA_ALU/ALU_FADD/i_mux0000<1>
+    SLICE_X3Y74.C        Tilo                  0.094   HANNYA_ALU/ALU_FADD/sum_9_cmp_gt0003136
+                                                       HANNYA_ALU/ALU_FADD/sum_12_mux00171121
+    SLICE_X11Y70.A5      net (fanout=3)        1.185   HANNYA_ALU/ALU_FADD/N303
+    SLICE_X11Y70.A       Tilo                  0.094   HANNYA_ALU/ALU_FADD/N12
+                                                       HANNYA_ALU/ALU_FADD/sum_9_cmp_gt0003152
+    SLICE_X14Y58.C1      net (fanout=3)        1.513   HANNYA_ALU/ALU_FADD/sum_9_cmp_gt00031
+    SLICE_X14Y58.C       Tilo                  0.094   N913
+                                                       HANNYA_ALU/ALU_FADD/sum_9_cmp_gt00031130_SW0
+    SLICE_X42Y37.C1      net (fanout=8)        3.272   N913
+    SLICE_X42Y37.C       Tilo                  0.094   HANNYA_ALU/ALU_FADD/N2551
+                                                       HANNYA_ALU/ALU_FADD/sum_25_mux00164182
+    SLICE_X13Y34.C5      net (fanout=57)       2.897   HANNYA_ALU/ALU_FADD/N2551
+    SLICE_X13Y34.C       Tilo                  0.094   HANNYA_ID/r9<26>
+                                                       HANNYA_ALU/data_from_ALU_buf<26>356
+    SLICE_X12Y40.D1      net (fanout=68)       1.480   HANNYA_ALU/data_from_ALU_buf<26>356
+    SLICE_X12Y40.CMUX    Topdc                 0.374   N751
+                                                       HANNYA_ID/ft<26>251_F
+                                                       HANNYA_ID/ft<26>251
+    SLICE_X12Y40.A6      net (fanout=2)        0.158   HANNYA_ID/ft<26>
+    SLICE_X12Y40.A       Tilo                  0.094   N751
+                                                       HANNYA_ID/data_2_sub<26>_SW0
+    SLICE_X23Y59.D6      net (fanout=1)        1.498   N751
+    SLICE_X23Y59.CLK     Tas                   0.028   HANNYA_ID/data_2_buf<26>
+                                                       HANNYA_ID/data_2_buf_26_rstpot
+                                                       HANNYA_ID/data_2_buf_26
+    -------------------------------------------------  ---------------------------
+    Total                                     34.307ns (5.451ns logic, 28.856ns route)
+                                                       (15.9% logic, 84.1% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     -23.546ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               HANNYA_ID/data_2_buf_5 (FF)
+  Destination:          HANNYA_ID/data_2_buf_26 (FF)
+  Requirement:          10.890ns
+  Data Path Delay:      34.275ns (Levels of Logic = 28)
+  Clock Path Skew:      -0.032ns (1.181 - 1.213)
+  Source Clock:         clk rising at 0.000ns
+  Destination Clock:    clk rising at 10.890ns
+  Clock Uncertainty:    0.129ns
+
+  Clock Uncertainty:          0.129ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.188ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: HANNYA_ID/data_2_buf_5 to HANNYA_ID/data_2_buf_26
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X42Y50.AQ      Tcko                  0.450   HANNYA_ID/data_2_buf<6>
+                                                       HANNYA_ID/data_2_buf_5
+    SLICE_X19Y77.C5      net (fanout=7)        3.909   HANNYA_ID/data_2_buf<5>
+    SLICE_X19Y77.C       Tilo                  0.094   HANNYA_ALU/save_fadd_data_2<6>
+                                                       HANNYA_ALU/fadd_data_2<5>1
+    SLICE_X12Y80.C5      net (fanout=11)       1.081   HANNYA_ALU/fadd_data_2<5>
+    SLICE_X12Y80.COUT    Topcyc                0.409   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<3>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_lut<2>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<3>
+    SLICE_X12Y81.CIN     net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<3>
+    SLICE_X12Y81.COUT    Tbyp                  0.104   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<7>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<7>
+    SLICE_X12Y82.CIN     net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<7>
+    SLICE_X12Y82.COUT    Tbyp                  0.104   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<11>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<11>
+    SLICE_X12Y83.CIN     net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<11>
+    SLICE_X12Y83.BMUX    Tcinb                 0.269   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<13>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<13>
+    SLICE_X11Y86.A4      net (fanout=1)        0.862   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<13>
+    SLICE_X11Y86.A       Tilo                  0.094   N951
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<15>1
+    SLICE_X11Y80.D6      net (fanout=243)      0.949   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<15>
+    SLICE_X11Y80.D       Tilo                  0.094   HANNYA_ALU/ALU_FADD/Madd_sum_30_23_add0002_lut<3>
+                                                       HANNYA_ALU/ALU_FADD/num1_mux0000<26>1
+    SLICE_X8Y86.DX       net (fanout=4)        1.175   HANNYA_ALU/ALU_FADD/Madd_sum_30_23_add0002_lut<3>
+    SLICE_X8Y86.COUT     Tdxcy                 0.259   HANNYA_ALU/ALU_FADD/Msub_S_sub0000_cy<3>
+                                                       HANNYA_ALU/ALU_FADD/Msub_S_sub0000_cy<3>
+    SLICE_X8Y87.CIN      net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Msub_S_sub0000_cy<3>
+    SLICE_X8Y87.AMUX     Tcina                 0.274   HANNYA_ALU/ALU_FADD/S_sub0000<7>
+                                                       HANNYA_ALU/ALU_FADD/Msub_S_sub0000_xor<7>
+    SLICE_X14Y78.B6      net (fanout=101)      1.149   HANNYA_ALU/ALU_FADD/S_sub0000<4>
+    SLICE_X14Y78.B       Tilo                  0.094   HANNYA_ALU/save_fadd_data_2<11>
+                                                       HANNYA_ALU/ALU_FADD/s_bit_mux00311_SW0
+    SLICE_X13Y81.D1      net (fanout=1)        1.030   N1546
+    SLICE_X13Y81.D       Tilo                  0.094   N1587
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_lut<2>_SW0
+    SLICE_X15Y87.C3      net (fanout=1)        0.920   N1587
+    SLICE_X15Y87.COUT    Topcyc                0.423   HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<3>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_lut<2>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<3>
+    SLICE_X15Y88.CIN     net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<3>
+    SLICE_X15Y88.AMUX    Tcina                 0.303   HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<4>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<4>
+    SLICE_X2Y74.A3       net (fanout=2)        1.700   HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<4>
+    SLICE_X2Y74.COUT     Topcya                0.509   HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<3>
+                                                       HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_lut<0>
+                                                       HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<3>
+    SLICE_X2Y75.CIN      net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<3>
+    SLICE_X2Y75.COUT     Tbyp                  0.104   HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<7>
+                                                       HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<7>
+    SLICE_X2Y76.CIN      net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<7>
+    SLICE_X2Y76.COUT     Tbyp                  0.104   HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<11>
+                                                       HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<11>
+    SLICE_X2Y77.CIN      net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<11>
+    SLICE_X2Y77.BMUX     Tcinb                 0.335   HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<15>
+                                                       HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<15>
+    SLICE_X3Y77.B2       net (fanout=27)       0.785   HANNYA_ALU/ALU_FADD/sum_mant_sub0000<13>
+    SLICE_X3Y77.B        Tilo                  0.094   N1939
+                                                       HANNYA_ALU/ALU_FADD/i_mux0000<1>105_SW0
+    SLICE_X3Y78.C2       net (fanout=1)        0.915   N956
+    SLICE_X3Y78.C        Tilo                  0.094   N2399
+                                                       HANNYA_ALU/ALU_FADD/i_mux0000<1>178_SW0
+    SLICE_X3Y69.B3       net (fanout=2)        1.258   N2172
+    SLICE_X3Y69.B        Tilo                  0.094   HANNYA_ALU/ALU_FADD/N249
+                                                       HANNYA_ALU/ALU_FADD/i_mux0000<1>178
+    SLICE_X3Y74.C2       net (fanout=160)      1.174   HANNYA_ALU/ALU_FADD/i_mux0000<1>
+    SLICE_X3Y74.C        Tilo                  0.094   HANNYA_ALU/ALU_FADD/sum_9_cmp_gt0003136
+                                                       HANNYA_ALU/ALU_FADD/sum_12_mux00171121
+    SLICE_X11Y70.A5      net (fanout=3)        1.185   HANNYA_ALU/ALU_FADD/N303
+    SLICE_X11Y70.A       Tilo                  0.094   HANNYA_ALU/ALU_FADD/N12
+                                                       HANNYA_ALU/ALU_FADD/sum_9_cmp_gt0003152
+    SLICE_X14Y58.C1      net (fanout=3)        1.513   HANNYA_ALU/ALU_FADD/sum_9_cmp_gt00031
+    SLICE_X14Y58.C       Tilo                  0.094   N913
+                                                       HANNYA_ALU/ALU_FADD/sum_9_cmp_gt00031130_SW0
+    SLICE_X42Y37.C1      net (fanout=8)        3.272   N913
+    SLICE_X42Y37.C       Tilo                  0.094   HANNYA_ALU/ALU_FADD/N2551
+                                                       HANNYA_ALU/ALU_FADD/sum_25_mux00164182
+    SLICE_X13Y34.C5      net (fanout=57)       2.897   HANNYA_ALU/ALU_FADD/N2551
+    SLICE_X13Y34.C       Tilo                  0.094   HANNYA_ID/r9<26>
+                                                       HANNYA_ALU/data_from_ALU_buf<26>356
+    SLICE_X12Y40.D1      net (fanout=68)       1.480   HANNYA_ALU/data_from_ALU_buf<26>356
+    SLICE_X12Y40.CMUX    Topdc                 0.374   N751
+                                                       HANNYA_ID/ft<26>251_F
+                                                       HANNYA_ID/ft<26>251
+    SLICE_X12Y40.A6      net (fanout=2)        0.158   HANNYA_ID/ft<26>
+    SLICE_X12Y40.A       Tilo                  0.094   N751
+                                                       HANNYA_ID/data_2_sub<26>_SW0
+    SLICE_X23Y59.D6      net (fanout=1)        1.498   N751
+    SLICE_X23Y59.CLK     Tas                   0.028   HANNYA_ID/data_2_buf<26>
+                                                       HANNYA_ID/data_2_buf_26_rstpot
+                                                       HANNYA_ID/data_2_buf_26
+    -------------------------------------------------  ---------------------------
+    Total                                     34.275ns (5.365ns logic, 28.910ns route)
+                                                       (15.7% logic, 84.3% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     -23.494ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               HANNYA_ID/data_2_buf_5 (FF)
+  Destination:          HANNYA_ID/data_2_buf_26 (FF)
+  Requirement:          10.890ns
+  Data Path Delay:      34.223ns (Levels of Logic = 28)
+  Clock Path Skew:      -0.032ns (1.181 - 1.213)
+  Source Clock:         clk rising at 0.000ns
+  Destination Clock:    clk rising at 10.890ns
+  Clock Uncertainty:    0.129ns
+
+  Clock Uncertainty:          0.129ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.188ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: HANNYA_ID/data_2_buf_5 to HANNYA_ID/data_2_buf_26
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X42Y50.AQ      Tcko                  0.450   HANNYA_ID/data_2_buf<6>
+                                                       HANNYA_ID/data_2_buf_5
+    SLICE_X19Y77.C5      net (fanout=7)        3.909   HANNYA_ID/data_2_buf<5>
+    SLICE_X19Y77.C       Tilo                  0.094   HANNYA_ALU/save_fadd_data_2<6>
+                                                       HANNYA_ALU/fadd_data_2<5>1
+    SLICE_X12Y80.C5      net (fanout=11)       1.081   HANNYA_ALU/fadd_data_2<5>
+    SLICE_X12Y80.COUT    Topcyc                0.409   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<3>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_lut<2>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<3>
+    SLICE_X12Y81.CIN     net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<3>
+    SLICE_X12Y81.COUT    Tbyp                  0.104   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<7>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<7>
+    SLICE_X12Y82.CIN     net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<7>
+    SLICE_X12Y82.COUT    Tbyp                  0.104   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<11>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<11>
+    SLICE_X12Y83.CIN     net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<11>
+    SLICE_X12Y83.BMUX    Tcinb                 0.269   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<13>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<13>
+    SLICE_X11Y86.A4      net (fanout=1)        0.862   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<13>
+    SLICE_X11Y86.A       Tilo                  0.094   N951
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<15>1
+    SLICE_X11Y80.D6      net (fanout=243)      0.949   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<15>
+    SLICE_X11Y80.D       Tilo                  0.094   HANNYA_ALU/ALU_FADD/Madd_sum_30_23_add0002_lut<3>
+                                                       HANNYA_ALU/ALU_FADD/num1_mux0000<26>1
+    SLICE_X8Y86.DX       net (fanout=4)        1.175   HANNYA_ALU/ALU_FADD/Madd_sum_30_23_add0002_lut<3>
+    SLICE_X8Y86.COUT     Tdxcy                 0.259   HANNYA_ALU/ALU_FADD/Msub_S_sub0000_cy<3>
+                                                       HANNYA_ALU/ALU_FADD/Msub_S_sub0000_cy<3>
+    SLICE_X8Y87.CIN      net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Msub_S_sub0000_cy<3>
+    SLICE_X8Y87.AMUX     Tcina                 0.274   HANNYA_ALU/ALU_FADD/S_sub0000<7>
+                                                       HANNYA_ALU/ALU_FADD/Msub_S_sub0000_xor<7>
+    SLICE_X11Y85.D4      net (fanout=101)      0.875   HANNYA_ALU/ALU_FADD/S_sub0000<4>
+    SLICE_X11Y85.D       Tilo                  0.094   N1544
+                                                       HANNYA_ALU/ALU_FADD/s_bit_mux00371_SW1
+    SLICE_X11Y84.D1      net (fanout=1)        0.987   N1544
+    SLICE_X11Y84.D       Tilo                  0.094   N1768
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_lut<0>_SW0
+    SLICE_X15Y87.A1      net (fanout=1)        1.183   N1768
+    SLICE_X15Y87.COUT    Topcya                0.509   HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<3>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_lut<0>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<3>
+    SLICE_X15Y88.CIN     net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<3>
+    SLICE_X15Y88.AMUX    Tcina                 0.303   HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<4>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<4>
+    SLICE_X2Y74.A3       net (fanout=2)        1.700   HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<4>
+    SLICE_X2Y74.COUT     Topcya                0.509   HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<3>
+                                                       HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_lut<0>
+                                                       HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<3>
+    SLICE_X2Y75.CIN      net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<3>
+    SLICE_X2Y75.COUT     Tbyp                  0.104   HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<7>
+                                                       HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<7>
+    SLICE_X2Y76.CIN      net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<7>
+    SLICE_X2Y76.COUT     Tbyp                  0.104   HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<11>
+                                                       HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<11>
+    SLICE_X2Y77.CIN      net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<11>
+    SLICE_X2Y77.DMUX     Tcind                 0.402   HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<15>
+                                                       HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<15>
+    SLICE_X3Y77.B3       net (fanout=25)       0.634   HANNYA_ALU/ALU_FADD/sum_mant_sub0000<15>
+    SLICE_X3Y77.B        Tilo                  0.094   N1939
+                                                       HANNYA_ALU/ALU_FADD/i_mux0000<1>105_SW0
+    SLICE_X3Y78.C2       net (fanout=1)        0.915   N956
+    SLICE_X3Y78.C        Tilo                  0.094   N2399
+                                                       HANNYA_ALU/ALU_FADD/i_mux0000<1>178_SW0
+    SLICE_X3Y69.B3       net (fanout=2)        1.258   N2172
+    SLICE_X3Y69.B        Tilo                  0.094   HANNYA_ALU/ALU_FADD/N249
+                                                       HANNYA_ALU/ALU_FADD/i_mux0000<1>178
+    SLICE_X3Y74.C2       net (fanout=160)      1.174   HANNYA_ALU/ALU_FADD/i_mux0000<1>
+    SLICE_X3Y74.C        Tilo                  0.094   HANNYA_ALU/ALU_FADD/sum_9_cmp_gt0003136
+                                                       HANNYA_ALU/ALU_FADD/sum_12_mux00171121
+    SLICE_X11Y70.A5      net (fanout=3)        1.185   HANNYA_ALU/ALU_FADD/N303
+    SLICE_X11Y70.A       Tilo                  0.094   HANNYA_ALU/ALU_FADD/N12
+                                                       HANNYA_ALU/ALU_FADD/sum_9_cmp_gt0003152
+    SLICE_X14Y58.C1      net (fanout=3)        1.513   HANNYA_ALU/ALU_FADD/sum_9_cmp_gt00031
+    SLICE_X14Y58.C       Tilo                  0.094   N913
+                                                       HANNYA_ALU/ALU_FADD/sum_9_cmp_gt00031130_SW0
+    SLICE_X42Y37.C1      net (fanout=8)        3.272   N913
+    SLICE_X42Y37.C       Tilo                  0.094   HANNYA_ALU/ALU_FADD/N2551
+                                                       HANNYA_ALU/ALU_FADD/sum_25_mux00164182
+    SLICE_X13Y34.C5      net (fanout=57)       2.897   HANNYA_ALU/ALU_FADD/N2551
+    SLICE_X13Y34.C       Tilo                  0.094   HANNYA_ID/r9<26>
+                                                       HANNYA_ALU/data_from_ALU_buf<26>356
+    SLICE_X12Y40.D1      net (fanout=68)       1.480   HANNYA_ALU/data_from_ALU_buf<26>356
+    SLICE_X12Y40.CMUX    Topdc                 0.374   N751
+                                                       HANNYA_ID/ft<26>251_F
+                                                       HANNYA_ID/ft<26>251
+    SLICE_X12Y40.A6      net (fanout=2)        0.158   HANNYA_ID/ft<26>
+    SLICE_X12Y40.A       Tilo                  0.094   N751
+                                                       HANNYA_ID/data_2_sub<26>_SW0
+    SLICE_X23Y59.D6      net (fanout=1)        1.498   N751
+    SLICE_X23Y59.CLK     Tas                   0.028   HANNYA_ID/data_2_buf<26>
+                                                       HANNYA_ID/data_2_buf_26_rstpot
+                                                       HANNYA_ID/data_2_buf_26
+    -------------------------------------------------  ---------------------------
+    Total                                     34.223ns (5.518ns logic, 28.705ns route)
+                                                       (16.1% logic, 83.9% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point HANNYA_ID/data_2_buf_26 (SLICE_X23Y59.D5), 77532395915 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     -23.000ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               HANNYA_ID/data_2_buf_5 (FF)
+  Destination:          HANNYA_ID/data_2_buf_26 (FF)
+  Requirement:          10.890ns
+  Data Path Delay:      33.729ns (Levels of Logic = 28)
+  Clock Path Skew:      -0.032ns (1.181 - 1.213)
+  Source Clock:         clk rising at 0.000ns
+  Destination Clock:    clk rising at 10.890ns
+  Clock Uncertainty:    0.129ns
+
+  Clock Uncertainty:          0.129ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.188ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: HANNYA_ID/data_2_buf_5 to HANNYA_ID/data_2_buf_26
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X42Y50.AQ      Tcko                  0.450   HANNYA_ID/data_2_buf<6>
+                                                       HANNYA_ID/data_2_buf_5
+    SLICE_X19Y77.C5      net (fanout=7)        3.909   HANNYA_ID/data_2_buf<5>
+    SLICE_X19Y77.C       Tilo                  0.094   HANNYA_ALU/save_fadd_data_2<6>
+                                                       HANNYA_ALU/fadd_data_2<5>1
+    SLICE_X12Y80.C5      net (fanout=11)       1.081   HANNYA_ALU/fadd_data_2<5>
+    SLICE_X12Y80.COUT    Topcyc                0.409   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<3>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_lut<2>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<3>
+    SLICE_X12Y81.CIN     net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<3>
+    SLICE_X12Y81.COUT    Tbyp                  0.104   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<7>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<7>
+    SLICE_X12Y82.CIN     net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<7>
+    SLICE_X12Y82.COUT    Tbyp                  0.104   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<11>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<11>
+    SLICE_X12Y83.CIN     net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<11>
+    SLICE_X12Y83.BMUX    Tcinb                 0.269   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<13>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<13>
+    SLICE_X11Y86.A4      net (fanout=1)        0.862   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<13>
+    SLICE_X11Y86.A       Tilo                  0.094   N951
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<15>1
+    SLICE_X11Y80.D6      net (fanout=243)      0.949   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<15>
+    SLICE_X11Y80.D       Tilo                  0.094   HANNYA_ALU/ALU_FADD/Madd_sum_30_23_add0002_lut<3>
+                                                       HANNYA_ALU/ALU_FADD/num1_mux0000<26>1
+    SLICE_X8Y86.DX       net (fanout=4)        1.175   HANNYA_ALU/ALU_FADD/Madd_sum_30_23_add0002_lut<3>
+    SLICE_X8Y86.COUT     Tdxcy                 0.259   HANNYA_ALU/ALU_FADD/Msub_S_sub0000_cy<3>
+                                                       HANNYA_ALU/ALU_FADD/Msub_S_sub0000_cy<3>
+    SLICE_X8Y87.CIN      net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Msub_S_sub0000_cy<3>
+    SLICE_X8Y87.AMUX     Tcina                 0.274   HANNYA_ALU/ALU_FADD/S_sub0000<7>
+                                                       HANNYA_ALU/ALU_FADD/Msub_S_sub0000_xor<7>
+    SLICE_X11Y85.D4      net (fanout=101)      0.875   HANNYA_ALU/ALU_FADD/S_sub0000<4>
+    SLICE_X11Y85.D       Tilo                  0.094   N1544
+                                                       HANNYA_ALU/ALU_FADD/s_bit_mux00371_SW1
+    SLICE_X11Y84.D1      net (fanout=1)        0.987   N1544
+    SLICE_X11Y84.D       Tilo                  0.094   N1768
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_lut<0>_SW0
+    SLICE_X15Y87.A1      net (fanout=1)        1.183   N1768
+    SLICE_X15Y87.COUT    Topcya                0.509   HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<3>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_lut<0>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<3>
+    SLICE_X15Y88.CIN     net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<3>
+    SLICE_X15Y88.AMUX    Tcina                 0.303   HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<4>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<4>
+    SLICE_X2Y74.A3       net (fanout=2)        1.700   HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<4>
+    SLICE_X2Y74.COUT     Topcya                0.509   HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<3>
+                                                       HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_lut<0>
+                                                       HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<3>
+    SLICE_X2Y75.CIN      net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<3>
+    SLICE_X2Y75.COUT     Tbyp                  0.104   HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<7>
+                                                       HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<7>
+    SLICE_X2Y76.CIN      net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<7>
+    SLICE_X2Y76.COUT     Tbyp                  0.104   HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<11>
+                                                       HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<11>
+    SLICE_X2Y77.CIN      net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<11>
+    SLICE_X2Y77.BMUX     Tcinb                 0.335   HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<15>
+                                                       HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<15>
+    SLICE_X3Y77.B2       net (fanout=27)       0.785   HANNYA_ALU/ALU_FADD/sum_mant_sub0000<13>
+    SLICE_X3Y77.B        Tilo                  0.094   N1939
+                                                       HANNYA_ALU/ALU_FADD/i_mux0000<1>105_SW0
+    SLICE_X3Y78.C2       net (fanout=1)        0.915   N956
+    SLICE_X3Y78.C        Tilo                  0.094   N2399
+                                                       HANNYA_ALU/ALU_FADD/i_mux0000<1>178_SW0
+    SLICE_X3Y69.B3       net (fanout=2)        1.258   N2172
+    SLICE_X3Y69.B        Tilo                  0.094   HANNYA_ALU/ALU_FADD/N249
+                                                       HANNYA_ALU/ALU_FADD/i_mux0000<1>178
+    SLICE_X3Y74.C2       net (fanout=160)      1.174   HANNYA_ALU/ALU_FADD/i_mux0000<1>
+    SLICE_X3Y74.C        Tilo                  0.094   HANNYA_ALU/ALU_FADD/sum_9_cmp_gt0003136
+                                                       HANNYA_ALU/ALU_FADD/sum_12_mux00171121
+    SLICE_X11Y70.A5      net (fanout=3)        1.185   HANNYA_ALU/ALU_FADD/N303
+    SLICE_X11Y70.A       Tilo                  0.094   HANNYA_ALU/ALU_FADD/N12
+                                                       HANNYA_ALU/ALU_FADD/sum_9_cmp_gt0003152
+    SLICE_X14Y58.C1      net (fanout=3)        1.513   HANNYA_ALU/ALU_FADD/sum_9_cmp_gt00031
+    SLICE_X14Y58.C       Tilo                  0.094   N913
+                                                       HANNYA_ALU/ALU_FADD/sum_9_cmp_gt00031130_SW0
+    SLICE_X42Y37.C1      net (fanout=8)        3.272   N913
+    SLICE_X42Y37.C       Tilo                  0.094   HANNYA_ALU/ALU_FADD/N2551
+                                                       HANNYA_ALU/ALU_FADD/sum_25_mux00164182
+    SLICE_X13Y34.C5      net (fanout=57)       2.897   HANNYA_ALU/ALU_FADD/N2551
+    SLICE_X13Y34.C       Tilo                  0.094   HANNYA_ID/r9<26>
+                                                       HANNYA_ALU/data_from_ALU_buf<26>356
+    SLICE_X22Y57.B6      net (fanout=68)       1.940   HANNYA_ALU/data_from_ALU_buf<26>356
+    SLICE_X22Y57.AMUX    Topba                 0.371   HANNYA_ID/rs<26>
+                                                       HANNYA_ID/rs<26>251_F
+                                                       HANNYA_ID/rs<26>251
+    SLICE_X23Y59.C5      net (fanout=2)        0.395   HANNYA_ID/rs<26>
+    SLICE_X23Y59.C       Tilo                  0.094   HANNYA_ID/data_2_buf<26>
+                                                       HANNYA_ID/data_2_sub<26>1
+    SLICE_X23Y59.D5      net (fanout=1)        0.226   HANNYA_ID/data_2_sub<26>1
+    SLICE_X23Y59.CLK     Tas                   0.028   HANNYA_ID/data_2_buf<26>
+                                                       HANNYA_ID/data_2_buf_26_rstpot
+                                                       HANNYA_ID/data_2_buf_26
+    -------------------------------------------------  ---------------------------
+    Total                                     33.729ns (5.448ns logic, 28.281ns route)
+                                                       (16.2% logic, 83.8% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     -22.968ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               HANNYA_ID/data_2_buf_5 (FF)
+  Destination:          HANNYA_ID/data_2_buf_26 (FF)
+  Requirement:          10.890ns
+  Data Path Delay:      33.697ns (Levels of Logic = 28)
+  Clock Path Skew:      -0.032ns (1.181 - 1.213)
+  Source Clock:         clk rising at 0.000ns
+  Destination Clock:    clk rising at 10.890ns
+  Clock Uncertainty:    0.129ns
+
+  Clock Uncertainty:          0.129ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.188ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: HANNYA_ID/data_2_buf_5 to HANNYA_ID/data_2_buf_26
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X42Y50.AQ      Tcko                  0.450   HANNYA_ID/data_2_buf<6>
+                                                       HANNYA_ID/data_2_buf_5
+    SLICE_X19Y77.C5      net (fanout=7)        3.909   HANNYA_ID/data_2_buf<5>
+    SLICE_X19Y77.C       Tilo                  0.094   HANNYA_ALU/save_fadd_data_2<6>
+                                                       HANNYA_ALU/fadd_data_2<5>1
+    SLICE_X12Y80.C5      net (fanout=11)       1.081   HANNYA_ALU/fadd_data_2<5>
+    SLICE_X12Y80.COUT    Topcyc                0.409   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<3>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_lut<2>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<3>
+    SLICE_X12Y81.CIN     net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<3>
+    SLICE_X12Y81.COUT    Tbyp                  0.104   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<7>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<7>
+    SLICE_X12Y82.CIN     net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<7>
+    SLICE_X12Y82.COUT    Tbyp                  0.104   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<11>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<11>
+    SLICE_X12Y83.CIN     net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<11>
+    SLICE_X12Y83.BMUX    Tcinb                 0.269   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<13>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<13>
+    SLICE_X11Y86.A4      net (fanout=1)        0.862   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<13>
+    SLICE_X11Y86.A       Tilo                  0.094   N951
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<15>1
+    SLICE_X11Y80.D6      net (fanout=243)      0.949   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<15>
+    SLICE_X11Y80.D       Tilo                  0.094   HANNYA_ALU/ALU_FADD/Madd_sum_30_23_add0002_lut<3>
+                                                       HANNYA_ALU/ALU_FADD/num1_mux0000<26>1
+    SLICE_X8Y86.DX       net (fanout=4)        1.175   HANNYA_ALU/ALU_FADD/Madd_sum_30_23_add0002_lut<3>
+    SLICE_X8Y86.COUT     Tdxcy                 0.259   HANNYA_ALU/ALU_FADD/Msub_S_sub0000_cy<3>
+                                                       HANNYA_ALU/ALU_FADD/Msub_S_sub0000_cy<3>
+    SLICE_X8Y87.CIN      net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Msub_S_sub0000_cy<3>
+    SLICE_X8Y87.AMUX     Tcina                 0.274   HANNYA_ALU/ALU_FADD/S_sub0000<7>
+                                                       HANNYA_ALU/ALU_FADD/Msub_S_sub0000_xor<7>
+    SLICE_X14Y78.B6      net (fanout=101)      1.149   HANNYA_ALU/ALU_FADD/S_sub0000<4>
+    SLICE_X14Y78.B       Tilo                  0.094   HANNYA_ALU/save_fadd_data_2<11>
+                                                       HANNYA_ALU/ALU_FADD/s_bit_mux00311_SW0
+    SLICE_X13Y81.D1      net (fanout=1)        1.030   N1546
+    SLICE_X13Y81.D       Tilo                  0.094   N1587
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_lut<2>_SW0
+    SLICE_X15Y87.C3      net (fanout=1)        0.920   N1587
+    SLICE_X15Y87.COUT    Topcyc                0.423   HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<3>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_lut<2>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<3>
+    SLICE_X15Y88.CIN     net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<3>
+    SLICE_X15Y88.AMUX    Tcina                 0.303   HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<4>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<4>
+    SLICE_X2Y74.A3       net (fanout=2)        1.700   HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<4>
+    SLICE_X2Y74.COUT     Topcya                0.509   HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<3>
+                                                       HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_lut<0>
+                                                       HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<3>
+    SLICE_X2Y75.CIN      net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<3>
+    SLICE_X2Y75.COUT     Tbyp                  0.104   HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<7>
+                                                       HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<7>
+    SLICE_X2Y76.CIN      net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<7>
+    SLICE_X2Y76.COUT     Tbyp                  0.104   HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<11>
+                                                       HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<11>
+    SLICE_X2Y77.CIN      net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<11>
+    SLICE_X2Y77.BMUX     Tcinb                 0.335   HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<15>
+                                                       HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<15>
+    SLICE_X3Y77.B2       net (fanout=27)       0.785   HANNYA_ALU/ALU_FADD/sum_mant_sub0000<13>
+    SLICE_X3Y77.B        Tilo                  0.094   N1939
+                                                       HANNYA_ALU/ALU_FADD/i_mux0000<1>105_SW0
+    SLICE_X3Y78.C2       net (fanout=1)        0.915   N956
+    SLICE_X3Y78.C        Tilo                  0.094   N2399
+                                                       HANNYA_ALU/ALU_FADD/i_mux0000<1>178_SW0
+    SLICE_X3Y69.B3       net (fanout=2)        1.258   N2172
+    SLICE_X3Y69.B        Tilo                  0.094   HANNYA_ALU/ALU_FADD/N249
+                                                       HANNYA_ALU/ALU_FADD/i_mux0000<1>178
+    SLICE_X3Y74.C2       net (fanout=160)      1.174   HANNYA_ALU/ALU_FADD/i_mux0000<1>
+    SLICE_X3Y74.C        Tilo                  0.094   HANNYA_ALU/ALU_FADD/sum_9_cmp_gt0003136
+                                                       HANNYA_ALU/ALU_FADD/sum_12_mux00171121
+    SLICE_X11Y70.A5      net (fanout=3)        1.185   HANNYA_ALU/ALU_FADD/N303
+    SLICE_X11Y70.A       Tilo                  0.094   HANNYA_ALU/ALU_FADD/N12
+                                                       HANNYA_ALU/ALU_FADD/sum_9_cmp_gt0003152
+    SLICE_X14Y58.C1      net (fanout=3)        1.513   HANNYA_ALU/ALU_FADD/sum_9_cmp_gt00031
+    SLICE_X14Y58.C       Tilo                  0.094   N913
+                                                       HANNYA_ALU/ALU_FADD/sum_9_cmp_gt00031130_SW0
+    SLICE_X42Y37.C1      net (fanout=8)        3.272   N913
+    SLICE_X42Y37.C       Tilo                  0.094   HANNYA_ALU/ALU_FADD/N2551
+                                                       HANNYA_ALU/ALU_FADD/sum_25_mux00164182
+    SLICE_X13Y34.C5      net (fanout=57)       2.897   HANNYA_ALU/ALU_FADD/N2551
+    SLICE_X13Y34.C       Tilo                  0.094   HANNYA_ID/r9<26>
+                                                       HANNYA_ALU/data_from_ALU_buf<26>356
+    SLICE_X22Y57.B6      net (fanout=68)       1.940   HANNYA_ALU/data_from_ALU_buf<26>356
+    SLICE_X22Y57.AMUX    Topba                 0.371   HANNYA_ID/rs<26>
+                                                       HANNYA_ID/rs<26>251_F
+                                                       HANNYA_ID/rs<26>251
+    SLICE_X23Y59.C5      net (fanout=2)        0.395   HANNYA_ID/rs<26>
+    SLICE_X23Y59.C       Tilo                  0.094   HANNYA_ID/data_2_buf<26>
+                                                       HANNYA_ID/data_2_sub<26>1
+    SLICE_X23Y59.D5      net (fanout=1)        0.226   HANNYA_ID/data_2_sub<26>1
+    SLICE_X23Y59.CLK     Tas                   0.028   HANNYA_ID/data_2_buf<26>
+                                                       HANNYA_ID/data_2_buf_26_rstpot
+                                                       HANNYA_ID/data_2_buf_26
+    -------------------------------------------------  ---------------------------
+    Total                                     33.697ns (5.362ns logic, 28.335ns route)
+                                                       (15.9% logic, 84.1% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     -22.930ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               HANNYA_ID/data_2_buf_5 (FF)
+  Destination:          HANNYA_ID/data_2_buf_26 (FF)
+  Requirement:          10.890ns
+  Data Path Delay:      33.659ns (Levels of Logic = 28)
+  Clock Path Skew:      -0.032ns (1.181 - 1.213)
+  Source Clock:         clk rising at 0.000ns
+  Destination Clock:    clk rising at 10.890ns
+  Clock Uncertainty:    0.129ns
+
+  Clock Uncertainty:          0.129ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.188ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: HANNYA_ID/data_2_buf_5 to HANNYA_ID/data_2_buf_26
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X42Y50.AQ      Tcko                  0.450   HANNYA_ID/data_2_buf<6>
+                                                       HANNYA_ID/data_2_buf_5
+    SLICE_X19Y77.C5      net (fanout=7)        3.909   HANNYA_ID/data_2_buf<5>
+    SLICE_X19Y77.C       Tilo                  0.094   HANNYA_ALU/save_fadd_data_2<6>
+                                                       HANNYA_ALU/fadd_data_2<5>1
+    SLICE_X12Y80.C5      net (fanout=11)       1.081   HANNYA_ALU/fadd_data_2<5>
+    SLICE_X12Y80.COUT    Topcyc                0.409   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<3>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_lut<2>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<3>
+    SLICE_X12Y81.CIN     net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<3>
+    SLICE_X12Y81.COUT    Tbyp                  0.104   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<7>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<7>
+    SLICE_X12Y82.CIN     net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<7>
+    SLICE_X12Y82.COUT    Tbyp                  0.104   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<11>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<11>
+    SLICE_X12Y83.CIN     net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<11>
+    SLICE_X12Y83.BMUX    Tcinb                 0.269   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<13>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<13>
+    SLICE_X11Y86.A4      net (fanout=1)        0.862   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<13>
+    SLICE_X11Y86.A       Tilo                  0.094   N951
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<15>1
+    SLICE_X11Y80.D6      net (fanout=243)      0.949   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<15>
+    SLICE_X11Y80.D       Tilo                  0.094   HANNYA_ALU/ALU_FADD/Madd_sum_30_23_add0002_lut<3>
+                                                       HANNYA_ALU/ALU_FADD/num1_mux0000<26>1
+    SLICE_X8Y86.DX       net (fanout=4)        1.175   HANNYA_ALU/ALU_FADD/Madd_sum_30_23_add0002_lut<3>
+    SLICE_X8Y86.COUT     Tdxcy                 0.259   HANNYA_ALU/ALU_FADD/Msub_S_sub0000_cy<3>
+                                                       HANNYA_ALU/ALU_FADD/Msub_S_sub0000_cy<3>
+    SLICE_X8Y87.CIN      net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Msub_S_sub0000_cy<3>
+    SLICE_X8Y87.AMUX     Tcina                 0.274   HANNYA_ALU/ALU_FADD/S_sub0000<7>
+                                                       HANNYA_ALU/ALU_FADD/Msub_S_sub0000_xor<7>
+    SLICE_X11Y85.D4      net (fanout=101)      0.875   HANNYA_ALU/ALU_FADD/S_sub0000<4>
+    SLICE_X11Y85.D       Tilo                  0.094   N1544
+                                                       HANNYA_ALU/ALU_FADD/s_bit_mux00371_SW1
+    SLICE_X11Y84.D1      net (fanout=1)        0.987   N1544
+    SLICE_X11Y84.D       Tilo                  0.094   N1768
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_lut<0>_SW0
+    SLICE_X15Y87.A1      net (fanout=1)        1.183   N1768
+    SLICE_X15Y87.COUT    Topcya                0.509   HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<3>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_lut<0>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<3>
+    SLICE_X15Y88.CIN     net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<3>
+    SLICE_X15Y88.AMUX    Tcina                 0.303   HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<4>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<4>
+    SLICE_X2Y74.A3       net (fanout=2)        1.700   HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<4>
+    SLICE_X2Y74.COUT     Topcya                0.509   HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<3>
+                                                       HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_lut<0>
+                                                       HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<3>
+    SLICE_X2Y75.CIN      net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<3>
+    SLICE_X2Y75.COUT     Tbyp                  0.104   HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<7>
+                                                       HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<7>
+    SLICE_X2Y76.CIN      net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<7>
+    SLICE_X2Y76.COUT     Tbyp                  0.104   HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<11>
+                                                       HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<11>
+    SLICE_X2Y77.CIN      net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<11>
+    SLICE_X2Y77.BMUX     Tcinb                 0.335   HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<15>
+                                                       HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<15>
+    SLICE_X3Y77.B2       net (fanout=27)       0.785   HANNYA_ALU/ALU_FADD/sum_mant_sub0000<13>
+    SLICE_X3Y77.B        Tilo                  0.094   N1939
+                                                       HANNYA_ALU/ALU_FADD/i_mux0000<1>105_SW0
+    SLICE_X3Y78.C2       net (fanout=1)        0.915   N956
+    SLICE_X3Y78.C        Tilo                  0.094   N2399
+                                                       HANNYA_ALU/ALU_FADD/i_mux0000<1>178_SW0
+    SLICE_X3Y69.B3       net (fanout=2)        1.258   N2172
+    SLICE_X3Y69.B        Tilo                  0.094   HANNYA_ALU/ALU_FADD/N249
+                                                       HANNYA_ALU/ALU_FADD/i_mux0000<1>178
+    SLICE_X3Y74.C2       net (fanout=160)      1.174   HANNYA_ALU/ALU_FADD/i_mux0000<1>
+    SLICE_X3Y74.C        Tilo                  0.094   HANNYA_ALU/ALU_FADD/sum_9_cmp_gt0003136
+                                                       HANNYA_ALU/ALU_FADD/sum_12_mux00171121
+    SLICE_X11Y70.A5      net (fanout=3)        1.185   HANNYA_ALU/ALU_FADD/N303
+    SLICE_X11Y70.A       Tilo                  0.094   HANNYA_ALU/ALU_FADD/N12
+                                                       HANNYA_ALU/ALU_FADD/sum_9_cmp_gt0003152
+    SLICE_X14Y58.C1      net (fanout=3)        1.513   HANNYA_ALU/ALU_FADD/sum_9_cmp_gt00031
+    SLICE_X14Y58.C       Tilo                  0.094   N913
+                                                       HANNYA_ALU/ALU_FADD/sum_9_cmp_gt00031130_SW0
+    SLICE_X42Y37.C1      net (fanout=8)        3.272   N913
+    SLICE_X42Y37.C       Tilo                  0.094   HANNYA_ALU/ALU_FADD/N2551
+                                                       HANNYA_ALU/ALU_FADD/sum_25_mux00164182
+    SLICE_X15Y37.C5      net (fanout=57)       2.686   HANNYA_ALU/ALU_FADD/N2551
+    SLICE_X15Y37.C       Tilo                  0.094   HANNYA_MEM/load_heap_data_store<19>
+                                                       HANNYA_ALU/data_from_ALU_buf<26>84
+    SLICE_X22Y57.AX      net (fanout=68)       2.139   HANNYA_ALU/data_from_ALU_buf<26>84
+    SLICE_X22Y57.AMUX    Taxa                  0.313   HANNYA_ID/rs<26>
+                                                       HANNYA_ID/rs<26>251
+    SLICE_X23Y59.C5      net (fanout=2)        0.395   HANNYA_ID/rs<26>
+    SLICE_X23Y59.C       Tilo                  0.094   HANNYA_ID/data_2_buf<26>
+                                                       HANNYA_ID/data_2_sub<26>1
+    SLICE_X23Y59.D5      net (fanout=1)        0.226   HANNYA_ID/data_2_sub<26>1
+    SLICE_X23Y59.CLK     Tas                   0.028   HANNYA_ID/data_2_buf<26>
+                                                       HANNYA_ID/data_2_buf_26_rstpot
+                                                       HANNYA_ID/data_2_buf_26
+    -------------------------------------------------  ---------------------------
+    Total                                     33.659ns (5.390ns logic, 28.269ns route)
+                                                       (16.0% logic, 84.0% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point HANNYA_ID/data_1_buf_26 (SLICE_X23Y56.B5), 38766197861 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     -22.680ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               HANNYA_ID/data_2_buf_5 (FF)
+  Destination:          HANNYA_ID/data_1_buf_26 (FF)
+  Requirement:          10.890ns
+  Data Path Delay:      33.403ns (Levels of Logic = 27)
+  Clock Path Skew:      -0.038ns (1.175 - 1.213)
+  Source Clock:         clk rising at 0.000ns
+  Destination Clock:    clk rising at 10.890ns
+  Clock Uncertainty:    0.129ns
+
+  Clock Uncertainty:          0.129ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.188ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: HANNYA_ID/data_2_buf_5 to HANNYA_ID/data_1_buf_26
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X42Y50.AQ      Tcko                  0.450   HANNYA_ID/data_2_buf<6>
+                                                       HANNYA_ID/data_2_buf_5
+    SLICE_X19Y77.C5      net (fanout=7)        3.909   HANNYA_ID/data_2_buf<5>
+    SLICE_X19Y77.C       Tilo                  0.094   HANNYA_ALU/save_fadd_data_2<6>
+                                                       HANNYA_ALU/fadd_data_2<5>1
+    SLICE_X12Y80.C5      net (fanout=11)       1.081   HANNYA_ALU/fadd_data_2<5>
+    SLICE_X12Y80.COUT    Topcyc                0.409   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<3>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_lut<2>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<3>
+    SLICE_X12Y81.CIN     net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<3>
+    SLICE_X12Y81.COUT    Tbyp                  0.104   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<7>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<7>
+    SLICE_X12Y82.CIN     net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<7>
+    SLICE_X12Y82.COUT    Tbyp                  0.104   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<11>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<11>
+    SLICE_X12Y83.CIN     net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<11>
+    SLICE_X12Y83.BMUX    Tcinb                 0.269   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<13>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<13>
+    SLICE_X11Y86.A4      net (fanout=1)        0.862   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<13>
+    SLICE_X11Y86.A       Tilo                  0.094   N951
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<15>1
+    SLICE_X11Y80.D6      net (fanout=243)      0.949   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<15>
+    SLICE_X11Y80.D       Tilo                  0.094   HANNYA_ALU/ALU_FADD/Madd_sum_30_23_add0002_lut<3>
+                                                       HANNYA_ALU/ALU_FADD/num1_mux0000<26>1
+    SLICE_X8Y86.DX       net (fanout=4)        1.175   HANNYA_ALU/ALU_FADD/Madd_sum_30_23_add0002_lut<3>
+    SLICE_X8Y86.COUT     Tdxcy                 0.259   HANNYA_ALU/ALU_FADD/Msub_S_sub0000_cy<3>
+                                                       HANNYA_ALU/ALU_FADD/Msub_S_sub0000_cy<3>
+    SLICE_X8Y87.CIN      net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Msub_S_sub0000_cy<3>
+    SLICE_X8Y87.AMUX     Tcina                 0.274   HANNYA_ALU/ALU_FADD/S_sub0000<7>
+                                                       HANNYA_ALU/ALU_FADD/Msub_S_sub0000_xor<7>
+    SLICE_X11Y85.D4      net (fanout=101)      0.875   HANNYA_ALU/ALU_FADD/S_sub0000<4>
+    SLICE_X11Y85.D       Tilo                  0.094   N1544
+                                                       HANNYA_ALU/ALU_FADD/s_bit_mux00371_SW1
+    SLICE_X11Y84.D1      net (fanout=1)        0.987   N1544
+    SLICE_X11Y84.D       Tilo                  0.094   N1768
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_lut<0>_SW0
+    SLICE_X15Y87.A1      net (fanout=1)        1.183   N1768
+    SLICE_X15Y87.COUT    Topcya                0.509   HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<3>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_lut<0>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<3>
+    SLICE_X15Y88.CIN     net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<3>
+    SLICE_X15Y88.AMUX    Tcina                 0.303   HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<4>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<4>
+    SLICE_X2Y74.A3       net (fanout=2)        1.700   HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<4>
+    SLICE_X2Y74.COUT     Topcya                0.509   HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<3>
+                                                       HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_lut<0>
+                                                       HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<3>
+    SLICE_X2Y75.CIN      net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<3>
+    SLICE_X2Y75.COUT     Tbyp                  0.104   HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<7>
+                                                       HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<7>
+    SLICE_X2Y76.CIN      net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<7>
+    SLICE_X2Y76.COUT     Tbyp                  0.104   HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<11>
+                                                       HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<11>
+    SLICE_X2Y77.CIN      net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<11>
+    SLICE_X2Y77.BMUX     Tcinb                 0.335   HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<15>
+                                                       HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<15>
+    SLICE_X3Y77.B2       net (fanout=27)       0.785   HANNYA_ALU/ALU_FADD/sum_mant_sub0000<13>
+    SLICE_X3Y77.B        Tilo                  0.094   N1939
+                                                       HANNYA_ALU/ALU_FADD/i_mux0000<1>105_SW0
+    SLICE_X3Y78.C2       net (fanout=1)        0.915   N956
+    SLICE_X3Y78.C        Tilo                  0.094   N2399
+                                                       HANNYA_ALU/ALU_FADD/i_mux0000<1>178_SW0
+    SLICE_X3Y69.B3       net (fanout=2)        1.258   N2172
+    SLICE_X3Y69.B        Tilo                  0.094   HANNYA_ALU/ALU_FADD/N249
+                                                       HANNYA_ALU/ALU_FADD/i_mux0000<1>178
+    SLICE_X3Y74.C2       net (fanout=160)      1.174   HANNYA_ALU/ALU_FADD/i_mux0000<1>
+    SLICE_X3Y74.C        Tilo                  0.094   HANNYA_ALU/ALU_FADD/sum_9_cmp_gt0003136
+                                                       HANNYA_ALU/ALU_FADD/sum_12_mux00171121
+    SLICE_X11Y70.A5      net (fanout=3)        1.185   HANNYA_ALU/ALU_FADD/N303
+    SLICE_X11Y70.A       Tilo                  0.094   HANNYA_ALU/ALU_FADD/N12
+                                                       HANNYA_ALU/ALU_FADD/sum_9_cmp_gt0003152
+    SLICE_X14Y58.C1      net (fanout=3)        1.513   HANNYA_ALU/ALU_FADD/sum_9_cmp_gt00031
+    SLICE_X14Y58.C       Tilo                  0.094   N913
+                                                       HANNYA_ALU/ALU_FADD/sum_9_cmp_gt00031130_SW0
+    SLICE_X42Y37.C1      net (fanout=8)        3.272   N913
+    SLICE_X42Y37.C       Tilo                  0.094   HANNYA_ALU/ALU_FADD/N2551
+                                                       HANNYA_ALU/ALU_FADD/sum_25_mux00164182
+    SLICE_X13Y34.C5      net (fanout=57)       2.897   HANNYA_ALU/ALU_FADD/N2551
+    SLICE_X13Y34.C       Tilo                  0.094   HANNYA_ID/r9<26>
+                                                       HANNYA_ALU/data_from_ALU_buf<26>356
+    SLICE_X22Y57.B6      net (fanout=68)       1.940   HANNYA_ALU/data_from_ALU_buf<26>356
+    SLICE_X22Y57.AMUX    Topba                 0.371   HANNYA_ID/rs<26>
+                                                       HANNYA_ID/rs<26>251_F
+                                                       HANNYA_ID/rs<26>251
+    SLICE_X23Y56.B5      net (fanout=2)        0.390   HANNYA_ID/rs<26>
+    SLICE_X23Y56.CLK     Tas                   0.027   HANNYA_ID/data_1_buf<26>
+                                                       HANNYA_ID/data_1_sub<26>2851
+                                                       HANNYA_ID/data_1_buf_26
+    -------------------------------------------------  ---------------------------
+    Total                                     33.403ns (5.353ns logic, 28.050ns route)
+                                                       (16.0% logic, 84.0% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     -22.648ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               HANNYA_ID/data_2_buf_5 (FF)
+  Destination:          HANNYA_ID/data_1_buf_26 (FF)
+  Requirement:          10.890ns
+  Data Path Delay:      33.371ns (Levels of Logic = 27)
+  Clock Path Skew:      -0.038ns (1.175 - 1.213)
+  Source Clock:         clk rising at 0.000ns
+  Destination Clock:    clk rising at 10.890ns
+  Clock Uncertainty:    0.129ns
+
+  Clock Uncertainty:          0.129ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.188ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: HANNYA_ID/data_2_buf_5 to HANNYA_ID/data_1_buf_26
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X42Y50.AQ      Tcko                  0.450   HANNYA_ID/data_2_buf<6>
+                                                       HANNYA_ID/data_2_buf_5
+    SLICE_X19Y77.C5      net (fanout=7)        3.909   HANNYA_ID/data_2_buf<5>
+    SLICE_X19Y77.C       Tilo                  0.094   HANNYA_ALU/save_fadd_data_2<6>
+                                                       HANNYA_ALU/fadd_data_2<5>1
+    SLICE_X12Y80.C5      net (fanout=11)       1.081   HANNYA_ALU/fadd_data_2<5>
+    SLICE_X12Y80.COUT    Topcyc                0.409   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<3>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_lut<2>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<3>
+    SLICE_X12Y81.CIN     net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<3>
+    SLICE_X12Y81.COUT    Tbyp                  0.104   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<7>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<7>
+    SLICE_X12Y82.CIN     net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<7>
+    SLICE_X12Y82.COUT    Tbyp                  0.104   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<11>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<11>
+    SLICE_X12Y83.CIN     net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<11>
+    SLICE_X12Y83.BMUX    Tcinb                 0.269   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<13>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<13>
+    SLICE_X11Y86.A4      net (fanout=1)        0.862   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<13>
+    SLICE_X11Y86.A       Tilo                  0.094   N951
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<15>1
+    SLICE_X11Y80.D6      net (fanout=243)      0.949   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<15>
+    SLICE_X11Y80.D       Tilo                  0.094   HANNYA_ALU/ALU_FADD/Madd_sum_30_23_add0002_lut<3>
+                                                       HANNYA_ALU/ALU_FADD/num1_mux0000<26>1
+    SLICE_X8Y86.DX       net (fanout=4)        1.175   HANNYA_ALU/ALU_FADD/Madd_sum_30_23_add0002_lut<3>
+    SLICE_X8Y86.COUT     Tdxcy                 0.259   HANNYA_ALU/ALU_FADD/Msub_S_sub0000_cy<3>
+                                                       HANNYA_ALU/ALU_FADD/Msub_S_sub0000_cy<3>
+    SLICE_X8Y87.CIN      net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Msub_S_sub0000_cy<3>
+    SLICE_X8Y87.AMUX     Tcina                 0.274   HANNYA_ALU/ALU_FADD/S_sub0000<7>
+                                                       HANNYA_ALU/ALU_FADD/Msub_S_sub0000_xor<7>
+    SLICE_X14Y78.B6      net (fanout=101)      1.149   HANNYA_ALU/ALU_FADD/S_sub0000<4>
+    SLICE_X14Y78.B       Tilo                  0.094   HANNYA_ALU/save_fadd_data_2<11>
+                                                       HANNYA_ALU/ALU_FADD/s_bit_mux00311_SW0
+    SLICE_X13Y81.D1      net (fanout=1)        1.030   N1546
+    SLICE_X13Y81.D       Tilo                  0.094   N1587
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_lut<2>_SW0
+    SLICE_X15Y87.C3      net (fanout=1)        0.920   N1587
+    SLICE_X15Y87.COUT    Topcyc                0.423   HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<3>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_lut<2>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<3>
+    SLICE_X15Y88.CIN     net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<3>
+    SLICE_X15Y88.AMUX    Tcina                 0.303   HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<4>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<4>
+    SLICE_X2Y74.A3       net (fanout=2)        1.700   HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<4>
+    SLICE_X2Y74.COUT     Topcya                0.509   HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<3>
+                                                       HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_lut<0>
+                                                       HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<3>
+    SLICE_X2Y75.CIN      net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<3>
+    SLICE_X2Y75.COUT     Tbyp                  0.104   HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<7>
+                                                       HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<7>
+    SLICE_X2Y76.CIN      net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<7>
+    SLICE_X2Y76.COUT     Tbyp                  0.104   HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<11>
+                                                       HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<11>
+    SLICE_X2Y77.CIN      net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<11>
+    SLICE_X2Y77.BMUX     Tcinb                 0.335   HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<15>
+                                                       HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<15>
+    SLICE_X3Y77.B2       net (fanout=27)       0.785   HANNYA_ALU/ALU_FADD/sum_mant_sub0000<13>
+    SLICE_X3Y77.B        Tilo                  0.094   N1939
+                                                       HANNYA_ALU/ALU_FADD/i_mux0000<1>105_SW0
+    SLICE_X3Y78.C2       net (fanout=1)        0.915   N956
+    SLICE_X3Y78.C        Tilo                  0.094   N2399
+                                                       HANNYA_ALU/ALU_FADD/i_mux0000<1>178_SW0
+    SLICE_X3Y69.B3       net (fanout=2)        1.258   N2172
+    SLICE_X3Y69.B        Tilo                  0.094   HANNYA_ALU/ALU_FADD/N249
+                                                       HANNYA_ALU/ALU_FADD/i_mux0000<1>178
+    SLICE_X3Y74.C2       net (fanout=160)      1.174   HANNYA_ALU/ALU_FADD/i_mux0000<1>
+    SLICE_X3Y74.C        Tilo                  0.094   HANNYA_ALU/ALU_FADD/sum_9_cmp_gt0003136
+                                                       HANNYA_ALU/ALU_FADD/sum_12_mux00171121
+    SLICE_X11Y70.A5      net (fanout=3)        1.185   HANNYA_ALU/ALU_FADD/N303
+    SLICE_X11Y70.A       Tilo                  0.094   HANNYA_ALU/ALU_FADD/N12
+                                                       HANNYA_ALU/ALU_FADD/sum_9_cmp_gt0003152
+    SLICE_X14Y58.C1      net (fanout=3)        1.513   HANNYA_ALU/ALU_FADD/sum_9_cmp_gt00031
+    SLICE_X14Y58.C       Tilo                  0.094   N913
+                                                       HANNYA_ALU/ALU_FADD/sum_9_cmp_gt00031130_SW0
+    SLICE_X42Y37.C1      net (fanout=8)        3.272   N913
+    SLICE_X42Y37.C       Tilo                  0.094   HANNYA_ALU/ALU_FADD/N2551
+                                                       HANNYA_ALU/ALU_FADD/sum_25_mux00164182
+    SLICE_X13Y34.C5      net (fanout=57)       2.897   HANNYA_ALU/ALU_FADD/N2551
+    SLICE_X13Y34.C       Tilo                  0.094   HANNYA_ID/r9<26>
+                                                       HANNYA_ALU/data_from_ALU_buf<26>356
+    SLICE_X22Y57.B6      net (fanout=68)       1.940   HANNYA_ALU/data_from_ALU_buf<26>356
+    SLICE_X22Y57.AMUX    Topba                 0.371   HANNYA_ID/rs<26>
+                                                       HANNYA_ID/rs<26>251_F
+                                                       HANNYA_ID/rs<26>251
+    SLICE_X23Y56.B5      net (fanout=2)        0.390   HANNYA_ID/rs<26>
+    SLICE_X23Y56.CLK     Tas                   0.027   HANNYA_ID/data_1_buf<26>
+                                                       HANNYA_ID/data_1_sub<26>2851
+                                                       HANNYA_ID/data_1_buf_26
+    -------------------------------------------------  ---------------------------
+    Total                                     33.371ns (5.267ns logic, 28.104ns route)
+                                                       (15.8% logic, 84.2% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     -22.610ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               HANNYA_ID/data_2_buf_5 (FF)
+  Destination:          HANNYA_ID/data_1_buf_26 (FF)
+  Requirement:          10.890ns
+  Data Path Delay:      33.333ns (Levels of Logic = 27)
+  Clock Path Skew:      -0.038ns (1.175 - 1.213)
+  Source Clock:         clk rising at 0.000ns
+  Destination Clock:    clk rising at 10.890ns
+  Clock Uncertainty:    0.129ns
+
+  Clock Uncertainty:          0.129ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.188ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: HANNYA_ID/data_2_buf_5 to HANNYA_ID/data_1_buf_26
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X42Y50.AQ      Tcko                  0.450   HANNYA_ID/data_2_buf<6>
+                                                       HANNYA_ID/data_2_buf_5
+    SLICE_X19Y77.C5      net (fanout=7)        3.909   HANNYA_ID/data_2_buf<5>
+    SLICE_X19Y77.C       Tilo                  0.094   HANNYA_ALU/save_fadd_data_2<6>
+                                                       HANNYA_ALU/fadd_data_2<5>1
+    SLICE_X12Y80.C5      net (fanout=11)       1.081   HANNYA_ALU/fadd_data_2<5>
+    SLICE_X12Y80.COUT    Topcyc                0.409   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<3>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_lut<2>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<3>
+    SLICE_X12Y81.CIN     net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<3>
+    SLICE_X12Y81.COUT    Tbyp                  0.104   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<7>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<7>
+    SLICE_X12Y82.CIN     net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<7>
+    SLICE_X12Y82.COUT    Tbyp                  0.104   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<11>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<11>
+    SLICE_X12Y83.CIN     net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<11>
+    SLICE_X12Y83.BMUX    Tcinb                 0.269   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<13>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<13>
+    SLICE_X11Y86.A4      net (fanout=1)        0.862   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<13>
+    SLICE_X11Y86.A       Tilo                  0.094   N951
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<15>1
+    SLICE_X11Y80.D6      net (fanout=243)      0.949   HANNYA_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<15>
+    SLICE_X11Y80.D       Tilo                  0.094   HANNYA_ALU/ALU_FADD/Madd_sum_30_23_add0002_lut<3>
+                                                       HANNYA_ALU/ALU_FADD/num1_mux0000<26>1
+    SLICE_X8Y86.DX       net (fanout=4)        1.175   HANNYA_ALU/ALU_FADD/Madd_sum_30_23_add0002_lut<3>
+    SLICE_X8Y86.COUT     Tdxcy                 0.259   HANNYA_ALU/ALU_FADD/Msub_S_sub0000_cy<3>
+                                                       HANNYA_ALU/ALU_FADD/Msub_S_sub0000_cy<3>
+    SLICE_X8Y87.CIN      net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Msub_S_sub0000_cy<3>
+    SLICE_X8Y87.AMUX     Tcina                 0.274   HANNYA_ALU/ALU_FADD/S_sub0000<7>
+                                                       HANNYA_ALU/ALU_FADD/Msub_S_sub0000_xor<7>
+    SLICE_X11Y85.D4      net (fanout=101)      0.875   HANNYA_ALU/ALU_FADD/S_sub0000<4>
+    SLICE_X11Y85.D       Tilo                  0.094   N1544
+                                                       HANNYA_ALU/ALU_FADD/s_bit_mux00371_SW1
+    SLICE_X11Y84.D1      net (fanout=1)        0.987   N1544
+    SLICE_X11Y84.D       Tilo                  0.094   N1768
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_lut<0>_SW0
+    SLICE_X15Y87.A1      net (fanout=1)        1.183   N1768
+    SLICE_X15Y87.COUT    Topcya                0.509   HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<3>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_lut<0>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<3>
+    SLICE_X15Y88.CIN     net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<3>
+    SLICE_X15Y88.AMUX    Tcina                 0.303   HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<4>
+                                                       HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<4>
+    SLICE_X2Y74.A3       net (fanout=2)        1.700   HANNYA_ALU/ALU_FADD/Mcompar_s_bit_cmp_gt0000_cy<4>
+    SLICE_X2Y74.COUT     Topcya                0.509   HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<3>
+                                                       HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_lut<0>
+                                                       HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<3>
+    SLICE_X2Y75.CIN      net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<3>
+    SLICE_X2Y75.COUT     Tbyp                  0.104   HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<7>
+                                                       HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<7>
+    SLICE_X2Y76.CIN      net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<7>
+    SLICE_X2Y76.COUT     Tbyp                  0.104   HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<11>
+                                                       HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<11>
+    SLICE_X2Y77.CIN      net (fanout=1)        0.000   HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<11>
+    SLICE_X2Y77.BMUX     Tcinb                 0.335   HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<15>
+                                                       HANNYA_ALU/ALU_FADD/Msub_sum_mant_sub0000_cy<15>
+    SLICE_X3Y77.B2       net (fanout=27)       0.785   HANNYA_ALU/ALU_FADD/sum_mant_sub0000<13>
+    SLICE_X3Y77.B        Tilo                  0.094   N1939
+                                                       HANNYA_ALU/ALU_FADD/i_mux0000<1>105_SW0
+    SLICE_X3Y78.C2       net (fanout=1)        0.915   N956
+    SLICE_X3Y78.C        Tilo                  0.094   N2399
+                                                       HANNYA_ALU/ALU_FADD/i_mux0000<1>178_SW0
+    SLICE_X3Y69.B3       net (fanout=2)        1.258   N2172
+    SLICE_X3Y69.B        Tilo                  0.094   HANNYA_ALU/ALU_FADD/N249
+                                                       HANNYA_ALU/ALU_FADD/i_mux0000<1>178
+    SLICE_X3Y74.C2       net (fanout=160)      1.174   HANNYA_ALU/ALU_FADD/i_mux0000<1>
+    SLICE_X3Y74.C        Tilo                  0.094   HANNYA_ALU/ALU_FADD/sum_9_cmp_gt0003136
+                                                       HANNYA_ALU/ALU_FADD/sum_12_mux00171121
+    SLICE_X11Y70.A5      net (fanout=3)        1.185   HANNYA_ALU/ALU_FADD/N303
+    SLICE_X11Y70.A       Tilo                  0.094   HANNYA_ALU/ALU_FADD/N12
+                                                       HANNYA_ALU/ALU_FADD/sum_9_cmp_gt0003152
+    SLICE_X14Y58.C1      net (fanout=3)        1.513   HANNYA_ALU/ALU_FADD/sum_9_cmp_gt00031
+    SLICE_X14Y58.C       Tilo                  0.094   N913
+                                                       HANNYA_ALU/ALU_FADD/sum_9_cmp_gt00031130_SW0
+    SLICE_X42Y37.C1      net (fanout=8)        3.272   N913
+    SLICE_X42Y37.C       Tilo                  0.094   HANNYA_ALU/ALU_FADD/N2551
+                                                       HANNYA_ALU/ALU_FADD/sum_25_mux00164182
+    SLICE_X15Y37.C5      net (fanout=57)       2.686   HANNYA_ALU/ALU_FADD/N2551
+    SLICE_X15Y37.C       Tilo                  0.094   HANNYA_MEM/load_heap_data_store<19>
+                                                       HANNYA_ALU/data_from_ALU_buf<26>84
+    SLICE_X22Y57.AX      net (fanout=68)       2.139   HANNYA_ALU/data_from_ALU_buf<26>84
+    SLICE_X22Y57.AMUX    Taxa                  0.313   HANNYA_ID/rs<26>
+                                                       HANNYA_ID/rs<26>251
+    SLICE_X23Y56.B5      net (fanout=2)        0.390   HANNYA_ID/rs<26>
+    SLICE_X23Y56.CLK     Tas                   0.027   HANNYA_ID/data_1_buf<26>
+                                                       HANNYA_ID/data_1_sub<26>2851
+                                                       HANNYA_ID/data_1_buf_26
+    -------------------------------------------------  ---------------------------
+    Total                                     33.333ns (5.295ns logic, 28.038ns route)
+                                                       (15.9% logic, 84.1% route)
+
+--------------------------------------------------------------------------------
+
+Hold Paths: TS_CLK_CHANGE_CLKFX_BUF = PERIOD TIMEGRP "CLK_CHANGE_CLKFX_BUF" TS_SYS_CLK /
+        1.33333333 HIGH 50%;
+--------------------------------------------------------------------------------
+
+Paths for end point FIFO/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP (RAMB36_X2Y0.ADDRAL8), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.247ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               FIFO/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/count_d1_6 (FF)
+  Destination:          FIFO/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP (RAM)
+  Requirement:          0.000ns
+  Data Path Delay:      0.436ns (Levels of Logic = 0)
+  Clock Path Skew:      0.189ns (0.726 - 0.537)
+  Source Clock:         clk rising at 10.890ns
+  Destination Clock:    clk rising at 10.890ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: FIFO/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/count_d1_6 to FIFO/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP
+    Location               Delay type         Delay(ns)  Physical Resource
+                                                         Logical Resource(s)
+    ---------------------------------------------------  -------------------
+    SLICE_X59Y2.CQ         Tcko                  0.414   FIFO/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/count_d1<7>
+                                                         FIFO/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/count_d1_6
+    RAMB36_X2Y0.ADDRAL8    net (fanout=7)        0.316   FIFO/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/count_d1<6>
+    RAMB36_X2Y0.CLKARDCLKL Trckc_ADDRA (-Th)     0.294   FIFO/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP
+                                                         FIFO/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP
+    ---------------------------------------------------  ---------------------------
+    Total                                        0.436ns (0.120ns logic, 0.316ns route)
+                                                         (27.5% logic, 72.5% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point FIFO/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP (RAMB36_X2Y0.ADDRAU8), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.251ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               FIFO/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/count_d1_6 (FF)
+  Destination:          FIFO/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP (RAM)
+  Requirement:          0.000ns
+  Data Path Delay:      0.436ns (Levels of Logic = 0)
+  Clock Path Skew:      0.185ns (0.722 - 0.537)
+  Source Clock:         clk rising at 10.890ns
+  Destination Clock:    clk rising at 10.890ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: FIFO/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/count_d1_6 to FIFO/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP
+    Location               Delay type         Delay(ns)  Physical Resource
+                                                         Logical Resource(s)
+    ---------------------------------------------------  -------------------
+    SLICE_X59Y2.CQ         Tcko                  0.414   FIFO/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/count_d1<7>
+                                                         FIFO/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/count_d1_6
+    RAMB36_X2Y0.ADDRAU8    net (fanout=7)        0.316   FIFO/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/wpntr/count_d1<6>
+    RAMB36_X2Y0.CLKARDCLKU Trckc_ADDRA (-Th)     0.294   FIFO/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP
+                                                         FIFO/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP
+    ---------------------------------------------------  ---------------------------
+    Total                                        0.436ns (0.120ns logic, 0.316ns route)
+                                                         (27.5% logic, 72.5% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point FIFO/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP (RAMB36_X2Y0.ADDRBL8), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.252ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               FIFO/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/count_d1_6 (FF)
+  Destination:          FIFO/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP (RAM)
+  Requirement:          0.000ns
+  Data Path Delay:      0.444ns (Levels of Logic = 0)
+  Clock Path Skew:      0.192ns (0.726 - 0.534)
+  Source Clock:         clk rising at 10.890ns
+  Destination Clock:    clk rising at 10.890ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: FIFO/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/count_d1_6 to FIFO/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP
+    Location               Delay type         Delay(ns)  Physical Resource
+                                                         Logical Resource(s)
+    ---------------------------------------------------  -------------------
+    SLICE_X59Y3.CQ         Tcko                  0.414   FIFO/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/count_d1<7>
+                                                         FIFO/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/count_d1_6
+    RAMB36_X2Y0.ADDRBL8    net (fanout=7)        0.324   FIFO/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/count_d1<6>
+    RAMB36_X2Y0.CLKBWRCLKL Trckc_ADDRB (-Th)     0.294   FIFO/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP
+                                                         FIFO/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP
+    ---------------------------------------------------  ---------------------------
+    Total                                        0.444ns (0.120ns logic, 0.324ns route)
+                                                         (27.0% logic, 73.0% route)
+
+--------------------------------------------------------------------------------
+
+Component Switching Limit Checks: TS_CLK_CHANGE_CLKFX_BUF = PERIOD TIMEGRP "CLK_CHANGE_CLKFX_BUF" TS_SYS_CLK /
+        1.33333333 HIGH 50%;
+--------------------------------------------------------------------------------
+Slack: 7.254ns (period - min period limit)
+  Period: 10.890ns
+  Min period limit: 3.636ns (275.028MHz) (Tdspper_BP_MULT)
+  Physical resource: HANNYA_ALU/ALU_FINV/Mmult_tmp_mult0000/CLK
+  Logical resource: HANNYA_ALU/ALU_FINV/Mmult_tmp_mult0000/CLK
+  Location pin: DSP48_X0Y25.CLK
+  Clock network: clk
+--------------------------------------------------------------------------------
+Slack: 7.254ns (period - min period limit)
+  Period: 10.890ns
+  Min period limit: 3.636ns (275.028MHz) (Tdspper_BP_MULT)
+  Physical resource: HANNYA_ALU/ALU_FSQRT/Mmult_tmp_mult0000/CLK
+  Logical resource: HANNYA_ALU/ALU_FSQRT/Mmult_tmp_mult0000/CLK
+  Location pin: DSP48_X0Y24.CLK
+  Clock network: clk
+--------------------------------------------------------------------------------
+Slack: 8.390ns (period - min period limit)
+  Period: 10.890ns
+  Min period limit: 2.500ns (400.000MHz) (Trper_CLKA)
+  Physical resource: HANNYA_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[57].ram.r/v5_noinit.ram/SP.CASCADED_PRIM36.TDP_B/CLKAL
+  Logical resource: HANNYA_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[57].ram.r/v5_noinit.ram/SP.CASCADED_PRIM36.TDP_B/CLKAL
+  Location pin: RAMB36_X1Y12.CLKARDCLKL
+  Clock network: clk
+--------------------------------------------------------------------------------
+
+
+Derived Constraint Report
+Derived Constraints for TS_SYS_CLK
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|                               |   Period    |       Actual Period       |      Timing Errors        |      Paths Analyzed       |
+|           Constraint          | Requirement |-------------+-------------|-------------+-------------|-------------+-------------|
+|                               |             |   Direct    | Derivative  |   Direct    | Derivative  |   Direct    | Derivative  |
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|TS_SYS_CLK                     |     14.520ns|      7.142ns|     45.957ns|            0|         5353|            0|171277349718081|
+| TS_CLK_CHANGE_CLKFX_BUF       |     10.890ns|     34.468ns|          N/A|         5353|            0|171277349718081|            0|
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+
+1 constraint not met.
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Clock to Setup on destination clock MCLK1
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+MCLK1          |   34.468|         |         |         |
+---------------+---------+---------+---------+---------+
+
+
+Timing summary:
+---------------
+
+Timing errors: 5353  Score: 81178853  (Setup/Max: 81178853, Hold: 0)
+
+Constraints cover 171277349718081 paths, 0 nets, and 65002 connections
+
+Design statistics:
+   Minimum period:  34.468ns{1}   (Maximum frequency:  29.012MHz)
+
+
+------------------------------------Footnotes-----------------------------------
+1)  The minimum period statistic assumes all single cycle delays.
+
+Analysis completed Thu Feb 18 21:21:00 2016 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 719 MB
+
+
+

@@ -5,14 +5,14 @@ Parameter TMPDIR set to xst/projnav.tmp
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.05 secs
+Total CPU time to Xst completion: 0.04 secs
  
 --> 
 Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.05 secs
+Total CPU time to Xst completion: 0.04 secs
  
 --> 
 Reading design: siki.prj
@@ -70,8 +70,8 @@ Use DSP Block                      : Auto
 Automatic Register Balancing       : No
 
 ---- Target Options
-LUT Combining                      : Off
-Reduce Control Sets                : Off
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
 Add IO Buffers                     : YES
 Global Maximum Fanout              : 100000
 Add Generic Clock Buffer(BUFG)     : 32
@@ -114,55 +114,94 @@ Cores Search Directories           : {"ipcore_dir"  }
 =========================================================================
 *                          HDL Compilation                              *
 =========================================================================
-Compiling vhdl file "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/fpu_common.vhd" in Library work.
+WARNING:HDLParsers:3607 - Unit work/siki is now defined in a different file.  It was defined in "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/siki.vhd", and is now defined in "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/siki.vhd".
+WARNING:HDLParsers:3607 - Unit work/siki/siki is now defined in a different file.  It was defined in "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/siki.vhd", and is now defined in "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/siki.vhd".
+WARNING:HDLParsers:3607 - Unit work/clk_changer is now defined in a different file.  It was defined in "/home/shinno/cpu/presentation/final_presentation/P_siki/clk_changer.vhd", and is now defined in "/home/shinno/cpu/sowaka/sowaka/final_presentation/P_siki/clk_changer.vhd".
+WARNING:HDLParsers:3607 - Unit work/clk_changer/BEHAVIORAL is now defined in a different file.  It was defined in "/home/shinno/cpu/presentation/final_presentation/P_siki/clk_changer.vhd", and is now defined in "/home/shinno/cpu/sowaka/sowaka/final_presentation/P_siki/clk_changer.vhd".
+WARNING:HDLParsers:3607 - Unit work/ALU is now defined in a different file.  It was defined in "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/ALU.vhd", and is now defined in "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/ALU.vhd".
+WARNING:HDLParsers:3607 - Unit work/ALU/ALU is now defined in a different file.  It was defined in "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/ALU.vhd", and is now defined in "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/ALU.vhd".
+WARNING:HDLParsers:3607 - Unit work/id is now defined in a different file.  It was defined in "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/id.vhd", and is now defined in "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/id.vhd".
+WARNING:HDLParsers:3607 - Unit work/id/id is now defined in a different file.  It was defined in "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/id.vhd", and is now defined in "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/id.vhd".
+WARNING:HDLParsers:3607 - Unit work/ife is now defined in a different file.  It was defined in "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/ife.vhd", and is now defined in "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/ife.vhd".
+WARNING:HDLParsers:3607 - Unit work/ife/ife is now defined in a different file.  It was defined in "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/ife.vhd", and is now defined in "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/ife.vhd".
+WARNING:HDLParsers:3607 - Unit work/mem is now defined in a different file.  It was defined in "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/mem.vhd", and is now defined in "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/mem.vhd".
+WARNING:HDLParsers:3607 - Unit work/mem/mem is now defined in a different file.  It was defined in "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/mem.vhd", and is now defined in "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/mem.vhd".
+WARNING:HDLParsers:3607 - Unit work/rx is now defined in a different file.  It was defined in "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/rx.vhd", and is now defined in "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/rx.vhd".
+WARNING:HDLParsers:3607 - Unit work/rx/rx is now defined in a different file.  It was defined in "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/rx.vhd", and is now defined in "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/rx.vhd".
+WARNING:HDLParsers:3607 - Unit work/tx is now defined in a different file.  It was defined in "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/tx.vhd", and is now defined in "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/tx.vhd".
+WARNING:HDLParsers:3607 - Unit work/tx/tx is now defined in a different file.  It was defined in "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/tx.vhd", and is now defined in "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/tx.vhd".
+WARNING:HDLParsers:3607 - Unit work/itof_pl is now defined in a different file.  It was defined in "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/conv.vhd", and is now defined in "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/conv.vhd".
+WARNING:HDLParsers:3607 - Unit work/itof_pl/behavior is now defined in a different file.  It was defined in "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/conv.vhd", and is now defined in "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/conv.vhd".
+WARNING:HDLParsers:3607 - Unit work/fadd_p is now defined in a different file.  It was defined in "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/fadd.vhd", and is now defined in "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/fadd.vhd".
+WARNING:HDLParsers:3607 - Unit work/fadd is now defined in a different file.  It was defined in "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/fadd.vhd", and is now defined in "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/fadd.vhd".
+WARNING:HDLParsers:3607 - Unit work/FADD/blackbox is now defined in a different file.  It was defined in "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/fadd.vhd", and is now defined in "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/fadd.vhd".
+WARNING:HDLParsers:3607 - Unit work/finv is now defined in a different file.  It was defined in "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/finv_pl.vhd", and is now defined in "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/finv_pl.vhd".
+WARNING:HDLParsers:3607 - Unit work/finv/twoproc_pipeline is now defined in a different file.  It was defined in "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/finv_pl.vhd", and is now defined in "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/finv_pl.vhd".
+WARNING:HDLParsers:3607 - Unit work/fmul is now defined in a different file.  It was defined in "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/fmul.vhd", and is now defined in "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/fmul.vhd".
+WARNING:HDLParsers:3607 - Unit work/FMUL/blackbox is now defined in a different file.  It was defined in "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/fmul.vhd", and is now defined in "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/fmul.vhd".
+WARNING:HDLParsers:3607 - Unit work/fsqrt_pl is now defined in a different file.  It was defined in "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/fsqrt_pl.vhd", and is now defined in "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/fsqrt_pl.vhd".
+WARNING:HDLParsers:3607 - Unit work/fsqrt_pl/twoproc_pipeline is now defined in a different file.  It was defined in "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/fsqrt_pl.vhd", and is now defined in "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/fsqrt_pl.vhd".
+WARNING:HDLParsers:3607 - Unit work/ftoi_pl is now defined in a different file.  It was defined in "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/trnc.vhd", and is now defined in "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/trnc.vhd".
+WARNING:HDLParsers:3607 - Unit work/ftoi_pl/behavior is now defined in a different file.  It was defined in "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/trnc.vhd", and is now defined in "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/trnc.vhd".
+WARNING:HDLParsers:3607 - Unit work/finvtable is now defined in a different file.  It was defined in "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/finvtable.vhd", and is now defined in "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/finvtable.vhd".
+WARNING:HDLParsers:3607 - Unit work/finvtable/behavioral is now defined in a different file.  It was defined in "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/finvtable.vhd", and is now defined in "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/finvtable.vhd".
+WARNING:HDLParsers:3607 - Unit work/fpu_common_p is now defined in a different file.  It was defined in "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/fpu_common.vhd", and is now defined in "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/fpu_common.vhd".
+WARNING:HDLParsers:3607 - Unit work/fpu_common_p is now defined in a different file.  It was defined in "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/fpu_common.vhd", and is now defined in "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/fpu_common.vhd".
+WARNING:HDLParsers:3607 - Unit work/fsqrttable is now defined in a different file.  It was defined in "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/fsqrttable.vhd", and is now defined in "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/fsqrttable.vhd".
+WARNING:HDLParsers:3607 - Unit work/fsqrttable/behavioral is now defined in a different file.  It was defined in "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/fsqrttable.vhd", and is now defined in "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/fsqrttable.vhd".
+WARNING:HDLParsers:3607 - Unit work/output_buf is now defined in a different file.  It was defined in "/home/shinno/cpu/presentation/final_presentation/P_siki/ipcore_dir/output_buf.vhd", and is now defined in "/home/shinno/cpu/sowaka/sowaka/final_presentation/P_siki/ipcore_dir/output_buf.vhd".
+WARNING:HDLParsers:3607 - Unit work/output_buf/output_buf_a is now defined in a different file.  It was defined in "/home/shinno/cpu/presentation/final_presentation/P_siki/ipcore_dir/output_buf.vhd", and is now defined in "/home/shinno/cpu/sowaka/sowaka/final_presentation/P_siki/ipcore_dir/output_buf.vhd".
+WARNING:HDLParsers:3607 - Unit work/fifo8 is now defined in a different file.  It was defined in "/home/shinno/cpu/presentation/final_presentation/P_siki/ipcore_dir/fifo8.vhd", and is now defined in "/home/shinno/cpu/sowaka/sowaka/final_presentation/P_siki/ipcore_dir/fifo8.vhd".
+WARNING:HDLParsers:3607 - Unit work/fifo8/fifo8_a is now defined in a different file.  It was defined in "/home/shinno/cpu/presentation/final_presentation/P_siki/ipcore_dir/fifo8.vhd", and is now defined in "/home/shinno/cpu/sowaka/sowaka/final_presentation/P_siki/ipcore_dir/fifo8.vhd".
+WARNING:HDLParsers:3607 - Unit work/BRAM is now defined in a different file.  It was defined in "/home/shinno/cpu/presentation/final_presentation/P_siki/ipcore_dir/BRAM.vhd", and is now defined in "/home/shinno/cpu/sowaka/sowaka/final_presentation/P_siki/ipcore_dir/BRAM.vhd".
+WARNING:HDLParsers:3607 - Unit work/BRAM/BRAM_a is now defined in a different file.  It was defined in "/home/shinno/cpu/presentation/final_presentation/P_siki/ipcore_dir/BRAM.vhd", and is now defined in "/home/shinno/cpu/sowaka/sowaka/final_presentation/P_siki/ipcore_dir/BRAM.vhd".
+Compiling vhdl file "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/fpu_common.vhd" in Library work.
 Architecture fpu_common_p of Entity fpu_common_p is up to date.
-Compiling vhdl file "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/fsqrttable.vhd" in Library work.
+Compiling vhdl file "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/fsqrttable.vhd" in Library work.
 Architecture behavioral of Entity fsqrttable is up to date.
-Compiling vhdl file "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/finvtable.vhd" in Library work.
+Compiling vhdl file "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/finvtable.vhd" in Library work.
 Architecture behavioral of Entity finvtable is up to date.
-Compiling vhdl file "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/fadd.vhd" in Library work.
+Compiling vhdl file "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/fadd.vhd" in Library work.
 Architecture blackbox of Entity fadd is up to date.
-Compiling vhdl file "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/fmul.vhd" in Library work.
+Compiling vhdl file "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/fmul.vhd" in Library work.
 Architecture blackbox of Entity fmul is up to date.
-Compiling vhdl file "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/finv_pl.vhd" in Library work.
+Compiling vhdl file "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/finv_pl.vhd" in Library work.
 Architecture twoproc_pipeline of Entity finv is up to date.
-Compiling vhdl file "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/fsqrt_pl.vhd" in Library work.
+Compiling vhdl file "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/fsqrt_pl.vhd" in Library work.
 Architecture twoproc_pipeline of Entity fsqrt_pl is up to date.
-Compiling vhdl file "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/conv.vhd" in Library work.
+Compiling vhdl file "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/conv.vhd" in Library work.
 Architecture behavior of Entity itof_pl is up to date.
-Compiling vhdl file "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/trnc.vhd" in Library work.
+Compiling vhdl file "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/trnc.vhd" in Library work.
 Architecture behavior of Entity ftoi_pl is up to date.
-Compiling vhdl file "/home/shinno/cpu/presentation/final_presentation/P_siki/ipcore_dir/BRAM.vhd" in Library work.
+Compiling vhdl file "/home/shinno/cpu/sowaka/sowaka/final_presentation/P_siki/ipcore_dir/BRAM.vhd" in Library work.
 Architecture bram_a of Entity bram is up to date.
-Compiling vhdl file "/home/shinno/cpu/presentation/final_presentation/P_siki/clk_changer.vhd" in Library work.
-Entity <clk_changer> compiled.
-Entity <clk_changer> (Architecture <BEHAVIORAL>) compiled.
-Compiling vhdl file "/home/shinno/cpu/presentation/final_presentation/P_siki/ipcore_dir/fifo8.vhd" in Library work.
+Compiling vhdl file "/home/shinno/cpu/sowaka/sowaka/final_presentation/P_siki/clk_changer.vhd" in Library work.
+Architecture behavioral of Entity clk_changer is up to date.
+Compiling vhdl file "/home/shinno/cpu/sowaka/sowaka/final_presentation/P_siki/ipcore_dir/fifo8.vhd" in Library work.
 Architecture fifo8_a of Entity fifo8 is up to date.
-Compiling vhdl file "/home/shinno/cpu/presentation/final_presentation/P_siki/ipcore_dir/output_buf.vhd" in Library work.
+Compiling vhdl file "/home/shinno/cpu/sowaka/sowaka/final_presentation/P_siki/ipcore_dir/output_buf.vhd" in Library work.
 Architecture output_buf_a of Entity output_buf is up to date.
-Compiling vhdl file "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/rx.vhd" in Library work.
+Compiling vhdl file "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/rx.vhd" in Library work.
 Architecture rx of Entity rx is up to date.
-Compiling vhdl file "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/tx.vhd" in Library work.
+Compiling vhdl file "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/tx.vhd" in Library work.
 Architecture tx of Entity tx is up to date.
-Compiling vhdl file "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/ife.vhd" in Library work.
+Compiling vhdl file "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/ife.vhd" in Library work.
 Architecture ife of Entity ife is up to date.
-Compiling vhdl file "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/id.vhd" in Library work.
+Compiling vhdl file "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/id.vhd" in Library work.
 Architecture id of Entity id is up to date.
-Compiling vhdl file "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/ALU.vhd" in Library work.
+Compiling vhdl file "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/ALU.vhd" in Library work.
 Architecture alu of Entity alu is up to date.
-Compiling vhdl file "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/mem.vhd" in Library work.
+Compiling vhdl file "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/mem.vhd" in Library work.
 Architecture mem of Entity mem is up to date.
-Compiling vhdl file "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/siki.vhd" in Library work.
-Entity <siki> compiled.
-Entity <siki> (Architecture <siki>) compiled.
+Compiling vhdl file "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/siki.vhd" in Library work.
+Architecture siki of Entity siki is up to date.
 
 =========================================================================
 *                     Design Hierarchy Analysis                         *
 =========================================================================
 Analyzing hierarchy for entity <siki> in library <work> (architecture <siki>).
 
-Analyzing hierarchy for entity <clk_changer> in library <work> (architecture <BEHAVIORAL>).
+Analyzing hierarchy for entity <clk_changer> in library <work> (architecture <behavioral>).
 
 Analyzing hierarchy for entity <rx> in library <work> (architecture <rx>) with generics.
 	wtime = "0010100010110000"
@@ -203,11 +242,11 @@ Analyzing Entity <siki> in library <work> (Architecture <siki>).
     Set user-defined property "IBUF_DELAY_VALUE =  0" for instance <ib> in unit <siki>.
     Set user-defined property "IBUF_LOW_PWR =  TRUE" for instance <ib> in unit <siki>.
     Set user-defined property "IOSTANDARD =  DEFAULT" for instance <ib> in unit <siki>.
-WARNING:Xst:2211 - "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/siki.vhd" line 473: Instantiating black box module <fifo8>.
-WARNING:Xst:2211 - "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/siki.vhd" line 482: Instantiating black box module <output_buf>.
+WARNING:Xst:2211 - "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/siki.vhd" line 473: Instantiating black box module <fifo8>.
+WARNING:Xst:2211 - "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/siki.vhd" line 482: Instantiating black box module <output_buf>.
 Entity <siki> analyzed. Unit <siki> generated.
 
-Analyzing Entity <clk_changer> in library <work> (Architecture <BEHAVIORAL>).
+Analyzing Entity <clk_changer> in library <work> (Architecture <behavioral>).
     Set user-defined property "CLKDV_DIVIDE =  2.0000000000000000" for instance <DCM_ADV_INST> in unit <clk_changer>.
     Set user-defined property "CLKFX_DIVIDE =  2" for instance <DCM_ADV_INST> in unit <clk_changer>.
     Set user-defined property "CLKFX_MULTIPLY =  3" for instance <DCM_ADV_INST> in unit <clk_changer>.
@@ -236,7 +275,7 @@ Analyzing generic Entity <tx> in library <work> (Architecture <tx>).
 Entity <tx> analyzed. Unit <tx> generated.
 
 Analyzing Entity <ife> in library <work> (Architecture <ife>).
-WARNING:Xst:2211 - "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/ife.vhd" line 47: Instantiating black box module <BRAM>.
+WARNING:Xst:2211 - "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/ife.vhd" line 47: Instantiating black box module <BRAM>.
 Entity <ife> analyzed. Unit <ife> generated.
 
 Analyzing Entity <id> in library <work> (Architecture <id>).
@@ -264,7 +303,7 @@ Analyzing Entity <fsqrttable> in library <work> (Architecture <behavioral>).
 Entity <fsqrttable> analyzed. Unit <fsqrttable> generated.
 
 Analyzing Entity <itof_pl> in library <WORK> (Architecture <behavior>).
-WARNING:Xst:819 - "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/conv.vhd" line 48: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+WARNING:Xst:819 - "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/conv.vhd" line 48: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
    <a_0>
 Entity <itof_pl> analyzed. Unit <itof_pl> generated.
 
@@ -282,7 +321,7 @@ Entity <mem> analyzed. Unit <mem> generated.
 Performing bidirectional port resolution...
 
 Synthesizing Unit <rx>.
-    Related source file is "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/rx.vhd".
+    Related source file is "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/rx.vhd".
 WARNING:Xst:646 - Signal <data_buf<0>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
     Found 8-bit register for signal <data_buf>.
     Found 4-bit comparator greatequal for signal <data_buf$cmp_ge0000> created at line 62.
@@ -305,7 +344,7 @@ Unit <rx> synthesized.
 
 
 Synthesizing Unit <tx>.
-    Related source file is "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/tx.vhd".
+    Related source file is "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/tx.vhd".
     Found 1-bit register for signal <sent>.
     Found 10-bit register for signal <data_buf>.
     Found 4-bit comparator lessequal for signal <data_buf$cmp_le0000> created at line 29.
@@ -324,7 +363,7 @@ Unit <tx> synthesized.
 
 
 Synthesizing Unit <id>.
-    Related source file is "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/id.vhd".
+    Related source file is "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/id.vhd".
 WARNING:Xst:646 - Signal <instr_index<25:16>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:646 - Signal <fmt> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:646 - Signal <cc_nd_tf_set<1>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
@@ -424,7 +463,7 @@ Unit <id> synthesized.
 
 
 Synthesizing Unit <mem>.
-    Related source file is "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/mem.vhd".
+    Related source file is "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/mem.vhd".
     Found finite state machine <FSM_0> for signal <load_heap_stat>.
     -----------------------------------------------------------------------
     | States             | 3                                              |
@@ -458,7 +497,7 @@ Unit <mem> synthesized.
 
 
 Synthesizing Unit <fadd>.
-    Related source file is "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/fadd.vhd".
+    Related source file is "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/fadd.vhd".
     Found 28-bit comparator greater for signal <carry$cmp_gt0000> created at line 50.
     Found 28-bit comparator greater for signal <carry$cmp_gt0001> created at line 50.
     Found 9-bit comparator less for signal <mant2$cmp_lt0000> created at line 149.
@@ -501,7 +540,7 @@ Unit <fadd> synthesized.
 
 
 Synthesizing Unit <fmul>.
-    Related source file is "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/fmul.vhd".
+    Related source file is "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/fmul.vhd".
     Found 28-bit comparator greater for signal <carry$cmp_gt0000> created at line 50.
     Found 28-bit comparator greater for signal <carry0$cmp_gt0000> created at line 50.
     Found 9-bit adder for signal <exp$addsub0000> created at line 121.
@@ -532,7 +571,7 @@ Unit <fmul> synthesized.
 
 
 Synthesizing Unit <itof_pl>.
-    Related source file is "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/conv.vhd".
+    Related source file is "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/conv.vhd".
 WARNING:Xst:646 - Signal <frac25_buff> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:646 - Signal <frac25> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
     Found 32-bit register for signal <a_0>.
@@ -559,7 +598,7 @@ Unit <itof_pl> synthesized.
 
 
 Synthesizing Unit <ftoi_pl>.
-    Related source file is "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/trnc.vhd".
+    Related source file is "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/trnc.vhd".
     Found 8-bit subtractor for signal <$sub0000> created at line 50.
     Found 32-bit register for signal <r.a>.
     Found 32-bit register for signal <r.s>.
@@ -577,7 +616,7 @@ Unit <ftoi_pl> synthesized.
 
 
 Synthesizing Unit <finvtable>.
-    Related source file is "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/finvtable.vhd".
+    Related source file is "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/finvtable.vhd".
     Found 1024x36-bit ROM for signal <v$rom0000> created at line 1044.
     Found 36-bit register for signal <v>.
     Summary:
@@ -587,7 +626,7 @@ Unit <finvtable> synthesized.
 
 
 Synthesizing Unit <fsqrttable>.
-    Related source file is "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/fsqrttable.vhd".
+    Related source file is "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/fsqrttable.vhd".
 WARNING:Xst:647 - Input <clk> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
     Found 1024x36-bit ROM for signal <tout$rom0000> created at line 1044.
     Summary:
@@ -596,12 +635,12 @@ Unit <fsqrttable> synthesized.
 
 
 Synthesizing Unit <clk_changer>.
-    Related source file is "/home/shinno/cpu/presentation/final_presentation/P_siki/clk_changer.vhd".
+    Related source file is "/home/shinno/cpu/sowaka/sowaka/final_presentation/P_siki/clk_changer.vhd".
 Unit <clk_changer> synthesized.
 
 
 Synthesizing Unit <ife>.
-    Related source file is "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/ife.vhd".
+    Related source file is "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/ife.vhd".
 WARNING:Xst:646 - Signal <write_data> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
     Found 16-bit register for signal <addra_buf>.
     Found 2-bit register for signal <delay_state>.
@@ -618,7 +657,7 @@ Unit <ife> synthesized.
 
 
 Synthesizing Unit <finv>.
-    Related source file is "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/finv_pl.vhd".
+    Related source file is "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/finv_pl.vhd".
     Found 23-bit register for signal <a0_p>.
     Found 8-bit register for signal <exp_in>.
     Found 8-bit register for signal <exp_in_p>.
@@ -642,7 +681,7 @@ Unit <finv> synthesized.
 
 
 Synthesizing Unit <fsqrt_pl>.
-    Related source file is "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/fsqrt_pl.vhd".
+    Related source file is "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/fsqrt_pl.vhd".
 WARNING:Xst:1780 - Signal <nan> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:1780 - Signal <minuszero> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
     Found 23-bit register for signal <a0_p>.
@@ -666,7 +705,7 @@ Unit <fsqrt_pl> synthesized.
 
 
 Synthesizing Unit <ALU>.
-    Related source file is "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/ALU.vhd".
+    Related source file is "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/ALU.vhd".
     Using one-hot encoding for signal <comp_exp>.
     Using one-hot encoding for signal <comp_frac>.
     Found 8-bit comparator equal for signal <comp_exp$cmp_eq0000> created at line 426.
@@ -725,7 +764,7 @@ Unit <ALU> synthesized.
 
 
 Synthesizing Unit <siki>.
-    Related source file is "/home/shinno/cpu/presentation/final_presentation/sowaka/siki/siki.vhd".
+    Related source file is "/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/siki.vhd".
 WARNING:Xst:1780 - Signal <write_addr> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:646 - Signal <sent> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:653 - Signal <rst_in> is used but never assigned. This sourceless signal will be automatically connected to value 0.
@@ -1338,8 +1377,8 @@ FlipFlop SIKI_ID/data_1_buf_6 has been replicated 1 time(s)
 FlipFlop SIKI_ID/data_1_buf_7 has been replicated 1 time(s)
 FlipFlop SIKI_ID/data_1_buf_8 has been replicated 1 time(s)
 FlipFlop SIKI_ID/data_1_buf_9 has been replicated 1 time(s)
-FlipFlop SIKI_ID/data_2_buf_0 has been replicated 1 time(s)
-FlipFlop SIKI_ID/data_2_buf_1 has been replicated 1 time(s)
+FlipFlop SIKI_ID/data_2_buf_0 has been replicated 2 time(s)
+FlipFlop SIKI_ID/data_2_buf_1 has been replicated 2 time(s)
 FlipFlop SIKI_ID/data_2_buf_10 has been replicated 1 time(s)
 FlipFlop SIKI_ID/data_2_buf_11 has been replicated 1 time(s)
 FlipFlop SIKI_ID/data_2_buf_12 has been replicated 1 time(s)
@@ -1350,12 +1389,12 @@ FlipFlop SIKI_ID/data_2_buf_16 has been replicated 1 time(s)
 FlipFlop SIKI_ID/data_2_buf_17 has been replicated 1 time(s)
 FlipFlop SIKI_ID/data_2_buf_18 has been replicated 1 time(s)
 FlipFlop SIKI_ID/data_2_buf_19 has been replicated 1 time(s)
-FlipFlop SIKI_ID/data_2_buf_2 has been replicated 1 time(s)
+FlipFlop SIKI_ID/data_2_buf_2 has been replicated 3 time(s)
 FlipFlop SIKI_ID/data_2_buf_20 has been replicated 1 time(s)
 FlipFlop SIKI_ID/data_2_buf_21 has been replicated 1 time(s)
 FlipFlop SIKI_ID/data_2_buf_22 has been replicated 1 time(s)
-FlipFlop SIKI_ID/data_2_buf_3 has been replicated 1 time(s)
-FlipFlop SIKI_ID/data_2_buf_4 has been replicated 1 time(s)
+FlipFlop SIKI_ID/data_2_buf_3 has been replicated 3 time(s)
+FlipFlop SIKI_ID/data_2_buf_4 has been replicated 3 time(s)
 FlipFlop SIKI_ID/data_2_buf_8 has been replicated 1 time(s)
 FlipFlop SIKI_ID/data_2_buf_9 has been replicated 1 time(s)
 
@@ -1397,8 +1436,8 @@ Unit <siki> processed.
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 3241
- Flip-Flops                                            : 3241
+# Registers                                            : 3249
+ Flip-Flops                                            : 3249
 # Shift Registers                                      : 29
  2-bit shift register                                  : 29
 
@@ -1429,23 +1468,23 @@ Design Statistics
 # IOs                              : 71
 
 Cell Usage :
-# BELS                             : 11001
+# BELS                             : 10996
 #      GND                         : 4
 #      INV                         : 137
 #      LUT1                        : 200
-#      LUT2                        : 245
-#      LUT3                        : 506
-#      LUT4                        : 737
+#      LUT2                        : 252
+#      LUT3                        : 512
+#      LUT4                        : 735
 #      LUT5                        : 1039
-#      LUT6                        : 5784
+#      LUT6                        : 5781
 #      MUXCY                       : 763
-#      MUXF7                       : 800
+#      MUXF7                       : 787
 #      MUXF8                       : 212
 #      VCC                         : 4
 #      XORCY                       : 570
-# FlipFlops/Latches                : 3414
+# FlipFlops/Latches                : 3422
 #      FD                          : 346
-#      FDE                         : 3020
+#      FDE                         : 3028
 #      FDR                         : 6
 #      FDRE                        : 11
 #      FDS                         : 28
@@ -1475,17 +1514,17 @@ Selected Device : 5vlx50tff1136-1
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:            3414  out of  28800    11%  
- Number of Slice LUTs:                 8677  out of  28800    30%  
-    Number used as Logic:              8648  out of  28800    30%  
+ Number of Slice Registers:            3422  out of  28800    11%  
+ Number of Slice LUTs:                 8685  out of  28800    30%  
+    Number used as Logic:              8656  out of  28800    30%  
     Number used as Memory:               29  out of   7680     0%  
        Number used as SRL:               29
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:  11336
-   Number with an unused Flip Flop:    7922  out of  11336    69%  
-   Number with an unused LUT:          2659  out of  11336    23%  
-   Number of fully used LUT-FF pairs:   755  out of  11336     6%  
+ Number of LUT Flip Flop pairs used:  11352
+   Number with an unused Flip Flop:    7930  out of  11352    69%  
+   Number with an unused LUT:          2667  out of  11352    23%  
+   Number of fully used LUT-FF pairs:   755  out of  11352     6%  
    Number of unique control sets:       141
 
 IO Utilization: 
@@ -1520,7 +1559,7 @@ Clock Information:
 -----------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)                                                                                                                               | Load  |
 -----------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+-------+
-MCLK1                              | CLK_CHANGE/DCM_ADV_INST:CLKFX                                                                                                                       | 3510  |
+MCLK1                              | CLK_CHANGE/DCM_ADV_INST:CLKFX                                                                                                                       | 3518  |
 SIKI_IFE/instr_BRAM/N1             | NONE(SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[57].ram.r/v5_noinit.ram/SP.CASCADED_PRIM36.TDP_T)| 59    |
 N0                                 | NONE(SIKI_ALU/ALU_FMUL/Madd_product_add00001)                                                                                                       | 1     |
 -----------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+-------+
@@ -1544,7 +1583,7 @@ Timing Summary:
 ---------------
 Speed Grade: -1
 
-   Minimum period: 26.711ns (Maximum Frequency: 37.438MHz)
+   Minimum period: 26.787ns (Maximum Frequency: 37.331MHz)
    Minimum input arrival time before clock: 1.622ns
    Maximum output required time after clock: 4.548ns
    Maximum combinational path delay: No path found
@@ -1555,23 +1594,26 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'MCLK1'
-  Clock period: 26.711ns (frequency: 37.438MHz)
-  Total number of paths / destination ports: 922684388577 / 9252
+  Clock period: 26.787ns (frequency: 37.331MHz)
+  Total number of paths / destination ports: 922684389213 / 9268
 -------------------------------------------------------------------------
-Delay:               17.807ns (Levels of Logic = 64)
-  Source:            SIKI_ID/data_2_buf_7 (FF)
+Delay:               17.858ns (Levels of Logic = 67)
+  Source:            SIKI_ID/data_2_buf_1_2 (FF)
   Destination:       SIKI_ALU/output_buf_19 (FF)
   Source Clock:      MCLK1 rising 1.5X
   Destination Clock: MCLK1 rising 1.5X
 
-  Data Path: SIKI_ID/data_2_buf_7 to SIKI_ALU/output_buf_19
+  Data Path: SIKI_ID/data_2_buf_1_2 to SIKI_ALU/output_buf_19
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDE:C->Q             19   0.471   1.168  SIKI_ID/data_2_buf_7 (SIKI_ID/data_2_buf_7)
-     LUT6:I0->O           16   0.094   0.871  SIKI_ALU/fadd_data_2<7>1 (SIKI_ALU/fadd_data_2<7>)
-     LUT4:I0->O            0   0.094   0.000  SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_lutdi3 (SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_lutdi3)
-     MUXCY:DI->O           1   0.362   0.000  SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<3> (SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<3>)
+     FDE:C->Q             19   0.471   1.168  SIKI_ID/data_2_buf_1_2 (SIKI_ID/data_2_buf_1_2)
+     LUT6:I0->O           11   0.094   0.844  SIKI_ALU/fadd_data_2<1>1 (SIKI_ALU/fadd_data_2<1>)
+     LUT4:I0->O            0   0.094   0.000  SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_lutdi (SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_lutdi)
+     MUXCY:DI->O           1   0.362   0.000  SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<0> (SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<0>)
+     MUXCY:CI->O           1   0.026   0.000  SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<1> (SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<1>)
+     MUXCY:CI->O           1   0.026   0.000  SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<2> (SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<2>)
+     MUXCY:CI->O           1   0.026   0.000  SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<3> (SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<3>)
      MUXCY:CI->O           1   0.026   0.000  SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<4> (SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<4>)
      MUXCY:CI->O           1   0.026   0.000  SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<5> (SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<5>)
      MUXCY:CI->O           1   0.026   0.000  SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<6> (SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<6>)
@@ -1582,7 +1624,7 @@ Delay:               17.807ns (Levels of Logic = 64)
      MUXCY:CI->O           1   0.026   0.000  SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<11> (SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<11>)
      MUXCY:CI->O           1   0.026   0.000  SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<12> (SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<12>)
      MUXCY:CI->O           1   0.254   0.576  SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<13> (SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<13>)
-     LUT5:I3->O          257   0.094   0.649  SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<15>1 (SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<15>)
+     LUT5:I3->O          256   0.094   0.649  SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<15>1 (SIKI_ALU/ALU_FADD/Mcompar_num2_cmp_gt0000_cy<15>)
      LUT3:I2->O            1   0.094   0.336  SIKI_ALU/ALU_FADD/num1_mux0000<23>1 (SIKI_ALU/ALU_FADD/Madd_sum_30_23_add0002_cy<0>)
      MUXCY:DI->O           1   0.362   0.000  SIKI_ALU/ALU_FADD/Msub_S_sub0000_cy<0> (SIKI_ALU/ALU_FADD/Msub_S_sub0000_cy<0>)
      XORCY:CI->O         116   0.357   0.853  SIKI_ALU/ALU_FADD/Msub_S_sub0000_xor<1> (SIKI_ALU/ALU_FADD/Msub_mant2_sub0003_cy<1>)
@@ -1635,8 +1677,8 @@ Delay:               17.807ns (Levels of Logic = 64)
      LUT6:I5->O            1   0.094   0.000  SIKI_ALU/output_int<19>2192 (SIKI_ALU/output_int<19>)
      FDE:D                    -0.018          SIKI_ALU/output_buf_19
     ----------------------------------------
-    Total                     17.807ns (6.842ns logic, 10.965ns route)
-                                       (38.4% logic, 61.6% route)
+    Total                     17.858ns (6.920ns logic, 10.938ns route)
+                                       (38.7% logic, 61.3% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'MCLK1'
@@ -1681,15 +1723,15 @@ Offset:              4.548ns (Levels of Logic = 2)
 =========================================================================
 
 
-Total REAL time to Xst completion: 221.00 secs
-Total CPU time to Xst completion: 220.87 secs
+Total REAL time to Xst completion: 215.00 secs
+Total CPU time to Xst completion: 214.54 secs
  
 --> 
 
 
-Total memory usage is 947616 kilobytes
+Total memory usage is 947632 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :  169 (   0 filtered)
+Number of warnings :  210 (   0 filtered)
 Number of infos    :   94 (   0 filtered)
 

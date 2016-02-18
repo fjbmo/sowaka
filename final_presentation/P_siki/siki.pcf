@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.49d on Sun Feb 14 13:52:53 2016
+// Written by: Map P.49d on Tue Feb 16 21:26:49 2016
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -85,25 +85,25 @@ PIN
         "SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/v5_noinit.ram/SP.SINGLE_PRIM18.SP"
         PINNAME REGCLKAL;
 PIN
-        SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/SP.SINGLE_PRIM18.SP_pins<32>
+        SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/SP.SINGLE_PRIM18.SP_pins<30>
         = BEL
         "SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/SP.SINGLE_PRIM18.SP"
-        PINNAME CLKAL;
-PIN
-        SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/SP.SINGLE_PRIM18.SP_pins<110>
-        = BEL
-        "SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/SP.SINGLE_PRIM18.SP"
-        PINNAME REGCLKAL;
-PIN
-        SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[25].ram.r/v5_noinit.ram/SP.SINGLE_PRIM18.SP_pins<30>
-        = BEL
-        "SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[25].ram.r/v5_noinit.ram/SP.SINGLE_PRIM18.SP"
         PINNAME CLKAU;
 PIN
-        SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[25].ram.r/v5_noinit.ram/SP.SINGLE_PRIM18.SP_pins<108>
+        SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/SP.SINGLE_PRIM18.SP_pins<108>
+        = BEL
+        "SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/SP.SINGLE_PRIM18.SP"
+        PINNAME REGCLKAU;
+PIN
+        SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[25].ram.r/v5_noinit.ram/SP.SINGLE_PRIM18.SP_pins<32>
         = BEL
         "SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[25].ram.r/v5_noinit.ram/SP.SINGLE_PRIM18.SP"
-        PINNAME REGCLKAU;
+        PINNAME CLKAL;
+PIN
+        SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[25].ram.r/v5_noinit.ram/SP.SINGLE_PRIM18.SP_pins<110>
+        = BEL
+        "SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[25].ram.r/v5_noinit.ram/SP.SINGLE_PRIM18.SP"
+        PINNAME REGCLKAL;
 PIN
         SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[26].ram.r/v5_noinit.ram/SP.SINGLE_PRIM18.SP_pins<32>
         = BEL
@@ -125,15 +125,15 @@ PIN
         "SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/v5_noinit.ram/SP.SINGLE_PRIM18.SP"
         PINNAME REGCLKAL;
 PIN
-        SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/v5_noinit.ram/SP.SINGLE_PRIM18.SP_pins<32>
+        SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/v5_noinit.ram/SP.SINGLE_PRIM18.SP_pins<30>
         = BEL
         "SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/v5_noinit.ram/SP.SINGLE_PRIM18.SP"
-        PINNAME CLKAL;
+        PINNAME CLKAU;
 PIN
-        SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/v5_noinit.ram/SP.SINGLE_PRIM18.SP_pins<110>
+        SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/v5_noinit.ram/SP.SINGLE_PRIM18.SP_pins<108>
         = BEL
         "SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/v5_noinit.ram/SP.SINGLE_PRIM18.SP"
-        PINNAME REGCLKAL;
+        PINNAME REGCLKAU;
 PIN
         SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[41].ram.r/v5_noinit.ram/SP.SINGLE_PRIM18.SP_pins<30>
         = BEL
@@ -145,15 +145,15 @@ PIN
         "SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[41].ram.r/v5_noinit.ram/SP.SINGLE_PRIM18.SP"
         PINNAME REGCLKAU;
 PIN
-        SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/v5_noinit.ram/SP.SINGLE_PRIM18.SP_pins<30>
+        SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/v5_noinit.ram/SP.SINGLE_PRIM18.SP_pins<32>
         = BEL
         "SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/v5_noinit.ram/SP.SINGLE_PRIM18.SP"
-        PINNAME CLKAU;
+        PINNAME CLKAL;
 PIN
-        SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/v5_noinit.ram/SP.SINGLE_PRIM18.SP_pins<108>
+        SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/v5_noinit.ram/SP.SINGLE_PRIM18.SP_pins<110>
         = BEL
         "SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/v5_noinit.ram/SP.SINGLE_PRIM18.SP"
-        PINNAME REGCLKAU;
+        PINNAME REGCLKAL;
 PIN
         SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/v5_noinit.ram/SP.SINGLE_PRIM18.SP_pins<30>
         = BEL
@@ -2044,20 +2044,24 @@ TIMEGRP CLK_CHANGE_CLKFX_BUF = BEL "full_buf_0" BEL "load_instr" BEL
         "SIKI_ID/data_1_buf_16_1" BEL "SIKI_ID/ALU_control_buf_4_1" BEL
         "SIKI_ID/data_2_buf_9_1" BEL "SIKI_ID/ALU_control_buf_1_1" BEL
         "SIKI_ID/data_2_buf_8_1" BEL "SIKI_ID/data_1_buf_9_1" BEL
-        "SIKI_ID/data_1_buf_1_1" BEL "SIKI_ID/data_1_buf_22_2" BEL
-        "SIKI_ID/data_1_buf_26_1" BEL "SIKI_ID/data_1_buf_14_2" BEL
-        "SIKI_ID/data_1_buf_18_2" BEL "SIKI_ID/data_1_buf_3_1" BEL
-        "SIKI_ID/data_1_buf_20_2" BEL "SIKI_ID/data_1_buf_7_1" BEL
-        "SIKI_ID/data_1_buf_5_1" BEL "SIKI_ID/data_1_buf_24_1" BEL
-        "SIKI_ID/data_1_buf_13_2" BEL "SIKI_ID/data_1_buf_28_1" BEL
+        "SIKI_ID/data_1_buf_18_2" BEL "SIKI_ID/data_1_buf_1_1" BEL
+        "SIKI_ID/data_1_buf_3_1" BEL "SIKI_ID/data_1_buf_20_2" BEL
+        "SIKI_ID/data_1_buf_22_2" BEL "SIKI_ID/data_1_buf_5_1" BEL
+        "SIKI_ID/data_1_buf_26_1" BEL "SIKI_ID/data_1_buf_7_1" BEL
+        "SIKI_ID/data_1_buf_24_1" BEL "SIKI_ID/data_1_buf_28_1" BEL
+        "SIKI_ID/data_1_buf_14_2" BEL "SIKI_ID/data_1_buf_13_2" BEL
         "SIKI_ID/data_1_buf_11_2" BEL "SIKI_ID/data_1_buf_15_2" BEL
-        "SIKI_ID/data_1_buf_16_2" BEL "SIKI_ID/data_2_buf_12_1" BEL
-        "SIKI_ID/data_2_buf_13_1" BEL "SIKI_ID/data_2_buf_11_1" BEL
-        "SIKI_ID/data_2_buf_15_1" BEL "SIKI_ID/data_2_buf_17_1" BEL
-        "SIKI_ID/data_2_buf_19_1" BEL "SIKI_ID/data_2_buf_14_1" BEL
-        "SIKI_ID/data_2_buf_21_1" BEL "SIKI_ID/data_2_buf_18_1" BEL
-        "SIKI_ID/data_2_buf_16_1" BEL "SIKI_ID/data_2_buf_20_1" BEL
-        "SIKI_ID/data_2_buf_22_1" BEL "SIKI_ID/data_2_buf_10_1" BEL
+        "SIKI_ID/data_2_buf_2_2" BEL "SIKI_ID/data_2_buf_4_2" BEL
+        "SIKI_ID/data_1_buf_16_2" BEL "SIKI_ID/data_2_buf_3_2" BEL
+        "SIKI_ID/data_2_buf_12_1" BEL "SIKI_ID/data_2_buf_13_1" BEL
+        "SIKI_ID/data_2_buf_11_1" BEL "SIKI_ID/data_2_buf_15_1" BEL
+        "SIKI_ID/data_2_buf_17_1" BEL "SIKI_ID/data_2_buf_19_1" BEL
+        "SIKI_ID/data_2_buf_14_1" BEL "SIKI_ID/data_2_buf_21_1" BEL
+        "SIKI_ID/data_2_buf_18_1" BEL "SIKI_ID/data_2_buf_16_1" BEL
+        "SIKI_ID/data_2_buf_20_1" BEL "SIKI_ID/data_2_buf_22_1" BEL
+        "SIKI_ID/data_2_buf_10_1" BEL "SIKI_ID/data_2_buf_1_2" BEL
+        "SIKI_ID/data_2_buf_0_2" BEL "SIKI_ID/data_2_buf_2_3" BEL
+        "SIKI_ID/data_2_buf_4_3" BEL "SIKI_ID/data_2_buf_3_3" BEL
         "SIKI_ALU/ALU_FSQRT/Mshreg_mant_p_0" BEL "SIKI_ALU/ALU_FSQRT/mant_p_0"
         BEL "SIKI_ALU/ALU_FSQRT/Mshreg_mant_p_1" BEL
         "SIKI_ALU/ALU_FSQRT/mant_p_1" BEL "SIKI_ALU/ALU_FSQRT/Mshreg_mant_p_2"
@@ -2397,13 +2401,13 @@ TIMEGRP CLK_CHANGE_CLKFX_BUF = BEL "full_buf_0" BEL "load_instr" BEL
         PIN
         "SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/v5_noinit.ram/SP.SINGLE_PRIM18.SP_pins<110>"
         PIN
-        "SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/SP.SINGLE_PRIM18.SP_pins<32>"
+        "SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/SP.SINGLE_PRIM18.SP_pins<30>"
         PIN
-        "SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/SP.SINGLE_PRIM18.SP_pins<110>"
+        "SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/SP.SINGLE_PRIM18.SP_pins<108>"
         PIN
-        "SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[25].ram.r/v5_noinit.ram/SP.SINGLE_PRIM18.SP_pins<30>"
+        "SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[25].ram.r/v5_noinit.ram/SP.SINGLE_PRIM18.SP_pins<32>"
         PIN
-        "SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[25].ram.r/v5_noinit.ram/SP.SINGLE_PRIM18.SP_pins<108>"
+        "SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[25].ram.r/v5_noinit.ram/SP.SINGLE_PRIM18.SP_pins<110>"
         PIN
         "SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[26].ram.r/v5_noinit.ram/SP.SINGLE_PRIM18.SP_pins<32>"
         PIN
@@ -2413,17 +2417,17 @@ TIMEGRP CLK_CHANGE_CLKFX_BUF = BEL "full_buf_0" BEL "load_instr" BEL
         PIN
         "SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/v5_noinit.ram/SP.SINGLE_PRIM18.SP_pins<110>"
         PIN
-        "SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/v5_noinit.ram/SP.SINGLE_PRIM18.SP_pins<32>"
+        "SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/v5_noinit.ram/SP.SINGLE_PRIM18.SP_pins<30>"
         PIN
-        "SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/v5_noinit.ram/SP.SINGLE_PRIM18.SP_pins<110>"
+        "SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/v5_noinit.ram/SP.SINGLE_PRIM18.SP_pins<108>"
         PIN
         "SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[41].ram.r/v5_noinit.ram/SP.SINGLE_PRIM18.SP_pins<30>"
         PIN
         "SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[41].ram.r/v5_noinit.ram/SP.SINGLE_PRIM18.SP_pins<108>"
         PIN
-        "SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/v5_noinit.ram/SP.SINGLE_PRIM18.SP_pins<30>"
+        "SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/v5_noinit.ram/SP.SINGLE_PRIM18.SP_pins<32>"
         PIN
-        "SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/v5_noinit.ram/SP.SINGLE_PRIM18.SP_pins<108>"
+        "SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/v5_noinit.ram/SP.SINGLE_PRIM18.SP_pins<110>"
         PIN
         "SIKI_IFE/instr_BRAM/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/v5_noinit.ram/SP.SINGLE_PRIM18.SP_pins<30>"
         PIN

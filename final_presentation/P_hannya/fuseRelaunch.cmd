@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "secureip" -o "/home/shinno/cpu/sowaka/project/hannya/HANNYA_testbench_isim_beh.exe" -prj "/home/shinno/cpu/sowaka/project/hannya/HANNYA_testbench_beh.prj" "work.HANNYA_testbench" 

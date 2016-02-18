@@ -1,0 +1,78 @@
+Running: /home/shinno/Xilinx/14.4/ISE_DS/ISE/bin/lin64/unwrapped/fuse -relaunch -intstyle "ise" -incremental -lib "secureip" -o "/home/shinno/cpu/sowaka/project/hannya/HANNYA_testbench_isim_beh.exe" -prj "/home/shinno/cpu/sowaka/project/hannya/HANNYA_testbench_beh.prj" "work.HANNYA_testbench" 
+ISim P.49d (signature 0xfbc00daa)
+Number of CPUs detected in this system: 8
+Turning on mult-threading, number of parallel sub-compilation jobs: 16 
+Determining compilation order of HDL files
+Parsing VHDL file "/home/shinno/cpu/sowaka/project/hannya/ipcore_dir/fifo8.vhd" into library work
+Parsing VHDL file "/home/shinno/cpu/sowaka/project/hannya/ipcore_dir/output_buf.vhd" into library work
+Parsing VHDL file "/home/shinno/cpu/sowaka/project/hannya/ipcore_dir/BRAM.vhd" into library work
+Parsing VHDL file "/home/shinno/cpu/sowaka/project/hannya/../../hannya/fsqrttable.vhd" into library work
+Parsing VHDL file "/home/shinno/cpu/sowaka/project/hannya/../../hannya/fpu_common.vhd" into library work
+Parsing VHDL file "/home/shinno/cpu/sowaka/project/hannya/../../hannya/finvtable.vhd" into library work
+Parsing VHDL file "/home/shinno/cpu/sowaka/project/hannya/../../hannya/trnc.vhd" into library work
+Parsing VHDL file "/home/shinno/cpu/sowaka/project/hannya/../../hannya/fsqrt_pl.vhd" into library work
+Parsing VHDL file "/home/shinno/cpu/sowaka/project/hannya/../../hannya/fmul.vhd" into library work
+Parsing VHDL file "/home/shinno/cpu/sowaka/project/hannya/../../hannya/finv_pl.vhd" into library work
+Parsing VHDL file "/home/shinno/cpu/sowaka/project/hannya/../../hannya/fadd.vhd" into library work
+Parsing VHDL file "/home/shinno/cpu/sowaka/project/hannya/../../hannya/conv.vhd" into library work
+Parsing VHDL file "/home/shinno/cpu/sowaka/project/hannya/../../hannya/tx.vhd" into library work
+Parsing VHDL file "/home/shinno/cpu/sowaka/project/hannya/../../hannya/rx.vhd" into library work
+Parsing VHDL file "/home/shinno/cpu/sowaka/project/hannya/../../hannya/mem.vhd" into library work
+Parsing VHDL file "/home/shinno/cpu/sowaka/project/hannya/../../hannya/ife.vhd" into library work
+Parsing VHDL file "/home/shinno/cpu/sowaka/project/hannya/../../hannya/id.vhd" into library work
+Parsing VHDL file "/home/shinno/cpu/sowaka/project/hannya/../../hannya/ALU.vhd" into library work
+Parsing VHDL file "/home/shinno/cpu/sowaka/project/hannya/../../hannya/hannya.vhd" into library work
+Parsing VHDL file "/home/shinno/cpu/sowaka/project/hannya/../../hannya/testbench.vhd" into library work
+Starting static elaboration
+Completed static elaboration
+Fuse Memory Usage: 130412 KB
+Fuse CPU Usage: 1370 ms
+Compiling package standard
+Compiling package std_logic_1164
+Compiling package std_logic_arith
+Compiling package std_logic_unsigned
+Compiling package vcomponents
+Compiling architecture tx of entity tx [\tx(('0','0','0','0','0','0','0'...]
+Compiling package numeric_std
+Compiling package fadd_p
+Compiling architecture behavioral of entity fifo_generator_v9_3_bhv_ss [\fifo_generator_v9_3_bhv_ss(14,8...]
+Compiling architecture behavioral of entity fifo_generator_v9_3_bhv_preload0 [\fifo_generator_v9_3_bhv_preload...]
+Compiling architecture behavioral of entity fifo_generator_v9_3_conv [\fifo_generator_v9_3_conv(1,0,14...]
+Compiling architecture behavioral of entity fifo_generator_v9_3 [\fifo_generator_v9_3(1,0,14,"Bla...]
+Compiling architecture fifo8_a of entity fifo8 [fifo8_default]
+Compiling architecture behavioral of entity fifo_generator_v9_3_bhv_ss [\fifo_generator_v9_3_bhv_ss(15,8...]
+Compiling architecture behavioral of entity fifo_generator_v9_3_conv [\fifo_generator_v9_3_conv(1,0,15...]
+Compiling architecture behavioral of entity fifo_generator_v9_3 [\fifo_generator_v9_3(1,0,15,"Bla...]
+Compiling architecture output_buf_a of entity output_buf [output_buf_default]
+Compiling architecture rx of entity rx [\rx(('0','0','0','0','0','0','0'...]
+Compiling package textio
+Compiling package std_logic_textio
+Compiling architecture output_stage_behavioral of entity BLK_MEM_GEN_V7_3_output_stage [\BLK_MEM_GEN_V7_3_output_stage("...]
+Compiling architecture softecc_output_reg_stage_behavioral of entity BLK_MEM_GEN_V7_3_softecc_output_reg_stage [\BLK_MEM_GEN_V7_3_softecc_output...]
+Compiling architecture mem_module_behavioral of entity BLK_MEM_GEN_V7_3_mem_module [\BLK_MEM_GEN_V7_3_mem_module("bl...]
+Compiling architecture behavioral of entity BLK_MEM_GEN_V7_3 [\BLK_MEM_GEN_V7_3("blk_mem_gen_v...]
+Compiling architecture bram_a of entity BRAM [bram_default]
+Compiling architecture ife of entity ife [ife_default]
+Compiling architecture id of entity id [id_default]
+Compiling package attributes
+Compiling package std_logic_misc
+Compiling package fpu_common_p
+Compiling architecture blackbox of entity fadd [fadd_default]
+Compiling architecture blackbox of entity fmul [fmul_default]
+Compiling architecture behavioral of entity finvtable [finvtable_default]
+Compiling architecture twoproc_pipeline of entity finv [finv_default]
+Compiling architecture behavioral of entity fsqrttable [fsqrttable_default]
+Compiling architecture twoproc_pipeline of entity fsqrt_pl [fsqrt_pl_default]
+Compiling architecture behavior of entity itof_pl [itof_pl_default]
+Compiling architecture behavior of entity ftoi_pl [ftoi_pl_default]
+Compiling architecture alu of entity ALU [alu_default]
+Compiling architecture mem of entity mem [mem_default]
+Compiling architecture hannya of entity hannya [hannya_default]
+Compiling architecture testbench of entity hannya_testbench
+Time Resolution for simulation is 1ps.
+Waiting for 1 sub-compilation(s) to finish...
+Compiled 71 VHDL Units
+Built simulation executable /home/shinno/cpu/sowaka/project/hannya/HANNYA_testbench_isim_beh.exe
+Fuse Memory Usage: 1246932 KB
+Fuse CPU Usage: 2350 ms
+GCC CPU Usage: 210 ms

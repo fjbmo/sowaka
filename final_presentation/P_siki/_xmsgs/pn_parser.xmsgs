@@ -8,7 +8,52 @@
 <!-- Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.    -->
 
 <messages>
-<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/shinno/cpu/presentation/final_presentation/sowaka/siki/siki.vhd&quot; into library work</arg>
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/ALU.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/conv.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/fadd.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/finv_pl.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/finvtable.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/fmul.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/fpu_common.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/fsqrt_pl.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/fsqrttable.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/id.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/ife.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/mem.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/rx.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/siki.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/trnc.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/shinno/cpu/sowaka/sowaka/final_presentation/sowaka/siki/tx.vhd&quot; into library work</arg>
 </msg>
 
 </messages>
