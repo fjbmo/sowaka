@@ -5,13 +5,13 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="Xst" num="2211" delta="old" >&quot;<arg fmt="%s" index="1">/home/shinno/cpu/sowaka/hannya/hannya.vhd</arg>&quot; line <arg fmt="%d" index="2">509</arg>: Instantiating black box module &lt;<arg fmt="%s" index="3">fifo8</arg>&gt;.
+<msg type="warning" file="Xst" num="2211" delta="old" >&quot;<arg fmt="%s" index="1">/home/shinno/cpu/presentation/final_presentation/sowaka/hannya/hannya.vhd</arg>&quot; line <arg fmt="%d" index="2">509</arg>: Instantiating black box module &lt;<arg fmt="%s" index="3">fifo8</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="2211" delta="old" >&quot;<arg fmt="%s" index="1">/home/shinno/cpu/sowaka/hannya/hannya.vhd</arg>&quot; line <arg fmt="%d" index="2">518</arg>: Instantiating black box module &lt;<arg fmt="%s" index="3">output_buf</arg>&gt;.
+<msg type="warning" file="Xst" num="2211" delta="old" >&quot;<arg fmt="%s" index="1">/home/shinno/cpu/presentation/final_presentation/sowaka/hannya/hannya.vhd</arg>&quot; line <arg fmt="%d" index="2">518</arg>: Instantiating black box module &lt;<arg fmt="%s" index="3">output_buf</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="2211" delta="old" >&quot;<arg fmt="%s" index="1">/home/shinno/cpu/sowaka/hannya/ife.vhd</arg>&quot; line <arg fmt="%d" index="2">51</arg>: Instantiating black box module &lt;<arg fmt="%s" index="3">BRAM</arg>&gt;.
+<msg type="warning" file="Xst" num="2211" delta="old" >&quot;<arg fmt="%s" index="1">/home/shinno/cpu/presentation/final_presentation/sowaka/hannya/ife.vhd</arg>&quot; line <arg fmt="%d" index="2">51</arg>: Instantiating black box module &lt;<arg fmt="%s" index="3">BRAM</arg>&gt;.
 </msg>
 
 <msg type="warning" file="Xst" num="646" delta="old" >Signal &lt;<arg fmt="%s" index="1">data_buf&lt;0&gt;</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.

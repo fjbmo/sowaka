@@ -3,8 +3,8 @@ Copyright (c) 1995-2010 Xilinx, Inc.  All rights reserved.
 
 Project Information
 --------------------
-ProjectID=1F4549218A4B6780D00616394E10D69B
-ProjectIteration=127
+ProjectID=4142A5EA1A292CD8BF0C250C11CE52BB
+ProjectIteration=5
 
 WebTalk Summary
 ----------------
@@ -13,4 +13,4 @@ INFO:WebTalk:2 - WebTalk is enabled.
 INFO:WebTalk:8 - WebTalk Install setting is ON.
 INFO:WebTalk:6 - WebTalk User setting is ON.
 
-INFO:WebTalk:5 - /home/shinno/cpu/sowaka/project/hannya/usage_statistics_webtalk.html WebTalk report has not been sent to Xilinx.  Please check your network and proxy settings.  For additional details about this file, please refer to the WebTalk help file at /home/shinno/Xilinx/14.4/ISE_DS/ISE/data/reports/webtalk_introduction.html
+INFO:WebTalk:5 - /home/shinno/cpu/presentation/final_presentation/P_hannya/usage_statistics_webtalk.html WebTalk report has not been sent to Xilinx.  Please check your network and proxy settings.  For additional details about this file, please refer to the WebTalk help file at /home/shinno/Xilinx/14.4/ISE_DS/ISE/data/reports/webtalk_introduction.html

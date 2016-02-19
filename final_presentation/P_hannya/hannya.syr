@@ -114,46 +114,46 @@ Cores Search Directories           : {"ipcore_dir"  }
 =========================================================================
 *                          HDL Compilation                              *
 =========================================================================
-Compiling vhdl file "/home/shinno/cpu/sowaka/hannya/fpu_common.vhd" in Library work.
+Compiling vhdl file "/home/shinno/cpu/presentation/final_presentation/sowaka/hannya/fpu_common.vhd" in Library work.
 Architecture fpu_common_p of Entity fpu_common_p is up to date.
-Compiling vhdl file "/home/shinno/cpu/sowaka/hannya/fsqrttable.vhd" in Library work.
+Compiling vhdl file "/home/shinno/cpu/presentation/final_presentation/sowaka/hannya/fsqrttable.vhd" in Library work.
 Architecture behavioral of Entity fsqrttable is up to date.
-Compiling vhdl file "/home/shinno/cpu/sowaka/hannya/finvtable.vhd" in Library work.
+Compiling vhdl file "/home/shinno/cpu/presentation/final_presentation/sowaka/hannya/finvtable.vhd" in Library work.
 Architecture behavioral of Entity finvtable is up to date.
-Compiling vhdl file "/home/shinno/cpu/sowaka/hannya/fadd.vhd" in Library work.
+Compiling vhdl file "/home/shinno/cpu/presentation/final_presentation/sowaka/hannya/fadd.vhd" in Library work.
 Architecture blackbox of Entity fadd is up to date.
-Compiling vhdl file "/home/shinno/cpu/sowaka/hannya/fmul.vhd" in Library work.
+Compiling vhdl file "/home/shinno/cpu/presentation/final_presentation/sowaka/hannya/fmul.vhd" in Library work.
 Architecture blackbox of Entity fmul is up to date.
-Compiling vhdl file "/home/shinno/cpu/sowaka/hannya/finv_pl.vhd" in Library work.
+Compiling vhdl file "/home/shinno/cpu/presentation/final_presentation/sowaka/hannya/finv_pl.vhd" in Library work.
 Architecture twoproc_pipeline of Entity finv is up to date.
-Compiling vhdl file "/home/shinno/cpu/sowaka/hannya/fsqrt_pl.vhd" in Library work.
+Compiling vhdl file "/home/shinno/cpu/presentation/final_presentation/sowaka/hannya/fsqrt_pl.vhd" in Library work.
 Architecture twoproc_pipeline of Entity fsqrt_pl is up to date.
-Compiling vhdl file "/home/shinno/cpu/sowaka/hannya/conv.vhd" in Library work.
+Compiling vhdl file "/home/shinno/cpu/presentation/final_presentation/sowaka/hannya/conv.vhd" in Library work.
 Architecture behavior of Entity itof_pl is up to date.
-Compiling vhdl file "/home/shinno/cpu/sowaka/hannya/trnc.vhd" in Library work.
+Compiling vhdl file "/home/shinno/cpu/presentation/final_presentation/sowaka/hannya/trnc.vhd" in Library work.
 Architecture behavior of Entity ftoi_pl is up to date.
-Compiling vhdl file "/home/shinno/cpu/sowaka/project/hannya/ipcore_dir/BRAM.vhd" in Library work.
+Compiling vhdl file "/home/shinno/cpu/presentation/final_presentation/P_hannya/ipcore_dir/BRAM.vhd" in Library work.
 Architecture bram_a of Entity bram is up to date.
-Compiling vhdl file "/home/shinno/cpu/sowaka/project/hannya/clk_changer.vhd" in Library work.
-Architecture behavioral of Entity clk_changer is up to date.
-Compiling vhdl file "/home/shinno/cpu/sowaka/project/hannya/ipcore_dir/fifo8.vhd" in Library work.
+Compiling vhdl file "/home/shinno/cpu/presentation/final_presentation/P_hannya/clk_changer.vhd" in Library work.
+Entity <clk_changer> compiled.
+Entity <clk_changer> (Architecture <behavioral>) compiled.
+Compiling vhdl file "/home/shinno/cpu/presentation/final_presentation/P_hannya/ipcore_dir/fifo8.vhd" in Library work.
 Architecture fifo8_a of Entity fifo8 is up to date.
-Compiling vhdl file "/home/shinno/cpu/sowaka/project/hannya/ipcore_dir/output_buf.vhd" in Library work.
+Compiling vhdl file "/home/shinno/cpu/presentation/final_presentation/P_hannya/ipcore_dir/output_buf.vhd" in Library work.
 Architecture output_buf_a of Entity output_buf is up to date.
-Compiling vhdl file "/home/shinno/cpu/sowaka/hannya/rx.vhd" in Library work.
+Compiling vhdl file "/home/shinno/cpu/presentation/final_presentation/sowaka/hannya/rx.vhd" in Library work.
 Architecture rx of Entity rx is up to date.
-Compiling vhdl file "/home/shinno/cpu/sowaka/hannya/tx.vhd" in Library work.
+Compiling vhdl file "/home/shinno/cpu/presentation/final_presentation/sowaka/hannya/tx.vhd" in Library work.
 Architecture tx of Entity tx is up to date.
-Compiling vhdl file "/home/shinno/cpu/sowaka/hannya/ife.vhd" in Library work.
+Compiling vhdl file "/home/shinno/cpu/presentation/final_presentation/sowaka/hannya/ife.vhd" in Library work.
 Architecture ife of Entity ife is up to date.
-Compiling vhdl file "/home/shinno/cpu/sowaka/hannya/id.vhd" in Library work.
-Entity <id> compiled.
-Entity <id> (Architecture <id>) compiled.
-Compiling vhdl file "/home/shinno/cpu/sowaka/hannya/ALU.vhd" in Library work.
+Compiling vhdl file "/home/shinno/cpu/presentation/final_presentation/sowaka/hannya/id.vhd" in Library work.
+Architecture id of Entity id is up to date.
+Compiling vhdl file "/home/shinno/cpu/presentation/final_presentation/sowaka/hannya/ALU.vhd" in Library work.
 Architecture alu of Entity alu is up to date.
-Compiling vhdl file "/home/shinno/cpu/sowaka/hannya/mem.vhd" in Library work.
+Compiling vhdl file "/home/shinno/cpu/presentation/final_presentation/sowaka/hannya/mem.vhd" in Library work.
 Architecture mem of Entity mem is up to date.
-Compiling vhdl file "/home/shinno/cpu/sowaka/hannya/hannya.vhd" in Library work.
+Compiling vhdl file "/home/shinno/cpu/presentation/final_presentation/sowaka/hannya/hannya.vhd" in Library work.
 Architecture hannya of Entity hannya is up to date.
 
 =========================================================================
@@ -202,8 +202,8 @@ Analyzing Entity <hannya> in library <work> (Architecture <hannya>).
     Set user-defined property "IBUF_DELAY_VALUE =  0" for instance <ib> in unit <hannya>.
     Set user-defined property "IBUF_LOW_PWR =  TRUE" for instance <ib> in unit <hannya>.
     Set user-defined property "IOSTANDARD =  DEFAULT" for instance <ib> in unit <hannya>.
-WARNING:Xst:2211 - "/home/shinno/cpu/sowaka/hannya/hannya.vhd" line 509: Instantiating black box module <fifo8>.
-WARNING:Xst:2211 - "/home/shinno/cpu/sowaka/hannya/hannya.vhd" line 518: Instantiating black box module <output_buf>.
+WARNING:Xst:2211 - "/home/shinno/cpu/presentation/final_presentation/sowaka/hannya/hannya.vhd" line 509: Instantiating black box module <fifo8>.
+WARNING:Xst:2211 - "/home/shinno/cpu/presentation/final_presentation/sowaka/hannya/hannya.vhd" line 518: Instantiating black box module <output_buf>.
 Entity <hannya> analyzed. Unit <hannya> generated.
 
 Analyzing Entity <clk_changer> in library <work> (Architecture <behavioral>).
@@ -235,7 +235,7 @@ Analyzing generic Entity <tx> in library <work> (Architecture <tx>).
 Entity <tx> analyzed. Unit <tx> generated.
 
 Analyzing Entity <ife> in library <work> (Architecture <ife>).
-WARNING:Xst:2211 - "/home/shinno/cpu/sowaka/hannya/ife.vhd" line 51: Instantiating black box module <BRAM>.
+WARNING:Xst:2211 - "/home/shinno/cpu/presentation/final_presentation/sowaka/hannya/ife.vhd" line 51: Instantiating black box module <BRAM>.
 Entity <ife> analyzed. Unit <ife> generated.
 
 Analyzing Entity <id> in library <work> (Architecture <id>).
@@ -279,7 +279,7 @@ Entity <mem> analyzed. Unit <mem> generated.
 Performing bidirectional port resolution...
 
 Synthesizing Unit <rx>.
-    Related source file is "/home/shinno/cpu/sowaka/hannya/rx.vhd".
+    Related source file is "/home/shinno/cpu/presentation/final_presentation/sowaka/hannya/rx.vhd".
 WARNING:Xst:646 - Signal <data_buf<0>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
     Found 8-bit register for signal <data_buf>.
     Found 4-bit comparator greatequal for signal <data_buf$cmp_ge0000> created at line 62.
@@ -302,7 +302,7 @@ Unit <rx> synthesized.
 
 
 Synthesizing Unit <tx>.
-    Related source file is "/home/shinno/cpu/sowaka/hannya/tx.vhd".
+    Related source file is "/home/shinno/cpu/presentation/final_presentation/sowaka/hannya/tx.vhd".
     Found 1-bit register for signal <sent>.
     Found 10-bit register for signal <data_buf>.
     Found 4-bit comparator lessequal for signal <data_buf$cmp_le0000> created at line 29.
@@ -321,7 +321,7 @@ Unit <tx> synthesized.
 
 
 Synthesizing Unit <id>.
-    Related source file is "/home/shinno/cpu/sowaka/hannya/id.vhd".
+    Related source file is "/home/shinno/cpu/presentation/final_presentation/sowaka/hannya/id.vhd".
 WARNING:Xst:646 - Signal <instr_index<25:16>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:646 - Signal <fmt> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:646 - Signal <cc_nd_tf_set<1>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
@@ -424,7 +424,7 @@ Unit <id> synthesized.
 
 
 Synthesizing Unit <mem>.
-    Related source file is "/home/shinno/cpu/sowaka/hannya/mem.vhd".
+    Related source file is "/home/shinno/cpu/presentation/final_presentation/sowaka/hannya/mem.vhd".
 WARNING:Xst:647 - Input <address_data<31:20>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <read_sig> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:1780 - Signal <write_counter> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
@@ -471,7 +471,7 @@ Unit <mem> synthesized.
 
 
 Synthesizing Unit <fadd>.
-    Related source file is "/home/shinno/cpu/sowaka/hannya/fadd.vhd".
+    Related source file is "/home/shinno/cpu/presentation/final_presentation/sowaka/hannya/fadd.vhd".
     Found 28-bit comparator greater for signal <carry$cmp_gt0000> created at line 50.
     Found 28-bit comparator greater for signal <carry$cmp_gt0001> created at line 50.
     Found 9-bit comparator less for signal <mant2$cmp_lt0000> created at line 149.
@@ -514,7 +514,7 @@ Unit <fadd> synthesized.
 
 
 Synthesizing Unit <fmul>.
-    Related source file is "/home/shinno/cpu/sowaka/hannya/fmul.vhd".
+    Related source file is "/home/shinno/cpu/presentation/final_presentation/sowaka/hannya/fmul.vhd".
     Found 28-bit comparator greater for signal <carry$cmp_gt0000> created at line 50.
     Found 28-bit comparator greater for signal <carry0$cmp_gt0000> created at line 50.
     Found 9-bit adder for signal <exp$addsub0000> created at line 121.
@@ -545,7 +545,7 @@ Unit <fmul> synthesized.
 
 
 Synthesizing Unit <itof_pl>.
-    Related source file is "/home/shinno/cpu/sowaka/hannya/conv.vhd".
+    Related source file is "/home/shinno/cpu/presentation/final_presentation/sowaka/hannya/conv.vhd".
 WARNING:Xst:646 - Signal <frac25_buff> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:646 - Signal <frac25> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
     Found 8-bit adder for signal <exp$addsub0000> created at line 108.
@@ -571,7 +571,7 @@ Unit <itof_pl> synthesized.
 
 
 Synthesizing Unit <ftoi_pl>.
-    Related source file is "/home/shinno/cpu/sowaka/hannya/trnc.vhd".
+    Related source file is "/home/shinno/cpu/presentation/final_presentation/sowaka/hannya/trnc.vhd".
     Found 8-bit subtractor for signal <$sub0000> created at line 50.
     Found 32-bit register for signal <r.a>.
     Found 32-bit register for signal <r.s>.
@@ -589,7 +589,7 @@ Unit <ftoi_pl> synthesized.
 
 
 Synthesizing Unit <finvtable>.
-    Related source file is "/home/shinno/cpu/sowaka/hannya/finvtable.vhd".
+    Related source file is "/home/shinno/cpu/presentation/final_presentation/sowaka/hannya/finvtable.vhd".
     Found 1024x36-bit ROM for signal <v$rom0000> created at line 1044.
     Found 36-bit register for signal <v>.
     Summary:
@@ -599,7 +599,7 @@ Unit <finvtable> synthesized.
 
 
 Synthesizing Unit <fsqrttable>.
-    Related source file is "/home/shinno/cpu/sowaka/hannya/fsqrttable.vhd".
+    Related source file is "/home/shinno/cpu/presentation/final_presentation/sowaka/hannya/fsqrttable.vhd".
     Found 1024x36-bit ROM for signal <tout$rom0000> created at line 1044.
     Found 36-bit register for signal <tout>.
     Summary:
@@ -609,12 +609,12 @@ Unit <fsqrttable> synthesized.
 
 
 Synthesizing Unit <clk_changer>.
-    Related source file is "/home/shinno/cpu/sowaka/project/hannya/clk_changer.vhd".
+    Related source file is "/home/shinno/cpu/presentation/final_presentation/P_hannya/clk_changer.vhd".
 Unit <clk_changer> synthesized.
 
 
 Synthesizing Unit <ife>.
-    Related source file is "/home/shinno/cpu/sowaka/hannya/ife.vhd".
+    Related source file is "/home/shinno/cpu/presentation/final_presentation/sowaka/hannya/ife.vhd".
     Found finite state machine <FSM_1> for signal <PC_state>.
     -----------------------------------------------------------------------
     | States             | 3                                              |
@@ -662,7 +662,7 @@ Unit <ife> synthesized.
 
 
 Synthesizing Unit <finv>.
-    Related source file is "/home/shinno/cpu/sowaka/hannya/finv_pl.vhd".
+    Related source file is "/home/shinno/cpu/presentation/final_presentation/sowaka/hannya/finv_pl.vhd".
     Found 23-bit register for signal <a0_p>.
     Found 8-bit register for signal <exp_in>.
     Found 8-bit register for signal <exp_in_p>.
@@ -686,7 +686,7 @@ Unit <finv> synthesized.
 
 
 Synthesizing Unit <fsqrt_pl>.
-    Related source file is "/home/shinno/cpu/sowaka/hannya/fsqrt_pl.vhd".
+    Related source file is "/home/shinno/cpu/presentation/final_presentation/sowaka/hannya/fsqrt_pl.vhd".
     Found 23-bit register for signal <a0_p>.
     Found 8-bit register for signal <exp_in>.
     Found 8-bit register for signal <exp_in_p>.
@@ -707,7 +707,7 @@ Unit <fsqrt_pl> synthesized.
 
 
 Synthesizing Unit <ALU>.
-    Related source file is "/home/shinno/cpu/sowaka/hannya/ALU.vhd".
+    Related source file is "/home/shinno/cpu/presentation/final_presentation/sowaka/hannya/ALU.vhd".
     Using one-hot encoding for signal <comp_exp>.
     Using one-hot encoding for signal <comp_frac>.
     Found 32-bit addsub for signal <ALU_result$addsub0000>.
@@ -772,7 +772,7 @@ Unit <ALU> synthesized.
 
 
 Synthesizing Unit <hannya>.
-    Related source file is "/home/shinno/cpu/sowaka/hannya/hannya.vhd".
+    Related source file is "/home/shinno/cpu/presentation/final_presentation/sowaka/hannya/hannya.vhd".
 WARNING:Xst:646 - Signal <sys_check> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:653 - Signal <step_counter> is used but never assigned. This sourceless signal will be automatically connected to value 111111111111111111111111111111111111.
 WARNING:Xst:646 - Signal <sent> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
@@ -1767,13 +1767,13 @@ Offset:              16.723ns (Levels of Logic = 40)
 =========================================================================
 
 
-Total REAL time to Xst completion: 264.00 secs
-Total CPU time to Xst completion: 263.89 secs
+Total REAL time to Xst completion: 281.00 secs
+Total CPU time to Xst completion: 280.36 secs
  
 --> 
 
 
-Total memory usage is 918392 kilobytes
+Total memory usage is 918376 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :  175 (   0 filtered)

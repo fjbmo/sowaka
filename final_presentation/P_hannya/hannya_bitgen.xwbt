@@ -1,8 +1,8 @@
 INTSTYLE=ise
-INFILE=/home/shinno/cpu/sowaka/project/hannya/hannya.ncd
-OUTFILE=/home/shinno/cpu/sowaka/project/hannya/hannya.bit
+INFILE=/home/shinno/cpu/presentation/final_presentation/P_hannya/hannya.ncd
+OUTFILE=/home/shinno/cpu/presentation/final_presentation/P_hannya/hannya.bit
 FAMILY=Virtex5
 PART=xc5vlx50t-1ff1136
-WORKINGDIR=/home/shinno/cpu/sowaka/project/hannya
+WORKINGDIR=/home/shinno/cpu/presentation/final_presentation/P_hannya
 LICENSE=ISE
 USER_INFO=208921728_178739220_208889460_365

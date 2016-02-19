@@ -8,7 +8,7 @@
 <!-- Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.    -->
 
 <messages>
-<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/shinno/cpu/sowaka/project/hannya/ipcore_dir/BRAM.vhd&quot; into library work</arg>
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/shinno/cpu/presentation/final_presentation/P_hannya/ipcore_dir/output_buf.vhd&quot; into library work</arg>
 </msg>
 
 </messages>

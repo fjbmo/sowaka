@@ -7,11 +7,11 @@
 -- \   \   \/     Version : 14.4
 --  \   \         Application : xaw2vhdl
 --  /   /         Filename : clk_changer.vhd
--- /___/   /\     Timestamp : 02/17/2016 15:33:47
+-- /___/   /\     Timestamp : 02/19/2016 16:16:11
 -- \   \  /  \ 
 --  \___\/\___\ 
 --
---Command: xaw2vhdl-intstyle /home/shinno/cpu/sowaka/project/hannya/ipcore_dir/clk_changer.xaw -st clk_changer.vhd
+--Command: xaw2vhdl-intstyle /home/shinno/cpu/presentation/final_presentation/P_hannya/ipcore_dir/clk_changer.xaw -st clk_changer.vhd
 --Design Name: clk_changer
 --Device: xc5vlx50t-1ff1136
 --
